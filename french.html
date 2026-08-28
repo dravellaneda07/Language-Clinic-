@@ -218,6 +218,45 @@
     white-space: nowrap;
   }
 
+  .media-section {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .media-block {
+    margin-bottom: 28px;
+  }
+
+  .media-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--slate);
+    margin: 8px 0 0 0;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--paper-line);
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   footer {
     max-width: 900px;
     margin: 0 auto;
@@ -297,6 +336,22 @@
         </div>
         <span class="rx-go">Commencer →</span>
       </a>
+    </div>
+
+    <div class="media-section">
+      <p class="section-label">Écoute authentique</p>
+
+      <div class="media-block">
+        <audio controls src="E16.mp3"></audio>
+        <p class="media-caption">Enregistrement audio — Épisode 16</p>
+      </div>
+
+      <div class="media-block">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/-C4eDHJPMqU" title="Vidéo authentique" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">Extrait vidéo — langue authentique</p>
+      </div>
     </div>
   </div>
 
