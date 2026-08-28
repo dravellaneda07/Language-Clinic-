@@ -6,15 +6,15 @@
 <title>Activité 1 : Écoutez et pratiquez</title>
 <style>
   :root {
-    --primary: #2c3e6b;
-    --primary-light: #4a5f9e;
+    --primary: #23425e;
+    --primary-light: #4a6f92;
     --accent: #c0392b;
     --success: #1e7d4d;
-    --bg: #f7f8fb;
+    --bg: #eef3f7;
     --card-bg: #ffffff;
-    --border: #d9dce5;
-    --text: #23262f;
-    --text-light: #5a5f6e;
+    --border: #c9d9e3;
+    --text: #1e2a38;
+    --text-light: #56636f;
   }
   * { box-sizing: border-box; }
   body {
@@ -105,20 +105,40 @@
     padding: 10px 16px;
     font-size: 0.92rem;
   }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="header">
-    <h1>Activité 1 : Écoutez et pratiquez</h1>
+    <h1>Capitaine Marleau S4 E16 Compagnon</h1>
     <p>Vocabulaire familier et argotique — dialogues de série</p>
     <span class="badge">21 expressions</span>
   </div>
   <div class="card">
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/-C4eDHJPMqU" title="Capitaine Marleau S4 E16 Compagnon" allowfullscreen></iframe>
+    </div>
+
     <div class="instructions">
       <strong>Consignes :</strong>
       <ol>
-        <li>Écoutez l'enregistrement audio en cliquant sur le lien ci-dessous (il s'ouvre dans un nouvel onglet).</li>
+        <li>Écoutez l'enregistrement audio ci-dessous.</li>
         <li>Suivez la liste des expressions pendant l'écoute.</li>
         <li>Répétez chaque expression à voix haute, en imitant le rythme et l'intonation entendus.</li>
       </ol>
@@ -126,10 +146,7 @@
 
     <div class="audio-link-section">
       <h2>🔊 Enregistrement audio</h2>
-      <a href="https://youtube.com/shorts/t_fD1RRBvjw?si=3arOAgltYU2s-ccM" target="_blank" rel="noopener" class="audio-link">
-        ▶ Écouter l'enregistrement
-      </a>
-      <p class="audio-note">Le lien s'ouvre dans un nouvel onglet.</p>
+      <audio controls src="E16.mp3" style="width: 100%;"></audio>
     </div>
 
     <div class="word-list">

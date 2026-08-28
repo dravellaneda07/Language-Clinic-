@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #202b23;
-    --sage: #4f6b52;
-    --sage-dark: #38492f;
-    --paper: #f5f3e9;
-    --paper-line: #d8d2bd;
+    --ink: #1e2a38;
+    --sage: #4a6f92;
+    --sage-dark: #23425e;
+    --paper: #eef3f7;
+    --paper-line: #c9d9e3;
     --coral: #b6432f;
-    --slate: #5c6259;
-    --card-bg: #fffdf6;
+    --slate: #56636f;
+    --card-bg: #ffffff;
   }
 
   * { box-sizing: border-box; }
@@ -60,10 +60,7 @@
   }
 
   .header-row {
-    display: grid;
-    grid-template-columns: 1fr 150px;
-    gap: 24px;
-    align-items: start;
+    display: block;
   }
 
   h1 {
@@ -96,6 +93,7 @@
     border: 1px solid var(--paper-line);
     display: block;
     filter: grayscale(15%);
+    flex-shrink: 0;
   }
 
   .id-caption {
@@ -106,6 +104,20 @@
     letter-spacing: 0.02em;
     margin-top: 6px;
     text-transform: uppercase;
+  }
+
+  .about-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin-top: 24px;
+  }
+
+  .id-bio {
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
   }
 
   .chart-rule {
@@ -231,8 +243,7 @@
   }
 
   @media (max-width: 620px) {
-    .header-row { grid-template-columns: 1fr; }
-    .id-photo { justify-self: start; }
+    .about-row { flex-direction: column; align-items: flex-start; }
     .id-photo img { width: 96px; height: 96px; }
     .lang-row { grid-template-columns: 1fr; }
   }
@@ -247,14 +258,16 @@
 
   <div class="wrap">
     <div class="header-row">
-      <div>
-        <h1>The Language Clinic</h1>
-        <p class="tagline">Learning languages the right way</p>
-      </div>
+      <h1>The Language Clinic</h1>
+      <p class="tagline">Learning languages the right way</p>
+    </div>
+
+    <div class="about-row">
       <div class="id-photo">
         <img src="dr-avellaneda.jpg" alt="Dr. Eulises Avellaneda">
         <p class="id-caption">Dr. Avellaneda</p>
       </div>
+      <p class="id-bio">Dr. Avellaneda is a pedagogue, linguist, designer, and researcher with over 30 years of experience. He currently teaches at the University of the District of Columbia, where he serves as expert faculty in the teaching of bi/multilingual students whose first language is not English. An avid traveler, he speaks Spanish, English, French, and Italian, and is currently learning German.</p>
     </div>
 
     <hr class="chart-rule">
