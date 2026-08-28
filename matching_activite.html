@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activité 2 : Associez les expressions à leur définition</title>
+<style>
+  :root {
+    --primary: #2c3e6b;
+    --primary-light: #4a5f9e;
+    --accent: #c0392b;
+    --success: #1e7d4d;
+    --error: #b23b3b;
+    --bg: #f7f8fb;
+    --card-bg: #ffffff;
+    --border: #d9dce5;
+    --text: #23262f;
+    --text-light: #5a5f6e;
+    --selected: #fff3cd;
+    --selected-border: #d4a72c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 24px 16px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    padding: 20px 24px;
+    border-radius: 12px 12px 0 0;
+  }
+  .header h1 { margin: 0 0 4px 0; font-size: 1.25rem; }
+  .header p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    margin-top: 8px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 24px;
+  }
+  .instructions {
+    background: #eef1f9;
+    border-left: 4px solid var(--primary-light);
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+  }
+  .status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  .status-bar strong { color: var(--primary); }
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 600px) {
+    .columns { grid-template-columns: 1fr; }
+  }
+  .col-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .item-list { display: flex; flex-direction: column; gap: 8px; }
+  .item-btn {
+    text-align: left;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: var(--text);
+    transition: all 0.15s;
+  }
+  .item-btn:hover:not(:disabled) {
+    border-color: var(--primary-light);
+    background: #f2f4fa;
+  }
+  .item-btn.selected {
+    background: var(--selected);
+    border-color: var(--selected-border);
+    font-weight: 600;
+  }
+  .item-btn.matched {
+    background: #e7f5ed;
+    border-color: var(--success);
+    color: var(--success);
+    cursor: default;
+    opacity: 0.75;
+  }
+  .item-btn.wrong {
+    background: #fbeaea;
+    border-color: var(--error);
+    animation: shake 0.3s;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  .item-btn:disabled:not(.matched) { cursor: not-allowed; }
+  .complete-msg {
+    display: none;
+    text-align: center;
+    margin-top: 24px;
+    padding: 20px;
+    background: #e7f5ed;
+    border-radius: 10px;
+  }
+  .complete-msg h2 { color: var(--success); margin: 0 0 6px 0; font-size: 1.1rem; }
+  .complete-msg p { margin: 0; color: var(--text-light); font-size: 0.9rem; }
+  .restart-btn {
+    margin-top: 14px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .restart-btn:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1>Activité 2 : Associez les expressions à leur définition</h1>
+    <p>Après avoir pratiqué la prononciation — associez maintenant le sens</p>
+    <span class="badge" id="item-count-badge"></span>
+  </div>
+  <div class="card">
+    <div class="instructions">
+      <strong>Consigne :</strong> Cliquez sur une expression à gauche, puis sur la définition qui lui correspond à droite. Une paire correcte devient verte ; une paire incorrecte clignote en rouge et vous pouvez réessayer.
+    </div>
+    <div class="status-bar">
+      <span>Paires trouvées : <strong id="matched-count">0</strong> / <span id="total-count"></span></span>
+      <span>Essais incorrects : <strong id="wrong-count">0</strong></span>
+    </div>
+    <div class="columns">
+      <div>
+        <div class="col-title">Expressions</div>
+        <div class="item-list" id="phrases-col"></div>
+      </div>
+      <div>
+        <div class="col-title">Définitions</div>
+        <div class="item-list" id="defs-col"></div>
+      </div>
+    </div>
+    <div class="complete-msg" id="complete-msg">
+      <h2>Bravo, toutes les paires sont trouvées !</h2>
+      <p id="complete-detail"></p>
+      <button class="restart-btn" id="restart-btn">Recommencer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const pairs = [
+  { phrase: "J'en ai jamais douté", def: "Je n'ai jamais eu de doute là-dessus." },
+  { phrase: "Le taiseux", def: "Une personne réservée qui parle peu." },
+  { phrase: "Sois bien à l'heure", def: "Assure-toi d'être ponctuel." },
+  { phrase: "C'est sous la banche", def: "C'est caché sous un panneau de coffrage de chantier." },
+  { phrase: "Tu bâilles, je te saoule déjà ?", def: "Est-ce que je t'ennuie déjà avec mes paroles ?" },
+  { phrase: "T'as fait la nouba ?", def: "Tu as fait la fête hier soir ?" },
+  { phrase: "Une bonne tête de déterré", def: "Un air épuisé, une mauvaise mine." },
+  { phrase: "Se démerder", def: "Se débrouiller seul, sans aide." },
+  { phrase: "Je m'en suis foutu partout", def: "J'en ai mis sur moi de partout, sans faire attention." },
+  { phrase: "Où qu'il est, ce macchabée ?", def: "Où se trouve ce cadavre ?" },
+  { phrase: "Un môme", def: "Un enfant." },
+  { phrase: "Un vieux coup sur le citron", def: "Un coup violent reçu sur la tête." },
+  { phrase: "Une entaille", def: "Une coupure ou blessure ouverte." },
+  { phrase: "Ma poule", def: "Terme affectueux pour s'adresser à quelqu'un." },
+  { phrase: "Je bute et je rebute", def: "Je tue, encore et encore (argot policier)." },
+  { phrase: "Le sol est tout caillé", def: "Le sol est couvert de sang séché et coagulé." },
+  { phrase: "Ça fait des croûtes", def: "Une plaie commence à cicatriser." },
+  { phrase: "En serrurerie", def: "Dans le métier de la fabrication et réparation de serrures." },
+  { phrase: "Y a de quoi buter du monde", def: "Il y a assez de moyens ici pour tuer des gens." },
+  { phrase: "Elle va moins bien marcher", def: "Cet objet ou mécanisme va moins bien fonctionner." },
+  { phrase: "Entrer chez les compagnons", def: "Rejoindre la guilde traditionnelle française des artisans." }
+];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+let matchedCount = 0;
+let wrongCount = 0;
+let selectedPhrase = null;
+let selectedDef = null;
+
+const phrasesCol = document.getElementById('phrases-col');
+const defsCol = document.getElementById('defs-col');
+const matchedCountEl = document.getElementById('matched-count');
+const wrongCountEl = document.getElementById('wrong-count');
+const totalCountEl = document.getElementById('total-count');
+const itemCountBadge = document.getElementById('item-count-badge');
+const completeMsg = document.getElementById('complete-msg');
+const completeDetail = document.getElementById('complete-detail');
+const restartBtn = document.getElementById('restart-btn');
+
+function init() {
+  matchedCount = 0;
+  wrongCount = 0;
+  selectedPhrase = null;
+  selectedDef = null;
+  matchedCountEl.textContent = '0';
+  wrongCountEl.textContent = '0';
+  totalCountEl.textContent = pairs.length;
+  itemCountBadge.textContent = `${pairs.length} paires`;
+  completeMsg.style.display = 'none';
+
+  const shuffledPhrases = shuffle(pairs.map((p, i) => ({ text: p.phrase, id: i })));
+  const shuffledDefs = shuffle(pairs.map((p, i) => ({ text: p.def, id: i })));
+
+  phrasesCol.innerHTML = '';
+  defsCol.innerHTML = '';
+
+  shuffledPhrases.forEach(item => {
+    const btn = document.createElement('button');
+    btn.className = 'item-btn';
+    btn.textContent = item.text;
+    btn.dataset.id = item.id;
+    btn.dataset.type = 'phrase';
+    btn.addEventListener('click', () => selectItem(btn, 'phrase'));
+    phrasesCol.appendChild(btn);
+  });
+
+  shuffledDefs.forEach(item => {
+    const btn = document.createElement('button');
+    btn.className = 'item-btn';
+    btn.textContent = item.text;
+    btn.dataset.id = item.id;
+    btn.dataset.type = 'def';
+    btn.addEventListener('click', () => selectItem(btn, 'def'));
+    defsCol.appendChild(btn);
+  });
+}
+
+function selectItem(btn, type) {
+  if (btn.classList.contains('matched')) return;
+
+  if (type === 'phrase') {
+    if (selectedPhrase) selectedPhrase.classList.remove('selected');
+    selectedPhrase = btn;
+    btn.classList.add('selected');
+  } else {
+    if (selectedDef) selectedDef.classList.remove('selected');
+    selectedDef = btn;
+    btn.classList.add('selected');
+  }
+
+  if (selectedPhrase && selectedDef) {
+    checkMatch();
+  }
+}
+
+function checkMatch() {
+  const phraseId = selectedPhrase.dataset.id;
+  const defId = selectedDef.dataset.id;
+
+  if (phraseId === defId) {
+    selectedPhrase.classList.remove('selected');
+    selectedDef.classList.remove('selected');
+    selectedPhrase.classList.add('matched');
+    selectedDef.classList.add('matched');
+    selectedPhrase.disabled = true;
+    selectedDef.disabled = true;
+    matchedCount++;
+    matchedCountEl.textContent = matchedCount;
+    selectedPhrase = null;
+    selectedDef = null;
+
+    if (matchedCount === pairs.length) {
+      completeDetail.textContent = wrongCount === 0
+        ? "Parfait, aucune erreur !"
+        : `Terminé avec ${wrongCount} essai(s) incorrect(s).`;
+      completeMsg.style.display = 'block';
+    }
+  } else {
+    wrongCount++;
+    wrongCountEl.textContent = wrongCount;
+    selectedPhrase.classList.add('wrong');
+    selectedDef.classList.add('wrong');
+    const p = selectedPhrase, d = selectedDef;
+    setTimeout(() => {
+      p.classList.remove('selected', 'wrong');
+      d.classList.remove('selected', 'wrong');
+    }, 500);
+    selectedPhrase = null;
+    selectedDef = null;
+  }
+}
+
+restartBtn.addEventListener('click', init);
+
+init();
+</script>
+</body>
+</html>

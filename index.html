@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #202b23;
+    --sage: #4f6b52;
+    --sage-dark: #38492f;
+    --paper: #f5f3e9;
+    --paper-line: #d8d2bd;
+    --coral: #b6432f;
+    --slate: #5c6259;
+    --card-bg: #fffdf6;
+  }
+
+  * { box-sizing: border-box; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--sage);
+    outline-offset: 3px;
+  }
+
+  .chart-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 18px 24px 0 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+    text-transform: uppercase;
+  }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 22px 24px 60px 24px;
+  }
+
+  .header-row {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5.2vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 6px 0 6px 0;
+  }
+
+  .tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--sage-dark);
+    margin: 0;
+  }
+
+  .id-photo {
+    justify-self: end;
+  }
+
+  .id-photo img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--paper-line);
+    display: block;
+    filter: grayscale(15%);
+  }
+
+  .id-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    text-align: center;
+    color: var(--slate);
+    letter-spacing: 0.02em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .chart-rule {
+    border: none;
+    border-top: 1px solid var(--paper-line);
+    margin: 28px 0 32px 0;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 0 0 14px 0;
+  }
+
+  .welcome-text {
+    max-width: 62ch;
+    font-size: 1.02rem;
+  }
+
+  .welcome-text p {
+    margin: 0 0 16px 0;
+  }
+
+  .signature {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--sage-dark);
+    margin: 8px 0 0 0;
+  }
+
+  .select-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 44px 0 14px 0;
+  }
+
+  .lang-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .lang-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--card-bg);
+    border: 1.5px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 18px 16px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .lang-btn:hover {
+    border-color: var(--sage);
+    background: #fff;
+  }
+
+  .lang-btn .code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--coral);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .lang-btn .name {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 24px 40px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--slate);
+    border-top: 1px solid var(--paper-line);
+  }
+
+  @media (max-width: 620px) {
+    .header-row { grid-template-columns: 1fr; }
+    .id-photo { justify-self: start; }
+    .id-photo img { width: 96px; height: 96px; }
+    .lang-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="chart-meta">
+    <span>The Language Clinic</span>
+    <span>UDC · School of Education</span>
+  </div>
+
+  <div class="wrap">
+    <div class="header-row">
+      <div>
+        <h1>The Language Clinic</h1>
+        <p class="tagline">Learning languages the right way</p>
+      </div>
+      <div class="id-photo">
+        <img src="dr-avellaneda.jpg" alt="Dr. Eulises Avellaneda">
+        <p class="id-caption">Dr. Avellaneda</p>
+      </div>
+    </div>
+
+    <hr class="chart-rule">
+
+    <p class="section-label">Welcome</p>
+    <div class="welcome-text">
+      <p>Hi, and welcome to The Language Clinic. I'm Dr. Avellaneda.</p>
+      <p>You're about to enter a new kind of language-learning experience — one where the target language you learn is authentic, taken directly from movies, TV shows, and real interviews with native speakers.</p>
+      <p>Every activity here is designed to help you practice and internalize a carefully, intentionally selected set of target language. Listening comes first; linguistic awareness supports the rest of the learning experience. Vocabulary and grammar support the process — but they aren't the focus. Real use is.</p>
+      <p>Please select the language you're interested in learning.</p>
+      <p class="signature">— Dr. Avellaneda</p>
+    </div>
+
+    <p class="select-label">Choose your language</p>
+    <div class="lang-row">
+      <a class="lang-btn" href="spanish.html">
+        <span class="code">ES</span>
+        <span class="name">Español</span>
+      </a>
+      <a class="lang-btn" href="english.html">
+        <span class="code">EN</span>
+        <span class="name">English</span>
+      </a>
+      <a class="lang-btn" href="french.html">
+        <span class="code">FR</span>
+        <span class="name">Français</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    The Language Clinic — teaching materials built for language learners
+  </footer>
+
+</body>
+</html>
