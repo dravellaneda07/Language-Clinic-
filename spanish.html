@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +12,7 @@
   :root {
     --ink: #202b23; --sage: #4f6b52; --sage-dark: #38492f;
     --paper: #f5f3e9; --paper-line: #d8d2bd; --coral: #b6432f; --slate: #5c6259;
+    --card-bg: #fffdf6;
   }
   * { box-sizing: border-box; }
   body {
@@ -26,39 +28,106 @@
     letter-spacing: 0.04em; color: var(--slate); text-transform: uppercase;
   }
   .chart-meta a { text-decoration: none; border-bottom: 1px solid var(--paper-line); }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px 24px; text-align: center; }
-  .code-tag {
-    display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem; color: var(--coral); border: 1px solid var(--coral);
-    border-radius: 999px; padding: 3px 12px; text-transform: uppercase; margin-bottom: 18px;
+  .wrap { max-width: 900px; margin: 0 auto; padding: 22px 24px 60px 24px; }
+
+  .header-row {
+    display: grid; grid-template-columns: 1fr 150px; gap: 24px; align-items: start;
   }
   h1 {
     font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: clamp(1.8rem, 4.5vw, 2.6rem); margin: 0 0 14px 0;
+    font-size: clamp(2rem, 5.2vw, 3rem); line-height: 1.02;
+    letter-spacing: -0.01em; margin: 6px 0 6px 0;
   }
-  p.status {
-    font-family: 'Fraunces', serif; font-style: italic;
-    color: var(--sage-dark); font-size: 1.1rem; margin: 0 0 30px 0;
+  .tagline {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: 1.1rem; color: var(--sage-dark); margin: 0;
   }
-  p.body-text { max-width: 52ch; margin: 0 auto 40px auto; color: var(--ink); }
-  .back-link {
+  .id-photo { justify-self: end; }
+  .id-photo img {
+    width: 130px; height: 130px; object-fit: cover; border-radius: 6px;
+    border: 1px solid var(--paper-line); display: block; filter: grayscale(15%);
+  }
+  .id-caption {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; text-align: center;
+    color: var(--slate); letter-spacing: 0.02em; margin-top: 6px; text-transform: uppercase;
+  }
+
+  .chart-rule { border: none; border-top: 1px solid var(--paper-line); margin: 28px 0 32px 0; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage-dark); margin: 0 0 14px 0;
+  }
+  .welcome-text { max-width: 62ch; font-size: 1.02rem; }
+  .welcome-text p { margin: 0 0 16px 0; }
+  .signature { font-family: 'Fraunces', serif; font-style: italic; color: var(--sage-dark); margin: 8px 0 0 0; }
+
+  .status-box {
+    margin-top: 40px; padding: 20px 22px; background: var(--card-bg);
+    border: 1px solid var(--paper-line); border-radius: 8px;
+  }
+  .code-tag {
     display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem; color: var(--sage-dark); text-decoration: none;
-    border-bottom: 1px solid var(--paper-line); padding-bottom: 2px;
+    font-size: 0.68rem; color: var(--coral); border: 1px solid var(--coral);
+    border-radius: 999px; padding: 3px 12px; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .status-box h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; margin: 0 0 6px 0;
+  }
+  .status-box p { margin: 0; color: var(--slate); font-size: 0.92rem; }
+
+  footer {
+    max-width: 900px; margin: 0 auto; padding: 24px 24px 40px 24px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--slate);
+    border-top: 1px solid var(--paper-line);
+  }
+
+  @media (max-width: 620px) {
+    .header-row { grid-template-columns: 1fr; }
+    .id-photo { justify-self: start; }
+    .id-photo img { width: 96px; height: 96px; }
   }
 </style>
 </head>
 <body>
+
   <div class="chart-meta">
     <a href="index.html">← The Language Clinic</a>
     <span>UDC · School of Education</span>
   </div>
+
   <div class="wrap">
-    <span class="code-tag">ES</span>
-    <h1>Materiales en español, próximamente</h1>
-    <p class="status">Este dosier está en preparación.</p>
-    <p class="body-text">Las actividades para el área de español —creadas a partir de películas, series de televisión y entrevistas auténticas— están actualmente en desarrollo. Vuelve pronto.</p>
-    <a class="back-link" href="index.html">← Volver a The Language Clinic</a>
+    <div class="header-row">
+      <div>
+        <h1>The Language Clinic</h1>
+        <p class="tagline">Aprende idiomas de la manera correcta</p>
+      </div>
+      <div class="id-photo">
+        <img src="dr-avellaneda.jpg" alt="Dr. Eulises Avellaneda">
+        <p class="id-caption">Dr. Avellaneda</p>
+      </div>
+    </div>
+
+    <hr class="chart-rule">
+
+    <p class="section-label">Bienvenida</p>
+    <div class="welcome-text">
+      <p>Hola, y bienvenido/a a The Language Clinic. Soy el Dr. Avellaneda.</p>
+      <p>Estás a punto de vivir un tipo distinto de experiencia de aprendizaje de idiomas — una en la que la lengua meta que aprendes es auténtica, tomada directamente de películas, series de televisión y entrevistas reales con hablantes nativos.</p>
+      <p>Cada actividad aquí está diseñada para ayudarte a practicar e interiorizar, de manera cuidadosa e intencional, la lengua meta seleccionada. La escucha es la prioridad; la conciencia lingüística sostiene el resto de la experiencia de aprendizaje. El vocabulario y la gramática apoyan el proceso, pero no son el centro. El uso real, sí lo es.</p>
+      <p class="signature">— Dr. Avellaneda</p>
+    </div>
+
+    <div class="status-box">
+      <span class="code-tag">ES</span>
+      <h2>Materiales en preparación</h2>
+      <p>Las actividades para el área de español —creadas a partir de películas, series de televisión y entrevistas auténticas— están actualmente en desarrollo. Vuelve pronto.</p>
+    </div>
   </div>
+
+  <footer>
+    The Language Clinic — materiales creados para estudiantes de idiomas
+  </footer>
+
 </body>
 </html>
