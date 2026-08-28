@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Activité 3 : Argot et registre de langue</title>
+<title>Activité 1 : Écoutez et pratiquez</title>
 <style>
   :root {
     --primary: #2c3e6b;
     --primary-light: #4a5f9e;
     --accent: #c0392b;
     --success: #1e7d4d;
-    --error: #b23b3b;
     --bg: #f7f8fb;
     --card-bg: #ffffff;
     --border: #d9dce5;
@@ -26,7 +25,7 @@
     padding: 24px 16px;
     line-height: 1.5;
   }
-  .wrap { max-width: 640px; margin: 0 auto; }
+  .wrap { max-width: 720px; margin: 0 auto; }
   .header {
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: #fff;
@@ -59,275 +58,124 @@
     font-size: 0.92rem;
     margin-bottom: 22px;
   }
-  .progress-track {
-    background: #e6e8f0;
-    border-radius: 999px;
-    height: 8px;
-    overflow: hidden;
-    margin-bottom: 20px;
+  .instructions ol { margin: 8px 0 0 18px; padding: 0; }
+  .instructions li { margin-bottom: 4px; }
+  .audio-link-section {
+    margin-bottom: 26px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
   }
-  .progress-fill {
+  .audio-link-section h2 {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+    color: var(--primary);
+  }
+  .audio-link {
+    display: block;
+    text-align: center;
     background: var(--primary);
-    height: 100%;
-    width: 0%;
-    transition: width 0.3s ease;
-  }
-  .q-count { font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; }
-  .prompt { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-  .prompt-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 16px; font-style: italic; }
-  .options { display: flex; flex-direction: column; gap: 10px; }
-  .option {
-    text-align: left;
-    padding: 12px 16px;
-    border: 1.5px solid var(--border);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 14px 20px;
     border-radius: 8px;
-    background: #fff;
-    cursor: pointer;
     font-size: 0.95rem;
-    color: var(--text);
-    transition: border-color 0.15s, background 0.15s;
+    transition: background 0.15s;
   }
-  .option:hover:not(:disabled) { border-color: var(--primary-light); background: #f2f4fa; }
-  .option:disabled { cursor: default; }
-  .option.correct { border-color: var(--success); background: #e7f5ed; color: var(--success); font-weight: 600; }
-  .option.incorrect { border-color: var(--error); background: #fbeaea; color: var(--error); font-weight: 600; }
-  .hint-btn { background: none; border: none; color: var(--primary-light); font-size: 0.85rem; cursor: pointer; padding: 0; margin-bottom: 14px; text-decoration: underline; }
-  .hint-box { font-size: 0.85rem; color: var(--text-light); background: #f2f4fa; border-left: 3px solid var(--primary-light); padding: 8px 12px; margin-bottom: 14px; display: none; }
-  .feedback { margin-top: 16px; padding: 14px 16px; border-radius: 8px; font-size: 0.92rem; display: none; }
-  .feedback.correct { background: #e7f5ed; color: var(--success); }
-  .feedback.incorrect { background: #fbeaea; color: var(--error); }
-  .feedback strong { display: block; margin-bottom: 4px; }
-  .next-btn { margin-top: 18px; background: var(--primary); color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; display: none; }
-  .next-btn:hover { background: var(--primary-light); }
-  .result-screen { text-align: center; display: none; }
-  .result-score { font-size: 2.4rem; font-weight: 700; color: var(--primary); margin: 8px 0; }
-  .result-msg { color: var(--text-light); margin-bottom: 20px; }
-  .restart-btn { background: var(--accent); color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; }
-  .restart-btn:hover { opacity: 0.9; }
+  .audio-link:hover { background: var(--primary-light); }
+  .audio-note {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin: 10px 0 0 0;
+    text-align: center;
+  }
+  .word-list h2 {
+    font-size: 1rem;
+    margin: 0 0 12px 0;
+    color: var(--primary);
+  }
+  .word-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .word-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.92rem;
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="header">
-    <h1>Activité 3 : Argot et registre de langue</h1>
-    <p>Comprendre le français familier dans les dialogues de série</p>
-    <span class="badge">12 questions</span>
+    <h1>Capitaine Marleau S4 E16 Compagnon</h1>
+    <p>Vocabulaire familier et argotique — dialogues de série</p>
+    <span class="badge">21 expressions</span>
   </div>
   <div class="card">
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/-C4eDHJPMqU" title="Capitaine Marleau S4 E16 Compagnon" allowfullscreen></iframe>
+    </div>
+
     <div class="instructions">
-      <strong>Consigne :</strong> Pour chaque expression familière ou argotique tirée d'un dialogue, choisissez le sens correct en français standard.
+      <strong>Consignes :</strong>
+      <ol>
+        <li>Écoutez l'enregistrement audio ci-dessous.</li>
+        <li>Suivez la liste des expressions pendant l'écoute.</li>
+        <li>Répétez chaque expression à voix haute, en imitant le rythme et l'intonation entendus.</li>
+      </ol>
     </div>
-    <div id="quiz-screen">
-      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-      <div class="q-count" id="q-count"></div>
-      <div class="prompt" id="prompt"></div>
-      <div class="prompt-sub" id="prompt-sub"></div>
-      <button class="hint-btn" id="hint-btn">Afficher un indice</button>
-      <div class="hint-box" id="hint-box"></div>
-      <div class="options" id="options"></div>
-      <div class="feedback" id="feedback"></div>
-      <button class="next-btn" id="next-btn">Question suivante →</button>
+
+    <div class="audio-link-section">
+      <h2>🔊 Enregistrement audio</h2>
+      <audio controls src="E16.mp3" style="width: 100%;"></audio>
     </div>
-    <div class="result-screen" id="result-screen">
-      <div class="q-count">Résultat final</div>
-      <div class="result-score" id="result-score"></div>
-      <div class="result-msg" id="result-msg"></div>
-      <button class="restart-btn" id="restart-btn">Recommencer</button>
+
+    <div class="word-list">
+      <h2>📋 Expressions à pratiquer</h2>
+      <div class="word-grid">
+        <div class="word-item">J'en ai jamais douté</div>
+        <div class="word-item">Le taiseux</div>
+        <div class="word-item">Sois bien à l'heure</div>
+        <div class="word-item">C'est sous la banche</div>
+        <div class="word-item">Tu bâilles, je te saoule déjà ?</div>
+        <div class="word-item">T'as fait la nouba ?</div>
+        <div class="word-item">Une bonne tête de déterré</div>
+        <div class="word-item">Se démerder</div>
+        <div class="word-item">Je m'en suis foutu partout</div>
+        <div class="word-item">Où qu'il est, ce macchabée ?</div>
+        <div class="word-item">Un môme</div>
+        <div class="word-item">Un vieux coup sur le citron</div>
+        <div class="word-item">Une entaille</div>
+        <div class="word-item">Ma poule</div>
+        <div class="word-item">Je bute et je rebute</div>
+        <div class="word-item">Le sol est tout caillé</div>
+        <div class="word-item">Ça fait des croûtes</div>
+        <div class="word-item">En serrurerie</div>
+        <div class="word-item">Y a de quoi buter du monde</div>
+        <div class="word-item">Elle va moins bien marcher</div>
+        <div class="word-item">Entrer chez les compagnons</div>
+      </div>
     </div>
   </div>
 </div>
-
-<script>
-const questions = [
-  {
-    prompt: "« T'as fait la nouba ? »",
-    sub: "expression familière",
-    options: ["Tu as fait la fête ?", "Tu as bien dormi ?", "Tu as travaillé tard ?", "Tu as fait des courses ?"],
-    correct: 0,
-    hint: "Le mot vient de l'arabe et désigne une soirée bruyante.",
-    explanation: "« La nouba » désigne une fête, souvent bruyante et arrosée."
-  },
-  {
-    prompt: "« Une bonne tête de déterré ! »",
-    sub: "expression imagée",
-    options: ["Un air en pleine forme", "Un air épuisé, malade", "Un air joyeux", "Un air inquiet"],
-    correct: 1,
-    hint: "Pense à quelqu'un qu'on viendrait de sortir d'une tombe.",
-    explanation: "Cette expression imagée décrit une personne qui a l'air épuisée ou malade — littéralement, l'air de quelqu'un qu'on aurait déterré."
-  },
-  {
-    prompt: "« Ma femme va se démerder seule. »",
-    sub: "verbe familier",
-    options: ["se reposer", "se débrouiller", "se fâcher", "se perdre"],
-    correct: 1,
-    hint: "C'est un synonyme familier (et un peu vulgaire) de « se débrouiller ».",
-    explanation: "« Se démerder » signifie se débrouiller seul, gérer une situation sans aide. C'est familier, voire grossier."
-  },
-  {
-    prompt: "« Où qu'il est, ce macchabée ? »",
-    sub: "argot policier",
-    options: ["ce témoin", "ce suspect", "ce cadavre", "ce policier"],
-    correct: 2,
-    hint: "C'est un terme d'argot très utilisé dans les enquêtes criminelles.",
-    explanation: "« Un macchabée » est un terme d'argot pour désigner un cadavre."
-  },
-  {
-    prompt: "« C'est un môme. »",
-    sub: "argot courant",
-    options: ["un enfant", "un adulte", "un vieillard", "un animal"],
-    correct: 0,
-    hint: "Terme argotique très courant pour désigner une jeune personne.",
-    explanation: "« Un môme » est un terme familier pour désigner un enfant."
-  },
-  {
-    prompt: "« Il a pris un vieux coup sur le citron. »",
-    sub: "argot du corps",
-    options: ["sur le bras", "sur la tête", "sur le dos", "sur la jambe"],
-    correct: 1,
-    hint: "« Le citron » désigne une partie du corps ronde et jaune... enfin, façon de parler.",
-    explanation: "« Le citron » est un terme argotique pour désigner la tête."
-  },
-  {
-    prompt: "« Le sol, il est tout caillé. »",
-    sub: "vocabulaire de scène de crime",
-    options: ["tout mouillé", "tout couvert de sang coagulé", "tout sale de boue", "tout couvert de poussière"],
-    correct: 1,
-    hint: "Pense au lait qui « caille » quand il tourne.",
-    explanation: "« Cailler » signifie normalement coaguler, comme le lait. Ici, ça décrit du sang séché et coagulé sur le sol."
-  },
-  {
-    prompt: "« Ça fait des croûtes. »",
-    sub: "vocabulaire médical familier",
-    options: ["des cicatrices en formation", "des bleus", "des brûlures", "des égratignures superficielles"],
-    correct: 0,
-    hint: "C'est ce qui se forme sur une plaie qui commence à guérir.",
-    explanation: "« Une croûte » est la couche qui se forme sur une blessure en cours de cicatrisation."
-  },
-  {
-    prompt: "« Y a de quoi buter du monde, là. »",
-    sub: "argot policier",
-    options: ["de quoi nourrir des gens", "de quoi aider des gens", "de quoi tuer des gens", "de quoi soigner des gens"],
-    correct: 2,
-    hint: "« Buter » quelqu'un, dans ce contexte, n'a rien à voir avec heurter un objet.",
-    explanation: "« Buter » est un terme d'argot signifiant tuer. « Buter du monde » = tuer des gens."
-  },
-  {
-    prompt: "« Pour entrer chez les compagnons. »",
-    sub: "vocabulaire des métiers",
-    options: ["une guilde traditionnelle d'artisans", "une entreprise de transport", "un syndicat étudiant", "une association sportive"],
-    correct: 0,
-    hint: "C'est un système français traditionnel de formation par les métiers manuels.",
-    explanation: "« Les Compagnons du Devoir » forment une guilde traditionnelle française d'artisans (menuisiers, serruriers, etc.), avec un système de formation par compagnonnage."
-  },
-  {
-    prompt: "« Tu bâilles, je te saoule déjà ? »",
-    sub: "expression figurée",
-    options: ["Je t'ennuie déjà ?", "Je te fais rire déjà ?", "Je te fatigue physiquement ?", "Je t'énerve déjà ?"],
-    correct: 0,
-    hint: "Pense au sens figuré de « saoûler » — pas littéralement enivrer quelqu'un.",
-    explanation: "Au sens figuré, « saoûler quelqu'un » signifie l'ennuyer ou le fatiguer par ses paroles."
-  },
-  {
-    prompt: "« Le taiseux »",
-    sub: "surnom d'un personnage",
-    options: ["la personne bavarde", "la personne silencieuse", "la personne en colère", "la personne joyeuse"],
-    correct: 1,
-    hint: "Le mot vient du verbe « se taire ».",
-    explanation: "« Le taiseux » désigne une personne réservée, qui parle peu — dérivé du verbe « se taire »."
-  }
-];
-
-let current = 0, score = 0, answered = false;
-const promptEl = document.getElementById('prompt');
-const promptSubEl = document.getElementById('prompt-sub');
-const optionsEl = document.getElementById('options');
-const feedbackEl = document.getElementById('feedback');
-const nextBtn = document.getElementById('next-btn');
-const qCountEl = document.getElementById('q-count');
-const progressFill = document.getElementById('progress-fill');
-const hintBtn = document.getElementById('hint-btn');
-const hintBox = document.getElementById('hint-box');
-const quizScreen = document.getElementById('quiz-screen');
-const resultScreen = document.getElementById('result-screen');
-const resultScore = document.getElementById('result-score');
-const resultMsg = document.getElementById('result-msg');
-const restartBtn = document.getElementById('restart-btn');
-
-function loadQuestion() {
-  answered = false;
-  const q = questions[current];
-  qCountEl.textContent = `Question ${current + 1} sur ${questions.length}`;
-  progressFill.style.width = `${(current / questions.length) * 100}%`;
-  promptEl.textContent = q.prompt;
-  promptSubEl.textContent = q.sub || '';
-  optionsEl.innerHTML = '';
-  feedbackEl.style.display = 'none';
-  feedbackEl.className = 'feedback';
-  nextBtn.style.display = 'none';
-  hintBox.style.display = 'none';
-  hintBox.textContent = q.hint || '';
-  hintBtn.style.display = q.hint ? 'inline-block' : 'none';
-  hintBtn.textContent = 'Afficher un indice';
-
-  q.options.forEach((text, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'option';
-    btn.textContent = text;
-    btn.dataset.idx = i;
-    btn.addEventListener('click', () => selectAnswer(i, btn));
-    optionsEl.appendChild(btn);
-  });
-}
-
-function selectAnswer(idx, btn) {
-  if (answered) return;
-  answered = true;
-  const q = questions[current];
-  const correct = idx === q.correct;
-  if (correct) score++;
-
-  document.querySelectorAll('.option').forEach(b => {
-    b.disabled = true;
-    if (parseInt(b.dataset.idx) === q.correct) b.classList.add('correct');
-    if (parseInt(b.dataset.idx) === idx && !correct) b.classList.add('incorrect');
-  });
-
-  feedbackEl.style.display = 'block';
-  feedbackEl.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
-  feedbackEl.innerHTML = `<strong>${correct ? 'Exact !' : 'Pas tout à fait.'}</strong>${q.explanation}`;
-  nextBtn.style.display = 'inline-block';
-  nextBtn.textContent = current === questions.length - 1 ? 'Voir le résultat →' : 'Question suivante →';
-}
-
-hintBtn.addEventListener('click', () => {
-  hintBox.style.display = hintBox.style.display === 'none' ? 'block' : 'none';
-});
-
-nextBtn.addEventListener('click', () => {
-  current++;
-  if (current < questions.length) loadQuestion();
-  else showResult();
-});
-
-function showResult() {
-  quizScreen.style.display = 'none';
-  resultScreen.style.display = 'block';
-  resultScore.textContent = `${score} / ${questions.length}`;
-  let msg;
-  if (score === questions.length) msg = "Excellent ! Tu maîtrises bien ce registre familier.";
-  else if (score >= questions.length * 0.7) msg = "Très bien ! Quelques expressions à revoir.";
-  else msg = "Bon début — ce vocabulaire demande de la pratique, c'est normal.";
-  resultMsg.textContent = msg;
-}
-
-restartBtn.addEventListener('click', () => {
-  current = 0; score = 0;
-  resultScreen.style.display = 'none';
-  quizScreen.style.display = 'block';
-  loadQuestion();
-});
-
-loadQuestion();
-</script>
 </body>
 </html>
