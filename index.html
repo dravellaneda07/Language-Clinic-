@@ -132,6 +132,40 @@
     margin: 0 0 16px 0;
   }
 
+  .lang-toggle {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .lang-toggle button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--paper-line);
+    color: var(--slate);
+    border-radius: 999px;
+    padding: 5px 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .lang-toggle button:hover {
+    border-color: var(--sage);
+    color: var(--sage-dark);
+  }
+
+  .lang-toggle button.active {
+    background: var(--sage-dark);
+    border-color: var(--sage-dark);
+    color: #fff;
+  }
+
+  .welcome-block { display: none; }
+  .welcome-block.active { display: block; }
+
   .signature {
     font-family: 'Fraunces', serif;
     font-style: italic;
@@ -226,12 +260,33 @@
     <hr class="chart-rule">
 
     <p class="section-label">Welcome</p>
+    <div class="lang-toggle" id="lang-toggle">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="fr">FR</button>
+    </div>
     <div class="welcome-text">
-      <p>Hi, and welcome to The Language Clinic. I'm Dr. Avellaneda.</p>
-      <p>You're about to enter a new kind of language-learning experience — one where the target language you learn is authentic, taken directly from movies, TV shows, and real interviews with native speakers.</p>
-      <p>Every activity here is designed to help you practice and internalize a carefully, intentionally selected set of target language. Listening comes first; linguistic awareness supports the rest of the learning experience. Vocabulary and grammar support the process — but they aren't the focus. Real use is.</p>
-      <p>Please select the language you're interested in learning.</p>
-      <p class="signature">— Dr. Avellaneda</p>
+      <div class="welcome-block active" data-lang="en">
+        <p>Hi, and welcome to The Language Clinic. I'm Dr. Avellaneda.</p>
+        <p>You're about to enter a new kind of language-learning experience — one where the target language you learn is authentic, taken directly from movies, TV shows, and real interviews with native speakers.</p>
+        <p>Every activity here is designed to help you practice and internalize a carefully, intentionally selected set of target language. Listening comes first; linguistic awareness supports the rest of the learning experience. Vocabulary and grammar support the process — but they aren't the focus. Real use is.</p>
+        <p>Please select the language you're interested in learning.</p>
+        <p class="signature">— Dr. Avellaneda</p>
+      </div>
+      <div class="welcome-block" data-lang="es">
+        <p>Hola, y bienvenido/a a The Language Clinic. Soy el Dr. Avellaneda.</p>
+        <p>Estás a punto de vivir un tipo distinto de experiencia de aprendizaje de idiomas — una en la que la lengua meta que aprendes es auténtica, tomada directamente de películas, series de televisión y entrevistas reales con hablantes nativos.</p>
+        <p>Cada actividad aquí está diseñada para ayudarte a practicar e interiorizar, de manera cuidadosa e intencional, la lengua meta seleccionada. La escucha es la prioridad; la conciencia lingüística sostiene el resto de la experiencia de aprendizaje. El vocabulario y la gramática apoyan el proceso, pero no son el centro. El uso real, sí lo es.</p>
+        <p>Por favor selecciona el idioma que te interesa aprender.</p>
+        <p class="signature">— Dr. Avellaneda</p>
+      </div>
+      <div class="welcome-block" data-lang="fr">
+        <p>Bonjour, et bienvenue à The Language Clinic. Je suis le Dr Avellaneda.</p>
+        <p>Vous êtes sur le point de vivre un nouveau type d'expérience d'apprentissage des langues — une expérience où la langue cible que vous apprenez est authentique, tirée directement de films, de séries télévisées et d'entretiens réels avec des locuteurs natifs.</p>
+        <p>Chaque activité ici est conçue pour vous aider à pratiquer et à intérioriser, de manière réfléchie et intentionnelle, la langue cible sélectionnée. L'écoute vient en premier ; la conscience linguistique soutient le reste de l'expérience d'apprentissage. Le vocabulaire et la grammaire soutiennent le processus — mais ce n'est pas l'essentiel. L'usage réel, lui, l'est.</p>
+        <p>Veuillez sélectionner la langue que vous souhaitez apprendre.</p>
+        <p class="signature">— Dr Avellaneda</p>
+      </div>
     </div>
 
     <p class="select-label">Choose your language</p>
@@ -254,6 +309,21 @@
   <footer>
     The Language Clinic — teaching materials built for language learners
   </footer>
+
+  <script>
+    document.getElementById('lang-toggle').addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      const lang = btn.dataset.lang;
+
+      document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.welcome-block').forEach(block => {
+        block.classList.toggle('active', block.dataset.lang === lang);
+      });
+    });
+  </script>
 
 </body>
 </html>
