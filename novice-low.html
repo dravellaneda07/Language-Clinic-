@@ -223,6 +223,63 @@
     box-shadow: 0 1px 4px rgba(30, 42, 56, 0.1);
   }
 
+  .recorder-box {
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .recorder-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .rec-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-family: 'Public Sans', sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rec-btn-record {
+    background: var(--coral);
+    color: #fff;
+  }
+
+  .rec-btn-record.recording {
+    background: #7a2e20;
+  }
+
+  .rec-btn-play {
+    background: var(--sage-dark);
+    color: #fff;
+  }
+
+  .rec-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .rec-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--slate);
+  }
+
+  .rec-note {
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin: 14px 0 0 0;
+  }
+
   .back-link {
     display: inline-block;
     font-family: 'IBM Plex Mono', monospace;
@@ -341,6 +398,21 @@
       </div>
     </div>
 
+    <div class="activity-section">
+      <p class="activity-label">Activity 5</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Record and Compare</h2>
+      <p class="activity-instruction">Record yourself saying the greetings and goodbyes from this unit. Play back your recording and compare it to the videos above.</p>
+
+      <div class="recorder-box">
+        <div class="recorder-controls">
+          <button class="rec-btn rec-btn-record" id="rec-record-btn">🎙 Record</button>
+          <button class="rec-btn rec-btn-play" id="rec-play-btn" disabled>▶ Play my recording</button>
+          <span class="rec-status" id="rec-status">Not recorded yet</span>
+        </div>
+        <p class="rec-note">Your browser will ask permission to use your microphone. Recordings stay in your browser only — they are not saved or sent anywhere.</p>
+      </div>
+    </div>
+
     <div class="coming-next">
       <p>More activities coming next.</p>
       <span>This unit is still being built.</span>
@@ -352,6 +424,56 @@
   <footer>
     The Language Clinic — teaching materials built for language learners
   </footer>
+
+  <script>
+    let mediaRecorder;
+    let recordedChunks = [];
+    let recordingUrl = null;
+    let isRecording = false;
+
+    const recordBtn = document.getElementById('rec-record-btn');
+    const playBtn = document.getElementById('rec-play-btn');
+    const statusEl = document.getElementById('rec-status');
+
+    recordBtn.addEventListener('click', async () => {
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          recordedChunks = [];
+          mediaRecorder = new MediaRecorder(stream);
+
+          mediaRecorder.ondataavailable = (e) => recordedChunks.push(e.data);
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks, { type: 'audio/webm' });
+            recordingUrl = URL.createObjectURL(blob);
+            playBtn.disabled = false;
+            statusEl.textContent = 'Recorded ✓';
+            stream.getTracks().forEach(track => track.stop());
+          };
+
+          mediaRecorder.start();
+          isRecording = true;
+          recordBtn.textContent = '⏹ Stop';
+          recordBtn.classList.add('recording');
+          statusEl.textContent = 'Recording…';
+        } catch (err) {
+          statusEl.textContent = 'Microphone access denied or unavailable.';
+        }
+      } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        recordBtn.textContent = '🎙 Record';
+        recordBtn.classList.remove('recording');
+      }
+    });
+
+    playBtn.addEventListener('click', () => {
+      if (recordingUrl) {
+        const audio = new Audio(recordingUrl);
+        audio.play();
+      }
+    });
+  </script>
 
 </body>
 </html>
