@@ -765,6 +765,7 @@
         <div class="quiz-result" id="quiz9-result">
           <div class="quiz-count">Result</div>
           <div class="quiz-result-score" id="quiz9-score"></div>
+          <p id="quiz9-message" style="font-family: 'Fraunces', serif; font-style: italic; color: var(--sage-dark); font-size: 1.05rem; margin: 0 0 4px 0;"></p>
           <button class="quiz-restart-btn" id="quiz9-restart-btn">Try again</button>
         </div>
       </div>
@@ -818,6 +819,7 @@
     const q9Options = document.getElementById('quiz9-options');
     const q9NextBtn = document.getElementById('quiz9-next-btn');
     const q9Score = document.getElementById('quiz9-score');
+    const q9Message = document.getElementById('quiz9-message');
     const q9RestartBtn = document.getElementById('quiz9-restart-btn');
 
     function quiz9Speak(text) {
@@ -876,6 +878,14 @@
         q9Screen.style.display = 'none';
         q9Result.style.display = 'block';
         q9Score.textContent = `${quiz9Score} / ${quiz9Questions.length}`;
+
+        const pct = quiz9Score / quiz9Questions.length;
+        let msg;
+        if (pct === 1) msg = "🎉 Congratulations! Perfect score — your listening skills are excellent!";
+        else if (pct >= 0.8) msg = "Great job! You're really getting the hang of this.";
+        else if (pct >= 0.5) msg = "Good effort! A bit more practice and you'll have it down.";
+        else msg = "Keep practicing — listen to the audio a few more times and try again.";
+        q9Message.textContent = msg;
       }
     });
 
