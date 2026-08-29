@@ -152,6 +152,128 @@
     color: var(--slate);
   }
 
+  .quiz-box {
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .quiz-progress-track {
+    background: var(--paper);
+    border-radius: 999px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .quiz-progress-fill {
+    background: var(--sage-dark);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  .quiz-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--slate);
+    margin-bottom: 14px;
+  }
+
+  .quiz-play-btn {
+    background: var(--sage-dark);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .quiz-play-btn:hover {
+    background: var(--sage);
+  }
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quiz-option {
+    text-align: left;
+    padding: 12px 16px;
+    border: 1.5px solid var(--paper-line);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .quiz-option:hover:not(:disabled) {
+    border-color: var(--sage);
+    background: var(--paper);
+  }
+
+  .quiz-option:disabled { cursor: default; }
+
+  .quiz-option.correct {
+    border-color: #1e7d4d;
+    background: #e7f5ed;
+    color: #1e7d4d;
+    font-weight: 600;
+  }
+
+  .quiz-option.incorrect {
+    border-color: var(--coral);
+    background: #fbeaea;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .quiz-next-btn {
+    margin-top: 18px;
+    background: var(--coral);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    cursor: pointer;
+    display: none;
+  }
+
+  .quiz-result {
+    text-align: center;
+    display: none;
+  }
+
+  .quiz-result-score {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    font-family: 'Fraunces', serif;
+    margin: 8px 0;
+  }
+
+  .quiz-restart-btn {
+    margin-top: 14px;
+    background: var(--sage-dark);
+    color: #fff;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
   .activity-section {
     margin-top: 44px;
     padding-top: 32px;
@@ -627,6 +749,27 @@
       </div>
     </div>
 
+    <div class="activity-section">
+      <p class="activity-label">Activity 9</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Choose</h2>
+      <p class="activity-instruction">Listen to the word or phrase, then choose the option that matches what you heard.</p>
+
+      <div class="quiz-box">
+        <div id="quiz9-screen">
+          <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quiz9-progress"></div></div>
+          <div class="quiz-count" id="quiz9-count"></div>
+          <button class="quiz-play-btn" id="quiz9-play-btn">🔊 Play audio</button>
+          <div class="quiz-options" id="quiz9-options"></div>
+          <button class="quiz-next-btn" id="quiz9-next-btn">Next →</button>
+        </div>
+        <div class="quiz-result" id="quiz9-result">
+          <div class="quiz-count">Result</div>
+          <div class="quiz-result-score" id="quiz9-score"></div>
+          <button class="quiz-restart-btn" id="quiz9-restart-btn">Try again</button>
+        </div>
+      </div>
+    </div>
+
     <div class="coming-next">
       <p>More activities coming next.</p>
       <span>This unit is still being built.</span>
@@ -638,6 +781,114 @@
   <footer>
     The Language Clinic — teaching materials built for language learners
   </footer>
+
+  <script>
+    const quiz9Questions = [
+      { target: "Good morning", options: ["Good morning", "Good afternoon", "Good evening", "Good night"] },
+      { target: "Good afternoon", options: ["Good morning", "Good afternoon", "Good evening", "Good night"] },
+      { target: "Good evening", options: ["Good afternoon", "Good evening", "Good night", "Good morning"] },
+      { target: "Hi", options: ["Hi", "Hey", "Hello", "Bye"] },
+      { target: "Hello", options: ["Hi", "Hey", "Hello", "Howdy"] },
+      { target: "Howdy", options: ["Hi", "Hey", "Howdy", "Yo"] },
+      { target: "See you later", options: ["See you later", "See you soon", "See you tomorrow", "See you"] },
+      { target: "See you tomorrow", options: ["See you later", "See you soon", "See you tomorrow", "See you"] },
+      { target: "Bye bye", options: ["Bye bye", "Night night", "Bye", "Goodbye"] },
+      { target: "Take care", options: ["Take care", "Have a nice day", "Have a good day", "Goodbye"] }
+    ];
+
+    let quiz9Current = 0;
+    let quiz9Score = 0;
+    let quiz9Answered = false;
+    let quiz9Order = [];
+
+    function quiz9Shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    const q9Screen = document.getElementById('quiz9-screen');
+    const q9Result = document.getElementById('quiz9-result');
+    const q9Count = document.getElementById('quiz9-count');
+    const q9Progress = document.getElementById('quiz9-progress');
+    const q9PlayBtn = document.getElementById('quiz9-play-btn');
+    const q9Options = document.getElementById('quiz9-options');
+    const q9NextBtn = document.getElementById('quiz9-next-btn');
+    const q9Score = document.getElementById('quiz9-score');
+    const q9RestartBtn = document.getElementById('quiz9-restart-btn');
+
+    function quiz9Speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        utter.rate = 0.9;
+        window.speechSynthesis.speak(utter);
+      }
+    }
+
+    function quiz9Load() {
+      quiz9Answered = false;
+      const q = quiz9Questions[quiz9Current];
+      q9Count.textContent = `Question ${quiz9Current + 1} of ${quiz9Questions.length}`;
+      q9Progress.style.width = `${(quiz9Current / quiz9Questions.length) * 100}%`;
+      q9Options.innerHTML = '';
+      q9NextBtn.style.display = 'none';
+
+      quiz9Order = quiz9Shuffle(q.options);
+      quiz9Order.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => quiz9Select(opt, btn, q.target));
+        q9Options.appendChild(btn);
+      });
+    }
+
+    q9PlayBtn.addEventListener('click', () => {
+      quiz9Speak(quiz9Questions[quiz9Current].target);
+    });
+
+    function quiz9Select(chosen, btn, target) {
+      if (quiz9Answered) return;
+      quiz9Answered = true;
+      const correct = chosen === target;
+      if (correct) quiz9Score++;
+
+      document.querySelectorAll('.quiz-option').forEach(b => {
+        b.disabled = true;
+        if (b.textContent === target) b.classList.add('correct');
+        if (b.textContent === chosen && !correct) b.classList.add('incorrect');
+      });
+
+      q9NextBtn.style.display = 'inline-block';
+      q9NextBtn.textContent = quiz9Current === quiz9Questions.length - 1 ? 'See result →' : 'Next →';
+    }
+
+    q9NextBtn.addEventListener('click', () => {
+      quiz9Current++;
+      if (quiz9Current < quiz9Questions.length) {
+        quiz9Load();
+      } else {
+        q9Screen.style.display = 'none';
+        q9Result.style.display = 'block';
+        q9Score.textContent = `${quiz9Score} / ${quiz9Questions.length}`;
+      }
+    });
+
+    q9RestartBtn.addEventListener('click', () => {
+      quiz9Current = 0;
+      quiz9Score = 0;
+      q9Result.style.display = 'none';
+      q9Screen.style.display = 'block';
+      quiz9Load();
+    });
+
+    quiz9Load();
+  </script>
 
 </body>
 </html>
