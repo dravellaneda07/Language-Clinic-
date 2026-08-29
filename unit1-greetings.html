@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Language Clinic — Greetings and Saying Goodbye</title>
+<title>The Language Clinic — Unit 1: Greetings and Saying Goodbye</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,6 +11,7 @@
   :root {
     --ink: #1e2a38; --sage: #4a6f92; --sage-dark: #23425e;
     --paper: #eef3f7; --paper-line: #c9d9e3; --coral: #b6432f; --slate: #56636f;
+    --card-bg: #ffffff;
   }
   * { box-sizing: border-box; }
   body {
@@ -19,46 +20,298 @@
   }
   a { color: inherit; }
   a:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
   .chart-meta {
     display: flex; justify-content: space-between; align-items: center;
-    max-width: 900px; margin: 0 auto; padding: 18px 24px 0 24px;
+    max-width: 760px; margin: 0 auto; padding: 18px 24px 0 24px;
     font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
     letter-spacing: 0.04em; color: var(--slate); text-transform: uppercase;
   }
   .chart-meta a { text-decoration: none; border-bottom: 1px solid var(--paper-line); }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px 24px; text-align: center; }
-  .code-tag {
-    display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem; color: var(--coral); border: 1px solid var(--coral);
-    border-radius: 999px; padding: 3px 12px; text-transform: uppercase; margin-bottom: 18px;
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 22px 24px 70px 24px; }
+
+  .pretitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 6px 0 2px 0;
   }
+
   h1 {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: clamp(1.8rem, 4.5vw, 2.6rem); margin: 0 0 14px 0;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0;
   }
-  p.status {
-    font-family: 'Fraunces', serif; font-style: italic;
-    color: var(--sage-dark); font-size: 1.1rem; margin: 0 0 30px 0;
+
+  .chart-rule {
+    border: none;
+    border-top: 1px solid var(--paper-line);
+    margin: 26px 0 30px 0;
   }
-  p.body-text { max-width: 52ch; margin: 0 auto 40px auto; color: var(--ink); }
+
+  .greeting-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .greeting-images figure {
+    margin: 0;
+  }
+
+  .greeting-images img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--paper-line);
+    display: block;
+  }
+
+  .greeting-images figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--slate);
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 0 0 16px 0;
+  }
+
+  .objectives-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .objective {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    align-items: start;
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .objective-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--coral);
+    font-weight: 500;
+  }
+
+  .objective p {
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .ipa {
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .coming-next {
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--paper-line);
+    text-align: center;
+  }
+
+  .coming-next p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--sage-dark);
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+  }
+
+  .coming-next span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--slate);
+  }
+
+  .activity-section {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .activity-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 0 0 4px 0;
+  }
+
+  .activity-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .activity-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .activity-instruction {
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+  }
+
+  .listen-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--paper-line);
+    flex-shrink: 0;
+  }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--paper-line);
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   .back-link {
-    display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem; color: var(--sage-dark); text-decoration: none;
-    border-bottom: 1px solid var(--paper-line); padding-bottom: 2px;
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--sage-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--paper-line);
+    padding-bottom: 2px;
+    margin-top: 20px;
+  }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 24px 40px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--slate);
+    border-top: 1px solid var(--paper-line);
+  }
+
+  @media (max-width: 520px) {
+    .greeting-images { grid-template-columns: 1fr; }
+    .greeting-images img { height: 160px; }
   }
 </style>
 </head>
 <body>
+
   <div class="chart-meta">
     <a href="novice-low.html">← Novice Low</a>
     <span>UDC · School of Education</span>
   </div>
+
   <div class="wrap">
-    <span class="code-tag">UNIT 1</span>
+    <p class="pretitle">Novice Low · Unit 1</p>
     <h1>Greetings and Saying Goodbye</h1>
-    <p class="status">This unit is still being prepared.</p>
-    <p class="body-text">Lesson content, activities, and authentic media for this unit are currently in development. Check back soon.</p>
+
+    <div class="greeting-images">
+      <figure>
+        <img src="greet-formal.jpg" alt="Two people shaking hands as a formal greeting">
+        <figcaption>Formal</figcaption>
+      </figure>
+      <figure>
+        <img src="greet-informal.jpg" alt="Two friends giving a high five as an informal greeting">
+        <figcaption>Informal</figcaption>
+      </figure>
+      <figure>
+        <img src="greet-goodbye.jpg" alt="A man waving goodbye">
+        <figcaption>Goodbye</figcaption>
+      </figure>
+    </div>
+
+    <hr class="chart-rule">
+
+    <p class="section-label">Learning Objectives</p>
+    <div class="objectives-list">
+      <div class="objective">
+        <span class="objective-num">01</span>
+        <p>Differentiate and say formal and informal greetings.</p>
+      </div>
+      <div class="objective">
+        <span class="objective-num">02</span>
+        <p>Identify and use a greeting according to the time of day.</p>
+      </div>
+      <div class="objective">
+        <span class="objective-num">03</span>
+        <p>Identify and say ways to say goodbye.</p>
+      </div>
+      <div class="objective">
+        <span class="objective-num">04</span>
+        <p>Recognize and produce the sound <span class="ipa">/ʊ/</span> in words such as <em>good</em>.</p>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 1</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="listen-icon.jpg" alt="">
+        <h2 class="activity-title">Listen</h2>
+      </div>
+      <p class="activity-instruction">Listen carefully.</p>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/sIiNCdM8qu0?si=siPKG7cEOGOpNm0C" title="Activity 1 listening video" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="coming-next">
+      <p>More activities coming next.</p>
+      <span>This unit is still being built.</span>
+    </div>
+
     <a class="back-link" href="novice-low.html">← Back to Novice Low units</a>
   </div>
+
+  <footer>
+    The Language Clinic — teaching materials built for language learners
+  </footer>
+
 </body>
 </html>
