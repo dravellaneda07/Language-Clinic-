@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Language Clinic — English</title>
+<title>The Language Clinic — Learning English the Right Way</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,14 +11,19 @@
   :root {
     --ink: #1e2a38; --sage: #4a6f92; --sage-dark: #23425e;
     --paper: #eef3f7; --paper-line: #c9d9e3; --coral: #b6432f; --slate: #56636f;
+    --card-bg: #ffffff;
   }
   * { box-sizing: border-box; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
   body {
     margin: 0; background: var(--paper); color: var(--ink);
     font-family: 'Public Sans', -apple-system, sans-serif; line-height: 1.55;
   }
   a { color: inherit; }
-  a:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
   .chart-meta {
     display: flex; justify-content: space-between; align-items: center;
     max-width: 900px; margin: 0 auto; padding: 18px 24px 0 24px;
@@ -26,39 +31,304 @@
     letter-spacing: 0.04em; color: var(--slate); text-transform: uppercase;
   }
   .chart-meta a { text-decoration: none; border-bottom: 1px solid var(--paper-line); }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px 24px; text-align: center; }
-  .code-tag {
-    display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem; color: var(--coral); border: 1px solid var(--coral);
-    border-radius: 999px; padding: 3px 12px; text-transform: uppercase; margin-bottom: 18px;
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 22px 24px 70px 24px; }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
   }
+
+  .pretitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 6px 0 2px 0;
+  }
+
   h1 {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: clamp(1.8rem, 4.5vw, 2.6rem); margin: 0 0 14px 0;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5.4vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px 0;
+    max-width: 14ch;
   }
-  p.status {
-    font-family: 'Fraunces', serif; font-style: italic;
-    color: var(--sage-dark); font-size: 1.1rem; margin: 0 0 30px 0;
+
+  .flag-badge {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--paper-line);
+    box-shadow: 0 1px 3px rgba(30, 42, 56, 0.12);
   }
-  p.body-text { max-width: 52ch; margin: 0 auto 40px auto; color: var(--ink); }
-  .back-link {
-    display: inline-block; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem; color: var(--sage-dark); text-decoration: none;
-    border-bottom: 1px solid var(--paper-line); padding-bottom: 2px;
+
+  .flag-badge svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 988 / 550;
+    max-height: 340px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url('udc-building.jpg');
+    background-size: cover;
+    background-position: center 15%;
+    margin-top: 10px;
+  }
+
+  .hero-photo-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 22px 28px 0 28px;
+  }
+
+  .hero-photo .pretitle {
+    color: #cfe0ee;
+    margin: 0 0 4px 0;
+  }
+
+  .hero-photo h1 {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    max-width: 12ch;
+  }
+
+  .chart-rule {
+    border: none;
+    border-top: 1px solid var(--paper-line);
+    margin: 28px 0 32px 0;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 0 0 4px 0;
+  }
+
+  .section-sub {
+    color: var(--slate);
+    font-size: 0.92rem;
+    margin: 0 0 24px 0;
+  }
+
+  .level-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .level-row {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--paper-line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s ease;
+  }
+
+  .level-row:hover {
+    background: var(--card-bg);
+  }
+
+  .level-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--coral);
+    border: 1px solid var(--coral);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .level-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin: 0;
+  }
+
+  .level-tier {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--slate);
+    margin-top: 3px;
+  }
+
+  .level-go {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--sage-dark);
+    white-space: nowrap;
+  }
+
+  .tier-divider {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin: 22px 0 4px 0;
+  }
+
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 24px 40px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--slate);
+    border-top: 1px solid var(--paper-line);
+  }
+
+  @media (max-width: 560px) {
+    .level-row { grid-template-columns: 44px 1fr; }
+    .level-go { display: none; }
+    .hero-photo { aspect-ratio: 988 / 620; }
+    .hero-photo h1 { font-size: 1.7rem; }
   }
 </style>
 </head>
 <body>
+
   <div class="chart-meta">
     <a href="index.html">← The Language Clinic</a>
     <span>UDC · School of Education</span>
   </div>
+
   <div class="wrap">
-    <span class="code-tag">EN</span>
-    <h1>English materials are on the way</h1>
-    <p class="status">This dossier is still being prepared.</p>
-    <p class="body-text">Activities for the English track — built from authentic film, TV, and interview material — are currently in development. Check back soon.</p>
-    <a class="back-link" href="index.html">← Back to The Language Clinic</a>
+    <div class="hero-photo">
+      <div class="hero-photo-title">
+        <p class="pretitle">The Language Clinic</p>
+        <h1>Learning English the right Way!</h1>
+      </div>
+    </div>
+
+    <hr class="chart-rule">
+
+    <p class="section-label">Choose your proficiency level</p>
+    <p class="section-sub">Based on the ACTFL proficiency scale — pick the level that matches where you are now.</p>
+
+    <div class="level-list">
+      <p class="tier-divider">Novice</p>
+      <a class="level-row" href="novice-low.html">
+        <span class="level-code">NL</span>
+        <div class="level-body">
+          <h3>Novice Low</h3>
+          <div class="level-tier">ACTFL · Novice</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+      <a class="level-row" href="novice-mid.html">
+        <span class="level-code">NM</span>
+        <div class="level-body">
+          <h3>Novice Mid</h3>
+          <div class="level-tier">ACTFL · Novice</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+      <a class="level-row" href="novice-high.html">
+        <span class="level-code">NH</span>
+        <div class="level-body">
+          <h3>Novice High</h3>
+          <div class="level-tier">ACTFL · Novice</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+
+      <p class="tier-divider">Intermediate</p>
+      <a class="level-row" href="intermediate-low.html">
+        <span class="level-code">IL</span>
+        <div class="level-body">
+          <h3>Intermediate Low</h3>
+          <div class="level-tier">ACTFL · Intermediate</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+      <a class="level-row" href="intermediate-mid.html">
+        <span class="level-code">IM</span>
+        <div class="level-body">
+          <h3>Intermediate Mid</h3>
+          <div class="level-tier">ACTFL · Intermediate</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+      <a class="level-row" href="intermediate-high.html">
+        <span class="level-code">IH</span>
+        <div class="level-body">
+          <h3>Intermediate High</h3>
+          <div class="level-tier">ACTFL · Intermediate</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+
+      <p class="tier-divider">Advanced</p>
+      <a class="level-row" href="advanced-low.html">
+        <span class="level-code">AL</span>
+        <div class="level-body">
+          <h3>Advanced Low</h3>
+          <div class="level-tier">ACTFL · Advanced</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+      <a class="level-row" href="advanced-mid.html">
+        <span class="level-code">AM</span>
+        <div class="level-body">
+          <h3>Advanced Mid</h3>
+          <div class="level-tier">ACTFL · Advanced</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+      <a class="level-row" href="advanced-high.html">
+        <span class="level-code">AH</span>
+        <div class="level-body">
+          <h3>Advanced High</h3>
+          <div class="level-tier">ACTFL · Advanced</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+
+      <p class="tier-divider">Superior</p>
+      <a class="level-row" href="superior.html">
+        <span class="level-code">S</span>
+        <div class="level-body">
+          <h3>Superior</h3>
+          <div class="level-tier">ACTFL · Superior</div>
+        </div>
+        <span class="level-go">Start →</span>
+      </a>
+    </div>
   </div>
+
+  <footer>
+    The Language Clinic — teaching materials built for language learners
+  </footer>
+
 </body>
 </html>
