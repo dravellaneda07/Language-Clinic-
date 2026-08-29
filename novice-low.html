@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Language Clinic — Lesson 1: Greetings and Saying Goodbye</title>
+<title>The Language Clinic — Novice Low</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,13 +23,13 @@
 
   .chart-meta {
     display: flex; justify-content: space-between; align-items: center;
-    max-width: 760px; margin: 0 auto; padding: 18px 24px 0 24px;
+    max-width: 900px; margin: 0 auto; padding: 18px 24px 0 24px;
     font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
     letter-spacing: 0.04em; color: var(--slate); text-transform: uppercase;
   }
   .chart-meta a { text-decoration: none; border-bottom: 1px solid var(--paper-line); }
 
-  .wrap { max-width: 760px; margin: 0 auto; padding: 22px 24px 70px 24px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 22px 24px 70px 24px; }
 
   .pretitle {
     font-family: 'IBM Plex Mono', monospace;
@@ -40,49 +40,38 @@
     margin: 6px 0 2px 0;
   }
 
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: clamp(1.9rem, 5vw, 2.6rem);
-    line-height: 1.08;
+    font-size: clamp(2rem, 5.4vw, 3rem);
+    line-height: 1.05;
     letter-spacing: -0.01em;
     margin: 0;
+  }
+
+  .tier-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--coral);
+    border: 1px solid var(--coral);
+    border-radius: 999px;
+    padding: 4px 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .chart-rule {
     border: none;
     border-top: 1px solid var(--paper-line);
-    margin: 26px 0 30px 0;
-  }
-
-  .greeting-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 22px;
-  }
-
-  .greeting-images figure {
-    margin: 0;
-  }
-
-  .greeting-images img {
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--paper-line);
-    display: block;
-  }
-
-  .greeting-images figcaption {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--slate);
-    text-align: center;
-    margin-top: 6px;
+    margin: 28px 0 32px 0;
   }
 
   .section-label {
@@ -91,476 +80,60 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--sage-dark);
-    margin: 0 0 16px 0;
+    margin: 0 0 4px 0;
   }
 
-  .objectives-list {
+  .section-sub {
+    color: var(--slate);
+    font-size: 0.92rem;
+    margin: 0 0 24px 0;
+  }
+
+  .unit-list {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 8px;
+    border-top: 1px solid var(--paper-line);
   }
 
-  .objective {
+  .unit-row {
     display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 16px;
-    align-items: start;
-    background: var(--card-bg);
-    border: 1px solid var(--paper-line);
-    border-radius: 8px;
-    padding: 16px 18px;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--paper-line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s ease;
   }
 
-  .objective-num {
+  .unit-row:hover {
+    background: var(--card-bg);
+  }
+
+  .unit-num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85rem;
-    color: var(--coral);
+    color: var(--sage-dark);
     font-weight: 500;
   }
 
-  .objective p {
-    margin: 0;
-    font-size: 0.98rem;
-  }
-
-  .ipa {
-    font-family: 'IBM Plex Mono', monospace;
-    background: var(--paper);
-    border-radius: 4px;
-    padding: 1px 6px;
-  }
-
-  .coming-next {
-    margin-top: 44px;
-    padding-top: 28px;
-    border-top: 1px solid var(--paper-line);
-    text-align: center;
-  }
-
-  .coming-next p {
+  .unit-body h3 {
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    color: var(--sage-dark);
-    font-size: 1rem;
-    margin: 0 0 4px 0;
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin: 0;
   }
 
-  .coming-next span {
+  .unit-go {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.78rem;
-    color: var(--slate);
-  }
-
-  .lesson-end {
-    margin-top: 44px;
-    padding: 28px 24px;
-    background: var(--card-bg);
-    border: 1px solid var(--paper-line);
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  .lesson-end .emoji {
-    font-size: 1.8rem;
-    margin-bottom: 6px;
-  }
-
-  .lesson-end p {
-    margin: 0 0 14px 0;
-    font-size: 0.98rem;
-  }
-
-  .lesson-end .es {
-    display: block;
-    color: var(--slate);
-    font-style: italic;
-    font-size: 0.92rem;
-    margin-top: 6px;
-  }
-
-  .lesson-end .signature {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
     color: var(--sage-dark);
-    margin-top: 18px;
-  }
-
-  .lesson-end-link {
-    display: inline-block;
-    margin-top: 16px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    color: #fff;
-    background: var(--sage-dark);
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-  }
-
-  .lesson-end-link:hover {
-    background: var(--sage);
-  }
-
-  .quiz-box {
-    background: var(--card-bg);
-    border: 1px solid var(--paper-line);
-    border-radius: 10px;
-    padding: 22px;
-  }
-
-  .quiz-progress-track {
-    background: var(--paper);
-    border-radius: 999px;
-    height: 6px;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-
-  .quiz-progress-fill {
-    background: var(--sage-dark);
-    height: 100%;
-    width: 0%;
-    transition: width 0.3s ease;
-  }
-
-  .quiz-count {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--slate);
-    margin-bottom: 14px;
-  }
-
-  .quiz-play-btn {
-    background: var(--sage-dark);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 22px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 18px;
-  }
-
-  .quiz-play-btn:hover {
-    background: var(--sage);
-  }
-
-  .quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .quiz-option {
-    text-align: left;
-    padding: 12px 16px;
-    border: 1.5px solid var(--paper-line);
-    border-radius: 8px;
-    background: #fff;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: var(--ink);
-    transition: border-color 0.15s, background 0.15s;
-  }
-
-  .quiz-option:hover:not(:disabled) {
-    border-color: var(--sage);
-    background: var(--paper);
-  }
-
-  .quiz-option:disabled { cursor: default; }
-
-  .quiz-option.correct {
-    border-color: #1e7d4d;
-    background: #e7f5ed;
-    color: #1e7d4d;
-    font-weight: 600;
-  }
-
-  .quiz-option.incorrect {
-    border-color: var(--coral);
-    background: #fbeaea;
-    color: var(--coral);
-    font-weight: 600;
-  }
-
-  .quiz-next-btn {
-    margin-top: 18px;
-    background: var(--coral);
-    color: #fff;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-size: 0.92rem;
-    cursor: pointer;
-    display: none;
-  }
-
-  .quiz-result {
-    text-align: center;
-    display: none;
-  }
-
-  .quiz-result-score {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--sage-dark);
-    font-family: 'Fraunces', serif;
-    margin: 8px 0;
-  }
-
-  .quiz-restart-btn {
-    margin-top: 14px;
-    background: var(--sage-dark);
-    color: #fff;
-    border: none;
-    padding: 9px 20px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  }
-
-  .activity-section {
-    margin-top: 44px;
-    padding-top: 32px;
-    border-top: 1px solid var(--paper-line);
-  }
-
-  .activity-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sage-dark);
-    margin: 0 0 4px 0;
-  }
-
-  .activity-title-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .activity-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin: 0;
-  }
-
-  .activity-instruction {
-    font-size: 1rem;
-    margin: 0 0 20px 0;
-  }
-
-  .listen-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--paper-line);
-    flex-shrink: 0;
-  }
-
-  .video-wrap {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--paper-line);
-  }
-
-  .video-wrap iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  .wordwall-wrap {
-    text-align: center;
-  }
-
-  .wordwall-wrap iframe {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(30, 42, 56, 0.1);
-  }
-
-  .steps-box {
-    background: var(--card-bg);
-    border: 1px solid var(--paper-line);
-    border-radius: 10px;
-    padding: 20px 22px;
-    margin-bottom: 22px;
-  }
-
-  .steps-box ol {
-    margin: 0;
-    padding-left: 20px;
-  }
-
-  .steps-box li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-  }
-
-  .steps-box li:last-child {
-    margin-bottom: 0;
-  }
-
-  .steps-note {
-    font-size: 0.82rem;
-    color: var(--slate);
-    background: var(--paper);
-    border-left: 3px solid var(--sage);
-    padding: 10px 14px;
-    border-radius: 4px;
-    margin: 16px 0 22px 0;
-  }
-
-  .steps-box li .es,
-  .activity-instruction .es,
-  .steps-note .es {
-    display: block;
-    color: var(--slate);
-    font-style: italic;
-    font-size: 0.9em;
-    margin-top: 4px;
-  }
-
-  .word-groups {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .word-groups.three-col {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .word-group h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--slate);
-    margin: 0 0 8px 0;
-  }
-
-  .word-group ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .word-group li {
-    background: var(--paper);
-    border: 1px solid var(--paper-line);
-    border-radius: 6px;
-    padding: 7px 12px;
-    font-size: 0.92rem;
-  }
-
-  @media (max-width: 700px) {
-    .word-groups.three-col { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (max-width: 480px) {
-    .word-groups { grid-template-columns: 1fr; }
-  }
-
-  .email-link {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    color: #fff;
-    background: var(--coral);
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin-top: 4px;
-  }
-
-  .email-link:hover {
-    background: #9c3a28;
-  }
-
-  .goodbye-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin: 20px 0;
-  }
-
-  .goodbye-list div {
-    background: var(--paper);
-    border: 1px solid var(--paper-line);
-    border-radius: 6px;
-    padding: 8px 14px;
-    font-size: 0.92rem;
-  }
-
-  .goodbye-list .ipa {
-    display: block;
-    background: none;
-    padding: 0;
-    color: var(--slate);
-    font-size: 0.82rem;
-    margin-top: 2px;
-  }
-
-  .video-placeholder {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    border-radius: 8px;
-    border: 2px dashed var(--paper-line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .video-placeholder span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--slate);
-    text-align: center;
-    padding: 0 20px;
-  }
-
-  @media (max-width: 480px) {
-    .goodbye-list { grid-template-columns: 1fr; }
-  }
-
-  .back-link {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--sage-dark);
-    text-decoration: none;
-    border-bottom: 1px solid var(--paper-line);
-    padding-bottom: 2px;
-    margin-top: 20px;
+    white-space: nowrap;
   }
 
   footer {
-    max-width: 760px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 24px 24px 40px 24px;
     font-family: 'IBM Plex Mono', monospace;
@@ -569,546 +142,94 @@
     border-top: 1px solid var(--paper-line);
   }
 
-  @media (max-width: 520px) {
-    .greeting-images { grid-template-columns: 1fr; }
-    .greeting-images img { height: 160px; }
+  @media (max-width: 560px) {
+    .unit-row { grid-template-columns: 32px 1fr; }
+    .unit-go { display: none; }
   }
 </style>
 </head>
 <body>
 
   <div class="chart-meta">
-    <a href="novice-low.html">← Novice Low</a>
+    <a href="english.html">← Learning English the right Way</a>
     <span>UDC · School of Education</span>
   </div>
 
   <div class="wrap">
-    <p class="pretitle">Novice Low · Lesson 1</p>
-    <h1>Greetings and Saying Goodbye</h1>
-
-    <div class="greeting-images">
-      <figure>
-        <img src="greet-formal.jpg" alt="Two people shaking hands as a formal greeting">
-        <figcaption>Formal</figcaption>
-      </figure>
-      <figure>
-        <img src="greet-informal.jpg" alt="Two friends giving a high five as an informal greeting">
-        <figcaption>Informal</figcaption>
-      </figure>
-      <figure>
-        <img src="greet-goodbye.jpg" alt="A man waving goodbye">
-        <figcaption>Goodbye</figcaption>
-      </figure>
+    <p class="pretitle">The Language Clinic</p>
+    <div class="header-row">
+      <h1>Novice Low</h1>
+      <span class="tier-tag">ACTFL · Novice</span>
     </div>
 
     <hr class="chart-rule">
 
-    <p class="section-label">Learning Objectives</p>
-    <div class="objectives-list">
-      <div class="objective">
-        <span class="objective-num">01</span>
-        <p>Differentiate and say formal and informal greetings.</p>
-      </div>
-      <div class="objective">
-        <span class="objective-num">02</span>
-        <p>Identify and use a greeting according to the time of day.</p>
-      </div>
-      <div class="objective">
-        <span class="objective-num">03</span>
-        <p>Identify and say ways to say goodbye.</p>
-      </div>
-      <div class="objective">
-        <span class="objective-num">04</span>
-        <p>Recognize and produce the sound <span class="ipa">/ʊ/</span> in words such as <em>good</em>.</p>
-      </div>
-    </div>
+    <p class="section-label">Lessons</p>
+    <p class="section-sub">Eight lessons, designed to be completed in order.</p>
 
-    <div class="activity-section">
-      <p class="activity-label">Activity 1</p>
-      <div class="activity-title-row">
-        <img class="listen-icon" src="listen-icon.jpg" alt="">
-        <h2 class="activity-title">Listen</h2>
-      </div>
-      <p class="activity-instruction">Listen carefully.</p>
-
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/sIiNCdM8qu0?si=siPKG7cEOGOpNm0C" title="Activity 1 listening video" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 2</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Repeat</h2>
-      <p class="activity-instruction">Listen and repeat. Pay attention to whether the greeting is formal or informal.</p>
-
-      <div class="wordwall-wrap">
-        <iframe style="max-width:100%" src="https://wordwall.net/embed/b542f98fe5b7409da6f23879bd237845?themeId=68&templateId=70&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 3</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Practice</h2>
-      <p class="activity-instruction">Pay attention to the way the sound <span class="ipa">/ʊ/</span> is made. Study the new vocabulary. Practice makes perfect.</p>
-
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/zaGI4GXrbGA?si=Ht_TR90ug4uO6jHh" title="Activity 3: the /ʊ/ sound" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 4</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Match</h2>
-      <p class="activity-instruction">Listen to the word and match it to the image it corresponds to.</p>
-
-      <div class="wordwall-wrap">
-        <iframe style="max-width:100%" src="https://wordwall.net/embed/7f789cb4d94a4c3587d015b3d0c606de?themeId=1&templateId=3&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 5</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Dictate and Check</h2>
-      <p class="activity-instruction">
-        Use Claude's Dictation feature to say each word or phrase below out loud. If Claude transcribes it correctly, your pronunciation is clear and close to native-level. If not, practice that word again.
-        <span class="es">Usa la función de Dictado de Claude para decir en voz alta cada palabra o frase de la lista de abajo. Si Claude la transcribe correctamente, tu pronunciación es clara y está cerca del nivel nativo. Si no, practica esa palabra de nuevo.</span>
-      </p>
-
-      <div class="steps-box">
-        <ol>
-          <li>
-            Open the Claude app on your phone (download it from the App Store or Google Play if you don't have it yet).
-            <span class="es">Abre la aplicación Claude en tu teléfono (descárgala desde App Store o Google Play si aún no la tienes).</span>
-          </li>
-          <li>
-            Start a new chat, then tap the microphone icon in the message box to turn on Dictation.
-            <span class="es">Inicia una conversación nueva y toca el ícono del micrófono en el cuadro de mensaje para activar el Dictado.</span>
-          </li>
-          <li>
-            Say one word or phrase from the list below, clearly and at a normal pace.
-            <span class="es">Di una palabra o frase de la lista de abajo, con claridad y a un ritmo normal.</span>
-          </li>
-          <li>
-            Look at the text that appears — does it match exactly what you said?
-            <span class="es">Observa el texto que aparece: ¿coincide exactamente con lo que dijiste?</span>
-          </li>
-          <li>
-            If yes, move to the next word. If not, practice that word and try again.
-            <span class="es">Si es así, pasa a la siguiente palabra. Si no, practica esa palabra y vuelve a intentarlo.</span>
-          </li>
-        </ol>
-      </div>
-
-      <p class="steps-note">
-        Dictation is a mobile-app feature — it isn't available through claude.ai in a web browser, so this activity requires the Claude app on a phone or tablet.
-        <span class="es">El Dictado es una función exclusiva de la aplicación móvil — no está disponible en claude.ai desde un navegador web, así que esta actividad requiere la aplicación de Claude en un teléfono o tableta.</span>
-      </p>
-
-      <div class="word-groups">
-        <div class="word-group">
-          <h4>Greetings</h4>
-          <ul>
-            <li>Good morning</li>
-            <li>Good afternoon</li>
-            <li>Good evening</li>
-            <li>Hi</li>
-            <li>Hey</li>
-            <li>Hello</li>
-            <li>Howdy</li>
-            <li>Yo</li>
-          </ul>
+    <div class="unit-list">
+      <a class="unit-row" href="unit1-greetings.html">
+        <span class="unit-num">01</span>
+        <div class="unit-body">
+          <h3>Greetings and Saying Goodbye</h3>
         </div>
-        <div class="word-group">
-          <h4>New Vocabulary — /ʊ/</h4>
-          <ul>
-            <li>Book</li>
-            <li>Brook</li>
-            <li>Bull</li>
-            <li>Bush</li>
-            <li>Cook</li>
-            <li>Foot</li>
-            <li>Good</li>
-            <li>Hood</li>
-            <li>Hoof</li>
-          </ul>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit2-introductions.html">
+        <span class="unit-num">02</span>
+        <div class="unit-body">
+          <h3>Introducing Oneself and Others</h3>
         </div>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 6</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Record and Submit</h2>
-      <p class="activity-instruction">
-        After practicing, record yourself saying the greetings and vocabulary from this unit using your phone's voice memo app. Email the audio file to your professor.
-        <span class="es">Después de practicar, grábate diciendo los saludos y el vocabulario de esta unidad usando la aplicación de notas de voz de tu teléfono. Envía el archivo de audio por correo electrónico a tu profesor.</span>
-      </p>
-
-      <div class="steps-box">
-        <ol>
-          <li>
-            Open your phone's voice memo or recording app.
-            <span class="es">Abre la aplicación de notas de voz o grabación de tu teléfono.</span>
-          </li>
-          <li>
-            Record yourself saying the greetings and vocabulary from this unit.
-            <span class="es">Grábate diciendo los saludos y el vocabulario de esta unidad.</span>
-          </li>
-          <li>
-            Save the recording.
-            <span class="es">Guarda la grabación.</span>
-          </li>
-          <li>
-            Attach the audio file to an email and send it to your professor.
-            <span class="es">Adjunta el archivo de audio a un correo electrónico y envíalo a tu profesor.</span>
-          </li>
-        </ol>
-      </div>
-
-      <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%201%20Recording%20-%20Greetings">✉ dravellaneda07@gmail.com</a>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 7</p>
-      <div class="activity-title-row">
-        <img class="listen-icon" src="listen-icon.jpg" alt="">
-        <h2 class="activity-title">Listen and Learn</h2>
-      </div>
-      <p class="activity-instruction">Listen carefully.</p>
-
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/BCaT_hBXmLc?si=rYhDxEL5yvYFbtb-" title="Activity 7: ways to say goodbye" allowfullscreen></iframe>
-      </div>
-
-      <div class="goodbye-list">
-        <div>Good night <span class="ipa">/ɡʊd naɪt/</span></div>
-        <div>Have a good day <span class="ipa">/hævə ɡʊd deɪ/</span></div>
-        <div>Have a good night <span class="ipa">/hævə ɡʊd naɪt/</span></div>
-        <div>See you tomorrow <span class="ipa">/siɪu təˈmɑroʊ/</span></div>
-        <div>See you later <span class="ipa">/siɪu ˈleɪtər/</span></div>
-        <div>See you soon <span class="ipa">/siɪu suːn/</span></div>
-        <div>See you in [place] <span class="ipa">/siɪu ɪn .../</span></div>
-        <div>See you <span class="ipa">/siɪu/</span></div>
-        <div>Bye bye <span class="ipa">/baɪ baɪ/</span></div>
-        <div>Night night <span class="ipa">/naɪt naɪt/</span></div>
-        <div>Goodbye <span class="ipa">/ɡʊdˈbaɪ/</span></div>
-        <div>Bye <span class="ipa">/baɪ/</span></div>
-        <div>Take care <span class="ipa">/teɪk kɛr/</span></div>
-        <div>Have a nice day <span class="ipa">/hævə naɪs deɪ/</span></div>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 8</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Play and Learn</h2>
-      <p class="activity-instruction">Play the flashcard game to review the ways to say goodbye from this unit.</p>
-
-      <div class="wordwall-wrap">
-        <iframe style="max-width:100%" src="https://wordwall.net/embed/070ce0b3ee254f248bf7d21dc8b01938?themeId=64&templateId=76&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 9</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Choose</h2>
-      <p class="activity-instruction">Listen to the word or phrase, then choose the option that matches what you heard.</p>
-
-      <div class="quiz-box">
-        <div id="quiz9-screen">
-          <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quiz9-progress"></div></div>
-          <div class="quiz-count" id="quiz9-count"></div>
-          <button class="quiz-play-btn" id="quiz9-play-btn">🔊 Play audio</button>
-          <div class="quiz-options" id="quiz9-options"></div>
-          <button class="quiz-next-btn" id="quiz9-next-btn">Next →</button>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit3-origin.html">
+        <span class="unit-num">03</span>
+        <div class="unit-body">
+          <h3>Talking about Place of Origin</h3>
         </div>
-        <div class="quiz-result" id="quiz9-result">
-          <div class="quiz-count">Result</div>
-          <div class="quiz-result-score" id="quiz9-score"></div>
-          <p id="quiz9-message" style="font-family: 'Fraunces', serif; font-style: italic; color: var(--sage-dark); font-size: 1.05rem; margin: 0 0 4px 0;"></p>
-          <button class="quiz-restart-btn" id="quiz9-restart-btn">Try again</button>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit4-feelings.html">
+        <span class="unit-num">04</span>
+        <div class="unit-body">
+          <h3>Talking about Feelings</h3>
         </div>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 10</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen, Reply, Verify</h2>
-      <p class="activity-instruction">
-        Listen to your professor. Reply, and verify your answer with his answer.
-        <span class="es">Escucha a tu profesor. Contesta el saludo o la despedida y verifica si lo que dijiste es correcto.</span>
-      </p>
-
-      <div class="video-wrap" style="padding-top: 40%;">
-        <iframe src="https://drive.google.com/file/d/1NMskjfUY_Jwwv8bOTKLVIhjNHP1uA3HK/preview" allow="autoplay" title="Activity 10: Listen, Reply, Verify"></iframe>
-      </div>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 11</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Dictate and Check</h2>
-      <p class="activity-instruction">
-        Use Claude's Dictation feature to say each word or phrase below out loud. If Claude transcribes it correctly, your pronunciation is clear and close to native-level. If not, practice that word again.
-        <span class="es">Usa la función de Dictado de Claude para decir en voz alta cada palabra o frase de la lista de abajo. Si Claude la transcribe correctamente, tu pronunciación es clara y está cerca del nivel nativo. Si no, practica esa palabra de nuevo.</span>
-      </p>
-
-      <div class="steps-box">
-        <ol>
-          <li>
-            Open the Claude app on your phone (download it from the App Store or Google Play if you don't have it yet).
-            <span class="es">Abre la aplicación Claude en tu teléfono (descárgala desde App Store o Google Play si aún no la tienes).</span>
-          </li>
-          <li>
-            Start a new chat, then tap the microphone icon in the message box to turn on Dictation.
-            <span class="es">Inicia una conversación nueva y toca el ícono del micrófono en el cuadro de mensaje para activar el Dictado.</span>
-          </li>
-          <li>
-            Say one word or phrase from the list below, clearly and at a normal pace.
-            <span class="es">Di una palabra o frase de la lista de abajo, con claridad y a un ritmo normal.</span>
-          </li>
-          <li>
-            Look at the text that appears — does it match exactly what you said?
-            <span class="es">Observa el texto que aparece: ¿coincide exactamente con lo que dijiste?</span>
-          </li>
-          <li>
-            If yes, move to the next word. If not, practice that word and try again.
-            <span class="es">Si es así, pasa a la siguiente palabra. Si no, practica esa palabra y vuelve a intentarlo.</span>
-          </li>
-        </ol>
-      </div>
-
-      <p class="steps-note">
-        Dictation is a mobile-app feature — it isn't available through claude.ai in a web browser, so this activity requires the Claude app on a phone or tablet.
-        <span class="es">El Dictado es una función exclusiva de la aplicación móvil — no está disponible en claude.ai desde un navegador web, así que esta actividad requiere la aplicación de Claude en un teléfono o tableta.</span>
-      </p>
-
-      <div class="word-groups three-col">
-        <div class="word-group">
-          <h4>Greetings</h4>
-          <ul>
-            <li>Good morning</li>
-            <li>Good afternoon</li>
-            <li>Good evening</li>
-            <li>Hi</li>
-            <li>Hey</li>
-            <li>Hello</li>
-            <li>Howdy</li>
-            <li>Yo</li>
-          </ul>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit5-appearance.html">
+        <span class="unit-num">05</span>
+        <div class="unit-body">
+          <h3>Describing Appearance and Personality</h3>
         </div>
-        <div class="word-group">
-          <h4>Goodbyes</h4>
-          <ul>
-            <li>Good night</li>
-            <li>Have a good day</li>
-            <li>Have a good night</li>
-            <li>See you tomorrow</li>
-            <li>See you later</li>
-            <li>See you soon</li>
-            <li>See you</li>
-            <li>Bye bye</li>
-            <li>Night night</li>
-            <li>Goodbye</li>
-            <li>Bye</li>
-            <li>Take care</li>
-            <li>Have a nice day</li>
-          </ul>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit6-places.html">
+        <span class="unit-num">06</span>
+        <div class="unit-body">
+          <h3>Talking about Places</h3>
         </div>
-        <div class="word-group">
-          <h4>Vocabulary — /ʊ/</h4>
-          <ul>
-            <li>Book</li>
-            <li>Brook</li>
-            <li>Bull</li>
-            <li>Bush</li>
-            <li>Cook</li>
-            <li>Foot</li>
-            <li>Good</li>
-            <li>Hood</li>
-            <li>Hoof</li>
-          </ul>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit7-jobs.html">
+        <span class="unit-num">07</span>
+        <div class="unit-body">
+          <h3>Talking about Jobs and Professions</h3>
         </div>
-      </div>
+        <span class="unit-go">Start →</span>
+      </a>
+      <a class="unit-row" href="unit8-review.html">
+        <span class="unit-num">08</span>
+        <div class="unit-body">
+          <h3>Putting It All Together</h3>
+        </div>
+        <span class="unit-go">Start →</span>
+      </a>
     </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Activity 12</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Record and Submit</h2>
-      <p class="activity-instruction">
-        After practicing, record yourself saying all the language from this lesson — greetings, goodbyes, and vocabulary — using your phone's voice memo app. Email the audio file to your professor.
-        <span class="es">Después de practicar, grábate diciendo todo el lenguaje de esta lección —saludos, despedidas y vocabulario— usando la aplicación de notas de voz de tu teléfono. Envía el archivo de audio por correo electrónico a tu profesor.</span>
-      </p>
-
-      <div class="steps-box">
-        <ol>
-          <li>
-            Open your phone's voice memo or recording app.
-            <span class="es">Abre la aplicación de notas de voz o grabación de tu teléfono.</span>
-          </li>
-          <li>
-            Record yourself saying all the greetings, goodbyes, and vocabulary from this lesson.
-            <span class="es">Grábate diciendo todos los saludos, despedidas y vocabulario de esta lección.</span>
-          </li>
-          <li>
-            Save the recording.
-            <span class="es">Guarda la grabación.</span>
-          </li>
-          <li>
-            Attach the audio file to an email and send it to your professor.
-            <span class="es">Adjunta el archivo de audio a un correo electrónico y envíalo a tu profesor.</span>
-          </li>
-        </ol>
-      </div>
-
-      <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%201%20Recording%20-%20Full%20Lesson">✉ dravellaneda07@gmail.com</a>
-    </div>
-
-    <div class="activity-section">
-      <p class="activity-label">Self-Assessment</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Check Your Understanding</h2>
-      <p class="activity-instruction">
-        Complete this self-assessment to check what you've learned in this lesson. Before you begin, you'll be asked to enter your name.
-        <span class="es">Completa esta autoevaluación para verificar lo que has aprendido en esta lección. Antes de comenzar, se te pedirá que escribas tu nombre.</span>
-      </p>
-
-      <p class="steps-note">📝 <strong>Name = Nombre</strong> — write your name where it says "Name" to start the quiz. <span class="es">Escribe tu nombre donde dice "Name" para comenzar la autoevaluación.</span></p>
-
-      <div class="wordwall-wrap">
-        <iframe style="max-width:100%" src="https://wordwall.net/embed/play/118089/709/830" width="500" height="380" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="lesson-end">
-      <div class="emoji">🎉</div>
-      <p>
-        Congratulations! You've completed Lesson 1. There are no more activities in this lesson. If you scored 80% or higher on the self-assessment, you're ready to move on to Lesson 2. If not, review the activities above and try the self-assessment again before continuing.
-        <span class="es">¡Felicidades! Has completado la Lección 1. No hay más actividades en esta lección. Si obtuviste un 80% o más en la autoevaluación, estás listo/a para continuar con la Lección 2. Si no, repasa las actividades anteriores e intenta la autoevaluación de nuevo antes de continuar.</span>
-      </p>
-      <a class="lesson-end-link" href="unit2-introductions.html">Continue to Lesson 2 →</a>
-      <p class="signature">— Dr. Avellaneda</p>
-    </div>
-
-    <a class="back-link" href="novice-low.html">← Back to Novice Low units</a>
   </div>
 
   <footer>
     The Language Clinic — teaching materials built for language learners
   </footer>
-
-  <script>
-    const quiz9Questions = [
-      { target: "Good morning", options: ["Good morning", "Good afternoon", "Good evening", "Good night"] },
-      { target: "Good afternoon", options: ["Good morning", "Good afternoon", "Good evening", "Good night"] },
-      { target: "Good evening", options: ["Good afternoon", "Good evening", "Good night", "Good morning"] },
-      { target: "Hi", options: ["Hi", "Hey", "Hello", "Bye"] },
-      { target: "Hello", options: ["Hi", "Hey", "Hello", "Howdy"] },
-      { target: "Howdy", options: ["Hi", "Hey", "Howdy", "Yo"] },
-      { target: "See you later", options: ["See you later", "See you soon", "See you tomorrow", "See you"] },
-      { target: "See you tomorrow", options: ["See you later", "See you soon", "See you tomorrow", "See you"] },
-      { target: "Bye bye", options: ["Bye bye", "Night night", "Bye", "Goodbye"] },
-      { target: "Take care", options: ["Take care", "Have a nice day", "Have a good day", "Goodbye"] }
-    ];
-
-    let quiz9Current = 0;
-    let quiz9Score = 0;
-    let quiz9Answered = false;
-    let quiz9Order = [];
-
-    function quiz9Shuffle(arr) {
-      const a = [...arr];
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    }
-
-    const q9Screen = document.getElementById('quiz9-screen');
-    const q9Result = document.getElementById('quiz9-result');
-    const q9Count = document.getElementById('quiz9-count');
-    const q9Progress = document.getElementById('quiz9-progress');
-    const q9PlayBtn = document.getElementById('quiz9-play-btn');
-    const q9Options = document.getElementById('quiz9-options');
-    const q9NextBtn = document.getElementById('quiz9-next-btn');
-    const q9Score = document.getElementById('quiz9-score');
-    const q9Message = document.getElementById('quiz9-message');
-    const q9RestartBtn = document.getElementById('quiz9-restart-btn');
-
-    function quiz9Speak(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = 'en-US';
-        utter.rate = 0.9;
-        window.speechSynthesis.speak(utter);
-      }
-    }
-
-    function quiz9Load() {
-      quiz9Answered = false;
-      const q = quiz9Questions[quiz9Current];
-      q9Count.textContent = `Question ${quiz9Current + 1} of ${quiz9Questions.length}`;
-      q9Progress.style.width = `${(quiz9Current / quiz9Questions.length) * 100}%`;
-      q9Options.innerHTML = '';
-      q9NextBtn.style.display = 'none';
-
-      quiz9Order = quiz9Shuffle(q.options);
-      quiz9Order.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'quiz-option';
-        btn.textContent = opt;
-        btn.addEventListener('click', () => quiz9Select(opt, btn, q.target));
-        q9Options.appendChild(btn);
-      });
-    }
-
-    q9PlayBtn.addEventListener('click', () => {
-      quiz9Speak(quiz9Questions[quiz9Current].target);
-    });
-
-    function quiz9Select(chosen, btn, target) {
-      if (quiz9Answered) return;
-      quiz9Answered = true;
-      const correct = chosen === target;
-      if (correct) quiz9Score++;
-
-      document.querySelectorAll('.quiz-option').forEach(b => {
-        b.disabled = true;
-        if (b.textContent === target) b.classList.add('correct');
-        if (b.textContent === chosen && !correct) b.classList.add('incorrect');
-      });
-
-      q9NextBtn.style.display = 'inline-block';
-      q9NextBtn.textContent = quiz9Current === quiz9Questions.length - 1 ? 'See result →' : 'Next →';
-    }
-
-    q9NextBtn.addEventListener('click', () => {
-      quiz9Current++;
-      if (quiz9Current < quiz9Questions.length) {
-        quiz9Load();
-      } else {
-        q9Screen.style.display = 'none';
-        q9Result.style.display = 'block';
-        q9Score.textContent = `${quiz9Score} / ${quiz9Questions.length}`;
-
-        const pct = quiz9Score / quiz9Questions.length;
-        let msg;
-        if (pct === 1) msg = "🎉 Congratulations! Perfect score — your listening skills are excellent!";
-        else if (pct >= 0.8) msg = "Great job! You're really getting the hang of this.";
-        else if (pct >= 0.5) msg = "Good effort! A bit more practice and you'll have it down.";
-        else msg = "Keep practicing — listen to the audio a few more times and try again.";
-        q9Message.textContent = msg;
-      }
-    });
-
-    q9RestartBtn.addEventListener('click', () => {
-      quiz9Current = 0;
-      quiz9Score = 0;
-      q9Result.style.display = 'none';
-      q9Screen.style.display = 'block';
-      quiz9Load();
-    });
-
-    quiz9Load();
-  </script>
 
 </body>
 </html>
