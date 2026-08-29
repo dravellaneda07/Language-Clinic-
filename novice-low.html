@@ -317,6 +317,48 @@
     background: #9c3a28;
   }
 
+  .goodbye-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 20px 0;
+  }
+
+  .goodbye-list div {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.92rem;
+  }
+
+  .video-placeholder {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    border: 2px dashed var(--paper-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-placeholder span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--slate);
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    .goodbye-list { grid-template-columns: 1fr; }
+  }
+
   .back-link {
     display: inline-block;
     font-family: 'IBM Plex Mono', monospace;
@@ -534,6 +576,36 @@
       </div>
 
       <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Unit%201%20Recording%20-%20Greetings">✉ dravellaneda07@gmail.com</a>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 7</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="listen-icon.jpg" alt="">
+        <h2 class="activity-title">Listen</h2>
+      </div>
+      <p class="activity-instruction">Listen carefully.</p>
+
+      <div class="goodbye-list">
+        <div>Good night</div>
+        <div>Have a good day</div>
+        <div>Have a good night</div>
+        <div>See you tomorrow</div>
+        <div>See you later</div>
+        <div>See you soon</div>
+        <div>See you in [place]</div>
+        <div>See you</div>
+        <div>Bye bye</div>
+        <div>Night night</div>
+        <div>Goodbye</div>
+        <div>Bye</div>
+        <div>Take care</div>
+        <div>Have a nice day</div>
+      </div>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/BCaT_hBXmLc?si=rYhDxEL5yvYFbtb-" title="Activity 7: ways to say goodbye" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="coming-next">
