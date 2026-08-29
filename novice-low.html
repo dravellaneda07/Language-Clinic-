@@ -223,61 +223,82 @@
     box-shadow: 0 1px 4px rgba(30, 42, 56, 0.1);
   }
 
-  .recorder-box {
+  .steps-box {
     background: var(--card-bg);
     border: 1px solid var(--paper-line);
     border-radius: 10px;
-    padding: 22px;
+    padding: 20px 22px;
+    margin-bottom: 22px;
   }
 
-  .recorder-controls {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
+  .steps-box ol {
+    margin: 0;
+    padding-left: 20px;
   }
 
-  .rec-btn {
-    border: none;
-    border-radius: 8px;
-    padding: 10px 18px;
-    font-size: 0.9rem;
-    font-family: 'Public Sans', sans-serif;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  .steps-box li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
   }
 
-  .rec-btn-record {
-    background: var(--coral);
-    color: #fff;
+  .steps-box li:last-child {
+    margin-bottom: 0;
   }
 
-  .rec-btn-record.recording {
-    background: #7a2e20;
+  .steps-note {
+    font-size: 0.82rem;
+    color: var(--slate);
+    background: var(--paper);
+    border-left: 3px solid var(--sage);
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 16px 0 22px 0;
   }
 
-  .rec-btn-play {
-    background: var(--sage-dark);
-    color: #fff;
+  .steps-box li .es,
+  .activity-instruction .es,
+  .steps-note .es {
+    display: block;
+    color: var(--slate);
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 4px;
   }
 
-  .rec-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+  .word-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
-  .rec-status {
+  .word-group h4 {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--slate);
+    margin: 0 0 8px 0;
   }
 
-  .rec-note {
-    font-size: 0.8rem;
-    color: var(--slate);
-    margin: 14px 0 0 0;
+  .word-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .word-group li {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 480px) {
+    .word-groups { grid-template-columns: 1fr; }
   }
 
   .back-link {
@@ -400,16 +421,70 @@
 
     <div class="activity-section">
       <p class="activity-label">Activity 5</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Record and Compare</h2>
-      <p class="activity-instruction">Record yourself saying the greetings and goodbyes from this unit. Play back your recording and compare it to the videos above.</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Dictate and Check</h2>
+      <p class="activity-instruction">
+        Use Claude's Dictation feature to say each word or phrase below out loud. If Claude transcribes it correctly, your pronunciation is clear and close to native-level. If not, practice that word again.
+        <span class="es">Usa la función de Dictado de Claude para decir en voz alta cada palabra o frase de la lista de abajo. Si Claude la transcribe correctamente, tu pronunciación es clara y está cerca del nivel nativo. Si no, practica esa palabra de nuevo.</span>
+      </p>
 
-      <div class="recorder-box">
-        <div class="recorder-controls">
-          <button class="rec-btn rec-btn-record" id="rec-record-btn">🎙 Record</button>
-          <button class="rec-btn rec-btn-play" id="rec-play-btn" disabled>▶ Play my recording</button>
-          <span class="rec-status" id="rec-status">Not recorded yet</span>
+      <div class="steps-box">
+        <ol>
+          <li>
+            Open the Claude app on your phone (download it from the App Store or Google Play if you don't have it yet).
+            <span class="es">Abre la aplicación Claude en tu teléfono (descárgala desde App Store o Google Play si aún no la tienes).</span>
+          </li>
+          <li>
+            Start a new chat, then tap the microphone icon in the message box to turn on Dictation.
+            <span class="es">Inicia una conversación nueva y toca el ícono del micrófono en el cuadro de mensaje para activar el Dictado.</span>
+          </li>
+          <li>
+            Say one word or phrase from the list below, clearly and at a normal pace.
+            <span class="es">Di una palabra o frase de la lista de abajo, con claridad y a un ritmo normal.</span>
+          </li>
+          <li>
+            Look at the text that appears — does it match exactly what you said?
+            <span class="es">Observa el texto que aparece: ¿coincide exactamente con lo que dijiste?</span>
+          </li>
+          <li>
+            If yes, move to the next word. If not, practice that word and try again.
+            <span class="es">Si es así, pasa a la siguiente palabra. Si no, practica esa palabra y vuelve a intentarlo.</span>
+          </li>
+        </ol>
+      </div>
+
+      <p class="steps-note">
+        Dictation is a mobile-app feature — it isn't available through claude.ai in a web browser, so this activity requires the Claude app on a phone or tablet.
+        <span class="es">El Dictado es una función exclusiva de la aplicación móvil — no está disponible en claude.ai desde un navegador web, así que esta actividad requiere la aplicación de Claude en un teléfono o tableta.</span>
+      </p>
+
+      <div class="word-groups">
+        <div class="word-group">
+          <h4>Greetings</h4>
+          <ul>
+            <li>Good morning</li>
+            <li>Good afternoon</li>
+            <li>Good evening</li>
+            <li>Hi</li>
+            <li>Hey</li>
+            <li>Hello</li>
+            <li>Howdy</li>
+            <li>Yo</li>
+          </ul>
         </div>
-        <p class="rec-note">Your browser will ask permission to use your microphone. Recordings stay in your browser only — they are not saved or sent anywhere.</p>
+        <div class="word-group">
+          <h4>New Vocabulary — /ʊ/</h4>
+          <ul>
+            <li>Book</li>
+            <li>Brook</li>
+            <li>Bull</li>
+            <li>Bush</li>
+            <li>Cook</li>
+            <li>Foot</li>
+            <li>Good</li>
+            <li>Hood</li>
+            <li>Hoof</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -424,56 +499,6 @@
   <footer>
     The Language Clinic — teaching materials built for language learners
   </footer>
-
-  <script>
-    let mediaRecorder;
-    let recordedChunks = [];
-    let recordingUrl = null;
-    let isRecording = false;
-
-    const recordBtn = document.getElementById('rec-record-btn');
-    const playBtn = document.getElementById('rec-play-btn');
-    const statusEl = document.getElementById('rec-status');
-
-    recordBtn.addEventListener('click', async () => {
-      if (!isRecording) {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          recordedChunks = [];
-          mediaRecorder = new MediaRecorder(stream);
-
-          mediaRecorder.ondataavailable = (e) => recordedChunks.push(e.data);
-          mediaRecorder.onstop = () => {
-            const blob = new Blob(recordedChunks, { type: 'audio/webm' });
-            recordingUrl = URL.createObjectURL(blob);
-            playBtn.disabled = false;
-            statusEl.textContent = 'Recorded ✓';
-            stream.getTracks().forEach(track => track.stop());
-          };
-
-          mediaRecorder.start();
-          isRecording = true;
-          recordBtn.textContent = '⏹ Stop';
-          recordBtn.classList.add('recording');
-          statusEl.textContent = 'Recording…';
-        } catch (err) {
-          statusEl.textContent = 'Microphone access denied or unavailable.';
-        }
-      } else {
-        mediaRecorder.stop();
-        isRecording = false;
-        recordBtn.textContent = '🎙 Record';
-        recordBtn.classList.remove('recording');
-      }
-    });
-
-    playBtn.addEventListener('click', () => {
-      if (recordingUrl) {
-        const audio = new Audio(recordingUrl);
-        audio.play();
-      }
-    });
-  </script>
 
 </body>
 </html>
