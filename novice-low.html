@@ -393,6 +393,10 @@
     gap: 20px;
   }
 
+  .word-groups.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .word-group h4 {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
@@ -417,6 +421,10 @@
     border-radius: 6px;
     padding: 7px 12px;
     font-size: 0.92rem;
+  }
+
+  @media (max-width: 700px) {
+    .word-groups.three-col { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 480px) {
@@ -782,6 +790,125 @@
       <div class="video-wrap" style="padding-top: 40%;">
         <iframe src="https://drive.google.com/file/d/1NMskjfUY_Jwwv8bOTKLVIhjNHP1uA3HK/preview" allow="autoplay" title="Activity 10: Listen, Reply, Verify"></iframe>
       </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 11</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Dictate and Check</h2>
+      <p class="activity-instruction">
+        Use Claude's Dictation feature to say each word or phrase below out loud. If Claude transcribes it correctly, your pronunciation is clear and close to native-level. If not, practice that word again.
+        <span class="es">Usa la función de Dictado de Claude para decir en voz alta cada palabra o frase de la lista de abajo. Si Claude la transcribe correctamente, tu pronunciación es clara y está cerca del nivel nativo. Si no, practica esa palabra de nuevo.</span>
+      </p>
+
+      <div class="steps-box">
+        <ol>
+          <li>
+            Open the Claude app on your phone (download it from the App Store or Google Play if you don't have it yet).
+            <span class="es">Abre la aplicación Claude en tu teléfono (descárgala desde App Store o Google Play si aún no la tienes).</span>
+          </li>
+          <li>
+            Start a new chat, then tap the microphone icon in the message box to turn on Dictation.
+            <span class="es">Inicia una conversación nueva y toca el ícono del micrófono en el cuadro de mensaje para activar el Dictado.</span>
+          </li>
+          <li>
+            Say one word or phrase from the list below, clearly and at a normal pace.
+            <span class="es">Di una palabra o frase de la lista de abajo, con claridad y a un ritmo normal.</span>
+          </li>
+          <li>
+            Look at the text that appears — does it match exactly what you said?
+            <span class="es">Observa el texto que aparece: ¿coincide exactamente con lo que dijiste?</span>
+          </li>
+          <li>
+            If yes, move to the next word. If not, practice that word and try again.
+            <span class="es">Si es así, pasa a la siguiente palabra. Si no, practica esa palabra y vuelve a intentarlo.</span>
+          </li>
+        </ol>
+      </div>
+
+      <p class="steps-note">
+        Dictation is a mobile-app feature — it isn't available through claude.ai in a web browser, so this activity requires the Claude app on a phone or tablet.
+        <span class="es">El Dictado es una función exclusiva de la aplicación móvil — no está disponible en claude.ai desde un navegador web, así que esta actividad requiere la aplicación de Claude en un teléfono o tableta.</span>
+      </p>
+
+      <div class="word-groups three-col">
+        <div class="word-group">
+          <h4>Greetings</h4>
+          <ul>
+            <li>Good morning</li>
+            <li>Good afternoon</li>
+            <li>Good evening</li>
+            <li>Hi</li>
+            <li>Hey</li>
+            <li>Hello</li>
+            <li>Howdy</li>
+            <li>Yo</li>
+          </ul>
+        </div>
+        <div class="word-group">
+          <h4>Goodbyes</h4>
+          <ul>
+            <li>Good night</li>
+            <li>Have a good day</li>
+            <li>Have a good night</li>
+            <li>See you tomorrow</li>
+            <li>See you later</li>
+            <li>See you soon</li>
+            <li>See you</li>
+            <li>Bye bye</li>
+            <li>Night night</li>
+            <li>Goodbye</li>
+            <li>Bye</li>
+            <li>Take care</li>
+            <li>Have a nice day</li>
+          </ul>
+        </div>
+        <div class="word-group">
+          <h4>Vocabulary — /ʊ/</h4>
+          <ul>
+            <li>Book</li>
+            <li>Brook</li>
+            <li>Bull</li>
+            <li>Bush</li>
+            <li>Cook</li>
+            <li>Foot</li>
+            <li>Good</li>
+            <li>Hood</li>
+            <li>Hoof</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 12</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Record and Submit</h2>
+      <p class="activity-instruction">
+        After practicing, record yourself saying all the language from this lesson — greetings, goodbyes, and vocabulary — using your phone's voice memo app. Email the audio file to your professor.
+        <span class="es">Después de practicar, grábate diciendo todo el lenguaje de esta lección —saludos, despedidas y vocabulario— usando la aplicación de notas de voz de tu teléfono. Envía el archivo de audio por correo electrónico a tu profesor.</span>
+      </p>
+
+      <div class="steps-box">
+        <ol>
+          <li>
+            Open your phone's voice memo or recording app.
+            <span class="es">Abre la aplicación de notas de voz o grabación de tu teléfono.</span>
+          </li>
+          <li>
+            Record yourself saying all the greetings, goodbyes, and vocabulary from this lesson.
+            <span class="es">Grábate diciendo todos los saludos, despedidas y vocabulario de esta lección.</span>
+          </li>
+          <li>
+            Save the recording.
+            <span class="es">Guarda la grabación.</span>
+          </li>
+          <li>
+            Attach the audio file to an email and send it to your professor.
+            <span class="es">Adjunta el archivo de audio a un correo electrónico y envíalo a tu profesor.</span>
+          </li>
+        </ol>
+      </div>
+
+      <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Unit%201%20Recording%20-%20Full%20Lesson">✉ dravellaneda07@gmail.com</a>
     </div>
 
     <div class="coming-next">
