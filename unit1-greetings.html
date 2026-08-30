@@ -55,6 +55,60 @@
     margin: 26px 0 30px 0;
   }
 
+  .jump-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--paper);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--paper-line);
+    margin: 0 0 30px 0;
+  }
+
+  .jump-nav-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin: 0 0 8px 0;
+  }
+
+  .jump-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .jump-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    color: var(--sage-dark);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .jump-nav-links a:hover {
+    background: var(--sage-dark);
+    color: #fff;
+    border-color: var(--sage-dark);
+  }
+
+  .jump-nav-links a.sa-link {
+    width: auto;
+    border-radius: 999px;
+    padding: 0 12px;
+    font-size: 0.72rem;
+  }
+
   .greeting-images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -328,6 +382,7 @@
     margin-top: 44px;
     padding-top: 32px;
     border-top: 1px solid var(--paper-line);
+    scroll-margin-top: 60px;
   }
 
   .activity-label {
@@ -603,6 +658,25 @@
 
     <hr class="chart-rule">
 
+    <div class="jump-nav">
+      <p class="jump-nav-label">Jump to activity</p>
+      <div class="jump-nav-links">
+        <a href="#activity-1">1</a>
+        <a href="#activity-2">2</a>
+        <a href="#activity-3">3</a>
+        <a href="#activity-4">4</a>
+        <a href="#activity-5">5</a>
+        <a href="#activity-6">6</a>
+        <a href="#activity-7">7</a>
+        <a href="#activity-8">8</a>
+        <a href="#activity-9">9</a>
+        <a href="#activity-10">10</a>
+        <a href="#activity-11">11</a>
+        <a href="#activity-12">12</a>
+        <a href="#self-assessment" class="sa-link">Self-Assessment</a>
+      </div>
+    </div>
+
     <p class="section-label">Learning Objectives</p>
     <div class="objectives-list">
       <div class="objective">
@@ -623,7 +697,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-1">
       <p class="activity-label">Activity 1</p>
       <div class="activity-title-row">
         <img class="listen-icon" src="listen-icon.jpg" alt="">
@@ -636,7 +710,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-2">
       <p class="activity-label">Activity 2</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Repeat</h2>
       <p class="activity-instruction">Listen and repeat. Pay attention to whether the greeting is formal or informal.</p>
@@ -646,7 +720,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-3">
       <p class="activity-label">Activity 3</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Practice</h2>
       <p class="activity-instruction">Pay attention to the way the sound <span class="ipa">/ʊ/</span> is made. Study the new vocabulary. Practice makes perfect.</p>
@@ -656,7 +730,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-4">
       <p class="activity-label">Activity 4</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Match</h2>
       <p class="activity-instruction">Listen to the word and match it to the image it corresponds to.</p>
@@ -666,7 +740,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-5">
       <p class="activity-label">Activity 5</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Dictate and Check</h2>
       <p class="activity-instruction">
@@ -735,7 +809,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-6">
       <p class="activity-label">Activity 6</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Record and Submit</h2>
       <p class="activity-instruction">
@@ -767,7 +841,7 @@
       <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%201%20Recording%20-%20Greetings">✉ dravellaneda07@gmail.com</a>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-7">
       <p class="activity-label">Activity 7</p>
       <div class="activity-title-row">
         <img class="listen-icon" src="listen-icon.jpg" alt="">
@@ -797,7 +871,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-8">
       <p class="activity-label">Activity 8</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Play and Learn</h2>
       <p class="activity-instruction">Play the flashcard game to review the ways to say goodbye from this unit.</p>
@@ -807,7 +881,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-9">
       <p class="activity-label">Activity 9</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Choose</h2>
       <p class="activity-instruction">Listen to the word or phrase, then choose the option that matches what you heard.</p>
@@ -829,7 +903,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-10">
       <p class="activity-label">Activity 10</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Listen, Reply, Verify</h2>
       <p class="activity-instruction">
@@ -842,7 +916,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-11">
       <p class="activity-label">Activity 11</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Dictate and Check</h2>
       <p class="activity-instruction">
@@ -929,7 +1003,7 @@
       </div>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="activity-12">
       <p class="activity-label">Activity 12</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Record and Submit</h2>
       <p class="activity-instruction">
@@ -961,7 +1035,7 @@
       <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%201%20Recording%20-%20Full%20Lesson">✉ dravellaneda07@gmail.com</a>
     </div>
 
-    <div class="activity-section">
+    <div class="activity-section" id="self-assessment">
       <p class="activity-label">Self-Assessment</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Check Your Understanding</h2>
       <p class="activity-instruction">
