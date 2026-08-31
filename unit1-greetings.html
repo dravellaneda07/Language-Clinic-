@@ -502,6 +502,10 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .word-groups.four-col {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
   .word-group h4 {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
@@ -526,6 +530,10 @@
     border-radius: 6px;
     padding: 7px 12px;
     font-size: 0.92rem;
+  }
+
+  @media (max-width: 900px) {
+    .word-groups.four-col { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 700px) {
@@ -965,7 +973,7 @@
         <span class="es">El Dictado es una función exclusiva de la aplicación móvil — no está disponible en claude.ai desde un navegador web, así que esta actividad requiere la aplicación de Claude en un teléfono o tableta.</span>
       </p>
 
-      <div class="word-groups three-col">
+      <div class="word-groups four-col">
         <div class="word-group">
           <h4>Greetings</h4>
           <ul>
@@ -1010,6 +1018,24 @@
             <li>Hood</li>
             <li>Hoof</li>
           </ul>
+        </div>
+        <div class="word-group">
+          <h4>Vocabulary — /i/</h4>
+          <ul>
+            <li>Evening</li>
+            <li>Be</li>
+            <li>Repeat</li>
+            <li>See</li>
+            <li>Bean</li>
+            <li>Cheese</li>
+            <li>Cream</li>
+            <li>Feet</li>
+            <li>Eve</li>
+            <li>Meet</li>
+            <li>Peak</li>
+            <li>Please</li>
+          </ul>
+        </div>
         </div>
       </div>
     </div>
