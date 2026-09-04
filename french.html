@@ -3,367 +3,506 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Language Clinic — Cabinet de français</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Vocabulaire — Un brillant avenir, Chapitre 8</title>
 <style>
   :root {
-    --ink: #1e2a38;
-    --sage: #4a6f92;
-    --sage-dark: #23425e;
-    --paper: #eef3f7;
-    --paper-line: #c9d9e3;
-    --coral: #b6432f;
-    --slate: #56636f;
-    --card-bg: #ffffff;
+    --bleu: #1a3d6d;
+    --bleu-clair: #eef3fa;
+    --rouge: #b3282d;
+    --or: #c9962c;
+    --texte: #2a2a2a;
+    --gris: #6b6b6b;
+    --bordure: #d8dee8;
+    --vert: #2e7d4f;
+    --fond-vert: #e8f5ee;
+    --fond-rouge: #fbeaea;
   }
-
   * { box-sizing: border-box; }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
-
-  html { scroll-behavior: smooth; }
-
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Public Sans', -apple-system, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #f6f7fb;
+    color: var(--texte);
     line-height: 1.5;
   }
-
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--sage);
-    outline-offset: 3px;
-  }
-
-  .chart-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 900px;
+  .page {
+    max-width: 720px;
     margin: 0 auto;
-    padding: 18px 24px 0 24px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    color: var(--slate);
-    text-transform: uppercase;
+    padding: 28px 20px 60px;
   }
-
-  .hero {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 22px 24px 40px 24px;
-    position: relative;
-  }
-
-  .hero-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .hero h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    line-height: 1.02;
-    margin: 6px 0 4px 0;
-    letter-spacing: -0.01em;
-  }
-
-  .hero .fr-name {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.15rem;
-    color: var(--sage-dark);
-    margin: 0 0 18px 0;
-  }
-
-  .stamp {
-    flex-shrink: 0;
-    width: 92px;
-    height: 92px;
-    border: 2px solid var(--coral);
-    border-radius: 50%;
-    color: var(--coral);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  header {
     text-align: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+  header .eyebrow {
     text-transform: uppercase;
-    transform: rotate(-8deg);
-    opacity: 0.85;
-    line-height: 1.3;
-    padding: 6px;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    color: var(--rouge);
+    font-weight: 700;
   }
-
-  .hero-desc {
-    max-width: 62ch;
-    font-size: 1.02rem;
-    color: var(--ink);
-    margin: 0 0 8px 0;
+  header h1 {
+    margin: 6px 0 4px;
+    font-size: 1.5rem;
+    color: var(--bleu);
   }
-
-  .hero-desc p {
-    margin: 0 0 16px 0;
+  header p {
+    margin: 0;
+    color: var(--gris);
+    font-size: 0.9rem;
   }
-
-  .chart-rule {
-    border: none;
-    border-top: 1px solid var(--paper-line);
-    margin: 28px 0 0 0;
+  .tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 22px;
   }
-
-  .section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 24px 60px 24px;
-  }
-
-  .section-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sage-dark);
-    margin: 40px 0 4px 0;
-  }
-
-  .module-title {
-    font-family: 'Fraunces', serif;
+  .tab-btn {
+    border: 2px solid var(--bleu);
+    background: #fff;
+    color: var(--bleu);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
     font-weight: 600;
-    font-size: 1.6rem;
-    margin: 0 0 4px 0;
+    cursor: pointer;
   }
-
-  .module-sub {
-    color: var(--slate);
-    font-size: 0.95rem;
-    margin: 0 0 24px 0;
+  .tab-btn.active {
+    background: var(--bleu);
+    color: #fff;
   }
+  .panel { display: none; }
+  .panel.active { display: block; }
 
-  .rx-list {
+  /* ---- Flashcards ---- */
+  .fc-progress {
+    text-align: center;
+    color: var(--gris);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+  .card-wrap {
+    perspective: 1200px;
+    margin-bottom: 18px;
+  }
+  .card {
+    position: relative;
+    min-height: 220px;
+    border-radius: 14px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  .card.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--bordure);
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(20,30,60,0.06);
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--paper-line);
-  }
-
-  .rx-row {
-    display: grid;
-    grid-template-columns: 56px 1fr auto;
-    align-items: center;
-    gap: 20px;
-    padding: 22px 4px;
-    border-bottom: 1px solid var(--paper-line);
-    text-decoration: none;
-    color: var(--ink);
-    transition: background 0.15s ease;
-  }
-
-  .rx-row:hover {
-    background: var(--card-bg);
-  }
-
-  .rx-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--coral);
-    border: 1px solid var(--coral);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
     align-items: center;
     justify-content: center;
+    padding: 28px 24px;
+    text-align: center;
   }
-
-  .rx-body h3 {
-    font-family: 'Fraunces', serif;
+  .face.front .word {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bleu);
+  }
+  .face.front .hint {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--gris);
+  }
+  .face.back {
+    transform: rotateY(180deg);
+    background: var(--bleu-clair);
+  }
+  .face.back .meaning {
+    font-size: 1.05rem;
     font-weight: 600;
-    font-size: 1.12rem;
-    margin: 0 0 4px 0;
+    color: var(--bleu);
+    margin-bottom: 10px;
   }
-
-  .rx-body p {
-    margin: 0;
-    font-size: 0.88rem;
-    color: var(--slate);
+  .face.back .example {
+    font-style: italic;
+    color: var(--texte);
+    font-size: 0.92rem;
+    margin-bottom: 8px;
   }
-
-  .rx-dose {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--sage-dark);
-    margin-top: 6px;
+  .face.back .translation {
+    font-size: 0.85rem;
+    color: var(--gris);
   }
-
-  .rx-go {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--sage-dark);
-    white-space: nowrap;
+  .fc-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
-
-  .media-section {
-    margin-top: 44px;
-    padding-top: 32px;
-    border-top: 1px solid var(--paper-line);
-  }
-
-  .media-block {
-    margin-bottom: 28px;
-  }
-
-  .media-caption {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--slate);
-    margin: 8px 0 0 0;
-  }
-
-  audio {
-    width: 100%;
-  }
-
-  .video-wrap {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
+  button.ctrl {
+    border: 1px solid var(--bordure);
+    background: #fff;
+    padding: 9px 16px;
     border-radius: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    color: var(--texte);
+  }
+  button.ctrl.primary {
+    background: var(--bleu);
+    color: #fff;
+    border-color: var(--bleu);
+  }
+  button.ctrl:hover { filter: brightness(0.97); }
+
+  /* ---- Quiz ---- */
+  .quiz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--gris);
+    margin-bottom: 8px;
+  }
+  .bar-track {
+    height: 8px;
+    background: #e4e8f0;
+    border-radius: 999px;
     overflow: hidden;
-    border: 1px solid var(--paper-line);
+    margin-bottom: 20px;
   }
-
-  .video-wrap iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  .bar-fill {
     height: 100%;
-    border: none;
+    background: var(--or);
+    width: 0%;
+    transition: width 0.3s;
   }
-
-  footer {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 24px 24px 40px 24px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--slate);
-    border-top: 1px solid var(--paper-line);
+  .quiz-card {
+    background: #fff;
+    border: 1px solid var(--bordure);
+    border-radius: 14px;
+    padding: 26px 22px;
+    box-shadow: 0 2px 10px rgba(20,30,60,0.06);
   }
-
-  @media (max-width: 560px) {
-    .rx-row {
-      grid-template-columns: 44px 1fr;
-    }
-    .rx-go { display: none; }
-    .stamp { width: 74px; height: 74px; font-size: 0.56rem; }
+  .quiz-sentence {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+  }
+  .quiz-sentence .blank {
+    display: inline-block;
+    min-width: 90px;
+    border-bottom: 2px solid var(--bleu);
+    color: transparent;
+  }
+  .choices {
+    display: grid;
+    gap: 10px;
+  }
+  .choice-btn {
+    text-align: left;
+    padding: 12px 14px;
+    border-radius: 9px;
+    border: 1px solid var(--bordure);
+    background: #fbfbfd;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .choice-btn:hover { background: #f0f3fa; }
+  .choice-btn.correct {
+    background: var(--fond-vert);
+    border-color: var(--vert);
+    color: var(--vert);
+    font-weight: 600;
+  }
+  .choice-btn.incorrect {
+    background: var(--fond-rouge);
+    border-color: var(--rouge);
+    color: var(--rouge);
+    font-weight: 600;
+  }
+  .choice-btn:disabled { cursor: default; }
+  .feedback {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    color: var(--gris);
+    min-height: 20px;
+  }
+  .quiz-next {
+    margin-top: 14px;
+    text-align: right;
+  }
+  .quiz-summary {
+    text-align: center;
+    padding: 30px 10px;
+  }
+  .quiz-summary .score {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--bleu);
+    margin-bottom: 6px;
+  }
+  .quiz-summary p { color: var(--gris); margin-bottom: 20px; }
+  footer.note {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--gris);
   }
 </style>
 </head>
 <body>
+<div class="page">
 
-  <div class="chart-meta">
-    <a href="index.html" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--paper-line);">← The Language Clinic</a>
-    <span>UDC · School of Education</span>
+  <header>
+    <div class="eyebrow">Étude du vocabulaire</div>
+    <h1>Un brillant avenir — Chapitre 8</h1>
+    <p>21 mots et expressions tirés du texte</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="fiches">Fiches</button>
+    <button class="tab-btn" data-tab="quiz">Quiz</button>
   </div>
 
-  <div class="hero">
-    <div class="hero-top">
-      <div>
-        <p class="fr-name">bienvenue au cabinet</p>
-        <h1>The Language<br>Clinic</h1>
-      </div>
-      <div class="stamp">Cabinet<br>de<br>Français</div>
-    </div>
-    <p class="section-label" style="margin-top: 20px;">Bienvenue</p>
-    <div class="hero-desc">
-      <p>Bonjour, et bienvenue à The Language Clinic. Je suis le Dr Avellaneda.</p>
-      <p>Vous êtes sur le point de vivre un nouveau type d'expérience d'apprentissage des langues — une expérience où la langue cible que vous apprenez est authentique, tirée directement de films, de séries télévisées et d'entretiens réels avec des locuteurs natifs.</p>
-      <p>Chaque activité ici est conçue pour vous aider à pratiquer et à intérioriser, de manière réfléchie et intentionnelle, la langue cible sélectionnée. L'écoute vient en premier ; la conscience linguistique soutient le reste de l'expérience d'apprentissage. Le vocabulaire et la grammaire soutiennent le processus — mais ce n'est pas l'essentiel. L'usage réel, lui, l'est.</p>
-      <p style="font-family: 'Fraunces', serif; font-style: italic; color: var(--sage-dark); margin: 0;">— Dr Avellaneda</p>
-    </div>
-    <hr class="chart-rule">
-  </div>
-
-  <div class="section">
-    <p class="section-label">Dossier actuel</p>
-    <h2 class="module-title">Philippe Muir — vocabulaire et argot</h2>
-    <p class="module-sub">Trois séances, à faire dans l'ordre pour un meilleur effet.</p>
-
-    <div class="rx-list">
-      <a class="rx-row" href="activite1_ecoutez_pratiquez.html">
-        <span class="rx-num">Rx1</span>
-        <div class="rx-body">
-          <h3>Écoutez et pratiquez</h3>
-          <p>Écoutez l'enregistrement, suivez la liste, répétez à voix haute.</p>
-          <div class="rx-dose">Posologie : à répéter jusqu'à l'aisance</div>
+  <!-- FLASHCARDS -->
+  <section id="panel-fiches" class="panel active">
+    <div class="fc-progress" id="fcProgress">1 / 21</div>
+    <div class="card-wrap">
+      <div class="card" id="card" tabindex="0" role="button" aria-label="Cliquer pour retourner la carte">
+        <div class="face front">
+          <div class="word" id="fcWord"></div>
+          <div class="hint">Clique sur la carte pour voir le sens</div>
         </div>
-        <span class="rx-go">Commencer →</span>
-      </a>
-
-      <a class="rx-row" href="matching_activite.html">
-        <span class="rx-num">Rx2</span>
-        <div class="rx-body">
-          <h3>Associez les expressions à leur définition</h3>
-          <p>Retrouvez le sens de chaque expression familière.</p>
-          <div class="rx-dose">Posologie : une série complète</div>
+        <div class="face back">
+          <div class="meaning" id="fcMeaning"></div>
+          <div class="example" id="fcExample"></div>
+          <div class="translation" id="fcTranslation"></div>
         </div>
-        <span class="rx-go">Commencer →</span>
-      </a>
-
-      <a class="rx-row" href="argot_activite.html">
-        <span class="rx-num">Rx3</span>
-        <div class="rx-body">
-          <h3>Argot et registre de langue</h3>
-          <p>Vérifiez votre compréhension du français familier en contexte.</p>
-          <div class="rx-dose">Posologie : 12 questions</div>
-        </div>
-        <span class="rx-go">Commencer →</span>
-      </a>
-    </div>
-
-    <div class="media-section">
-      <p class="section-label">Écoute authentique</p>
-
-      <div class="media-block">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/-C4eDHJPMqU" title="Vidéo authentique" allowfullscreen></iframe>
-        </div>
-        <p class="media-caption">Extrait vidéo — langue authentique</p>
-      </div>
-
-      <div class="media-block">
-        <iframe
-          src="https://drive.google.com/file/d/1RGkxipR0jkLt_LUDknwCP2PO8fFE3Kyh/preview"
-          width="100%"
-          height="80"
-          allow="autoplay"
-          style="border: 1px solid var(--paper-line); border-radius: 8px;">
-        </iframe>
-        <p class="media-caption">Enregistrement audio (Google Drive — test)</p>
       </div>
     </div>
-  </div>
+    <div class="fc-controls">
+      <button class="ctrl" id="fcPrev">← Précédent</button>
+      <button class="ctrl primary" id="fcFlip">Retourner</button>
+      <button class="ctrl" id="fcNext">Suivant →</button>
+      <button class="ctrl" id="fcShuffle">🔀 Mélanger</button>
+    </div>
+  </section>
 
-  <footer>
-    The Language Clinic — matériel pédagogique créé pour l'apprentissage du français
-  </footer>
+  <!-- QUIZ -->
+  <section id="panel-quiz" class="panel">
+    <div id="quizArea">
+      <div class="quiz-top">
+        <span id="quizPos">Question 1 / 21</span>
+        <span id="quizScore">Score : 0</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" id="quizBar"></div></div>
+      <div class="quiz-card">
+        <div class="quiz-sentence" id="quizSentence"></div>
+        <div class="choices" id="quizChoices"></div>
+        <div class="feedback" id="quizFeedback"></div>
+        <div class="quiz-next">
+          <button class="ctrl primary" id="quizNextBtn" style="display:none;">Question suivante →</button>
+        </div>
+      </div>
+    </div>
+    <div id="quizSummary" class="quiz-summary" style="display:none;">
+      <div class="score" id="finalScore"></div>
+      <p id="finalMsg"></p>
+      <button class="ctrl primary" id="quizRestart">Recommencer le quiz</button>
+    </div>
+  </section>
 
+  <footer class="note">Textes et exemples adaptés de « Un brillant avenir », chapitre 8.</footer>
+</div>
+
+<script>
+  // ---- Données de vocabulaire ----
+  const VOCAB = [
+    { word: "convoité(e)", meaning: "très désiré, envié", example: "Les passeports les plus ___ du monde.", translation: "coveted / highly sought-after" },
+    { word: "décrocher le gros lot", meaning: "avoir énormément de chance (expression idiomatique)", example: "Le Roumain devenu américain avait ___.", translation: "to hit the jackpot" },
+    { word: "le décalage horaire", meaning: "la différence d'heure entre deux fuseaux horaires", example: "___ rend le sommeil profond.", translation: "jet lag / time difference" },
+    { word: "noter", meaning: "écrire, prendre en note", example: "Il a ___ sur une feuille toutes les indications.", translation: "to note down" },
+    { word: "parvenir (à)", meaning: "arriver à, atteindre un lieu", example: "Ils ___ à la résidence moderne.", translation: "to reach / to arrive at" },
+    { word: "bien coupé(e)", meaning: "bien taillé, bien ajusté (vêtement)", example: "Une belle chemise blanche ___.", translation: "well-cut / well-tailored" },
+    { word: "au teint mat", meaning: "à la peau légèrement foncée ou hâlée", example: "Une jolie femme ___.", translation: "with an olive/tan complexion" },
+    { word: "desserrer (les lèvres)", meaning: "(figuré, souvent négatif) parler, ouvrir la bouche", example: "Helen ne ___ pas les lèvres.", translation: "to open one's mouth / say a word" },
+    { word: "rendre fou / folle", meaning: "faire perdre patience, exaspérer", example: "La voix de Doru... ___ Helen.", translation: "to drive someone crazy" },
+    { word: "gâcher", meaning: "abîmer, ruiner quelque chose de positif", example: "___ l'extrême beauté du paysage.", translation: "to spoil / to ruin" },
+    { word: "avoir à peine le temps de", meaning: "avoir très peu de temps pour faire quelque chose", example: "Ils ___ le temps de s'installer.", translation: "to barely have time to" },
+    { word: "enfiler", meaning: "mettre un vêtement, souvent rapidement", example: "Avant de s'___ d'élégantes tenues.", translation: "to slip on / put on (clothes)" },
+    { word: "serti de", meaning: "(bijou) orné, incrusté de pierres précieuses", example: "Un gros diamant ___ saphirs.", translation: "set with (jewels)" },
+    { word: "hormis", meaning: "sauf, à part, à l'exception de", example: "___ la petite broche héritée de sa grand-mère.", translation: "except for / apart from" },
+    { word: "se faire voler", meaning: "se faire dérober quelque chose, être victime d'un vol", example: "Elle n'a pas peur de les perdre ou de ___.", translation: "to get robbed" },
+    { word: "le cadet / la cadette", meaning: "le plus jeune (frère, sœur, fils)", example: "L'amie du ___.", translation: "the youngest sibling" },
+    { word: "assaillir (de questions)", meaning: "submerger, bombarder de questions", example: "La mère de Marie ___ de questions Jacob et Helen.", translation: "to bombard with questions" },
+    { word: "poisseux / poisseuse", meaning: "collant(e), sale au toucher", example: "Les casseroles ___.", translation: "sticky / grimy" },
+    { word: "il fait encore nuit", meaning: "expression météo : il fait encore sombre dehors", example: "___, et il fait très froid.", translation: "it's still dark out" },
+    { word: "guetter", meaning: "surveiller, attendre en observant attentivement", example: "Elle ___ les voitures qui passent.", translation: "to watch out for / be on the lookout" },
+    { word: "se taire", meaning: "rester silencieux, ne rien dire", example: "Faut-il ___ ?", translation: "to keep quiet / be silent" }
+  ];
+
+  // ================= FLASHCARDS =================
+  let fcOrder = VOCAB.map((_, i) => i);
+  let fcIndex = 0;
+
+  const cardEl = document.getElementById('card');
+  const fcWord = document.getElementById('fcWord');
+  const fcMeaning = document.getElementById('fcMeaning');
+  const fcExample = document.getElementById('fcExample');
+  const fcTranslation = document.getElementById('fcTranslation');
+  const fcProgress = document.getElementById('fcProgress');
+
+  function renderCard() {
+    const item = VOCAB[fcOrder[fcIndex]];
+    cardEl.classList.remove('flipped');
+    fcWord.textContent = item.word;
+    fcMeaning.textContent = item.meaning;
+    fcExample.textContent = "« " + item.example.replace('___', '…') + " »";
+    fcTranslation.textContent = item.translation;
+    fcProgress.textContent = (fcIndex + 1) + " / " + VOCAB.length;
+  }
+
+  cardEl.addEventListener('click', () => cardEl.classList.toggle('flipped'));
+  cardEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cardEl.classList.toggle('flipped'); }
+  });
+  document.getElementById('fcFlip').addEventListener('click', () => cardEl.classList.toggle('flipped'));
+  document.getElementById('fcNext').addEventListener('click', () => {
+    fcIndex = (fcIndex + 1) % VOCAB.length;
+    renderCard();
+  });
+  document.getElementById('fcPrev').addEventListener('click', () => {
+    fcIndex = (fcIndex - 1 + VOCAB.length) % VOCAB.length;
+    renderCard();
+  });
+  document.getElementById('fcShuffle').addEventListener('click', () => {
+    for (let i = fcOrder.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [fcOrder[i], fcOrder[j]] = [fcOrder[j], fcOrder[i]];
+    }
+    fcIndex = 0;
+    renderCard();
+  });
+
+  renderCard();
+
+  // ================= QUIZ =================
+  let quizOrder = [];
+  let quizIndex = 0;
+  let quizScore = 0;
+  let answered = false;
+
+  function shuffledIndices(n) {
+    const arr = Array.from({ length: n }, (_, i) => i);
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function startQuiz() {
+    quizOrder = shuffledIndices(VOCAB.length);
+    quizIndex = 0;
+    quizScore = 0;
+    document.getElementById('quizArea').style.display = 'block';
+    document.getElementById('quizSummary').style.display = 'none';
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    answered = false;
+    const item = VOCAB[quizOrder[quizIndex]];
+    document.getElementById('quizPos').textContent = "Question " + (quizIndex + 1) + " / " + VOCAB.length;
+    document.getElementById('quizScore').textContent = "Score : " + quizScore;
+    document.getElementById('quizBar').style.width = (quizIndex / VOCAB.length * 100) + "%";
+    document.getElementById('quizSentence').textContent = item.example.replace('___', '＿＿＿＿＿');
+
+    // Build 4 choices: correct + 3 distractors
+    const others = VOCAB.filter((v) => v.word !== item.word).map((v) => v.word);
+    for (let i = others.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [others[i], others[j]] = [others[j], others[i]];
+    }
+    const choices = [item.word, ...others.slice(0, 3)];
+    for (let i = choices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [choices[i], choices[j]] = [choices[j], choices[i]];
+    }
+
+    const choicesEl = document.getElementById('quizChoices');
+    choicesEl.innerHTML = '';
+    document.getElementById('quizFeedback').textContent = '';
+    document.getElementById('quizNextBtn').style.display = 'none';
+
+    choices.forEach((choice) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = choice;
+      btn.addEventListener('click', () => selectAnswer(btn, choice, item));
+      choicesEl.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(btn, choice, item) {
+    if (answered) return;
+    answered = true;
+    const allBtns = document.querySelectorAll('.choice-btn');
+    allBtns.forEach((b) => {
+      b.disabled = true;
+      if (b.textContent === item.word) b.classList.add('correct');
+    });
+    if (choice === item.word) {
+      quizScore++;
+      document.getElementById('quizFeedback').textContent = "✔ Correct ! " + item.meaning + " — " + item.translation;
+    } else {
+      btn.classList.add('incorrect');
+      document.getElementById('quizFeedback').textContent = "✘ La bonne réponse était « " + item.word + " » : " + item.meaning + " (" + item.translation + ")";
+    }
+    document.getElementById('quizScore').textContent = "Score : " + quizScore;
+    document.getElementById('quizNextBtn').style.display = 'inline-block';
+  }
+
+  document.getElementById('quizNextBtn').addEventListener('click', () => {
+    quizIndex++;
+    if (quizIndex >= VOCAB.length) {
+      finishQuiz();
+    } else {
+      renderQuestion();
+    }
+  });
+
+  function finishQuiz() {
+    document.getElementById('quizBar').style.width = '100%';
+    document.getElementById('quizArea').style.display = 'none';
+    document.getElementById('quizSummary').style.display = 'block';
+    const pct = Math.round((quizScore / VOCAB.length) * 100);
+    document.getElementById('finalScore').textContent = quizScore + " / " + VOCAB.length + " (" + pct + "%)";
+    let msg = "Continue à réviser ces expressions idiomatiques dans leur contexte.";
+    if (pct === 100) msg = "Excellent ! Tu maîtrises tout le vocabulaire de ce chapitre.";
+    else if (pct >= 80) msg = "Très bon score ! Revois les quelques mots manqués.";
+    else if (pct >= 50) msg = "Bon début — reprends les fiches avant de refaire le quiz.";
+    document.getElementById('finalMsg').textContent = msg;
+  }
+
+  document.getElementById('quizRestart').addEventListener('click', startQuiz);
+
+  // ================= TABS =================
+  document.querySelectorAll('.tab-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+      if (btn.dataset.tab === 'quiz' && quizOrder.length === 0) startQuiz();
+    });
+  });
+</script>
 </body>
 </html>
