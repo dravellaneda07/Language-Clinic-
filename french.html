@@ -3,81 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vocabulaire — Un brillant avenir, Chapitre 8</title>
+<title>Préparation de la leçon — Chapitre 8</title>
 <style>
   :root {
-    --bleu: #1a3d6d;
-    --bleu-clair: #eef3fa;
-    --rouge: #b3282d;
-    --or: #c9962c;
-    --texte: #2a2a2a;
-    --gris: #6b6b6b;
-    --bordure: #d8dee8;
+    --bg: #dce8f6;
+    --orange: #b5651d;
+    --orange-fill: #f2a93c;
+    --orange-fill-text: #7a3e0a;
+    --navy: #1c2530;
+    --gris-bordure: #b9c6d6;
+    --gris-texte: #55606d;
+    --note-bg: #eef2f7;
+    --note-bordure: #cdd8e6;
     --vert: #2e7d4f;
     --fond-vert: #e8f5ee;
     --fond-rouge: #fbeaea;
+    --rouge: #b3282d;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
+    background: #eef2f7;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    background: #f6f7fb;
-    color: var(--texte);
+    color: var(--navy);
     line-height: 1.5;
   }
   .page {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 28px 20px 60px;
+    padding: 30px 16px 60px;
   }
-  header {
+  .page-header {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 26px;
   }
-  header .eyebrow {
+  .page-header .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 12px;
     color: var(--rouge);
     font-weight: 700;
   }
-  header h1 {
+  .page-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
     margin: 6px 0 4px;
-    font-size: 1.5rem;
-    color: var(--bleu);
+    font-size: 1.6rem;
+    color: var(--navy);
   }
-  header p {
+  .page-header p {
     margin: 0;
-    color: var(--gris);
+    color: var(--gris-texte);
     font-size: 0.9rem;
   }
-  .tabs {
+
+  /* ---- Carte d'activité (en-tête de chaque activité) ---- */
+  .activity-card {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 34px 36px;
+    margin-bottom: 4px;
+  }
+  .badge-row-top {
     display: flex;
-    gap: 8px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pill-activity {
+    border: 1.5px solid var(--orange);
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: transparent;
+  }
+  .pill-page {
+    border: 1.5px solid var(--gris-bordure);
+    color: var(--navy);
+    background: #fff;
+  }
+  h1.activity-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: 0 0 18px;
+    color: #111;
+    line-height: 1.2;
+  }
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 22px;
   }
-  .tab-btn {
-    border: 2px solid var(--bleu);
-    background: #fff;
-    color: var(--bleu);
-    padding: 8px 18px;
-    border-radius: 999px;
-    font-size: 0.9rem;
+  .pill-time {
+    background: var(--orange-fill);
+    color: var(--orange-fill-text);
+    font-weight: 700;
+  }
+  .pill-flow, .pill-align {
+    border: 1.5px solid var(--gris-bordure);
+    background: rgba(255,255,255,0.5);
+    color: var(--navy);
     font-weight: 600;
-    cursor: pointer;
   }
-  .tab-btn.active {
-    background: var(--bleu);
-    color: #fff;
+  .activity-body p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: #2b3542;
+    margin: 0 0 14px;
   }
-  .panel { display: none; }
-  .panel.active { display: block; }
+  .highlight {
+    color: var(--orange);
+    font-weight: 700;
+  }
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--gris-bordure);
+    margin: 22px 0;
+  }
+  .note-box {
+    background: var(--note-bg);
+    border: 1px solid var(--note-bordure);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    color: #33404f;
+    line-height: 1.6;
+  }
+  .note-box strong { color: var(--navy); }
+  .note-box em { font-style: italic; }
 
-  /* ---- Flashcards ---- */
+  /* ---- Bloc de contenu blanc sous chaque activité ---- */
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--gris-bordure);
+    border-radius: 0 0 16px 16px;
+    padding: 32px 36px;
+    margin-bottom: 40px;
+    border-top: none;
+  }
+  .content-card h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    margin: 0 0 18px;
+    color: #111;
+  }
+  .reading-text {
+    font-size: 1.18rem;
+    line-height: 1.9;
+    color: #1c2530;
+  }
+  .reading-text p { margin: 0 0 16px; }
+  .resource-link {
+    margin: 0 0 20px;
+  }
+  .resource-link a {
+    color: var(--orange);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--orange);
+    padding-bottom: 1px;
+  }
+  .resource-link a:hover { opacity: 0.8; }
+
+  /* ---- Conseils de prononciation ---- */
+  .tips-card {
+    background: var(--note-bg);
+    border: 1px solid var(--note-bordure);
+    border-radius: 16px;
+    padding: 26px 32px;
+    margin-bottom: 40px;
+  }
+  .tips-card h2 {
+    font-size: 1.05rem;
+    margin: 0 0 14px;
+    color: var(--navy);
+  }
+  .tips-card ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .tips-card li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #33404f;
+  }
+  .tips-card code {
+    background: #fff;
+    border: 1px solid var(--note-bordure);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-size: 0.88rem;
+  }
+
+  /* ---- Fiches (flashcards) ---- */
   .fc-progress {
     text-align: center;
-    color: var(--gris);
+    color: var(--gris-texte);
     font-size: 0.85rem;
     margin-bottom: 10px;
   }
@@ -99,7 +235,7 @@
     inset: 0;
     backface-visibility: hidden;
     border-radius: 14px;
-    border: 1px solid var(--bordure);
+    border: 1px solid var(--gris-bordure);
     background: #fff;
     box-shadow: 0 2px 10px rgba(20,30,60,0.06);
     display: flex;
@@ -112,32 +248,32 @@
   .face.front .word {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--bleu);
+    color: var(--navy);
   }
   .face.front .hint {
     margin-top: 10px;
     font-size: 0.8rem;
-    color: var(--gris);
+    color: var(--gris-texte);
   }
   .face.back {
     transform: rotateY(180deg);
-    background: var(--bleu-clair);
+    background: var(--note-bg);
   }
   .face.back .meaning {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--bleu);
+    color: var(--navy);
     margin-bottom: 10px;
   }
   .face.back .example {
     font-style: italic;
-    color: var(--texte);
+    color: #1c2530;
     font-size: 0.92rem;
     margin-bottom: 8px;
   }
   .face.back .translation {
     font-size: 0.85rem;
-    color: var(--gris);
+    color: var(--gris-texte);
   }
   .fc-controls {
     display: flex;
@@ -146,18 +282,18 @@
     flex-wrap: wrap;
   }
   button.ctrl {
-    border: 1px solid var(--bordure);
+    border: 1px solid var(--gris-bordure);
     background: #fff;
     padding: 9px 16px;
     border-radius: 8px;
     font-size: 0.88rem;
     cursor: pointer;
-    color: var(--texte);
+    color: var(--navy);
   }
   button.ctrl.primary {
-    background: var(--bleu);
+    background: var(--navy);
     color: #fff;
-    border-color: var(--bleu);
+    border-color: var(--navy);
   }
   button.ctrl:hover { filter: brightness(0.97); }
 
@@ -167,7 +303,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 0.85rem;
-    color: var(--gris);
+    color: var(--gris-texte);
     margin-bottom: 8px;
   }
   .bar-track {
@@ -179,26 +315,13 @@
   }
   .bar-fill {
     height: 100%;
-    background: var(--or);
+    background: var(--orange-fill);
     width: 0%;
     transition: width 0.3s;
-  }
-  .quiz-card {
-    background: #fff;
-    border: 1px solid var(--bordure);
-    border-radius: 14px;
-    padding: 26px 22px;
-    box-shadow: 0 2px 10px rgba(20,30,60,0.06);
   }
   .quiz-sentence {
     font-size: 1.05rem;
     margin-bottom: 20px;
-  }
-  .quiz-sentence .blank {
-    display: inline-block;
-    min-width: 90px;
-    border-bottom: 2px solid var(--bleu);
-    color: transparent;
   }
   .choices {
     display: grid;
@@ -208,7 +331,7 @@
     text-align: left;
     padding: 12px 14px;
     border-radius: 9px;
-    border: 1px solid var(--bordure);
+    border: 1px solid var(--gris-bordure);
     background: #fbfbfd;
     font-size: 0.95rem;
     cursor: pointer;
@@ -230,7 +353,7 @@
   .feedback {
     margin-top: 16px;
     font-size: 0.88rem;
-    color: var(--gris);
+    color: var(--gris-texte);
     min-height: 20px;
   }
   .quiz-next {
@@ -244,34 +367,164 @@
   .quiz-summary .score {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--bleu);
+    color: var(--navy);
     margin-bottom: 6px;
   }
-  .quiz-summary p { color: var(--gris); margin-bottom: 20px; }
-  footer.note {
-    margin-top: 26px;
-    text-align: center;
-    font-size: 0.78rem;
-    color: var(--gris);
+  .quiz-summary p { color: var(--gris-texte); margin-bottom: 20px; }
+
+  /* ---- Avant demain ---- */
+  .before-card {
+    border: 1.5px dashed var(--orange);
+    border-radius: 16px;
+    padding: 22px 28px;
+    background: #fff8ef;
+  }
+  .before-card h2 {
+    font-size: 1rem;
+    margin: 0 0 8px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .before-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #3a3226;
+    line-height: 1.6;
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <header>
-    <div class="eyebrow">Étude du vocabulaire</div>
-    <h1>Un brillant avenir — Chapitre 8</h1>
-    <p>21 mots et expressions tirés du texte</p>
-  </header>
-
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="fiches">Fiches</button>
-    <button class="tab-btn" data-tab="quiz">Quiz</button>
+  <div class="page-header">
+    <div class="eyebrow">Leçon 6</div>
+    <h1>Un brillant avenir — Chapitre 8 (pages 32 à 36)</h1>
+    <p>Trois activités à faire avant la leçon avec Alexandre</p>
   </div>
 
-  <!-- FLASHCARDS -->
-  <section id="panel-fiches" class="panel active">
+  <!-- ============ ACTIVITÉ 1 : LECTURE À VOIX HAUTE ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Activité 1 · Lecture à voix haute</span>
+      <span class="pill pill-page">Page 1</span>
+    </div>
+
+    <h1 class="activity-title">Lecture à voix haute : résumé du chapitre 8</h1>
+
+    <div class="badge-row">
+      <span class="pill pill-time">⏱️ 10–15 minutes</span>
+      <span class="pill pill-flow">🎙️ Individuel → Enregistrement → Professeur</span>
+      <span class="pill pill-align">Objectif : Prononciation</span>
+    </div>
+
+    <div class="activity-body">
+      <p>
+        <span class="highlight">Lis à voix haute</span> le résumé suivant de cette partie du
+        chapitre, pour que ton professeur puisse t'écouter et corriger ta prononciation.
+      </p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="note-box">
+      <strong>Note :</strong> Lis le texte une première fois en silence pour te repérer, puis
+      lis-le à voix haute, lentement et clairement, en articulant chaque syllabe. Si tu as un
+      moyen de t'enregistrer <em>(téléphone, ordinateur)</em>, fais-le : tu pourras comparer ta
+      prononciation avant et après la correction d'Alexandre.
+    </div>
+  </section>
+
+  <div class="content-card">
+    <h2>Résumé à lire</h2>
+    <p class="resource-link">
+      <a href="https://drive.google.com/file/d/1gYiZaYk2Bm9Wvdg6I6Olq_C84bmY4y9H/view?usp=sharing" target="_blank" rel="noopener">🔗 Voir le document sur Google Drive</a>
+    </p>
+    <div class="reading-text">
+      <p>
+        En 1990, la famille voyage beaucoup pour les mariages. D'abord, ils s'envolent vers
+        Tel-Aviv avec leurs passeports les plus convoités du monde, pour le mariage du neveu
+        Amit. En Israël, toute la famille les assaille de questions sur l'Amérique et sur
+        Marie, la nouvelle fiancée française d'Alexandru. Les cousins n'en reviennent pas :
+        selon eux, le petit cousin roumain devenu américain a décroché le gros lot.
+      </p>
+      <p>
+        Après quelques jours au bord de la mer Morte, malgré le décalage horaire et la
+        fatigue, ils s'arrêtent à Paris pour rencontrer enfin les parents de Marie. Le père,
+        Jean-Pierre, les accueille avec un accent anglais imparfait, et sa femme, élégante et
+        très mince, assaille Helen et Jacob de questions pendant tout le dîner.
+      </p>
+      <p>
+        Le lendemain matin, alors qu'il fait encore nuit, Helen guette en vain la voiture
+        d'Alexandru sur le boulevard désert : leur fils, qui devait venir les chercher, ne
+        s'est pas réveillé.
+      </p>
+      <p>
+        De retour aux États-Unis, épuisée par le voyage, Helen commence à s'inquiéter
+        sérieusement de l'avenir de son fils en France, un pays qu'elle trouve fermé aux
+        étrangers. Elle décide enfin d'en parler à Jacob, sans savoir s'il faut intervenir ou
+        se taire.
+      </p>
+    </div>
+  </div>
+
+  <section class="tips-card">
+    <h2>Points de prononciation à surveiller</h2>
+    <ul>
+      <li>
+        <strong>Liaison après « les » :</strong> dans <code>les assaille</code>, le « s » se
+        prononce comme un « z » avant la voyelle — « le-z-assaille ».
+      </li>
+      <li>
+        <strong>Liaison après « aux » :</strong> <code>aux étrangers</code> et
+        <code>aux États-Unis</code> se prononcent « o-z-étrangers » et « o-z-États-Unis ».
+      </li>
+      <li>
+        <strong>Voyelle nasale + liaison :</strong> <code>en Israël</code> — le « n » de « en »
+        se lie à la voyelle suivante : « an-n-Israël ».
+      </li>
+      <li>
+        <strong>« s » final muet :</strong> le « s » à la fin de <code>passeports</code>,
+        <code>cousins</code> et <code>questions</code> ne se prononce jamais, sauf en cas de
+        liaison devant une voyelle.
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ ACTIVITÉ 2 : VOCABULAIRE ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Activité 2 · Vocabulaire</span>
+      <span class="pill pill-page">Page 2</span>
+    </div>
+
+    <h1 class="activity-title">Fiches de vocabulaire</h1>
+
+    <div class="badge-row">
+      <span class="pill pill-time">⏱️ 15–20 minutes</span>
+      <span class="pill pill-flow">📇 Individuel → Rappel actif</span>
+      <span class="pill pill-align">Objectif : Mémorisation</span>
+    </div>
+
+    <div class="activity-body">
+      <p>
+        Révise <span class="highlight">les mots et expressions</span> de cette partie du
+        chapitre avant de démontrer ce que tu as appris à l'Activité 3. Chaque fiche montre
+        d'abord le mot seul : essaie de te rappeler son sens et un exemple avant de la
+        retourner.
+      </p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="note-box">
+      <strong>Note :</strong> Clique sur la carte pour révéler le sens, l'exemple et la
+      traduction. Utilise « Mélanger » une fois que l'ordre devient trop prévisible, pour
+      vraiment tester ta mémoire.
+    </div>
+  </section>
+
+  <div class="content-card">
     <div class="fc-progress" id="fcProgress">1 / 21</div>
     <div class="card-wrap">
       <div class="card" id="card" tabindex="0" role="button" aria-label="Cliquer pour retourner la carte">
@@ -292,37 +545,74 @@
       <button class="ctrl" id="fcNext">Suivant →</button>
       <button class="ctrl" id="fcShuffle">🔀 Mélanger</button>
     </div>
+  </div>
+
+  <!-- ============ ACTIVITÉ 3 : QUIZ ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Activité 3 · Démontre tes connaissances</span>
+      <span class="pill pill-page">Page 3</span>
+    </div>
+
+    <h1 class="activity-title">Démontre ce que tu as appris</h1>
+
+    <div class="badge-row">
+      <span class="pill pill-time">⏱️ 10 minutes</span>
+      <span class="pill pill-flow">✅ Individuel → Score immédiat</span>
+      <span class="pill pill-align">Objectif : Évaluation</span>
+    </div>
+
+    <div class="activity-body">
+      <p>
+        Cette activité reprend les <span class="highlight">phrases originales du livre</span>,
+        avec le mot étudié manquant. Choisis la bonne réponse parmi quatre choix pour montrer
+        que tu maîtrises le vocabulaire en contexte, pas seulement par cœur.
+      </p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="note-box">
+      <strong>Note :</strong> Tu peux refaire cette activité autant de fois que tu veux — les
+      questions et les choix sont mélangés à chaque tentative.
+    </div>
   </section>
 
-  <!-- QUIZ -->
-  <section id="panel-quiz" class="panel">
+  <div class="content-card">
     <div id="quizArea">
       <div class="quiz-top">
         <span id="quizPos">Question 1 / 21</span>
         <span id="quizScore">Score : 0</span>
       </div>
       <div class="bar-track"><div class="bar-fill" id="quizBar"></div></div>
-      <div class="quiz-card">
-        <div class="quiz-sentence" id="quizSentence"></div>
-        <div class="choices" id="quizChoices"></div>
-        <div class="feedback" id="quizFeedback"></div>
-        <div class="quiz-next">
-          <button class="ctrl primary" id="quizNextBtn" style="display:none;">Question suivante →</button>
-        </div>
+      <div class="quiz-sentence" id="quizSentence"></div>
+      <div class="choices" id="quizChoices"></div>
+      <div class="feedback" id="quizFeedback"></div>
+      <div class="quiz-next">
+        <button class="ctrl primary" id="quizNextBtn" style="display:none;">Question suivante →</button>
       </div>
     </div>
     <div id="quizSummary" class="quiz-summary" style="display:none;">
       <div class="score" id="finalScore"></div>
       <p id="finalMsg"></p>
-      <button class="ctrl primary" id="quizRestart">Recommencer le quiz</button>
+      <button class="ctrl primary" id="quizRestart">Recommencer</button>
     </div>
+  </div>
+
+  <!-- ============ AVANT DEMAIN ============ -->
+  <section class="before-card">
+    <h2>Avant demain</h2>
+    <p>
+      Enregistre ta lecture si possible, et note les mots, les liaisons ou les questions du
+      quiz qui t'ont posé des difficultés — tu pourras les revoir avec Alexandre pendant la
+      leçon.
+    </p>
   </section>
 
-  <footer class="note">Textes et exemples adaptés de « Un brillant avenir », chapitre 8.</footer>
 </div>
 
 <script>
-  // ---- Données de vocabulaire ----
+  // ---- Données de vocabulaire (Activités 2 et 3) ----
   const VOCAB = [
     { word: "convoité(e)", meaning: "très désiré, envié", example: "Les passeports les plus ___ du monde.", translation: "coveted / highly sought-after" },
     { word: "décrocher le gros lot", meaning: "avoir énormément de chance (expression idiomatique)", example: "Le Roumain devenu américain avait ___.", translation: "to hit the jackpot" },
@@ -347,7 +637,7 @@
     { word: "se taire", meaning: "rester silencieux, ne rien dire", example: "Faut-il ___ ?", translation: "to keep quiet / be silent" }
   ];
 
-  // ================= FLASHCARDS =================
+  // ================= ACTIVITÉ 2 : FICHES =================
   let fcOrder = VOCAB.map((_, i) => i);
   let fcIndex = 0;
 
@@ -392,7 +682,7 @@
 
   renderCard();
 
-  // ================= QUIZ =================
+  // ================= ACTIVITÉ 3 : QUIZ =================
   let quizOrder = [];
   let quizIndex = 0;
   let quizScore = 0;
@@ -424,7 +714,6 @@
     document.getElementById('quizBar').style.width = (quizIndex / VOCAB.length * 100) + "%";
     document.getElementById('quizSentence').textContent = item.example.replace('___', '＿＿＿＿＿');
 
-    // Build 4 choices: correct + 3 distractors
     const others = VOCAB.filter((v) => v.word !== item.word).map((v) => v.word);
     for (let i = others.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -487,22 +776,14 @@
     let msg = "Continue à réviser ces expressions idiomatiques dans leur contexte.";
     if (pct === 100) msg = "Excellent ! Tu maîtrises tout le vocabulaire de ce chapitre.";
     else if (pct >= 80) msg = "Très bon score ! Revois les quelques mots manqués.";
-    else if (pct >= 50) msg = "Bon début — reprends les fiches avant de refaire le quiz.";
+    else if (pct >= 50) msg = "Bon début — reprends les fiches avant de recommencer.";
     document.getElementById('finalMsg').textContent = msg;
   }
 
   document.getElementById('quizRestart').addEventListener('click', startQuiz);
 
-  // ================= TABS =================
-  document.querySelectorAll('.tab-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
-      document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
-      if (btn.dataset.tab === 'quiz' && quizOrder.length === 0) startQuiz();
-    });
-  });
+  // Le quiz démarre automatiquement (Activité 3 suit directement les fiches)
+  startQuiz();
 </script>
 </body>
 </html>
