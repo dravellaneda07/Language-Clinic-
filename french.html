@@ -787,3 +787,757 @@
 </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon profil d'erreurs en français</title>
+<style>
+  :root {
+    --bg: #dce8f6;
+    --orange: #b5651d;
+    --orange-fill: #f2a93c;
+    --orange-fill-text: #7a3e0a;
+    --navy: #1c2530;
+    --gris-bordure: #b9c6d6;
+    --gris-texte: #55606d;
+    --note-bg: #eef2f7;
+    --note-bordure: #cdd8e6;
+    --vert: #2e7d4f;
+    --fond-vert: #e8f5ee;
+    --fond-rouge: #fbeaea;
+    --rouge: #b3282d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #eef2f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 30px 16px 70px;
+  }
+  .page-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .page-header .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    color: var(--rouge);
+    font-weight: 700;
+  }
+  .page-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 6px 0 6px;
+    font-size: 1.7rem;
+    color: var(--navy);
+  }
+  .page-header p {
+    margin: 0;
+    color: var(--gris-texte);
+    font-size: 0.92rem;
+  }
+
+  /* ---- Vue d'ensemble ---- */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+  @media (max-width: 620px) {
+    .overview-grid { grid-template-columns: 1fr; }
+  }
+  .overview-card {
+    background: #fff;
+    border: 1px solid var(--gris-bordure);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .overview-card .count {
+    display: inline-block;
+    background: var(--orange-fill);
+    color: var(--orange-fill-text);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .overview-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.02rem;
+    color: var(--navy);
+  }
+  .overview-card .cause {
+    font-size: 0.85rem;
+    color: var(--gris-texte);
+    margin-bottom: 10px;
+  }
+  .overview-card .example {
+    font-size: 0.85rem;
+    background: var(--note-bg);
+    border-radius: 8px;
+    padding: 8px 10px;
+    line-height: 1.5;
+  }
+  .overview-card .example .before { color: var(--rouge); }
+  .overview-card .example .after { color: var(--vert); font-weight: 600; }
+
+  .aside-note {
+    background: var(--note-bg);
+    border: 1px solid var(--note-bordure);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: #33404f;
+    margin-bottom: 40px;
+  }
+
+  /* ---- Carte d'activité (en-tête de chaque section d'entraînement) ---- */
+  .activity-card {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 30px 32px;
+    margin-bottom: 4px;
+  }
+  .badge-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pill-activity {
+    border: 1.5px solid var(--orange);
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: transparent;
+  }
+  .pill-page {
+    border: 1.5px solid var(--gris-bordure);
+    color: var(--navy);
+    background: #fff;
+  }
+  h2.activity-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 0 0 14px;
+    color: #111;
+    line-height: 1.25;
+  }
+  .activity-body p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #2b3542;
+    margin: 0 0 14px;
+  }
+  .highlight { color: var(--orange); font-weight: 700; }
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--gris-bordure);
+    margin: 18px 0;
+  }
+  .note-box {
+    background: #fff;
+    border: 1px solid var(--note-bordure);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    color: #33404f;
+    line-height: 1.55;
+  }
+  .note-box strong { color: var(--navy); }
+  .note-box em { font-style: italic; }
+
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--gris-bordure);
+    border-radius: 0 0 16px 16px;
+    padding: 26px 32px;
+    margin-bottom: 40px;
+    border-top: none;
+  }
+
+  /* ---- MCQ ---- */
+  .mcq-item { margin-bottom: 22px; }
+  .mcq-item:last-child { margin-bottom: 0; }
+  .mcq-prompt {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: var(--navy);
+  }
+  .choices { display: grid; gap: 8px; }
+  .choice-btn {
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--gris-bordure);
+    background: #fbfbfd;
+    font-size: 0.93rem;
+    cursor: pointer;
+  }
+  .choice-btn:hover { background: #f0f3fa; }
+  .choice-btn.correct {
+    background: var(--fond-vert);
+    border-color: var(--vert);
+    color: var(--vert);
+    font-weight: 600;
+  }
+  .choice-btn.incorrect {
+    background: var(--fond-rouge);
+    border-color: var(--rouge);
+    color: var(--rouge);
+    font-weight: 600;
+  }
+  .choice-btn:disabled { cursor: default; }
+  .mcq-feedback {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--gris-texte);
+    min-height: 18px;
+  }
+
+  /* ---- Reveal (production libre) ---- */
+  .reveal-item {
+    margin-bottom: 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--note-bordure);
+  }
+  .reveal-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .reveal-prompt {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: var(--navy);
+  }
+  .reveal-item textarea {
+    width: 100%;
+    min-height: 60px;
+    border: 1px solid var(--gris-bordure);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 10px;
+  }
+  button.ctrl {
+    border: 1px solid var(--gris-bordure);
+    background: #fff;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    color: var(--navy);
+  }
+  button.ctrl.primary {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+  button.ctrl:hover { filter: brightness(0.97); }
+  .reveal-answer {
+    display: none;
+    margin-top: 12px;
+    background: var(--note-bg);
+    border: 1px solid var(--note-bordure);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #33404f;
+  }
+  .reveal-answer strong { color: var(--vert); }
+  .self-rate {
+    display: none;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .self-rate button {
+    flex: 1;
+  }
+  .self-rate button.picked-ok {
+    background: var(--fond-vert);
+    border-color: var(--vert);
+    color: var(--vert);
+    font-weight: 600;
+  }
+  .self-rate button.picked-retry {
+    background: var(--fond-rouge);
+    border-color: var(--rouge);
+    color: var(--rouge);
+    font-weight: 600;
+  }
+
+  /* ---- Lecture / prononciation ---- */
+  .pronon-group {
+    margin-bottom: 20px;
+  }
+  .pronon-group:last-child { margin-bottom: 0; }
+  .pronon-group h4 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    color: var(--orange);
+  }
+  .pronon-group ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .pronon-group li {
+    margin-bottom: 6px;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .pronon-group code {
+    background: var(--note-bg);
+    border: 1px solid var(--note-bordure);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-size: 0.95rem;
+  }
+
+  .before-card {
+    border: 1.5px dashed var(--orange);
+    border-radius: 16px;
+    padding: 22px 28px;
+    background: #fff8ef;
+  }
+  .before-card h2 {
+    font-size: 1rem;
+    margin: 0 0 8px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .before-card p {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    color: #3a3226;
+    line-height: 1.6;
+  }
+  .before-card textarea {
+    width: 100%;
+    min-height: 70px;
+    border: 1px solid #e0c193;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+    font-family: inherit;
+    resize: vertical;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-header">
+    <div class="eyebrow">Analyse personnelle</div>
+    <h1>Mon profil d'erreurs en français</h1>
+    <p>27 erreurs relevées, regroupées en 6 tendances, avec un entraînement ciblé pour chacune</p>
+  </div>
+
+  <!-- ============ VUE D'ENSEMBLE ============ -->
+  <div class="overview-grid">
+    <div class="overview-card">
+      <span class="count">10 erreurs</span>
+      <h3>Prononciation : voyelles moyennes et lettres finales muettes</h3>
+      <div class="cause">Cause probable : influence de l'espagnol (e ouvert/fermé/muet non distingués, consonnes finales prononcées comme en espagnol).</div>
+      <div class="example"><span class="before">rentenir</span> → <span class="after">retenir</span></div>
+    </div>
+    <div class="overview-card">
+      <span class="count">3 erreurs</span>
+      <h3>Négation et adverbes courts avec l'infinitif</h3>
+      <div class="cause">Cause : ordre des mots calqué sur l'espagnol/l'anglais — en français, « ne pas », « bien », « mal », « jamais » se placent avant l'infinitif.</div>
+      <div class="example"><span class="before">ne voyager pas</span> → <span class="after">ne pas voyager</span></div>
+    </div>
+    <div class="overview-card">
+      <span class="count">4 erreurs</span>
+      <h3>Le subjonctif : conjugaison et emploi</h3>
+      <div class="cause">Cause : formes irrégulières (être, pouvoir, mettre) mal mémorisées, et subjonctif utilisé même quand le sujet ne change pas.</div>
+      <div class="example"><span class="before">que nous sois</span> → <span class="after">que nous soyons</span></div>
+    </div>
+    <div class="overview-card">
+      <span class="count">3 erreurs</span>
+      <h3>Verbes à préposition figée (dont, douter de, pouvoir + infinitif)</h3>
+      <div class="cause">Cause : les verbes qui se construisent avec « de » (douter de, se souvenir de, être capable de) demandent le pronom « dont », pas « que ».</div>
+      <div class="example"><span class="before">je n'ai pas pu compris</span> → <span class="after">je n'ai pas pu comprendre</span></div>
+    </div>
+    <div class="overview-card">
+      <span class="count">1 erreur</span>
+      <h3>Comparatifs et intensifs</h3>
+      <div class="cause">Cause : structure « tellement... que » / « aussi... que » incomplète ou remplacée par « qui ».</div>
+      <div class="example"><span class="before">assez grand qui ressemble à</span> → <span class="after">tellement grand que ça ressemble à</span></div>
+    </div>
+    <div class="overview-card">
+      <span class="count">6 erreurs</span>
+      <h3>Vocabulaire et expressions figées</h3>
+      <div class="cause">Cause : calques de l'anglais/espagnol (« rendre quelqu'un ennuyé », « se voir comme ») ou confusion de mots proches (globes/globules).</div>
+      <div class="example"><span class="before">les globes rouges</span> → <span class="after">les globules rouges</span></div>
+    </div>
+  </div>
+
+  <div class="aside-note">
+    <strong>Deux expressions notées sans correction claire</strong> — « je m'en suis foutu partout » et « je bute et je rebute » — semblent être des tentatives d'expressions familières plutôt que des erreurs identifiées. Vaut la peine de les vérifier directement avec Alexandre demain plutôt que de les intégrer à l'entraînement.
+  </div>
+
+  <!-- ============ ENTRAÎNEMENT 1 : PRONONCIATION ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Entraînement 1 · Prononciation</span>
+      <span class="pill pill-page">10 erreurs</span>
+    </div>
+    <h2 class="activity-title">Voyelles moyennes et lettres finales muettes</h2>
+    <div class="activity-body">
+      <p>
+        Le point commun de ces dix erreurs : en français, beaucoup de lettres finales ne se
+        prononcent pas, et les voyelles « e » ont plusieurs sons bien distincts
+        (<span class="highlight">e muet, e fermé, e ouvert</span>) — trois sons que l'espagnol
+        ne distingue pas de la même façon. Lis chaque groupe à voix haute, lentement, en
+        pensant au son ciblé.
+      </p>
+    </div>
+    <hr class="divider">
+    <div class="note-box">
+      <strong>Note :</strong> Enregistre-toi si possible sur ces quatre groupes, et repère
+      lesquels restent difficiles pour les travailler avec Alexandre demain.
+    </div>
+  </section>
+  <div class="content-card">
+    <div class="pronon-group">
+      <h4>1. « e » muet en première syllabe (ne pas dire « a » ou « an »)</h4>
+      <ul>
+        <li><code>retenir</code> — je dois retenir ce numéro</li>
+        <li><code>devenir</code> — elle va devenir médecin</li>
+        <li><code>ce que</code> — selon ce que j'ai étudié</li>
+      </ul>
+    </div>
+    <div class="pronon-group">
+      <h4>2. « le » (e muet) vs « les » (e fermé) — bien distinguer singulier et pluriel</h4>
+      <ul>
+        <li><code>le mot</code> / <code>les mots</code></li>
+        <li><code>le phrase</code> n'existe pas → <code>la phrase</code> / <code>les phrases</code></li>
+        <li>c'est le verbe bailler <em>(« c'est » = e ouvert, pas « ce »)</em></li>
+      </ul>
+    </div>
+    <div class="pronon-group">
+      <h4>3. « e » final muet à l'écrit (ne pas prononcer le dernier « e »)</h4>
+      <ul>
+        <li><code>calme</code>, <code>simple</code>, <code>facile</code>, <code>carte</code></li>
+        <li>quelqu'un de très <code>calme</code></li>
+      </ul>
+    </div>
+    <div class="pronon-group">
+      <h4>4. Consonnes finales muettes (-t, -p, -s) et terminaison « -es » du présent</h4>
+      <ul>
+        <li>le sol est <code>couvert</code> de sang <em>(le « t » ne se prononce pas)</em></li>
+        <li>un vieux <code>coup</code> <em>(le « p » ne se prononce pas)</em></li>
+        <li>tu <code>bailles</code>, tu <code>parles</code>, tu <code>manges</code> <em>(le « es » final ne se prononce pas)</em></li>
+        <li>se <code>démerder</code> <em>(le premier « e » n'est pas un « e » espagnol)</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ ENTRAÎNEMENT 2 : NÉGATION / ADVERBES + INFINITIF ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Entraînement 2 · Syntaxe</span>
+      <span class="pill pill-page">3 erreurs</span>
+    </div>
+    <h2 class="activity-title">La négation et les adverbes courts avec l'infinitif</h2>
+    <div class="activity-body">
+      <p>
+        En français, <span class="highlight">« ne pas », « bien », « mal », « jamais »</span>
+        se placent presque toujours <em>avant</em> l'infinitif, jamais après — contrairement à
+        l'espagnol ou à l'anglais. Choisis la phrase correcte pour chaque paire.
+      </p>
+    </div>
+    <hr class="divider">
+    <div class="note-box">
+      <strong>Note :</strong> Si tu hésites, essaie de dire la phrase à voix haute — l'ordre
+      incorrect « sonne » souvent étrange une fois qu'on y est habitué.
+    </div>
+  </section>
+  <div class="content-card">
+    <div id="mcq-g2"></div>
+  </div>
+
+  <!-- ============ ENTRAÎNEMENT 3 : SUBJONCTIF ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Entraînement 3 · Conjugaison</span>
+      <span class="pill pill-page">4 erreurs</span>
+    </div>
+    <h2 class="activity-title">Le subjonctif : conjugaison et emploi</h2>
+    <div class="activity-body">
+      <p>
+        Deux difficultés distinctes ici : les <span class="highlight">formes irrégulières</span>
+        du subjonctif (être, pouvoir, mettre), et le piège d'utiliser « que + subjonctif »
+        alors qu'un infinitif suffit quand le sujet ne change pas.
+      </p>
+    </div>
+    <hr class="divider">
+    <div class="note-box">
+      <strong>Note :</strong> La dernière question de cette série n'est pas une conjugaison —
+      c'est un piège classique. Lis bien la phrase avant de répondre.
+    </div>
+  </section>
+  <div class="content-card">
+    <div id="mcq-g3"></div>
+  </div>
+
+  <!-- ============ ENTRAÎNEMENT 4 : VERBES À PRÉPOSITION FIGÉE ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Entraînement 4 · Grammaire</span>
+      <span class="pill pill-page">3 erreurs</span>
+    </div>
+    <h2 class="activity-title">Verbes à préposition figée : dont, douter de, pouvoir + infinitif</h2>
+    <div class="activity-body">
+      <p>
+        Règle commune : un verbe qui se construit avec <span class="highlight">« de »</span>
+        (douter de, se souvenir de, parler de, être capable de) demande le pronom relatif
+        <span class="highlight">« dont »</span>, pas « que ». Et après « pouvoir », on garde
+        toujours l'infinitif, jamais le participe passé. Écris ta correction, puis vérifie.
+      </p>
+    </div>
+    <hr class="divider">
+    <div class="note-box">
+      <strong>Note :</strong> Écris ta réponse avant de cliquer sur « Vérifier » — la
+      comparaison est plus utile si tu as vraiment essayé d'abord.
+    </div>
+  </section>
+  <div class="content-card">
+    <div id="reveal-g4"></div>
+  </div>
+
+  <!-- ============ ENTRAÎNEMENT 5 : COMPARATIFS ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Entraînement 5 · Syntaxe</span>
+      <span class="pill pill-page">1 erreur</span>
+    </div>
+    <h2 class="activity-title">Comparatifs et intensifs : tellement... que / aussi... que</h2>
+    <div class="activity-body">
+      <p>
+        Pour exprimer une conséquence ou une comparaison forte, le français a besoin de la
+        paire complète <span class="highlight">« tellement... que »</span> ou
+        <span class="highlight">« aussi... que »</span> — « qui » ne fonctionne pas dans cette
+        structure.
+      </p>
+    </div>
+    <hr class="divider">
+    <div class="note-box">
+      <strong>Note :</strong> « si... que » est une variante correcte de « tellement... que »
+      — les deux réponses seront acceptées.
+    </div>
+  </section>
+  <div class="content-card">
+    <div id="reveal-g5"></div>
+  </div>
+
+  <!-- ============ ENTRAÎNEMENT 6 : VOCABULAIRE ============ -->
+  <section class="activity-card">
+    <div class="badge-row-top">
+      <span class="pill pill-activity">Entraînement 6 · Vocabulaire</span>
+      <span class="pill pill-page">6 erreurs</span>
+    </div>
+    <h2 class="activity-title">Vocabulaire et expressions figées</h2>
+    <div class="activity-body">
+      <p>
+        Ce groupe rassemble des <span class="highlight">calques</span> de l'anglais ou de
+        l'espagnol (dire mot à mot ce qu'on dirait dans l'autre langue) et des confusions
+        entre mots proches. Choisis l'expression correcte.
+      </p>
+    </div>
+    <hr class="divider">
+    <div class="note-box">
+      <strong>Note :</strong> Pour chaque erreur, demande-toi : « est-ce que je traduis
+      littéralement de l'anglais ou de l'espagnol ici ? » — c'est souvent la source du calque.
+    </div>
+  </section>
+  <div class="content-card">
+    <div id="mcq-g6"></div>
+  </div>
+
+  <!-- ============ AVANT DEMAIN ============ -->
+  <section class="before-card">
+    <h2>Avant demain</h2>
+    <p>
+      Note ci-dessous les catégories qui restent difficiles après cet entraînement, pour en
+      discuter avec Alexandre pendant la leçon.
+    </p>
+    <textarea placeholder="Ex. : le subjonctif de pouvoir, la place de « bien » avec l'infinitif..."></textarea>
+  </section>
+
+</div>
+
+<script>
+  // ================= MOTEUR QCM (Entraînements 2, 3, 6) =================
+  function buildMCQ(containerId, items) {
+    const container = document.getElementById(containerId);
+    items.forEach((item) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'mcq-item';
+
+      const prompt = document.createElement('p');
+      prompt.className = 'mcq-prompt';
+      prompt.textContent = item.prompt;
+      wrap.appendChild(prompt);
+
+      const choicesEl = document.createElement('div');
+      choicesEl.className = 'choices';
+
+      const feedback = document.createElement('div');
+      feedback.className = 'mcq-feedback';
+
+      let answered = false;
+      item.choices.forEach((choiceText, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = choiceText;
+        btn.addEventListener('click', () => {
+          if (answered) return;
+          answered = true;
+          const allBtns = choicesEl.querySelectorAll('.choice-btn');
+          allBtns.forEach((b, bi) => {
+            b.disabled = true;
+            if (bi === item.correct) b.classList.add('correct');
+          });
+          if (i === item.correct) {
+            feedback.textContent = '✔ Correct !' + (item.note ? ' ' + item.note : '');
+          } else {
+            btn.classList.add('incorrect');
+            feedback.textContent = '✘ La bonne réponse était : « ' + item.choices[item.correct] + ' »' + (item.note ? ' — ' + item.note : '');
+          }
+        });
+        choicesEl.appendChild(btn);
+      });
+
+      wrap.appendChild(choicesEl);
+      wrap.appendChild(feedback);
+      container.appendChild(wrap);
+    });
+  }
+
+  // ================= MOTEUR "VÉRIFIER MA RÉPONSE" (Entraînements 4, 5) =================
+  function buildReveal(containerId, items) {
+    const container = document.getElementById(containerId);
+    items.forEach((item) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'reveal-item';
+
+      const prompt = document.createElement('p');
+      prompt.className = 'reveal-prompt';
+      prompt.textContent = item.prompt;
+      wrap.appendChild(prompt);
+
+      const textarea = document.createElement('textarea');
+      textarea.placeholder = 'Écris ta réponse ici...';
+      wrap.appendChild(textarea);
+
+      const checkBtn = document.createElement('button');
+      checkBtn.className = 'ctrl primary';
+      checkBtn.textContent = 'Vérifier ma réponse';
+      wrap.appendChild(checkBtn);
+
+      const answerBox = document.createElement('div');
+      answerBox.className = 'reveal-answer';
+      answerBox.innerHTML = '<strong>Réponse modèle :</strong> ' + item.answer;
+      wrap.appendChild(answerBox);
+
+      const rateRow = document.createElement('div');
+      rateRow.className = 'self-rate';
+      const okBtn = document.createElement('button');
+      okBtn.className = 'ctrl';
+      okBtn.textContent = '✔ J\'ai réussi';
+      const retryBtn = document.createElement('button');
+      retryBtn.className = 'ctrl';
+      retryBtn.textContent = '🔁 À revoir';
+      okBtn.addEventListener('click', () => {
+        okBtn.classList.add('picked-ok');
+        retryBtn.classList.remove('picked-retry');
+      });
+      retryBtn.addEventListener('click', () => {
+        retryBtn.classList.add('picked-retry');
+        okBtn.classList.remove('picked-ok');
+      });
+      rateRow.appendChild(okBtn);
+      rateRow.appendChild(retryBtn);
+      wrap.appendChild(rateRow);
+
+      checkBtn.addEventListener('click', () => {
+        answerBox.style.display = 'block';
+        rateRow.style.display = 'flex';
+        checkBtn.style.display = 'none';
+      });
+
+      container.appendChild(wrap);
+    });
+  }
+
+  // ---- Entraînement 2 : négation / adverbes + infinitif ----
+  buildMCQ('mcq-g2', [
+    { prompt: "Quelle phrase est correcte ?", choices: ["Je dois ne voyager pas cette semaine.", "Je dois ne pas voyager cette semaine."], correct: 1 },
+    { prompt: "Quelle phrase est correcte ?", choices: ["Il a décidé de ne pas partir.", "Il a décidé ne partir pas."], correct: 0 },
+    { prompt: "Quelle phrase est correcte ?", choices: ["Elle va bien moins marcher après l'opération.", "Elle va moins bien marcher après l'opération."], correct: 1 },
+    { prompt: "Quelle phrase est correcte ?", choices: ["La machine ne va pas bien fonctionner.", "La machine ne va fonctionner pas bien."], correct: 0 },
+    { prompt: "Quelle phrase est correcte ?", choices: ["Je veux ne jamais oublier ce voyage.", "Je veux ne oublier jamais ce voyage."], correct: 0 }
+  ]);
+
+  // ---- Entraînement 3 : subjonctif ----
+  buildMCQ('mcq-g3', [
+    { prompt: "Il faut que nous ___ à l'heure. (être)", choices: ["sois", "soyons", "soit", "êtes"], correct: 1 },
+    { prompt: "Je doute qu'il ___ venir demain. (pouvoir)", choices: ["peut", "pourra", "puisse", "pouvait"], correct: 2 },
+    { prompt: "Où veux-tu que je le ___ ? (mettre)", choices: ["mets", "mettre", "mis", "mette"], correct: 3 },
+    { prompt: "Il faudra que tu ___ patient. (être)", choices: ["es", "serais", "sois", "soit"], correct: 2 },
+    { prompt: "Je veux ___ capable de le comprendre.", choices: ["que je sois", "être", "que je suis", "d'être"], correct: 1, note: "même sujet dans les deux parties de la phrase → infinitif, pas subjonctif." }
+  ]);
+
+  // ---- Entraînement 6 : vocabulaire ----
+  buildMCQ('mcq-g6', [
+    { prompt: "Elle a décidé de lui ___ une question difficile.", choices: ["poser", "avoir", "faire", "prendre"], correct: 0 },
+    { prompt: "Les médecins ont vérifié le taux de ___ dans son sang.", choices: ["globes", "boules", "globules", "cellules"], correct: 2 },
+    { prompt: "Personne ne sait exactement ce qui ___ hier soir.", choices: ["a passé", "a arrivé", "s'est passé", "était passé"], correct: 2 },
+    { prompt: "Avec cette barbe, il ___ étonnamment à son grand-père.", choices: ["se voit", "paraît", "regarde", "ressemble"], correct: 3 },
+    { prompt: "Ce film est vraiment ___, on ne s'ennuie pas une seconde.", choices: ["divertant", "divertissement", "divertisseur", "divertissant"], correct: 3 }
+  ]);
+
+  // ---- Entraînement 4 : dont / douter de / pouvoir + infinitif ----
+  buildReveal('reveal-g4', [
+    { prompt: "Corrige : « C'est le film que tout le monde parle. »", answer: "C'est le film dont tout le monde parle. (parler DE quelque chose → dont)" },
+    { prompt: "Corrige : « C'est une chose que je me souviens bien. »", answer: "C'est une chose dont je me souviens bien. (se souvenir DE quelque chose → dont)" },
+    { prompt: "Corrige : « Je n'ai jamais douté que ses capacités. »", answer: "Je n'ai jamais douté de ses capacités. (douter DE quelque chose)" },
+    { prompt: "Corrige : « Elle n'a pas pu résolu le problème. »", answer: "Elle n'a pas pu résoudre le problème. (pouvoir + infinitif, jamais le participe passé)" }
+  ]);
+
+  // ---- Entraînement 5 : comparatifs ----
+  buildReveal('reveal-g5', [
+    { prompt: "Complète : Cette montagne est ______ haute ______ on ne voit pas le sommet. (tellement... que)", answer: "Cette montagne est tellement haute qu'on ne voit pas le sommet." },
+    { prompt: "Complète : Ce gâteau est ______ sucré ______ le premier que tu as fait. (aussi... que)", answer: "Ce gâteau est aussi sucré que le premier que tu as fait." },
+    { prompt: "Corrige : « C'est assez difficile qui personne n'a réussi. »", answer: "C'est tellement difficile que personne n'a réussi. (ou : C'est si difficile que personne n'a réussi.)" }
+  ]);
+</script>
+</body>
+</html>
