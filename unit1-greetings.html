@@ -256,6 +256,73 @@
     background: var(--sage);
   }
 
+  .unlock-box {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--paper-line);
+  }
+
+  .unlock-box label {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .unlock-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .unlock-input {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border: 1.5px solid var(--paper-line);
+    border-radius: 8px;
+    color: var(--ink);
+    background: #fff;
+    width: 220px;
+    max-width: 100%;
+  }
+
+  .unlock-btn {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    background: var(--sage-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .unlock-btn:hover {
+    background: var(--sage);
+  }
+
+  .unlock-msg {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+  }
+
+  .unlock-msg.error {
+    color: var(--coral);
+    display: block;
+  }
+
+  .unlock-msg.success {
+    color: #1e7d4d;
+    display: block;
+  }
+
   .quiz-box {
     background: var(--card-bg);
     border: 1px solid var(--paper-line);
@@ -721,21 +788,21 @@
 
     <div class="activity-section" id="activity-2">
       <p class="activity-label">Activity 2</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Repeat</h2>
-      <p class="activity-instruction">Listen and repeat. Pay attention to whether the greeting is formal or informal.</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Practice</h2>
+      <p class="activity-instruction">Pay attention to the way the sound <span class="ipa">/ʊ/</span> is made. Study the new vocabulary. Practice makes perfect.</p>
 
-      <div class="wordwall-wrap">
-        <iframe style="max-width:100%" src="https://wordwall.net/embed/b542f98fe5b7409da6f23879bd237845?themeId=68&templateId=70&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/-9G0Me8Vt2I?si=OeoVljOkWa6Lb3Cf" title="Activity 2: the /ʊ/ sound" allowfullscreen></iframe>
       </div>
     </div>
 
     <div class="activity-section" id="activity-3">
       <p class="activity-label">Activity 3</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Practice</h2>
-      <p class="activity-instruction">Pay attention to the way the sound <span class="ipa">/ʊ/</span> is made. Study the new vocabulary. Practice makes perfect.</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Repeat</h2>
+      <p class="activity-instruction">Listen and repeat. Pay attention to whether the greeting is formal or informal.</p>
 
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/-9G0Me8Vt2I?si=OeoVljOkWa6Lb3Cf" title="Activity 3: the /ʊ/ sound" allowfullscreen></iframe>
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/b542f98fe5b7409da6f23879bd237845?themeId=68&templateId=70&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -877,21 +944,21 @@
 
     <div class="activity-section" id="activity-8">
       <p class="activity-label">Activity 8</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Play and Learn</h2>
-      <p class="activity-instruction">Play the flashcard game to review the ways to say goodbye from this unit.</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Practice</h2>
+      <p class="activity-instruction">Pay attention to the way the sound <span class="ipa">/i/</span> is made. Study the new vocabulary. Practice makes perfect.</p>
 
-      <div class="wordwall-wrap">
-        <iframe style="max-width:100%" src="https://wordwall.net/embed/070ce0b3ee254f248bf7d21dc8b01938?themeId=64&templateId=76&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/vzDwAapy7Rc?si=7LFfORHhOZfkz7T5" title="Activity 8: the /i/ sound" allowfullscreen></iframe>
       </div>
     </div>
 
     <div class="activity-section" id="activity-9">
       <p class="activity-label">Activity 9</p>
-      <h2 class="activity-title" style="margin-bottom: 16px;">Listen and Practice</h2>
-      <p class="activity-instruction">Pay attention to the way the sound <span class="ipa">/i/</span> is made. Study the new vocabulary. Practice makes perfect.</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Play and Learn</h2>
+      <p class="activity-instruction">Play the flashcard game to review the ways to say goodbye from this unit.</p>
 
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/vzDwAapy7Rc?si=7LFfORHhOZfkz7T5" title="Activity 9: the /i/ sound" allowfullscreen></iframe>
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/070ce0b3ee254f248bf7d21dc8b01938?themeId=64&templateId=76&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -1085,7 +1152,20 @@
         Congratulations! You've completed Lesson 1. There are no more activities in this lesson. If you scored 80% or higher on the self-assessment, you're ready to move on to Lesson 2. If not, review the activities above and try the self-assessment again before continuing.
         <span class="es">¡Felicidades! Has completado la Lección 1. No hay más actividades en esta lección. Si obtuviste un 80% o más en la autoevaluación, estás listo/a para continuar con la Lección 2. Si no, repasa las actividades anteriores e intenta la autoevaluación de nuevo antes de continuar.</span>
       </p>
-      <a class="lesson-end-link" href="unit2-introductions.html">Continue to Lesson 2 →</a>
+      <a class="lesson-end-link" id="lesson2Link" href="unit2-introductions.html" style="display:none;">Continue to Lesson 2 →</a>
+
+      <div class="unlock-box" id="unlockBox">
+        <label for="unlockInput">
+          To continue to Lesson 2, enter the code your professor gave you after your check-in meeting.
+          <span class="es" style="display:block; margin-top:4px;">Para continuar a la Lección 2, ingresa el código que tu profesor te dio después de tu reunión de seguimiento.</span>
+        </label>
+        <div class="unlock-row">
+          <input type="text" id="unlockInput" class="unlock-input" placeholder="Enter code" autocomplete="off">
+          <button class="unlock-btn" id="unlockBtn">Unlock Lesson 2</button>
+        </div>
+        <p class="unlock-msg" id="unlockMsg"></p>
+      </div>
+
       <p class="signature">— Dr. Avellaneda</p>
     </div>
 
@@ -1211,6 +1291,44 @@
     });
 
     quiz9Load();
+
+    // ---- Lesson 2 unlock code gate ----
+    // IMPORTANT: change this to the real code before publishing.
+    // This is a client-side check only (visible in page source) — it stops
+    // casual skipping ahead, but is not a secure access control.
+    const LESSON2_CODE = "REPLACE-WITH-YOUR-CODE";
+
+    const unlockInput = document.getElementById('unlockInput');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const unlockMsg = document.getElementById('unlockMsg');
+    const unlockBox = document.getElementById('unlockBox');
+    const lesson2Link = document.getElementById('lesson2Link');
+
+    function tryUnlock() {
+      const entered = unlockInput.value.trim().toLowerCase();
+      const correct = LESSON2_CODE.trim().toLowerCase();
+
+      if (entered.length === 0) {
+        unlockMsg.textContent = "Please enter a code.";
+        unlockMsg.className = 'unlock-msg error';
+        return;
+      }
+
+      if (entered === correct) {
+        unlockMsg.textContent = "Code accepted! You may continue to Lesson 2.";
+        unlockMsg.className = 'unlock-msg success';
+        unlockBox.style.display = 'none';
+        lesson2Link.style.display = 'inline-block';
+      } else {
+        unlockMsg.textContent = "That code isn't correct. Check with your professor and try again.";
+        unlockMsg.className = 'unlock-msg error';
+      }
+    }
+
+    unlockBtn.addEventListener('click', tryUnlock);
+    unlockInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') tryUnlock();
+    });
   </script>
 
 </body>
