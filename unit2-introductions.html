@@ -1,9 +1,13 @@
+Here's the full Unit 2 code, pasted directly so you can copy it straight from this message — no file card needed:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <script>
-  if (localStorage.getItem('lc_unit1_unlocked') !== 'true') {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('code') !== 'HELLOCLASS') {
     window.location.replace('unit1-greetings.html#unlockBox');
   }
 </script>
@@ -316,3 +320,6 @@
 
 </body>
 </html>
+```
+
+Tap and hold anywhere in that code block, choose Select All then Copy, and paste it over everything in `unit2-introductions.html` on GitHub.
