@@ -1,27 +1,27 @@
-<script>
-  if (localStorage.getItem('lc_unit1_unlocked') !== 'true') {
-    window.location.replace('unit1-greetings.html');
-  }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+  if (localStorage.getItem('lc_unit1_unlocked') !== 'true') {
+    window.location.replace('unit1-greetings.html#unlockBox');
+  }
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Language Clinic — Lesson 2: Introducing Oneself and Others</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1e2a38; --sage: #4a6f92; --sage-dark: #23425e;
-    --paper: #eef3f7; --paper-line: #c9d9e3; --coral: #b6432f; --slate: #56636f;
+    --ink: #0F2A44; --sage: #F2A93B; --sage-dark: #C97F16;
+    --paper: #E1EBF6; --paper-line: #B9D0E8; --coral: #b6432f; --slate: #3A4E63;
     --card-bg: #ffffff;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--paper); color: var(--ink);
-    font-family: 'Public Sans', -apple-system, sans-serif; line-height: 1.55;
+    font-family: 'Work Sans', -apple-system, sans-serif; line-height: 1.55;
   }
   a { color: inherit; }
   a:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
@@ -29,17 +29,16 @@
   .chart-meta {
     display: flex; justify-content: space-between; align-items: center;
     max-width: 760px; margin: 0 auto; padding: 18px 24px 0 24px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
-    letter-spacing: 0.04em; color: var(--slate); text-transform: uppercase;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.04em;
+    font-size: 0.72rem; color: var(--slate); text-transform: uppercase;
   }
   .chart-meta a { text-decoration: none; border-bottom: 1px solid var(--paper-line); }
 
   .wrap { max-width: 760px; margin: 0 auto; padding: 22px 24px 70px 24px; }
 
   .pretitle {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.08em;
     font-size: 0.72rem;
-    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--sage-dark);
     margin: 6px 0 2px 0;
@@ -76,10 +75,9 @@
   }
 
   .intro-images figcaption {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.03em;
     font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
     color: var(--slate);
     text-align: center;
     margin-top: 6px;
@@ -92,9 +90,8 @@
   }
 
   .section-label {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.06em;
     font-size: 0.72rem;
-    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--sage-dark);
     margin: 0 0 16px 0;
@@ -119,10 +116,9 @@
   }
 
   .objective-num {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
     font-size: 0.85rem;
     color: var(--coral);
-    font-weight: 500;
   }
 
   .objective p {
@@ -131,7 +127,7 @@
   }
 
   .ipa {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
     background: var(--paper);
     border-radius: 4px;
     padding: 1px 6px;
@@ -144,9 +140,8 @@
   }
 
   .activity-label {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.06em;
     font-size: 0.72rem;
-    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--sage-dark);
     margin: 0 0 4px 0;
@@ -214,14 +209,14 @@
   }
 
   .coming-next span {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
     font-size: 0.78rem;
     color: var(--slate);
   }
 
   .back-link {
     display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
     font-size: 0.8rem;
     color: var(--sage-dark);
     text-decoration: none;
@@ -234,7 +229,7 @@
     max-width: 760px;
     margin: 0 auto;
     padding: 24px 24px 40px 24px;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
     font-size: 0.7rem;
     color: var(--slate);
     border-top: 1px solid var(--paper-line);
