@@ -1318,6 +1318,7 @@
         unlockMsg.textContent = "Code accepted! You may continue to Lesson 2.";
         unlockMsg.className = 'unlock-msg success';
         unlockBox.style.display = 'none';
+        lesson2Link.href = 'unit2-introductions.html?code=' + encodeURIComponent(LESSON2_CODE);
         lesson2Link.style.display = 'inline-block';
       } else {
         unlockMsg.textContent = "That code isn't correct. Check with your professor and try again.";
