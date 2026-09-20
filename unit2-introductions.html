@@ -955,4 +955,211 @@
     { audio: "Are you from Peru?", options: ["Are you from Peru?", "Is you from Peru?", "Am you from Peru?"], correct: 0, explanation: "\"You\" takes \"are,\" not \"is\" or \"am.\"" },
     { audio: "This is my classmate.", options: ["This is my classmate.", "This is my roommate.", "This is my client."], correct: 0, explanation: "The speaker said \"classmate\" — listen for the specific relationship word." },
     { audio: "I'd like you to meet my colleague.", options: ["I'd like you to meet my colleague.", "I'd like you to meet my neighbor.", "I'd like you to meet my cousin."], correct: 0, explanation: "The speaker said \"colleague,\" a formal way to refer to a coworker." },
-    { audio: "It's nice to make your acquaintance.", options: ["It's nice
+    { audio: "It's nice to make your acquaintance.", options: ["It's nice to make your acquaintance.", "It's nice to make your appearance.", "It's time to make your acquaintance."], correct: 0, explanation: "The speaker said \"nice... acquaintance,\" a formal introduction phrase." },
+    { audio: "This is a pleasure.", options: ["This is a pleasure.", "That was a pleasure.", "This is my pleasure."], correct: 0, explanation: "The speaker said \"This is a pleasure,\" in the present tense with \"a,\" not \"my.\"" },
+    { audio: "I am kind of shy.", options: ["I am kind of shy.", "I am quite shy.", "I am pretty shy."], correct: 0, explanation: "The speaker said \"kind of shy\" — listen for that specific phrase." },
+    { audio: "Hi, this is Mike, my brother.", options: ["Hi, this is Mike, my brother.", "Hi, this is Mike, my partner.", "Hi, that is Mike, my brother."], correct: 0, explanation: "The speaker said \"this,\" with the /ð/ sound, and \"brother\" as the relationship." }
+  ];
+
+  var Q13_TOTAL = 15;
+  var Q13_PASS = 0.8;
+  var q13Order = [];
+  var q13Current = 0;
+  var q13Score = 0;
+  var q13Answered = false;
+  var q13Results = [];
+
+  function q13Shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function q13Speak(text) {
+    if (!('speechSynthesis' in window)) {
+      alert('Sorry, your browser does not support text-to-speech. Please try a different browser, like Chrome or Safari.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    utter.rate = 0.92;
+    utter.volume = 1;
+    setTimeout(function() {
+      window.speechSynthesis.speak(utter);
+    }, 50);
+  }
+
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = function() {
+      window.speechSynthesis.getVoices();
+    };
+  }
+
+  var q13Screen = document.getElementById('q13-screen');
+  var q13Result = document.getElementById('q13-result');
+  var q13CountEl = document.getElementById('q13-count');
+  var q13Progress = document.getElementById('q13-progress');
+  var q13PlayBtn = document.getElementById('q13-play-btn');
+  var q13OptionsEl = document.getElementById('q13-options');
+  var q13FeedbackEl = document.getElementById('q13-feedback');
+  var q13NextBtn = document.getElementById('q13-next-btn');
+  var q13ScoreEl = document.getElementById('q13-score');
+  var q13MessageEl = document.getElementById('q13-message');
+  var q13RetryBtn = document.getElementById('q13-retry-btn');
+  var q13ReviewEl = document.getElementById('q13-review');
+
+  function q13Init() {
+    q13Order = q13Shuffle(Q13_BANK);
+    q13Current = 0;
+    q13Score = 0;
+    q13Results = [];
+    q13Screen.style.display = 'block';
+    q13Result.style.display = 'none';
+    q13ReviewEl.style.display = 'none';
+    q13ReviewEl.innerHTML = '';
+    q13RetryBtn.style.display = 'none';
+    q13LoadQuestion();
+  }
+
+  function q13LoadQuestion() {
+    q13Answered = false;
+    var q = q13Order[q13Current];
+    q13CountEl.textContent = 'Question ' + (q13Current + 1) + ' of ' + Q13_TOTAL;
+    q13Progress.style.width = ((q13Current / Q13_TOTAL) * 100) + '%';
+    q13OptionsEl.innerHTML = '';
+    q13FeedbackEl.classList.remove('show', 'correct', 'incorrect');
+    q13NextBtn.style.display = 'none';
+
+    var shuffledOptions = q13Shuffle(q.options.map(function(text, idx) {
+      return { text: text, isCorrect: idx === q.correct };
+    }));
+
+    shuffledOptions.forEach(function(opt) {
+      var btn = document.createElement('button');
+      btn.className = 'q13-option';
+      btn.textContent = opt.text;
+      btn.addEventListener('click', function() { q13Select(opt.isCorrect, opt.text, q, btn); });
+      q13OptionsEl.appendChild(btn);
+    });
+  }
+
+  q13PlayBtn.addEventListener('click', function() {
+    q13Speak(q13Order[q13Current].audio);
+  });
+
+  function q13Select(isCorrect, chosenText, q, clickedBtn) {
+    if (q13Answered) return;
+    q13Answered = true;
+    if (isCorrect) q13Score++;
+
+    q13Results.push({
+      audio: q.audio,
+      chosen: chosenText,
+      correct: q.options[q.correct],
+      wasCorrect: isCorrect,
+      explanation: q.explanation
+    });
+
+    var allBtns = q13OptionsEl.querySelectorAll('.q13-option');
+    allBtns.forEach(function(b) {
+      b.disabled = true;
+      if (b.textContent === q.options[q.correct]) b.classList.add('correct');
+      if (b === clickedBtn && !isCorrect) b.classList.add('incorrect');
+    });
+
+    q13FeedbackEl.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+    q13FeedbackEl.innerHTML = '<strong>' + (isCorrect ? 'Correct!' : 'Not quite.') + '</strong>' + q.explanation;
+
+    q13NextBtn.style.display = 'inline-block';
+    q13NextBtn.textContent = (q13Current === Q13_TOTAL - 1) ? 'See Results →' : 'Next →';
+  }
+
+  q13NextBtn.addEventListener('click', function() {
+    q13Current++;
+    if (q13Current < Q13_TOTAL) {
+      q13LoadQuestion();
+    } else {
+      q13ShowResults();
+    }
+  });
+
+  function q13ShowResults() {
+    q13Screen.style.display = 'none';
+    q13Result.style.display = 'block';
+    var pct = q13Score / Q13_TOTAL;
+    q13ScoreEl.textContent = q13Score + ' / ' + Q13_TOTAL;
+
+    if (pct >= Q13_PASS) {
+      q13MessageEl.textContent = 'You passed with ' + Math.round(pct * 100) + '%! The full answer key is below.';
+      q13RetryBtn.style.display = 'none';
+      q13ReviewEl.style.display = 'block';
+      q13ReviewEl.innerHTML = '';
+      q13Results.forEach(function(r, i) {
+        var div = document.createElement('div');
+        div.className = 'q13-review-item';
+        div.innerHTML = '<span class="q13-review-num">Q' + (i + 1) + '.</span> "' + r.audio + '"<br>' +
+          'Correct answer: <span class="q13-review-correct">' + r.correct + '</span><br>' +
+          r.explanation;
+        q13ReviewEl.appendChild(div);
+      });
+    } else {
+      q13MessageEl.textContent = 'You scored ' + Math.round(pct * 100) + '%. You need at least 80% to unlock the full answer key. Review the lesson and try again — the questions will be in a new order.';
+      q13RetryBtn.style.display = 'inline-block';
+      q13ReviewEl.style.display = 'none';
+    }
+  }
+
+  q13RetryBtn.addEventListener('click', function() {
+    q13Init();
+    document.getElementById('q13-screen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  q13Init();
+
+  // ---- Lesson 3 unlock code gate ----
+  // IMPORTANT: change this to the real code before publishing.
+  // This is a client-side check only (visible in page source) — it stops
+  // casual skipping ahead, but is not a secure access control.
+  const LESSON3_CODE = "MEETCLASS";
+
+  const unlockInput = document.getElementById('unlockInput');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const unlockMsg = document.getElementById('unlockMsg');
+  const unlockBox = document.getElementById('unlockBox');
+  const lesson3Link = document.getElementById('lesson3Link');
+
+  function tryUnlock() {
+    const entered = unlockInput.value.trim().toLowerCase();
+    const correct = LESSON3_CODE.trim().toLowerCase();
+
+    if (entered.length === 0) {
+      unlockMsg.textContent = "Please enter a code.";
+      unlockMsg.className = 'unlock-msg error';
+      return;
+    }
+
+    if (entered === correct) {
+      unlockMsg.textContent = "Code accepted! You may continue to Lesson 3.";
+      unlockMsg.className = 'unlock-msg success';
+      unlockBox.style.display = 'none';
+      lesson3Link.href = 'unit3-origin.html?code=' + encodeURIComponent(LESSON3_CODE);
+      lesson3Link.style.display = 'inline-block';
+    } else {
+      unlockMsg.textContent = "That code isn't correct. Check with your professor and try again.";
+      unlockMsg.className = 'unlock-msg error';
+    }
+  }
+
+  unlockBtn.addEventListener('click', tryUnlock);
+  unlockInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+</script>
+
+</body>
+</html>
