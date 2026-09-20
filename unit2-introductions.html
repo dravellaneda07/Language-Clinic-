@@ -443,6 +443,61 @@
     font-weight: 600;
   }
 
+  .q13-instruction {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+
+  .q13-instruction .es {
+    display: block;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--slate);
+    font-size: 0.85em;
+    margin-top: 2px;
+  }
+
+  .q13-image-wrap {
+    text-align: center;
+    margin: 0 0 20px;
+  }
+
+  .q13-image-wrap img {
+    max-width: 220px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--paper-line);
+  }
+
+  .q13-option-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .q13-option-row .q13-option {
+    flex: 1;
+  }
+
+  .q13-mini-play {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--sage-dark);
+    color: #fff;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .q13-mini-play:hover { background: var(--sage); }
+
   .coming-next {
     margin-top: 44px;
     padding-top: 28px;
@@ -886,16 +941,17 @@
       <p class="activity-label">Activity 13</p>
       <h2 class="activity-title" style="margin-bottom: 16px;">Final Quiz: Show What You Know</h2>
       <p class="activity-instruction">
-        Listen to each sentence, then choose the option that matches what you heard. Answer all 15 questions — you'll get feedback right away if you miss one. You need at least 80% to unlock the full answer key at the end.
-        <span class="es">Escucha cada oración y elige la opción que coincide con lo que escuchaste. Responde las 15 preguntas — recibirás retroalimentación de inmediato si te equivocas. Necesitas al menos 80% para desbloquear la clave de respuestas completa al final.</span>
+        Complete each of the 10 items below — some ask you to listen and choose the best response, some ask you to choose the option that does not belong, and one asks you to identify a picture. Read each instruction carefully. You need at least 80% to unlock the full answer key at the end.
+        <span class="es">Completa cada uno de los 10 ejercicios a continuación — algunos te piden escuchar y elegir la mejor respuesta, otros te piden elegir la opción que no corresponde, y uno te pide identificar una imagen. Lee cada instrucción con atención. Necesitas al menos 80% para desbloquear la clave de respuestas completa al final.</span>
       </p>
 
       <div class="q13-box">
         <div id="q13-screen">
           <div class="q13-progress-track"><div class="q13-progress-fill" id="q13-progress"></div></div>
           <div class="q13-count" id="q13-count"></div>
-          <p class="q13-prompt">Listen to the sentence, then select the option that matches what you heard.</p>
-          <button class="q13-play-btn" id="q13-play-btn">🔊 Play sentence</button>
+          <p class="q13-instruction" id="q13-instruction"></p>
+          <div class="q13-image-wrap" id="q13-image-wrap" style="display:none;"></div>
+          <button class="q13-play-btn" id="q13-play-btn" style="display:none;">🔊 Play sentence</button>
           <div class="q13-options" id="q13-options"></div>
           <div class="q13-feedback" id="q13-feedback"></div>
           <button class="q13-next-btn" id="q13-next-btn" style="display:none;">Next →</button>
@@ -944,24 +1000,88 @@
 
 <script>
   var Q13_BANK = [
-    { audio: "Hi, I'm Laura.", options: ["Hi, I'm Laura.", "Hi, I'm Nora.", "Hi, I'm Flora."], correct: 0, explanation: "The speaker said \"Laura\" — listen for the initial /l/ sound, different from \"Nora\" (/n/) or \"Flora\" (/fl/)." },
-    { audio: "Nice to meet you.", options: ["Nice to meet you.", "Nice to see you.", "Nice to greet you."], correct: 0, explanation: "The speaker said \"meet,\" not \"see\" or \"greet\" — listen closely to the verb." },
-    { audio: "This is my friend, Carlos.", options: ["This is my friend, Carlos.", "This is my friend, Marcos.", "This is my teacher, Carlos."], correct: 0, explanation: "The speaker said \"friend\" and \"Carlos\" — both the relationship word and the name matter." },
-    { audio: "I am a student.", options: ["I am a student.", "You are a student.", "She is a student."], correct: 0, explanation: "The speaker used \"I am,\" the first-person form of the verb to be." },
-    { audio: "She is my sister.", options: ["She is my sister.", "He is my sister.", "They are my sister."], correct: 0, explanation: "The speaker used \"She is,\" matching a female subject with the correct form of to be." },
-    { audio: "We are from Mexico.", options: ["We are from Mexico.", "We is from Mexico.", "We am from Mexico."], correct: 0, explanation: "\"We\" takes \"are,\" not \"is\" or \"am\" — that's the correct form of to be for a plural subject." },
-    { audio: "This is nice.", options: ["This is nice.", "That is nice.", "This is mine."], correct: 0, explanation: "The speaker said \"This,\" not \"That\" — listen for the /ð/ sound at the very start of the word." },
-    { audio: "My name is Diane.", options: ["My name is Diane.", "My name is Dean.", "My name is Dan."], correct: 0, explanation: "The speaker said \"Diane,\" with the /aɪ/ diphthong sound in the first syllable." },
-    { audio: "Are you from Peru?", options: ["Are you from Peru?", "Is you from Peru?", "Am you from Peru?"], correct: 0, explanation: "\"You\" takes \"are,\" not \"is\" or \"am.\"" },
-    { audio: "This is my classmate.", options: ["This is my classmate.", "This is my roommate.", "This is my client."], correct: 0, explanation: "The speaker said \"classmate\" — listen for the specific relationship word." },
-    { audio: "I'd like you to meet my colleague.", options: ["I'd like you to meet my colleague.", "I'd like you to meet my neighbor.", "I'd like you to meet my cousin."], correct: 0, explanation: "The speaker said \"colleague,\" a formal way to refer to a coworker." },
-    { audio: "It's nice to make your acquaintance.", options: ["It's nice to make your acquaintance.", "It's nice to make your appearance.", "It's time to make your acquaintance."], correct: 0, explanation: "The speaker said \"nice... acquaintance,\" a formal introduction phrase." },
-    { audio: "This is a pleasure.", options: ["This is a pleasure.", "That was a pleasure.", "This is my pleasure."], correct: 0, explanation: "The speaker said \"This is a pleasure,\" in the present tense with \"a,\" not \"my.\"" },
-    { audio: "I am kind of shy.", options: ["I am kind of shy.", "I am quite shy.", "I am pretty shy."], correct: 0, explanation: "The speaker said \"kind of shy\" — listen for that specific phrase." },
-    { audio: "Hi, this is Mike, my brother.", options: ["Hi, this is Mike, my brother.", "Hi, this is Mike, my partner.", "Hi, that is Mike, my brother."], correct: 0, explanation: "The speaker said \"this,\" with the /ð/ sound, and \"brother\" as the relationship." }
+    {
+      type: "response",
+      prompt: "Good morning, class. I am Dr. Avellaneda.",
+      options: ["Good afternoon. I'm Daphne.", "Good morning, doctor. It's a pleasure to meet you.", "I am Eric.", "I am Charlie's housekeeper."],
+      correct: 1,
+      explanation: "\"Dr.\" and \"class\" signal a formal setting — \"It's a pleasure to meet you\" matches that formality better than the other options."
+    },
+    {
+      type: "response",
+      prompt: "What is your name?",
+      options: ["It's Avellaneda.", "It's John.", "It's nice to meet you.", "I am Charlie's brother."],
+      correct: 1,
+      explanation: "The question asks for a name, and \"It's John\" answers it directly with a first name."
+    },
+    {
+      type: "oddaudio",
+      instruction: "Listen to each word, then choose the option that does not belong.",
+      instructionEs: "Escucha cada palabra y selecciona la opción que no corresponde.",
+      options: ["It's", "Eats", "Meets", "Greets"],
+      correct: 0,
+      explanation: "\"Eats,\" \"meets,\" and \"greets\" all rhyme with the long /iː/ sound. \"It's\" has a short /ɪ/ sound, breaking the pattern."
+    },
+    {
+      type: "image",
+      instruction: "Look at the picture. What is this?",
+      instructionEs: "Mira la imagen. ¿Qué es esto?",
+      image: "tie-icon.jpg",
+      imageAlt: "A single blue necktie",
+      options: ["It's a pie.", "It's July.", "It's the sky.", "It's a tie."],
+      correct: 3,
+      explanation: "The picture shows a necktie — \"It's a tie\" is the correct match."
+    },
+    {
+      type: "oddtext",
+      instruction: "Choose the option that does not belong.",
+      instructionEs: "Seleccione la opción que no corresponde.",
+      options: ["It's good to meet you.", "It's nice to meet you.", "It's a pleasure to meet you.", "The pleasure is mine."],
+      correct: 3,
+      explanation: "The first three all follow the pattern \"It's ___ to meet you,\" used when initiating a greeting. \"The pleasure is mine\" is a reply to someone else's greeting, not a standalone opener."
+    },
+    {
+      type: "oddtext",
+      instruction: "Choose the option that does not belong.",
+      instructionEs: "Seleccione la opción que no corresponde.",
+      options: ["I am Charlie's brother.", "I am a teacher.", "I am Eric's boyfriend.", "I am Daphne's mom."],
+      correct: 1,
+      explanation: "\"Charlie's brother,\" \"Eric's boyfriend,\" and \"Daphne's mom\" all describe a relationship to a specific named person. \"I am a teacher\" states a profession instead."
+    },
+    {
+      type: "response",
+      prompt: "These are my parents.",
+      options: ["Good morning, Mr.", "What's your name?", "It's a pleasure to meet you, Mr. and Mrs. Smith.", "See you tomorrow."],
+      correct: 2,
+      explanation: "Meeting someone's parents calls for a formal, complete response — \"It's a pleasure to meet you, Mr. and Mrs. Smith\" fits that context."
+    },
+    {
+      type: "oddtext",
+      instruction: "Choose the option that does not belong.",
+      instructionEs: "Seleccione la opción que no corresponde.",
+      options: ["This is my son.", "These are my parents.", "This is my teacher.", "This is my sister."],
+      correct: 1,
+      explanation: "\"This is\" (singular) is used for son, teacher, and sister. \"Parents\" is plural and correctly takes \"These are,\" breaking the grammatical pattern."
+    },
+    {
+      type: "oddtext",
+      instruction: "Choose the option that does not belong.",
+      instructionEs: "Seleccione la opción que no corresponde.",
+      options: ["This is my son.", "This is my father.", "This is my mother.", "This is my professor."],
+      correct: 3,
+      explanation: "Son, father, and mother are all family members. \"Professor\" is not family — this one is different by category, not grammar, since all four options use the same sentence structure."
+    },
+    {
+      type: "oddtext",
+      instruction: "Choose the option that does not belong.",
+      instructionEs: "Seleccione la opción que no corresponde.",
+      options: ["Brother", "Mother", "Father", "Thank you"],
+      correct: 3,
+      explanation: "Brother, mother, and father are all family words that use the voiced /ð/ sound. \"Thank you\" is not a family word, and it uses the different, voiceless /θ/ sound."
+    }
   ];
 
-  var Q13_TOTAL = 15;
+  var Q13_TOTAL = 10;
   var Q13_PASS = 0.8;
   var q13Order = [];
   var q13Current = 0;
@@ -1004,6 +1124,8 @@
   var q13Result = document.getElementById('q13-result');
   var q13CountEl = document.getElementById('q13-count');
   var q13Progress = document.getElementById('q13-progress');
+  var q13InstructionEl = document.getElementById('q13-instruction');
+  var q13ImageWrap = document.getElementById('q13-image-wrap');
   var q13PlayBtn = document.getElementById('q13-play-btn');
   var q13OptionsEl = document.getElementById('q13-options');
   var q13FeedbackEl = document.getElementById('q13-feedback');
@@ -1035,21 +1157,63 @@
     q13FeedbackEl.classList.remove('show', 'correct', 'incorrect');
     q13NextBtn.style.display = 'none';
 
+    var instrHTML = q.type === 'response'
+      ? 'Listen to the sentence, then select the best response.<span class="es">Escucha la oración y selecciona la mejor respuesta.</span>'
+      : (q.instruction || '') + (q.instructionEs ? '<span class="es">' + q.instructionEs + '</span>' : '');
+    q13InstructionEl.innerHTML = instrHTML;
+
+    if (q.type === 'image') {
+      q13ImageWrap.style.display = 'block';
+      q13ImageWrap.innerHTML = '<img src="' + q.image + '" alt="' + (q.imageAlt || '') + '">';
+    } else {
+      q13ImageWrap.style.display = 'none';
+      q13ImageWrap.innerHTML = '';
+    }
+
+    if (q.type === 'response') {
+      q13PlayBtn.style.display = 'inline-flex';
+    } else {
+      q13PlayBtn.style.display = 'none';
+    }
+
     var shuffledOptions = q13Shuffle(q.options.map(function(text, idx) {
       return { text: text, isCorrect: idx === q.correct };
     }));
 
     shuffledOptions.forEach(function(opt) {
-      var btn = document.createElement('button');
-      btn.className = 'q13-option';
-      btn.textContent = opt.text;
-      btn.addEventListener('click', function() { q13Select(opt.isCorrect, opt.text, q, btn); });
-      q13OptionsEl.appendChild(btn);
+      if (q.type === 'oddaudio') {
+        var row = document.createElement('div');
+        row.className = 'q13-option-row';
+
+        var mini = document.createElement('button');
+        mini.className = 'q13-mini-play';
+        mini.type = 'button';
+        mini.textContent = '🔊';
+        mini.addEventListener('click', function(e) {
+          e.stopPropagation();
+          q13Speak(opt.text);
+        });
+
+        var btn = document.createElement('button');
+        btn.className = 'q13-option';
+        btn.textContent = opt.text;
+        btn.addEventListener('click', function() { q13Select(opt.isCorrect, opt.text, q, btn); });
+
+        row.appendChild(mini);
+        row.appendChild(btn);
+        q13OptionsEl.appendChild(row);
+      } else {
+        var plainBtn = document.createElement('button');
+        plainBtn.className = 'q13-option';
+        plainBtn.textContent = opt.text;
+        plainBtn.addEventListener('click', function() { q13Select(opt.isCorrect, opt.text, q, plainBtn); });
+        q13OptionsEl.appendChild(plainBtn);
+      }
     });
   }
 
   q13PlayBtn.addEventListener('click', function() {
-    q13Speak(q13Order[q13Current].audio);
+    q13Speak(q13Order[q13Current].prompt);
   });
 
   function q13Select(isCorrect, chosenText, q, clickedBtn) {
@@ -1058,7 +1222,7 @@
     if (isCorrect) q13Score++;
 
     q13Results.push({
-      audio: q.audio,
+      prompt: q.prompt || (q.instruction || ''),
       chosen: chosenText,
       correct: q.options[q.correct],
       wasCorrect: isCorrect,
@@ -1102,7 +1266,7 @@
       q13Results.forEach(function(r, i) {
         var div = document.createElement('div');
         div.className = 'q13-review-item';
-        div.innerHTML = '<span class="q13-review-num">Q' + (i + 1) + '.</span> "' + r.audio + '"<br>' +
+        div.innerHTML = '<span class="q13-review-num">Q' + (i + 1) + '.</span> "' + r.prompt + '"<br>' +
           'Correct answer: <span class="q13-review-correct">' + r.correct + '</span><br>' +
           r.explanation;
         q13ReviewEl.appendChild(div);
