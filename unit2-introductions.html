@@ -263,6 +263,186 @@
     background: #9c3a28;
   }
 
+  .q13-box {
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .q13-progress-track {
+    background: var(--paper);
+    border-radius: 999px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .q13-progress-fill {
+    background: var(--sage-dark);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  .q13-count {
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin-bottom: 14px;
+  }
+
+  .q13-prompt {
+    font-size: 0.98rem;
+    margin: 0 0 16px;
+  }
+
+  .q13-play-btn {
+    background: var(--sage-dark);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .q13-play-btn:hover { background: var(--sage); }
+
+  .q13-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .q13-option {
+    text-align: left;
+    padding: 12px 16px;
+    border: 1.5px solid var(--paper-line);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .q13-option:hover:not(:disabled) {
+    border-color: var(--sage);
+    background: var(--paper);
+  }
+
+  .q13-option:disabled { cursor: default; }
+
+  .q13-option.correct {
+    border-color: #1e7d4d;
+    background: #e7f5ed;
+    color: #1e7d4d;
+    font-weight: 600;
+  }
+
+  .q13-option.incorrect {
+    border-color: var(--coral);
+    background: #fbeaea;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .q13-feedback {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .q13-feedback.show { display: block; }
+
+  .q13-feedback.correct {
+    background: #EAF5EC;
+    border-left: 5px solid #1e7d4d;
+    color: #1e4a2c;
+  }
+
+  .q13-feedback.incorrect {
+    background: #FBEAEA;
+    border-left: 5px solid var(--coral);
+    color: #5c2323;
+  }
+
+  .q13-feedback strong { display: block; margin-bottom: 4px; }
+
+  .q13-next-btn {
+    margin-top: 18px;
+    background: var(--coral);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .q13-result { text-align: center; }
+
+  .q13-result-score {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    font-family: 'Fraunces', serif;
+    margin: 8px 0;
+  }
+
+  .q13-result-msg {
+    font-size: 0.98rem;
+    margin: 0 0 18px;
+  }
+
+  .q13-retry-btn {
+    background: var(--sage-dark);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .q13-review {
+    margin-top: 28px;
+    text-align: left;
+    border-top: 1px solid var(--paper-line);
+    padding-top: 20px;
+  }
+
+  .q13-review-item {
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+  }
+
+  .q13-review-item .q13-review-num {
+    font-weight: 700;
+    color: var(--sage-dark);
+  }
+
+  .q13-review-item .q13-review-correct {
+    color: #1e7d4d;
+    font-weight: 600;
+  }
+
   .coming-next {
     margin-top: 44px;
     padding-top: 28px;
@@ -293,6 +473,123 @@
     border-bottom: 1px solid var(--paper-line);
     padding-bottom: 2px;
     margin-top: 20px;
+  }
+
+  .lesson-end {
+    margin-top: 44px;
+    padding: 28px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .lesson-end .emoji {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+
+  .lesson-end p {
+    margin: 0 0 14px 0;
+    font-size: 0.98rem;
+  }
+
+  .lesson-end .es {
+    display: block;
+    color: var(--slate);
+    font-style: italic;
+    font-size: 0.92rem;
+    margin-top: 6px;
+  }
+
+  .lesson-end .signature {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--sage-dark);
+    margin-top: 18px;
+  }
+
+  .lesson-end-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.04em;
+    font-size: 0.85rem;
+    color: #fff;
+    background: var(--sage-dark);
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+  }
+
+  .lesson-end-link:hover {
+    background: var(--sage);
+  }
+
+  .unlock-box {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--paper-line);
+  }
+
+  .unlock-box label {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .unlock-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .unlock-input {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border: 1.5px solid var(--paper-line);
+    border-radius: 8px;
+    color: var(--ink);
+    background: #fff;
+    width: 220px;
+    max-width: 100%;
+  }
+
+  .unlock-btn {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    background: var(--sage-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .unlock-btn:hover {
+    background: var(--sage);
+  }
+
+  .unlock-msg {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+  }
+
+  .unlock-msg.error {
+    color: var(--coral);
+    display: block;
+  }
+
+  .unlock-msg.success {
+    color: #1e7d4d;
+    display: block;
   }
 
   footer {
@@ -355,7 +652,7 @@
       </div>
       <div class="objective">
         <span class="objective-num">04</span>
-        <p>Recognize and produce the diphthong <span class="ipa">/aɪ/</span> as in <em>I</em>, and the pronunciation of the possessive <em>'s</em>.</p>
+        <p>Recognize and produce the diphthong <span class="ipa">/aɪ/</span> as in <strong style="color: var(--sage-dark);">nice</strong>, and the sound <span class="ipa">/ð/</span> as in <strong style="color: var(--sage-dark);">this</strong>.</p>
       </div>
     </div>
 
@@ -524,9 +821,118 @@
       </div>
     </div>
 
-    <div class="coming-next">
-      <p>Lesson activities coming next.</p>
-      <span>This lesson is still being built.</span>
+    <div class="activity-section">
+      <p class="activity-label">Activity 11</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="chatgpt-icon.jpg" alt="">
+        <h2 class="activity-title">Practice with ChatGPT Voice</h2>
+      </div>
+      <p class="activity-instruction">
+        As you did in Lesson 1, go to ChatGPT voice and practice the target vocabulary from this lesson — introducing yourself and introducing others.
+        <span class="es">Como hiciste en la Lección 1, ve a la voz de ChatGPT y practica el vocabulario de esta lección — presentarte a ti mismo y presentar a otras personas.</span>
+      </p>
+
+      <p class="steps-note">
+        If you need a reminder of how to start a voice conversation with ChatGPT, revisit Activity 5 in Lesson 1.
+        <span class="es">Si necesitas recordar cómo iniciar una conversación de voz con ChatGPT, revisa la Actividad 5 de la Lección 1.</span>
+      </p>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 12</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="record-icon.jpg" alt="">
+        <h2 class="activity-title">Say It and Record</h2>
+      </div>
+      <p class="activity-instruction">
+        After practicing, record a close-up video of your mouth and face saying the words and phrases from this lesson, so your professor can see exactly how you shape your mouth to produce each sound. Email the video file to your professor.
+        <span class="es">Después de practicar, graba un video de primer plano de tu boca y rostro diciendo las palabras y frases de esta lección, para que tu profesor pueda ver exactamente cómo formas tu boca al producir cada sonido. Envía el archivo de video por correo electrónico a tu profesor.</span>
+      </p>
+
+      <div class="steps-box">
+        <ol>
+          <li>
+            Open your phone's camera app and switch it to video mode (not photo mode).
+            <span class="es">Abre la aplicación de cámara de tu teléfono y cámbiala al modo de video (no al modo de foto).</span>
+          </li>
+          <li>
+            Hold the phone close enough that your mouth and face fill most of the frame in a clear close-up shot.
+            <span class="es">Sostén el teléfono lo suficientemente cerca para que tu boca y rostro llenen la mayor parte del encuadre en una toma de primer plano clara.</span>
+          </li>
+          <li>
+            Record yourself saying the words and phrases from this lesson, speaking clearly and at a natural pace.
+            <span class="es">Grábate diciendo las palabras y frases de esta lección, hablando con claridad y a un ritmo natural.</span>
+          </li>
+          <li>
+            Stop recording and save the video.
+            <span class="es">Detén la grabación y guarda el video.</span>
+          </li>
+          <li>
+            Attach the video file to an email and send it to your professor.
+            <span class="es">Adjunta el archivo de video a un correo electrónico y envíalo a tu profesor.</span>
+          </li>
+        </ol>
+      </div>
+
+      <p class="steps-note">
+        Video files are larger than audio files and may be too big to attach directly to an email. If your email won't let you attach the video, upload it to Google Drive (or a similar service) and share the link in your email instead.
+        <span class="es">Los archivos de video son más grandes que los de audio y pueden ser demasiado pesados para adjuntar directamente a un correo. Si tu correo no te permite adjuntar el video, súbelo a Google Drive (o un servicio similar) y comparte el enlace en tu correo.</span>
+      </p>
+
+      <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%202%20Video%20-%20Introductions">✉ dravellaneda07@gmail.com</a>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 13</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Final Quiz: Show What You Know</h2>
+      <p class="activity-instruction">
+        Listen to each sentence, then choose the option that matches what you heard. Answer all 15 questions — you'll get feedback right away if you miss one. You need at least 80% to unlock the full answer key at the end.
+        <span class="es">Escucha cada oración y elige la opción que coincide con lo que escuchaste. Responde las 15 preguntas — recibirás retroalimentación de inmediato si te equivocas. Necesitas al menos 80% para desbloquear la clave de respuestas completa al final.</span>
+      </p>
+
+      <div class="q13-box">
+        <div id="q13-screen">
+          <div class="q13-progress-track"><div class="q13-progress-fill" id="q13-progress"></div></div>
+          <div class="q13-count" id="q13-count"></div>
+          <p class="q13-prompt">Listen to the sentence, then select the option that matches what you heard.</p>
+          <button class="q13-play-btn" id="q13-play-btn">🔊 Play sentence</button>
+          <div class="q13-options" id="q13-options"></div>
+          <div class="q13-feedback" id="q13-feedback"></div>
+          <button class="q13-next-btn" id="q13-next-btn" style="display:none;">Next →</button>
+        </div>
+
+        <div class="q13-result" id="q13-result" style="display:none;">
+          <div class="q13-count">Result</div>
+          <div class="q13-result-score" id="q13-score"></div>
+          <p class="q13-result-msg" id="q13-message"></p>
+          <button class="q13-retry-btn" id="q13-retry-btn" style="display:none;">Try Again</button>
+          <div class="q13-review" id="q13-review" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-end">
+      <div class="emoji">🎉</div>
+      <p>
+        Congratulations! You've completed Lesson 2. If you scored 80% or higher on the quiz in Activity 13, you're ready to move on to Lesson 3. If not, review the activities above and try the quiz again before continuing.
+        <span class="es">¡Felicidades! Has completado la Lección 2. Si obtuviste un 80% o más en el cuestionario de la Actividad 13, estás listo/a para continuar con la Lección 3. Si no, repasa las actividades anteriores e intenta el cuestionario de nuevo antes de continuar.</span>
+      </p>
+
+      <a class="lesson-end-link" id="lesson3Link" href="unit3-origin.html" style="display:none;">Continue to Lesson 3 →</a>
+
+      <div class="unlock-box" id="unlockBox">
+        <label for="unlockInput">
+          To continue to Lesson 3, enter the code your professor gave you after your check-in meeting.
+          <span class="es" style="display:block; margin-top:4px;">Para continuar a la Lección 3, ingresa el código que tu profesor te dio después de tu reunión de seguimiento.</span>
+        </label>
+        <div class="unlock-row">
+          <input type="text" id="unlockInput" class="unlock-input" placeholder="Enter code" autocomplete="off">
+          <button class="unlock-btn" id="unlockBtn">Unlock Lesson 3</button>
+        </div>
+        <p class="unlock-msg" id="unlockMsg"></p>
+      </div>
+
+      <p class="signature">— Dr. Avellaneda</p>
     </div>
 
     <a class="back-link" href="novice-low.html">← Back to Novice Low lessons</a>
@@ -536,5 +942,17 @@
     The Language Clinic — teaching materials built for language learners
   </footer>
 
-</body>
-</html>
+<script>
+  var Q13_BANK = [
+    { audio: "Hi, I'm Laura.", options: ["Hi, I'm Laura.", "Hi, I'm Nora.", "Hi, I'm Flora."], correct: 0, explanation: "The speaker said \"Laura\" — listen for the initial /l/ sound, different from \"Nora\" (/n/) or \"Flora\" (/fl/)." },
+    { audio: "Nice to meet you.", options: ["Nice to meet you.", "Nice to see you.", "Nice to greet you."], correct: 0, explanation: "The speaker said \"meet,\" not \"see\" or \"greet\" — listen closely to the verb." },
+    { audio: "This is my friend, Carlos.", options: ["This is my friend, Carlos.", "This is my friend, Marcos.", "This is my teacher, Carlos."], correct: 0, explanation: "The speaker said \"friend\" and \"Carlos\" — both the relationship word and the name matter." },
+    { audio: "I am a student.", options: ["I am a student.", "You are a student.", "She is a student."], correct: 0, explanation: "The speaker used \"I am,\" the first-person form of the verb to be." },
+    { audio: "She is my sister.", options: ["She is my sister.", "He is my sister.", "They are my sister."], correct: 0, explanation: "The speaker used \"She is,\" matching a female subject with the correct form of to be." },
+    { audio: "We are from Mexico.", options: ["We are from Mexico.", "We is from Mexico.", "We am from Mexico."], correct: 0, explanation: "\"We\" takes \"are,\" not \"is\" or \"am\" — that's the correct form of to be for a plural subject." },
+    { audio: "This is nice.", options: ["This is nice.", "That is nice.", "This is mine."], correct: 0, explanation: "The speaker said \"This,\" not \"That\" — listen for the /ð/ sound at the very start of the word." },
+    { audio: "My name is Diane.", options: ["My name is Diane.", "My name is Dean.", "My name is Dan."], correct: 0, explanation: "The speaker said \"Diane,\" with the /aɪ/ diphthong sound in the first syllable." },
+    { audio: "Are you from Peru?", options: ["Are you from Peru?", "Is you from Peru?", "Am you from Peru?"], correct: 0, explanation: "\"You\" takes \"are,\" not \"is\" or \"am.\"" },
+    { audio: "This is my classmate.", options: ["This is my classmate.", "This is my roommate.", "This is my client."], correct: 0, explanation: "The speaker said \"classmate\" — listen for the specific relationship word." },
+    { audio: "I'd like you to meet my colleague.", options: ["I'd like you to meet my colleague.", "I'd like you to meet my neighbor.", "I'd like you to meet my cousin."], correct: 0, explanation: "The speaker said \"colleague,\" a formal way to refer to a coworker." },
+    { audio: "It's nice to make your acquaintance.", options: ["It's nice
