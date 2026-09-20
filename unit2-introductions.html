@@ -1,6 +1,795 @@
 <!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<script>
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('code') !== 'HELLOCLASS') {
+    window.location.replace('unit1-greetings.html#unlockBox');
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — Lesson 2: Introducing Oneself and Others</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F2A44; --sage: #F2A93B; --sage-dark: #C97F16;
+    --paper: #E1EBF6; --paper-line: #B9D0E8; --coral: #b6432f; --slate: #3A4E63;
+    --card-bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: 'Work Sans', -apple-system, sans-serif; line-height: 1.55;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
+  .chart-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 760px; margin: 0 auto; padding: 18px 24px 0 24px;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.04em;
+    font-size: 0.72rem; color: var(--slate); text-transform: uppercase;
+  }
+  .chart-meta a { text-decoration: none; border-bottom: 1px solid var(--paper-line); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 22px 24px 70px 24px; }
+
+  .pretitle {
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 6px 0 2px 0;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .intro-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .intro-images figure {
+    margin: 0;
+  }
+
+  .intro-images img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 8px;
+    border: 1px solid var(--paper-line);
+    display: block;
+  }
+
+  .intro-images figcaption {
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.03em;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .chart-rule {
+    border: none;
+    border-top: 1px solid var(--paper-line);
+    margin: 26px 0 30px 0;
+  }
+
+  .section-label {
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 0 0 16px 0;
+  }
+
+  .objectives-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .objective {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    align-items: start;
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .objective-num {
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--coral);
+  }
+
+  .objective p {
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .ipa {
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .activity-section {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .activity-label {
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.06em;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin: 0 0 4px 0;
+  }
+
+  .activity-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .activity-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .activity-instruction {
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+  }
+
+  .listen-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--paper-line);
+    flex-shrink: 0;
+  }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--paper-line);
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .wordwall-wrap {
+    text-align: center;
+  }
+
+  .wordwall-wrap iframe {
+    position: static;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(15, 42, 68, 0.1);
+  }
+
+  .steps-box {
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 22px;
+  }
+
+  .steps-box ol {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .steps-box li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  .steps-box li:last-child {
+    margin-bottom: 0;
+  }
+
+  .steps-note {
+    font-size: 0.82rem;
+    color: var(--slate);
+    background: var(--paper);
+    border-left: 3px solid var(--sage);
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 16px 0 22px 0;
+  }
+
+  .steps-box li .es,
+  .activity-instruction .es,
+  .steps-note .es {
+    display: block;
+    color: var(--slate);
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 4px;
+  }
+
+  .email-link {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    font-size: 0.85rem;
+    color: #fff;
+    background: var(--coral);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+
+  .email-link:hover {
+    background: #9c3a28;
+  }
+
+  .coming-next {
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--paper-line);
+    text-align: center;
+  }
+
+  .coming-next p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--sage-dark);
+    font-size: 1rem;
+    margin: 0 0 4px 0;
+  }
+
+  .coming-next span {
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--slate);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--sage-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--paper-line);
+    padding-bottom: 2px;
+    margin-top: 20px;
+  }
+
+  .lesson-end {
+    margin-top: 44px;
+    padding: 28px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .lesson-end .emoji {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+
+  .lesson-end p {
+    margin: 0 0 14px 0;
+    font-size: 0.98rem;
+  }
+
+  .lesson-end .es {
+    display: block;
+    color: var(--slate);
+    font-style: italic;
+    font-size: 0.92rem;
+    margin-top: 6px;
+  }
+
+  .lesson-end .signature {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--sage-dark);
+    margin-top: 18px;
+  }
+
+  .lesson-end-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Work Sans', sans-serif; font-weight: 600; letter-spacing: 0.04em;
+    font-size: 0.85rem;
+    color: #fff;
+    background: var(--sage-dark);
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+  }
+
+  .lesson-end-link:hover {
+    background: var(--sage);
+  }
+
+  .unlock-box {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--paper-line);
+  }
+
+  .unlock-box label {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .unlock-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .unlock-input {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border: 1.5px solid var(--paper-line);
+    border-radius: 8px;
+    color: var(--ink);
+    background: #fff;
+    width: 220px;
+    max-width: 100%;
+  }
+
+  .unlock-btn {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    background: var(--sage-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .unlock-btn:hover {
+    background: var(--sage);
+  }
+
+  .unlock-msg {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+  }
+
+  .unlock-msg.error {
+    color: var(--coral);
+    display: block;
+  }
+
+  .unlock-msg.success {
+    color: #1e7d4d;
+    display: block;
+  }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 24px 40px 24px;
+    font-family: 'Work Sans', sans-serif; font-weight: 600;
+    font-size: 0.7rem;
+    color: var(--slate);
+    border-top: 1px solid var(--paper-line);
+  }
+
+  @media (max-width: 520px) {
+    .intro-images { grid-template-columns: 1fr; }
+    .intro-images img { height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="chart-meta">
+    <a href="novice-low.html">← Novice Low</a>
+    <span>UDC · School of Education</span>
+  </div>
+
+  <div class="wrap">
+    <p class="pretitle">Novice Low · Lesson 2</p>
+    <h1>Introducing Oneself and Others</h1>
+
+    <div class="intro-images">
+      <figure>
+        <img src="intro-others.jpg" alt="A woman extending her hand to introduce herself">
+        <figcaption>Introducing Oneself — Formal</figcaption>
+      </figure>
+      <figure>
+        <img src="intro-informal.jpg" alt="A woman casually introducing herself by name to a small group in a café">
+        <figcaption>Introducing Oneself — Informal</figcaption>
+      </figure>
+      <figure>
+        <img src="intro-formal.jpg" alt="A woman being introduced to colleagues with a handshake in a team meeting">
+        <figcaption>Introducing Others</figcaption>
+      </figure>
+    </div>
+
+    <hr class="chart-rule">
+
+    <p class="section-label">Learning Objectives</p>
+    <div class="objectives-list">
+      <div class="objective">
+        <span class="objective-num">01</span>
+        <p>Introduce oneself formally and informally.</p>
+      </div>
+      <div class="objective">
+        <span class="objective-num">02</span>
+        <p>Introduce others.</p>
+      </div>
+      <div class="objective">
+        <span class="objective-num">03</span>
+        <p>Recongize the forms of the verb <em>to be</em>: am, are, is.</p>
+      </div>
+      <div class="objective">
+        <span class="objective-num">04</span>
+        <p>Recognize and produce the diphthong <span class="ipa">/aɪ/</span> as in <strong style="color: var(--sage-dark);">nice</strong>, and the sound <span class="ipa">/ð/</span> as in <strong style="color: var(--sage-dark);">this</strong>.</p>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 1</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="listen-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Pay Attention</h2>
+      </div>
+      <p class="activity-instruction">Listen carefully and pay attention to how these words are said. <span class="es">Escucha con atención cómo se dicen estas palabras.</span></p>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/okR7JFgDJ3o?si=r0G9C9yc_Jc0oDFO" title="Activity 1 listening video" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 2</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="mouth-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Practice</h2>
+      </div>
+      <p class="activity-instruction">Listen and pay attention to how your mouth moves to say these words. Practice saying them out loud. <span class="es">Escucha y presta atención a cómo se mueve tu boca al decir estas palabras. Practica diciéndolas en voz alta.</span></p>
+
+      <div class="video-wrap">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/QVFvriF_ThA?si=aUkh0o7G2OokXIsY" title="Activity 2 listening video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 3</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="brain-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Memorize</h2>
+      </div>
+      <p class="activity-instruction">Listen, repeat, and memorize the words, phrases, or sentences. Pay attention to the images that represent them. <span class="es">Escucha, repite y memoriza las palabras, frases u oraciones. Presta atención a las imágenes que las representan.</span></p>
+
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/ff5e74c8d39543d488166505d871a222?themeId=68&templateId=70&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 4</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="match-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Match</h2>
+      </div>
+      <p class="activity-instruction">Listen carefully to the phrase, word, or sentence, and match it to the picture that represents it. <span class="es">Escucha con atención la frase, palabra u oración, y relaciónala con la imagen que la representa.</span></p>
+
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/2eaa5d8c7a4e4b38a3dbba3f18e2d7a2?themeId=1&templateId=3&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 5</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="chatgpt-icon.jpg" alt="">
+        <h2 class="activity-title">Practice with ChatGPT Voice</h2>
+      </div>
+      <p class="activity-instruction">
+        As you did in Lesson 1, go to ChatGPT voice and practice the target vocabulary from this lesson — introducing yourself and introducing others.
+        <span class="es">Como hiciste en la Lección 1, ve a la voz de ChatGPT y practica el vocabulario de esta lección — presentarte a ti mismo y presentar a otras personas.</span>
+      </p>
+
+      <p class="steps-note">
+        If you need a reminder of how to start a voice conversation with ChatGPT, revisit Activity 5 in Lesson 1.
+        <span class="es">Si necesitas recordar cómo iniciar una conversación de voz con ChatGPT, revisa la Actividad 5 de la Lección 1.</span>
+      </p>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 6</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="record-icon.jpg" alt="">
+        <h2 class="activity-title">Say It and Record</h2>
+      </div>
+      <p class="activity-instruction">
+        After practicing, record a close-up video of your mouth and face saying the words and phrases from this lesson, so your professor can see exactly how you shape your mouth to produce each sound. Email the video file to your professor.
+        <span class="es">Después de practicar, graba un video de primer plano de tu boca y rostro diciendo las palabras y frases de esta lección, para que tu profesor pueda ver exactamente cómo formas tu boca al producir cada sonido. Envía el archivo de video por correo electrónico a tu profesor.</span>
+      </p>
+
+      <div class="steps-box">
+        <ol>
+          <li>
+            Open your phone's camera app and switch it to video mode (not photo mode).
+            <span class="es">Abre la aplicación de cámara de tu teléfono y cámbiala al modo de video (no al modo de foto).</span>
+          </li>
+          <li>
+            Hold the phone close enough that your mouth and face fill most of the frame in a clear close-up shot.
+            <span class="es">Sostén el teléfono lo suficientemente cerca para que tu boca y rostro llenen la mayor parte del encuadre en una toma de primer plano clara.</span>
+          </li>
+          <li>
+            Record yourself saying the words and phrases from this lesson, speaking clearly and at a natural pace.
+            <span class="es">Grábate diciendo las palabras y frases de esta lección, hablando con claridad y a un ritmo natural.</span>
+          </li>
+          <li>
+            Stop recording and save the video.
+            <span class="es">Detén la grabación y guarda el video.</span>
+          </li>
+          <li>
+            Attach the video file to an email and send it to your professor.
+            <span class="es">Adjunta el archivo de video a un correo electrónico y envíalo a tu profesor.</span>
+          </li>
+        </ol>
+      </div>
+
+      <p class="steps-note">
+        Video files are larger than audio files and may be too big to attach directly to an email. If your email won't let you attach the video, upload it to Google Drive (or a similar service) and share the link in your email instead.
+        <span class="es">Los archivos de video son más grandes que los de audio y pueden ser demasiado pesados para adjuntar directamente a un correo. Si tu correo no te permite adjuntar el video, súbelo a Google Drive (o un servicio similar) y comparte el enlace en tu correo.</span>
+      </p>
+
+      <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%202%20Video%20-%20Introductions">✉ dravellaneda07@gmail.com</a>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 7</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="listen-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Pay Attention</h2>
+      </div>
+      <p class="activity-instruction">Listen carefully and pay attention to how these words are said. <span class="es">Escucha con atención cómo se dicen estas palabras.</span></p>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/NsvJ7QuGLpo?si=3BMS3u6XOIIpjAwq" title="Activity 7 listening video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 8</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="mouth-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Practice</h2>
+      </div>
+      <p class="activity-instruction">Listen and pay attention to how your mouth moves to say these words. Practice saying them out loud. <span class="es">Escucha y presta atención a cómo se mueve tu boca al decir estas palabras. Practica diciéndolas en voz alta.</span></p>
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/C-Rn7_OPO78?si=5LtTxCnNyg13DvgC" title="Activity 8 listening video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 9</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="brain-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Memorize</h2>
+      </div>
+      <p class="activity-instruction">Listen, repeat, and memorize the words, phrases, or sentences. Pay attention to the images that represent them. <span class="es">Escucha, repite y memoriza las palabras, frases u oraciones. Presta atención a las imágenes que las representan.</span></p>
+
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/d53afd50ae944a77abc0e52ec553dc56?themeId=68&templateId=70&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 10</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="match-icon.jpg" alt="">
+        <h2 class="activity-title">Listen and Match</h2>
+      </div>
+      <p class="activity-instruction">Listen carefully to the phrase, word, or sentence, and match it to the picture that represents it. <span class="es">Escucha con atención la frase, palabra u oración, y relaciónala con la imagen que la representa.</span></p>
+
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/5d238d3f0e0a4bbaafb15e6b234d17d0?themeId=56&templateId=25&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 11</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="chatgpt-icon.jpg" alt="">
+        <h2 class="activity-title">Practice with ChatGPT Voice</h2>
+      </div>
+      <p class="activity-instruction">
+        As you did in Lesson 1, go to ChatGPT voice and practice the target vocabulary from this lesson — introducing yourself and introducing others.
+        <span class="es">Como hiciste en la Lección 1, ve a la voz de ChatGPT y practica el vocabulario de esta lección — presentarte a ti mismo y presentar a otras personas.</span>
+      </p>
+
+      <p class="steps-note">
+        If you need a reminder of how to start a voice conversation with ChatGPT, revisit Activity 5 in Lesson 1.
+        <span class="es">Si necesitas recordar cómo iniciar una conversación de voz con ChatGPT, revisa la Actividad 5 de la Lección 1.</span>
+      </p>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 12</p>
+      <div class="activity-title-row">
+        <img class="listen-icon" src="record-icon.jpg" alt="">
+        <h2 class="activity-title">Say It and Record</h2>
+      </div>
+      <p class="activity-instruction">
+        After practicing, record a close-up video of your mouth and face saying the words and phrases from this lesson, so your professor can see exactly how you shape your mouth to produce each sound. Email the video file to your professor.
+        <span class="es">Después de practicar, graba un video de primer plano de tu boca y rostro diciendo las palabras y frases de esta lección, para que tu profesor pueda ver exactamente cómo formas tu boca al producir cada sonido. Envía el archivo de video por correo electrónico a tu profesor.</span>
+      </p>
+
+      <div class="steps-box">
+        <ol>
+          <li>
+            Open your phone's camera app and switch it to video mode (not photo mode).
+            <span class="es">Abre la aplicación de cámara de tu teléfono y cámbiala al modo de video (no al modo de foto).</span>
+          </li>
+          <li>
+            Hold the phone close enough that your mouth and face fill most of the frame in a clear close-up shot.
+            <span class="es">Sostén el teléfono lo suficientemente cerca para que tu boca y rostro llenen la mayor parte del encuadre en una toma de primer plano clara.</span>
+          </li>
+          <li>
+            Record yourself saying the words and phrases from this lesson, speaking clearly and at a natural pace.
+            <span class="es">Grábate diciendo las palabras y frases de esta lección, hablando con claridad y a un ritmo natural.</span>
+          </li>
+          <li>
+            Stop recording and save the video.
+            <span class="es">Detén la grabación y guarda el video.</span>
+          </li>
+          <li>
+            Attach the video file to an email and send it to your professor.
+            <span class="es">Adjunta el archivo de video a un correo electrónico y envíalo a tu profesor.</span>
+          </li>
+        </ol>
+      </div>
+
+      <p class="steps-note">
+        Video files are larger than audio files and may be too big to attach directly to an email. If your email won't let you attach the video, upload it to Google Drive (or a similar service) and share the link in your email instead.
+        <span class="es">Los archivos de video son más grandes que los de audio y pueden ser demasiado pesados para adjuntar directamente a un correo. Si tu correo no te permite adjuntar el video, súbelo a Google Drive (o un servicio similar) y comparte el enlace en tu correo.</span>
+      </p>
+
+      <a class="email-link" href="mailto:dravellaneda07@gmail.com?subject=Lesson%202%20Video%20-%20Introductions">✉ dravellaneda07@gmail.com</a>
+    </div>
+
+    <div class="activity-section">
+      <p class="activity-label">Activity 13</p>
+      <h2 class="activity-title" style="margin-bottom: 16px;">Final Review: Show What You Know</h2>
+      <p class="activity-instruction">
+        Complete this activity to check what you've learned in this lesson.
+        <span class="es">Completa esta actividad para verificar lo que has aprendido en esta lección.</span>
+      </p>
+
+      <div class="wordwall-wrap">
+        <iframe style="max-width:100%" src="https://wordwall.net/embed/play/119492/375/136" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="lesson-end">
+      <div class="emoji">🎉</div>
+      <p>
+        Congratulations! You've completed Lesson 2. Review any activities you found difficult, then enter your code below to continue to Lesson 3.
+        <span class="es">¡Felicidades! Has completado la Lección 2. Repasa cualquier actividad que te haya resultado difícil, y luego ingresa tu código a continuación para continuar con la Lección 3.</span>
+      </p>
+
+      <a class="lesson-end-link" id="lesson3Link" href="unit3-origin.html" style="display:none;">Continue to Lesson 3 →</a>
+
+      <div class="unlock-box" id="unlockBox">
+        <label for="unlockInput">
+          To continue to Lesson 3, enter the code your professor gave you after your check-in meeting.
+          <span class="es" style="display:block; margin-top:4px;">Para continuar a la Lección 3, ingresa el código que tu profesor te dio después de tu reunión de seguimiento.</span>
+        </label>
+        <div class="unlock-row">
+          <input type="text" id="unlockInput" class="unlock-input" placeholder="Enter code" autocomplete="off">
+          <button class="unlock-btn" id="unlockBtn">Unlock Lesson 3</button>
+        </div>
+        <p class="unlock-msg" id="unlockMsg"></p>
+      </div>
+
+      <p class="signature">— Dr. Avellaneda</p>
+    </div>
+
+    <a class="back-link" href="novice-low.html">← Back to Novice Low lessons</a>
+  </div>
+
+  <footer>
+    The Language Clinic — teaching materials built for language learners
+  </footer>
+
+<script>
+  // ---- Lesson 3 unlock code gate ----
+  // IMPORTANT: change this to the real code before publishing.
+  // This is a client-side check only (visible in page source) — it stops
+  // casual skipping ahead, but is not a secure access control.
+  const LESSON3_CODE = "MEETCLASS";
+
+  const unlockInput = document.getElementById('unlockInput');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const unlockMsg = document.getElementById('unlockMsg');
+  const unlockBox = document.getElementById('unlockBox');
+  const lesson3Link = document.getElementById('lesson3Link');
+
+  function tryUnlock() {
+    const entered = unlockInput.value.trim().toLowerCase();
+    const correct = LESSON3_CODE.trim().toLowerCase();
+
+    if (entered.length === 0) {
+      unlockMsg.textContent = "Please enter a code.";
+      unlockMsg.className = 'unlock-msg error';
+      return;
+    }
+
+    if (entered === correct) {
+      unlockMsg.textContent = "Code accepted! You may continue to Lesson 3.";
+      unlockMsg.className = 'unlock-msg success';
+      unlockBox.style.display = 'none';
+      lesson3Link.href = 'unit3-origin.html?code=' + encodeURIComponent(LESSON3_CODE);
+      lesson3Link.style.display = 'inline-block';
+    } else {
+      unlockMsg.textContent = "That code isn't correct. Check with your professor and try again.";
+      unlockMsg.className = 'unlock-msg error';
+    }
+  }
+
+  unlockBtn.addEventListener('click', tryUnlock);
+  unlockInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+</script>
+
+</body>
+</html><head>
 <meta charset="UTF-8">
 <script>
   var params = new URLSearchParams(window.location.search);
