@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Verbal Practice 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A44;--sage:#F2A93B;--sage-dark:#C97F16;--paper:#E1EBF6;--paper-line:#B9D0E8;--coral:#b6432f;--slate:#3A4E63;--card-bg:#fff;--good:#1f6b3f;--good-bg:#e3f4ea;--bad:#a32828;--bad-bg:#fbe6e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',-apple-system,sans-serif;line-height:1.55}
+  a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+  .chart-meta{display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:18px 24px 0;font-weight:600;letter-spacing:.04em;font-size:.72rem;color:var(--slate);text-transform:uppercase}
+  .chart-meta a{text-decoration:none;border-bottom:1px solid var(--paper-line)}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 24px 70px}
+  .pretitle{font-weight:600;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;color:var(--sage-dark);margin:6px 0 2px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.08;margin:0}
+  .lead{margin:12px 0 0}
+  .toolbar{position:sticky;top:0;z-index:5;background:rgba(225,235,246,.96);padding:10px 0;margin:18px 0 6px;border-bottom:1px solid var(--paper-line);display:flex;gap:14px;align-items:center}
+  .progress-shell{flex:1;height:10px;background:var(--paper-line);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0;background:var(--sage);transition:width .25s}
+  .score{font-weight:600;font-size:.85rem;white-space:nowrap}
+  .section-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin:44px 0 10px;padding-top:28px;border-top:1px solid var(--paper-line)}
+  .directions{font-size:.85rem;color:var(--slate);background:var(--paper);border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin:0 0 18px}
+  .passage{background:var(--card-bg);border:1px solid var(--paper-line);border-left:4px solid var(--sage);border-radius:8px;padding:14px 18px;margin:12px 0 18px;font-size:.95rem}
+  .passage p{margin:8px 0 0}
+  .question{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .qnum{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;margin-right:8px}
+  .qtext{font-size:1rem}
+  fieldset{border:0;padding:0;margin:14px 0 0;min-width:0}
+  legend{font-weight:600;font-size:.85rem;color:var(--sage-dark);margin:0 0 6px;padding:0}
+  label.choice{display:block;border:1px solid var(--paper-line);border-radius:8px;padding:9px 12px;margin:8px 0;cursor:pointer;font-size:.93rem;background:#fff}
+  label.choice:hover{background:var(--paper)}
+  label.choice input{margin-right:8px}
+  .blank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+  .blank-box{border:1px solid var(--paper-line);border-radius:8px;padding:10px 12px;background:#f7fafd}
+  button{font-family:inherit;border:0;border-radius:8px;padding:10px 18px;font-weight:600;font-size:.85rem;cursor:pointer}
+  .check{background:var(--ink);color:#fff;margin-top:12px}
+  .check:hover{background:#1b4268}
+  .secondary{background:#fff;color:var(--ink);border:1px solid var(--paper-line)}
+  .feedback{display:none;margin-top:14px;padding:11px 14px;border-radius:8px;font-size:.92rem}
+  .feedback.good{display:block;background:var(--good-bg);color:var(--good);border:1px solid #b5dcc4}
+  .feedback.bad{display:block;background:var(--bad-bg);color:var(--bad);border:1px solid #efc2ba}
+  .feedback .result{font-weight:600}
+  .feedback .explanation{margin-top:6px;color:var(--ink)}
+  .msg{display:none;margin-top:10px;font-size:.85rem;color:var(--coral);font-weight:600}
+  .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid var(--paper-line)}
+  #summary{margin-top:14px;font-weight:600}
+  footer{max-width:760px;margin:0 auto;padding:24px 24px 40px;font-weight:600;font-size:.7rem;color:var(--slate);border-top:1px solid var(--paper-line)}
+</style>
+</head>
+<body>
+<div class="chart-meta"><a href="gre.html">← GRE Preparation</a><span>UDC · School of Education</span></div>
+<div class="wrap">
+  <p class="pretitle">GRE · Verbal Reasoning</p>
+  <h1>Verbal Practice Set 1</h1>
+  <p class="lead">Fifteen questions: Text Completion, Reading Comprehension, Sentence Equivalence, and Critical Reasoning. Answer, check, and read the explanation. Before you read it, ask yourself why each wrong choice is wrong.</p>
+  <div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><div class="score" id="score">0 / 15 checked</div></div>
+<h2 class="section-title">Questions 1–6: Text Completion</h2>
+  <div class="directions">For each question, select one entry for each blank from the corresponding column of choices. Fill all blanks in the way that best completes the text.</div>
+
+  <div class="question" data-q="1" data-answer="C">
+    <div class="qtext"><span class="qnum">1</span>Although economic growth has conventionally been viewed as the ______ for poverty in underdeveloped regions, this prescription’s negative environmental side effects are becoming a concern.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q1" value="A">A. culprit</label>
+      <label class="choice"><input type="radio" name="q1" value="B">B. recipe</label>
+      <label class="choice"><input type="radio" name="q1" value="C">C. panacea</label>
+      <label class="choice"><input type="radio" name="q1" value="D">D. explanation</label>
+      <label class="choice"><input type="radio" name="q1" value="E">E. refuge</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(1)">Check answer</button>
+    <div class="feedback" id="fb1"><div class="result"></div><div class="explanation">“Prescription” points to a supposed remedy. <em>Panacea</em> means a cure or solution for all problems, which best fits the sentence.</div></div>
+  </div>
+
+  <div class="question" data-q="2" data-answer="B">
+    <div class="qtext"><span class="qnum">2</span>Though acquaintances are first overwhelmed by his ______, they soon appreciate that, contrary to appearances, he is not without self-interest.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q2" value="A">A. egotism</label>
+      <label class="choice"><input type="radio" name="q2" value="B">B. magnanimity</label>
+      <label class="choice"><input type="radio" name="q2" value="C">C. ambition</label>
+      <label class="choice"><input type="radio" name="q2" value="D">D. profligacy</label>
+      <label class="choice"><input type="radio" name="q2" value="E">E. brilliance</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(2)">Check answer</button>
+    <div class="feedback" id="fb2"><div class="result"></div><div class="explanation">The contrast with “not without self-interest” requires a word suggesting unusual generosity or selflessness. <em>Magnanimity</em> fits.</div></div>
+  </div>
+
+  <div class="question" data-q="3" data-answer="C,D">
+    <div class="qtext"><span class="qnum">3</span>It is unfortunate that essays by literary critics so infrequently (i) ______ the opinions of novelists and poets, for creative writers are often quite (ii) ______ about their own philosophies and are frequently more familiar with alternative systems of thought than critics are.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q3a" value="A">A. influence</label>
+          <label class="choice"><input type="radio" name="q3a" value="B">B. challenge</label>
+          <label class="choice"><input type="radio" name="q3a" value="C">C. incorporate</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q3b" value="D">D. articulate</label>
+          <label class="choice"><input type="radio" name="q3b" value="E">E. inconsistent</label>
+          <label class="choice"><input type="radio" name="q3b" value="F">F. prejudiced</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(3,['q3a','q3b'])">Check answer</button>
+    <div class="feedback" id="fb3"><div class="result"></div><div class="explanation">The sentence says critics would benefit from including writers’ own views because writers can express their philosophies clearly. Thus: <em>incorporate</em> and <em>articulate</em>.</div></div>
+  </div>
+
+  <div class="question" data-q="4" data-answer="A,D">
+    <div class="qtext"><span class="qnum">4</span>The first major exhibits of modern art left the public (i) ______, its (ii) ______ intensified by the response of art critics, who stooped to vituperation to express their disgust with the new art.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q4a" value="A">A. aghast</label>
+          <label class="choice"><input type="radio" name="q4a" value="B">B. bemused</label>
+          <label class="choice"><input type="radio" name="q4a" value="C">C. unsurprised</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q4b" value="D">D. shock</label>
+          <label class="choice"><input type="radio" name="q4b" value="E">E. apathy</label>
+          <label class="choice"><input type="radio" name="q4b" value="F">F. empathy</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(4,['q4a','q4b'])">Check answer</button>
+    <div class="feedback" id="fb4"><div class="result"></div><div class="explanation">The critics’ “vituperation” and “disgust” indicate a strongly negative reaction. The public was <em>aghast</em>, and its <em>shock</em> intensified.</div></div>
+  </div>
+
+  <div class="question" data-q="5" data-answer="A,D,I">
+    <div class="qtext"><span class="qnum">5</span>In the nineteenth century the (i) ______ advanced mechanical printing techniques made it possible for newspaper owners to print newspapers cheaply and in mass quantities, but unlike many other mechanized industries, where machines (ii) ______ workers, the new printing machines required trained compositors to run them, thereby (iii) ______ the demand for skilled printing labor.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q5a" value="A">A. wide application of</label>
+          <label class="choice"><input type="radio" name="q5a" value="B">B. extensive resistance to</label>
+          <label class="choice"><input type="radio" name="q5a" value="C">C. great expense of</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q5b" value="D">D. marginalized</label>
+          <label class="choice"><input type="radio" name="q5b" value="E">E. intrigued</label>
+          <label class="choice"><input type="radio" name="q5b" value="F">F. isolated</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (iii)</legend>
+          <label class="choice"><input type="radio" name="q5c" value="G">G. ignoring</label>
+          <label class="choice"><input type="radio" name="q5c" value="H">H. anticipating</label>
+          <label class="choice"><input type="radio" name="q5c" value="I">I. increasing</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(5,['q5a','q5b','q5c'])">Check answer</button>
+    <div class="feedback" id="fb5"><div class="result"></div><div class="explanation">The techniques became widely used. In many industries machines displaced or <em>marginalized</em> workers, but printing machines required skilled compositors, thereby <em>increasing</em> demand for their labor.</div></div>
+  </div>
+
+  <div class="question" data-q="6" data-answer="B,D,H">
+    <div class="qtext"><span class="qnum">6</span>Michael Winterbottom’s film version of Laurence Sterne’s 1759 novel <em>Tristram Shandy</em> is one of the most (i) ______ literary adaptations I’ve ever seen. But as an adaptation, it’s also (ii) ______ its source. This paradox—that the most (iii) ______ somehow winds up being the truest—is itself a piece of twisted logic straight out of Sterne’s novel.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q6a" value="A">A. straightforward</label>
+          <label class="choice"><input type="radio" name="q6a" value="B">B. successful</label>
+          <label class="choice"><input type="radio" name="q6a" value="C">C. inaccurate</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q6b" value="D">D. wildly untrue to</label>
+          <label class="choice"><input type="radio" name="q6b" value="E">E. completely uninfluenced by</label>
+          <label class="choice"><input type="radio" name="q6b" value="F">F. qualitatively inferior to</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (iii)</legend>
+          <label class="choice"><input type="radio" name="q6c" value="G">G. ambiguous</label>
+          <label class="choice"><input type="radio" name="q6c" value="H">H. traitorous</label>
+          <label class="choice"><input type="radio" name="q6c" value="I">I. banal</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(6,['q6a','q6b','q6c'])">Check answer</button>
+    <div class="feedback" id="fb6"><div class="result"></div><div class="explanation">The paradox is that a highly <em>successful</em> adaptation can be <em>wildly untrue to</em> the source; the apparently most <em>traitorous</em> version can still capture the novel’s spirit.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 7–11: Reading Comprehension</h2>
+  <div class="directions">For each question, select one answer choice unless otherwise instructed.</div>
+
+  <div class="passage">
+    <strong>Passage for Questions 7–9</strong>
+    <p>Experts have differed about where the genus <em>Varanus</em> (monitor lizards) originated. Because most existing species live in Australia, early researchers concluded that <em>Varanus</em> originated in Australia and subsequently island hopped westward along the Indo-Australian archipelago. Herpetologist Robert Mertens later argued that <em>Varanus</em> probably originated in the archipelago. Chromosomal analysis has since supported Mertens’ contention, and in addition, geologic evidence points to a collision between the archipelago and the Australian landmass after <em>Varanus</em> evolved—a fact that could account for the genus’ present distribution.</p>
+    <p>A related puzzle for scientists is the present distribution of <em>Varanus</em>’ largest surviving species, the Komodo dragon. These carnivores live only on four small islands in the archipelago where, scientists note, the prey base is too small to support mammalian carnivores. But the Komodo dragon has recently been shown to manage body temperature much more efficiently than do mammalian carnivores, enabling it to survive on about a tenth of the food energy required by a mammalian carnivore of comparable size.</p>
+  </div>
+
+  <div class="question" data-q="7" data-answer="D">
+    <div class="qtext"><span class="qnum">7</span>It can be inferred from the passage that the geographical distribution of the Komodo dragon is ______.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q7" value="A">A. currently less restricted than it was at the time researchers first began investigating the origins of the genus <em>Varanus</em></label>
+      <label class="choice"><input type="radio" name="q7" value="B">B. currently more restricted than it was at the time researchers first began investigating the origins of the genus <em>Varanus</em></label>
+      <label class="choice"><input type="radio" name="q7" value="C">C. less restricted than is the distribution of the genus <em>Varanus</em> as a whole</label>
+      <label class="choice"><input type="radio" name="q7" value="D">D. more restricted than is the distribution of the genus <em>Varanus</em> as a whole</label>
+      <label class="choice"><input type="radio" name="q7" value="E">E. viewed as evidence in favor of the hypothesis that the genus <em>Varanus</em> originated in the Indo-Australian archipelago</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(7)">Check answer</button>
+    <div class="feedback" id="fb7"><div class="result"></div><div class="explanation"><em>Varanus</em> species occur in Australia and the archipelago, while Komodo dragons live on only four small islands. Their distribution is therefore more restricted.</div></div>
+  </div>
+
+  <div class="question" data-q="8" data-answer="A">
+    <div class="qtext"><span class="qnum">8</span>Which of the following elements in the debate over the origin of <em>Varanus</em> is NOT provided in the passage?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q8" value="A">A. The evidence that led Mertens to argue that <em>Varanus</em> originated in the Indo-Australian archipelago</label>
+      <label class="choice"><input type="radio" name="q8" value="B">B. The evidence that led early researchers to argue that <em>Varanus</em> originated in Australia</label>
+      <label class="choice"><input type="radio" name="q8" value="C">C. A possible explanation of how <em>Varanus</em> might have spread to the Indo-Australian archipelago if it had originated in Australia</label>
+      <label class="choice"><input type="radio" name="q8" value="D">D. A possible explanation of how <em>Varanus</em> might have spread to Australia if it had originated in the Indo-Australian archipelago</label>
+      <label class="choice"><input type="radio" name="q8" value="E">E. An indication of the general present-day distribution of <em>Varanus</em> species between Australia and the Indo-Australian archipelago</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(8)">Check answer</button>
+    <div class="feedback" id="fb8"><div class="result"></div><div class="explanation">The passage tells us Mertens’ conclusion, but not what evidence originally led him to it. The later chromosomal and geological evidence is described separately.</div></div>
+  </div>
+
+  <div class="question" data-q="9" data-answer="B">
+    <div class="qtext"><span class="qnum">9</span>It can be inferred that which of the following is true of the “geologic evidence” (the passage’s mention of geologic evidence)?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q9" value="A">A. It was first noted by Mertens as evidence in favor of his theory about the origins of <em>Varanus</em>.</label>
+      <label class="choice"><input type="radio" name="q9" value="B">B. It cannot rule out either one of the theories about the origins of <em>Varanus</em> discussed in the passage.</label>
+      <label class="choice"><input type="radio" name="q9" value="C">C. It accounts for the present distribution of the Komodo dragon.</label>
+      <label class="choice"><input type="radio" name="q9" value="D">D. It has led to renewed interest in the debate over the origins of <em>Varanus</em>.</label>
+      <label class="choice"><input type="radio" name="q9" value="E">E. It confirms the conclusions reached by early researchers concerning the origins of <em>Varanus</em>.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(9)">Check answer</button>
+    <div class="feedback" id="fb9"><div class="result"></div><div class="explanation">A later collision could explain movement between the landmasses regardless of which location was the original one. So the geological evidence alone does not eliminate either origin theory.</div></div>
+  </div>
+
+  <div class="passage">
+    <strong>Passage for Questions 10–11</strong>
+    <p>Despite hypotheses ranging from armed conflict to climate change, the abandonment of more than 600 Pueblo cliff dwellings in Mesa Verde by A.D. 1300 still puzzles archaeologists. Researchers analyzing refuse from one Pueblo community found remains of maize—a Pueblo crop—in 44 percent of samples from years when the community flourished, but in only 10 percent of samples from years near the time of depopulation, while the remains of wild plants increased significantly.</p>
+    <p>Bones found in the samples showed that the consumption of domesticated turkeys—which were fed maize—decreased from 55 to 14 percent, while there was a marked increase in wild-animal bones. These data suggest that near the end of the site’s occupation, villagers experienced substantial food shortages and adopted hunting-and-gathering strategies to compensate for crop failure.</p>
+  </div>
+
+  <div class="question" data-q="10" data-answer="C">
+    <div class="qtext"><span class="qnum">10</span>According to the passage, which of the following is likely true regarding the consumption of wild plants in the Pueblo community investigated by researchers?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q10" value="A">A. It decreased dramatically as the settlement began to decline.</label>
+      <label class="choice"><input type="radio" name="q10" value="B">B. It significantly affected the food supply of wild animals living nearby.</label>
+      <label class="choice"><input type="radio" name="q10" value="C">C. It increased as domesticated sources of food declined.</label>
+      <label class="choice"><input type="radio" name="q10" value="D">D. It represented a continuation of centuries-old traditions.</label>
+      <label class="choice"><input type="radio" name="q10" value="E">E. It fell markedly as the consumption of wild animals increased.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(10)">Check answer</button>
+    <div class="feedback" id="fb10"><div class="result"></div><div class="explanation">Near depopulation, maize and domesticated turkey remains declined while wild plant and wild animal remains increased.</div></div>
+  </div>
+
+  <div class="question" data-q="11" data-answer="A">
+    <div class="qtext"><span class="qnum">11</span>The research described in the passage most clearly supports which of the following claims about the abandonment of Mesa Verde?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q11" value="A">A. It likely resulted from factors affecting crop viability.</label>
+      <label class="choice"><input type="radio" name="q11" value="B">B. It was more extensive than had previously been documented.</label>
+      <label class="choice"><input type="radio" name="q11" value="C">C. It may have been hastened by the abundance of wild animals in the area.</label>
+      <label class="choice"><input type="radio" name="q11" value="D">D. It has been misdated by previous archaeological research.</label>
+      <label class="choice"><input type="radio" name="q11" value="E">E. It happened more rapidly in certain Pueblo communities than in others.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(11)">Check answer</button>
+    <div class="feedback" id="fb11"><div class="result"></div><div class="explanation">The evidence points to crop failure and food shortages near the end of occupation, supporting an explanation involving conditions that damaged crop viability.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 12–14: Sentence Equivalence</h2>
+  <div class="directions">Select the <strong>two</strong> answer choices that, when used to complete the sentence, fit the meaning of the sentence as a whole and produce completed sentences that are alike in meaning.</div>
+
+  <div class="question" data-q="12" data-answer="A,B">
+    <div class="qtext"><span class="qnum">12</span>In film studies—a visually oriented discipline that is ______ backlit close-ups, eyeline matches, and voyeuristic gazes—scholars have often been tone-deaf to the sounds of music.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q12" value="A">A. fixated on</label>
+      <label class="choice"><input type="checkbox" name="q12" value="B">B. obsessed with</label>
+      <label class="choice"><input type="checkbox" name="q12" value="C">C. unconcerned with</label>
+      <label class="choice"><input type="checkbox" name="q12" value="D">D. amused by</label>
+      <label class="choice"><input type="checkbox" name="q12" value="E">E. bothered by</label>
+      <label class="choice"><input type="checkbox" name="q12" value="F">F. indifferent to</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(12)">Check answer</button>
+    <div class="feedback" id="fb12"><div class="result"></div><div class="explanation">The sentence contrasts intense attention to visual features with neglect of sound. <em>Fixated on</em> and <em>obsessed with</em> are equivalent and fit that contrast.</div></div>
+  </div>
+
+  <div class="question" data-q="13" data-answer="A,C">
+    <div class="qtext"><span class="qnum">13</span>Family photos of the author suggest that she was ______ child: she seemed to wear a permanent frown.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q13" value="A">A. a sullen</label>
+      <label class="choice"><input type="checkbox" name="q13" value="B">B. an amiable</label>
+      <label class="choice"><input type="checkbox" name="q13" value="C">C. a surly</label>
+      <label class="choice"><input type="checkbox" name="q13" value="D">D. a beautiful</label>
+      <label class="choice"><input type="checkbox" name="q13" value="E">E. a prudent</label>
+      <label class="choice"><input type="checkbox" name="q13" value="F">F. a stunning</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(13)">Check answer</button>
+    <div class="feedback" id="fb13"><div class="result"></div><div class="explanation">A “permanent frown” suggests an ill-tempered or gloomy child. <em>Sullen</em> and <em>surly</em> express that idea.</div></div>
+  </div>
+
+  <div class="question" data-q="14" data-answer="B,E">
+    <div class="qtext"><span class="qnum">14</span>Biologists agree that snakes descended from lizards, but exactly where this first happened has been a matter of debate since the 1800s, when two ______ theories emerged.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q14" value="A">A. complex</label>
+      <label class="choice"><input type="checkbox" name="q14" value="B">B. competing</label>
+      <label class="choice"><input type="checkbox" name="q14" value="C">C. dubious</label>
+      <label class="choice"><input type="checkbox" name="q14" value="D">D. conclusive</label>
+      <label class="choice"><input type="checkbox" name="q14" value="E">E. contending</label>
+      <label class="choice"><input type="checkbox" name="q14" value="F">F. irrefutable</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(14)">Check answer</button>
+    <div class="feedback" id="fb14"><div class="result"></div><div class="explanation">A long-running debate implies rival theories. <em>Competing</em> and <em>contending</em> both express that relationship.</div></div>
+  </div>
+
+  <h2 class="section-title">Question 15: Critical Reasoning</h2>
+  <div class="directions">Select one answer choice.</div>
+  <div class="passage">
+    <strong>Passage for Question 15</strong>
+    <p>The painter Peter Brandon never dated his works, and their chronology is only now beginning to take shape in the critical literature. A recent dating of a Brandon self-portrait to 1930 is surely wrong. Brandon was 63 years old in 1930, yet the painting shows a young, dark-haired man—obviously Brandon, but clearly not a man of 63.</p>
+  </div>
+
+  <div class="question" data-q="15" data-answer="D">
+    <div class="qtext"><span class="qnum">15</span>Which of the following, if justifiably assumed, allows the conclusion to be properly drawn?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q15" value="A">A. There is no securely dated self-portrait of Brandon that he painted when he was significantly younger than 63.</label>
+      <label class="choice"><input type="radio" name="q15" value="B">B. In refraining from dating his works, Brandon intended to steer critical discussion of them away from considerations of chronology.</label>
+      <label class="choice"><input type="radio" name="q15" value="C">C. Until recently, there was very little critical literature on the works of Brandon.</label>
+      <label class="choice"><input type="radio" name="q15" value="D">D. Brandon at age 63 would not have portrayed himself in a painting as he had looked when he was a young man.</label>
+      <label class="choice"><input type="radio" name="q15" value="E">E. Brandon painted several self-portraits that showed him as a man past the age of 60.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(15)">Check answer</button>
+    <div class="feedback" id="fb15"><div class="result"></div><div class="explanation">The argument assumes that the portrait’s youthful appearance tells us when it was painted. That requires assuming Brandon would not, at 63, paint himself as he had looked when young.</div></div>
+  </div>
+
+  
+  <div class="footer-actions">
+    <button class="secondary" onclick="resetAll()">Reset all answers</button>
+    <button class="check" style="margin-top:0" onclick="showSummary()">Show score summary</button>
+  </div>
+  <p id="summary" aria-live="polite"></p>
+  <a href="gre.html" style="display:inline-block;margin-top:26px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to GRE Preparation</a>
+</div>
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+<script>
+const checked={},correct={};
+function note(q,t){var d=document.querySelector('.question[data-q="'+q+'"]');var m=d.querySelector('.msg');if(!m){m=document.createElement('div');m.className='msg';d.appendChild(m);}m.textContent=t;m.style.display=t?'block':'none';}
+function mark(q,ok){checked[q]=true;correct[q]=ok;note(q,'');var fb=document.getElementById('fb'+q);fb.className='feedback '+(ok?'good':'bad');fb.querySelector('.result').textContent=ok?'Correct.':'Not quite. Review the explanation below.';updateProgress();}
+function checkSingle(q){var el=document.querySelector('input[name="q'+q+'"]:checked');if(!el){note(q,'Select an answer first.');return;}mark(q,el.value===document.querySelector('.question[data-q="'+q+'"]').dataset.answer);}
+function checkMultiBlank(q,names){var v=[];for(var i=0;i<names.length;i++){var el=document.querySelector('input[name="'+names[i]+'"]:checked');if(!el){note(q,'Complete every blank first.');return;}v.push(el.value);}mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',')));}
+function checkTwo(q){var els=[].slice.call(document.querySelectorAll('input[name="q'+q+'"]:checked'));if(els.length!==2){note(q,'Select exactly two answers.');return;}var v=els.map(function(e){return e.value}).sort();mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',').sort()));}
+function updateProgress(){var c=Object.keys(checked).length,r=Object.values(correct).filter(Boolean).length;document.getElementById('score').textContent=c+' / 15 checked · '+r+' correct';document.getElementById('progress').style.width=(c/15*100)+'%';}
+function showSummary(){var c=Object.keys(checked).length,r=Object.values(correct).filter(Boolean).length;document.getElementById('summary').textContent=c?('Checked '+c+' of 15 · Correct '+r+' · Accuracy on checked questions: '+Math.round(r/c*100)+'%'):'Check at least one answer first.';}
+function resetAll(){document.querySelectorAll('input').forEach(function(i){i.checked=false});document.querySelectorAll('.feedback').forEach(function(f){f.className='feedback'});document.querySelectorAll('.msg').forEach(function(m){m.style.display='none'});for(var k in checked)delete checked[k];for(var k2 in correct)delete correct[k2];document.getElementById('summary').textContent='';updateProgress();window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
