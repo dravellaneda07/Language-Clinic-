@@ -39,6 +39,30 @@
   .week { display:grid; grid-template-columns:70px 1fr; gap:14px; background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; padding:14px 18px; margin-bottom:12px; }
   .week b { font-family:'Fraunces',serif; color:var(--coral); }
   .week p { margin:0; font-size:.95rem; }
+  /* practice sets */
+  .sets { display:flex; flex-direction:column; gap:10px; }
+  .set { display:flex; align-items:center; gap:14px; background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; padding:12px 16px; text-decoration:none; }
+  a.set:hover { border-color:var(--sage-dark); }
+  .set-num { width:32px; height:32px; border-radius:50%; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:.88rem; flex-shrink:0; }
+  .set-name { font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; }
+  .set-go { margin-left:auto; font-weight:600; font-size:.8rem; color:var(--sage-dark); white-space:nowrap; }
+  .set.off { opacity:.6; }
+  .set.off .set-num { background:var(--slate); }
+  .set.off .set-go { color:var(--slate); font-weight:500; }
+  /* topics */
+  details.topic { background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; margin-bottom:12px; }
+  details.topic summary { cursor:pointer; list-style:none; padding:14px 18px; font-family:'Fraunces',serif; font-weight:600; font-size:1.08rem; display:flex; align-items:center; gap:12px; }
+  details.topic summary::-webkit-details-marker { display:none; }
+  details.topic summary::after { content:'+'; margin-left:auto; font-family:'Work Sans',sans-serif; font-size:1.3rem; color:var(--sage-dark); }
+  details.topic[open] summary::after { content:'−'; }
+  .tag { font-family:'Work Sans',sans-serif; font-size:.68rem; font-weight:600; letter-spacing:.06em; background:var(--ink); color:#fff; border-radius:999px; padding:3px 9px; }
+  .topic-body { padding:0 18px 16px; }
+  .topic-body p { margin:0 0 8px; font-size:.95rem; }
+  .topic-body h4 { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sage-dark); margin:14px 0 4px; }
+  .topic-body ul { margin:0; padding-left:20px; font-size:.93rem; }
+  .topic-body li { margin-bottom:4px; }
+  .practice a { font-weight:600; }
+  .practice .soon { color:var(--slate); font-style:italic; }
   /* flashcards */
   .flash { background:var(--card-bg); border:2px solid var(--paper-line); border-radius:12px; min-height:190px; padding:24px; text-align:center; cursor:pointer; width:100%; font-family:inherit; color:var(--ink); }
   .flash .word { font-family:'Fraunces',serif; font-size:1.9rem; font-weight:600; }
@@ -67,7 +91,7 @@
 <body>
 
 <div class="chart-meta">
-  <a href="english.html">← The Language Clinic</a>
+  <a href="index.html">← The Language Clinic</a>
   <span>UDC · School of Education</span>
 </div>
 
@@ -114,23 +138,30 @@
   <!-- 3 VERBAL -->
   <div class="activity-section">
     <p class="activity-label">Part 3</p>
-    <h2 class="activity-title">Verbal Reasoning</h2>
-    <div class="card"><h3>Reading Comprehension</h3><p>Passages from the humanities, sciences, and social sciences.</p>
-      <ul><li>Read for the main idea and the author's purpose first, details second.</li><li>Answer only from the passage, never from outside knowledge.</li><li>Watch for contrast words: <em>however, although, despite</em>.</li></ul></div>
-    <div class="card"><h3>Text Completion</h3><p>Fill one to three blanks in a sentence or short passage.</p>
-      <ul><li>Predict the missing idea <em>before</em> looking at the choices.</li><li>Find the clue: a definition, a contrast, or a cause.</li></ul></div>
-    <div class="card"><h3>Sentence Equivalence</h3><p>Choose two answers that complete the sentence and give it the same meaning.</p>
-      <ul><li>The two correct words are usually synonyms.</li><li>If a word has no partner among the choices, it is probably wrong.</li></ul></div>
+    <h2 class="activity-title">Verbal Practice</h2>
+    <p>Mixed sets with Text Completion, Reading Comprehension, Sentence Equivalence, and Critical Reasoning. Each set has explanations.</p>
+    <div class="sets">
+      <a class="set" href="gre-verbal-1.html"><span class="set-num">1</span><span class="set-name">Verbal Practice 1</span><span class="set-go">Start →</span></a>
+      <div class="set off"><span class="set-num">2</span><span class="set-name">Verbal Practice 2</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">3</span><span class="set-name">Verbal Practice 3</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">4</span><span class="set-name">Verbal Practice 4</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">5</span><span class="set-name">Verbal Practice 5</span><span class="set-go">Coming soon</span></div>
+      <!-- ADD MORE VERBAL SETS HERE: copy a line, change the number, name, and href. For a finished set use: <a class="set" href="gre-verbal-6.html"> ... Start → </a> -->
+    </div>
   </div>
 
   <!-- 4 QUANT -->
   <div class="activity-section">
     <p class="activity-label">Part 4</p>
-    <h2 class="activity-title">Quantitative Reasoning</h2>
-    <p>The math is high-school level (arithmetic, algebra, geometry, data analysis). The challenge is reasoning and speed.</p>
-    <div class="grid2">
-      <div class="card"><h3>Content areas</h3><ul><li>Arithmetic: fractions, percents, ratios</li><li>Algebra: equations, inequalities</li><li>Geometry: angles, triangles, circles</li><li>Data analysis: statistics, probability, graphs</li></ul></div>
-      <div class="card"><h3>Habits that raise scores</h3><ul><li>Estimate before calculating</li><li>Plug in numbers for variables</li><li>Use the calculator for arithmetic, not for thinking</li><li>Skip and mark hard questions, then return</li></ul></div>
+    <h2 class="activity-title">Math Practice</h2>
+    <p>Quantitative Reasoning sets. The on-screen calculator is available on the real test.</p>
+    <div class="sets">
+      <div class="set off"><span class="set-num">1</span><span class="set-name">Math Practice 1</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">2</span><span class="set-name">Math Practice 2</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">3</span><span class="set-name">Math Practice 3</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">4</span><span class="set-name">Math Practice 4</span><span class="set-go">Coming soon</span></div>
+      <div class="set off"><span class="set-num">5</span><span class="set-name">Math Practice 5</span><span class="set-go">Coming soon</span></div>
+      <!-- ADD MORE MATH SETS HERE: same method as the verbal sets -->
     </div>
   </div>
 
@@ -149,7 +180,7 @@
   </div>
 
   <!-- 6 FLASHCARDS -->
-  <div class="activity-section">
+  <div class="activity-section" id="flashcards">
     <p class="activity-label">Activity 1</p>
     <h2 class="activity-title">Vocabulary Flashcards</h2>
     <p>Tap the card to flip it. Mark each word <b>Know it</b> or <b>Review</b>. Review words return later.</p>
@@ -176,6 +207,8 @@
   <div class="activity-section">
     <p class="activity-label">Resources</p>
     <h2 class="activity-title">Where to Practice</h2>
+        <div class="card"><h3>Practice sets</h3><ul>
+      <li><a href="gre-verbal-1.html"><b>Verbal Practice Set 1</b></a>: 15 questions with explanations</li></ul></div>
     <div class="card"><h3>Official ETS materials</h3><ul>
       <li><a href="https://www.ets.org/gre" target="_blank" rel="noopener">ETS GRE home</a>: registration, fees, and policies</li>
       <li>Free POWERPREP practice tests are available through ETS (find them from the GRE home page)</li></ul></div>
@@ -185,7 +218,7 @@
     <p class="note">Practice with AI: ask ChatGPT or Claude to quiz you, then to explain every wrong answer. Always verify against official ETS material.</p>
   </div>
 
-  <a href="english.html" style="display:inline-block;margin-top:30px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to The Language Clinic</a>
+  <a href="index.html" style="display:inline-block;margin-top:30px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to The Language Clinic</a>
 </div>
 
 <footer>The Language Clinic — teaching materials built for language learners</footer>
