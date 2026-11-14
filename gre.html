@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Preparation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#0F2A44; --sage:#F2A93B; --sage-dark:#C97F16;
+    --paper:#E1EBF6; --paper-line:#B9D0E8; --coral:#b6432f; --slate:#3A4E63;
+    --card-bg:#ffffff; --green:#2f7d4f;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:'Work Sans',-apple-system,sans-serif; line-height:1.55; }
+  a { color:inherit; }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--sage); outline-offset:3px; }
+  .chart-meta { display:flex; justify-content:space-between; align-items:center; max-width:760px; margin:0 auto; padding:18px 24px 0; font-weight:600; letter-spacing:.04em; font-size:.72rem; color:var(--slate); text-transform:uppercase; }
+  .chart-meta a { text-decoration:none; border-bottom:1px solid var(--paper-line); }
+  .wrap { max-width:760px; margin:0 auto; padding:22px 24px 70px; }
+  .pretitle, .section-label, .activity-label { font-weight:600; letter-spacing:.08em; font-size:.72rem; text-transform:uppercase; color:var(--sage-dark); margin:6px 0 2px; }
+  h1 { font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.9rem,5vw,2.6rem); line-height:1.08; letter-spacing:-.01em; margin:0; }
+  .lead { font-size:1.02rem; margin:14px 0 0; }
+  .chart-rule { border:none; border-top:1px solid var(--paper-line); margin:26px 0 30px; }
+  .activity-section { margin-top:44px; padding-top:32px; border-top:1px solid var(--paper-line); }
+  .activity-title { font-family:'Fraunces',serif; font-weight:600; font-size:1.4rem; margin:0 0 14px; }
+  .card { background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; padding:18px 20px; margin-bottom:14px; }
+  .card h3 { font-family:'Fraunces',serif; font-size:1.08rem; margin:0 0 6px; }
+  .card p, .card li { font-size:.95rem; margin:0 0 6px; }
+  .card ul, .card ol { margin:6px 0 0; padding-left:20px; }
+  table { width:100%; border-collapse:collapse; background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; overflow:hidden; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--paper-line); }
+  th { background:var(--ink); color:#fff; font-weight:600; font-size:.78rem; letter-spacing:.04em; text-transform:uppercase; }
+  tr:last-child td { border-bottom:none; }
+  .note { font-size:.85rem; color:var(--slate); background:var(--paper); border-left:3px solid var(--sage); padding:10px 14px; border-radius:4px; margin:16px 0; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .week { display:grid; grid-template-columns:70px 1fr; gap:14px; background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; padding:14px 18px; margin-bottom:12px; }
+  .week b { font-family:'Fraunces',serif; color:var(--coral); }
+  .week p { margin:0; font-size:.95rem; }
+  /* flashcards */
+  .flash { background:var(--card-bg); border:2px solid var(--paper-line); border-radius:12px; min-height:190px; padding:24px; text-align:center; cursor:pointer; width:100%; font-family:inherit; color:var(--ink); }
+  .flash .word { font-family:'Fraunces',serif; font-size:1.9rem; font-weight:600; }
+  .flash .pos { font-size:.8rem; color:var(--sage-dark); font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
+  .flash .def { font-size:1.05rem; margin:8px 0; }
+  .flash .ex { font-style:italic; color:var(--slate); font-size:.92rem; }
+  .flash .hint { font-size:.78rem; color:var(--slate); margin-top:14px; }
+  .btn-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; align-items:center; }
+  button.btn { font-family:inherit; font-weight:600; font-size:.85rem; border:none; border-radius:8px; padding:10px 18px; cursor:pointer; background:var(--ink); color:#fff; }
+  button.btn.alt { background:var(--coral); }
+  button.btn.ghost { background:#fff; color:var(--ink); border:1px solid var(--paper-line); }
+  .count { font-size:.85rem; color:var(--slate); font-weight:600; }
+  /* quiz */
+  .q { background:var(--card-bg); border:1px solid var(--paper-line); border-radius:10px; padding:16px 18px; margin-bottom:14px; }
+  .q p { margin:0 0 10px; font-size:.97rem; }
+  .opt { display:block; width:100%; text-align:left; font-family:inherit; font-size:.92rem; background:var(--paper); border:1px solid var(--paper-line); border-radius:8px; padding:9px 12px; margin-bottom:8px; cursor:pointer; color:var(--ink); }
+  .opt.right { background:#d9f0e2; border-color:var(--green); }
+  .opt.wrong { background:#f7dcd6; border-color:var(--coral); }
+  .why { font-size:.85rem; color:var(--slate); margin-top:6px; display:none; }
+  #score { font-weight:600; margin-top:6px; }
+  .tpl { white-space:pre-wrap; font-size:.9rem; background:var(--paper); border-radius:8px; padding:12px 14px; margin:8px 0 0; }
+  footer { max-width:760px; margin:0 auto; padding:24px 24px 40px; font-weight:600; font-size:.7rem; color:var(--slate); border-top:1px solid var(--paper-line); }
+  @media (max-width:560px){ .grid2{grid-template-columns:1fr;} .week{grid-template-columns:1fr;gap:4px;} }
+</style>
+</head>
+<body>
+
+<div class="chart-meta">
+  <a href="english.html">← The Language Clinic</a>
+  <span>UDC · School of Education</span>
+</div>
+
+<div class="wrap">
+  <p class="pretitle">Graduate Study · Test Preparation</p>
+  <h1>GRE Preparation</h1>
+  <p class="lead">A free study space for the GRE General Test. Learn the format, follow a study plan, build academic vocabulary, practice, and learn how to write the essay.</p>
+  <p class="note">The GRE changes over time. Always confirm dates, fees, and rules at <a href="https://www.ets.org/gre" target="_blank" rel="noopener">ets.org/gre</a>, and check whether your program requires the GRE at all.</p>
+
+  <hr class="chart-rule">
+
+  <!-- 1 FORMAT -->
+  <div class="activity-section" style="margin-top:0;padding-top:0;border-top:none;">
+    <p class="activity-label">Part 1</p>
+    <h2 class="activity-title">Know the Test</h2>
+    <p>The GRE General Test (current format, in effect since September 2023) takes about 1 hour 58 minutes and has five sections:</p>
+    <table>
+      <tr><th>Section</th><th>Questions</th><th>Time</th></tr>
+      <tr><td>Analytical Writing (always first)</td><td>1 essay: Analyze an Issue</td><td>30 min</td></tr>
+      <tr><td>Verbal Reasoning 1</td><td>12</td><td>18 min</td></tr>
+      <tr><td>Verbal Reasoning 2</td><td>15</td><td>23 min</td></tr>
+      <tr><td>Quantitative Reasoning 1</td><td>12</td><td>21 min</td></tr>
+      <tr><td>Quantitative Reasoning 2</td><td>15</td><td>26 min</td></tr>
+    </table>
+    <p class="note">Verbal and Quantitative can appear in either order. The test adapts by section: your performance on the first Verbal (or Quant) section determines how difficult the second one is. You can skip, mark, and return to questions within a section. An on-screen calculator is provided for Quant.</p>
+    <div class="grid2">
+      <div class="card"><h3>Scores</h3><p>Verbal and Quantitative: 130–170 each (1-point steps). Analytical Writing: 0–6 (half-point steps).</p></div>
+      <div class="card"><h3>Source</h3><p>Structure confirmed on the <a href="https://www.ets.org/gre/test-takers/general-test/prepare/test-structure.html" target="_blank" rel="noopener">official ETS test structure page</a>.</p></div>
+    </div>
+  </div>
+
+  <!-- 2 PLAN -->
+  <div class="activity-section">
+    <p class="activity-label">Part 2</p>
+    <h2 class="activity-title">Build a Study Plan</h2>
+    <p>Most learners need 6–12 weeks. Here is a sample 8-week plan at 6–8 hours per week. Adjust it after your first diagnostic test.</p>
+    <div class="week"><b>Week 1</b><p>Take a full official practice test as a baseline. Record your errors by type, not just your score.</p></div>
+    <div class="week"><b>Weeks 2–3</b><p>Verbal foundations: 15 new vocabulary words per week, Text Completion and Sentence Equivalence drills. Quant review: arithmetic, algebra, ratios, percents.</p></div>
+    <div class="week"><b>Weeks 4–5</b><p>Reading Comprehension with timed passages. Quant: geometry, data interpretation, quantitative comparison strategy. Write one Issue essay per week.</p></div>
+    <div class="week"><b>Weeks 6–7</b><p>Mixed timed sections. Review every mistake: why did you miss it (content, misread, timing, careless)?</p></div>
+    <div class="week"><b>Week 8</b><p>Second full practice test under real timing. Light review only in the last two days. Rest before test day.</p></div>
+  </div>
+
+  <!-- 3 VERBAL -->
+  <div class="activity-section">
+    <p class="activity-label">Part 3</p>
+    <h2 class="activity-title">Verbal Reasoning</h2>
+    <div class="card"><h3>Reading Comprehension</h3><p>Passages from the humanities, sciences, and social sciences.</p>
+      <ul><li>Read for the main idea and the author's purpose first, details second.</li><li>Answer only from the passage, never from outside knowledge.</li><li>Watch for contrast words: <em>however, although, despite</em>.</li></ul></div>
+    <div class="card"><h3>Text Completion</h3><p>Fill one to three blanks in a sentence or short passage.</p>
+      <ul><li>Predict the missing idea <em>before</em> looking at the choices.</li><li>Find the clue: a definition, a contrast, or a cause.</li></ul></div>
+    <div class="card"><h3>Sentence Equivalence</h3><p>Choose two answers that complete the sentence and give it the same meaning.</p>
+      <ul><li>The two correct words are usually synonyms.</li><li>If a word has no partner among the choices, it is probably wrong.</li></ul></div>
+  </div>
+
+  <!-- 4 QUANT -->
+  <div class="activity-section">
+    <p class="activity-label">Part 4</p>
+    <h2 class="activity-title">Quantitative Reasoning</h2>
+    <p>The math is high-school level (arithmetic, algebra, geometry, data analysis). The challenge is reasoning and speed.</p>
+    <div class="grid2">
+      <div class="card"><h3>Content areas</h3><ul><li>Arithmetic: fractions, percents, ratios</li><li>Algebra: equations, inequalities</li><li>Geometry: angles, triangles, circles</li><li>Data analysis: statistics, probability, graphs</li></ul></div>
+      <div class="card"><h3>Habits that raise scores</h3><ul><li>Estimate before calculating</li><li>Plug in numbers for variables</li><li>Use the calculator for arithmetic, not for thinking</li><li>Skip and mark hard questions, then return</li></ul></div>
+    </div>
+  </div>
+
+  <!-- 5 WRITING -->
+  <div class="activity-section">
+    <p class="activity-label">Part 5</p>
+    <h2 class="activity-title">Analytical Writing: Analyze an Issue</h2>
+    <p>You get a short statement on a general topic and 30 minutes to write a focused, well-supported essay taking a position.</p>
+    <div class="card"><h3>A simple structure</h3>
+      <div class="tpl">1. Introduction: restate the issue, state your position (and its limits).
+2. Body 1: strongest reason + a specific example.
+3. Body 2: second reason + a specific example.
+4. Body 3: consider the opposing view and respond to it.
+5. Conclusion: return to your position; do not just repeat it.</div></div>
+    <p class="note">Plan for 3–5 minutes, write for about 22, and keep 3 minutes to proofread. Clarity, development, and organization matter more than fancy vocabulary.</p>
+  </div>
+
+  <!-- 6 FLASHCARDS -->
+  <div class="activity-section">
+    <p class="activity-label">Activity 1</p>
+    <h2 class="activity-title">Vocabulary Flashcards</h2>
+    <p>Tap the card to flip it. Mark each word <b>Know it</b> or <b>Review</b>. Review words return later.</p>
+    <button class="flash" id="card" aria-live="polite"></button>
+    <div class="btn-row">
+      <button class="btn" id="know">Know it ✓</button>
+      <button class="btn alt" id="review">Review ↻</button>
+      <button class="btn ghost" id="shuffle">Shuffle</button>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <!-- 7 QUIZ -->
+  <div class="activity-section">
+    <p class="activity-label">Activity 2</p>
+    <h2 class="activity-title">Mini Practice: Text Completion</h2>
+    <p>Predict the missing idea first, then choose.</p>
+    <div id="quiz"></div>
+    <p id="score"></p>
+    <div class="btn-row"><button class="btn ghost" id="resetQuiz">Try again</button></div>
+  </div>
+
+  <!-- 8 RESOURCES -->
+  <div class="activity-section">
+    <p class="activity-label">Resources</p>
+    <h2 class="activity-title">Where to Practice</h2>
+    <div class="card"><h3>Official ETS materials</h3><ul>
+      <li><a href="https://www.ets.org/gre" target="_blank" rel="noopener">ETS GRE home</a>: registration, fees, and policies</li>
+      <li>Free POWERPREP practice tests are available through ETS (find them from the GRE home page)</li></ul></div>
+    <div class="card"><h3>For English learners</h3><ul>
+      <li>Keep a notebook: word, meaning in your own words, example sentence, Spanish cognate if one exists (many GRE words share Latin roots with Spanish: <em>ephemeral, prudent, candid</em>).</li>
+      <li>Read one long-form article per day (science, history, or opinion) and summarize it in two sentences.</li></ul></div>
+    <p class="note">Practice with AI: ask ChatGPT or Claude to quiz you, then to explain every wrong answer. Always verify against official ETS material.</p>
+  </div>
+
+  <a href="english.html" style="display:inline-block;margin-top:30px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to The Language Clinic</a>
+</div>
+
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+
+<script>
+(function(){
+  var words = [
+    ["ameliorate","verb","to make something better","The new policy helped ameliorate working conditions."],
+    ["candid","adj.","honest and direct","She gave a candid assessment of the plan."],
+    ["capricious","adj.","changing suddenly and unpredictably","The capricious weather ruined our plans."],
+    ["corroborate","verb","to confirm with evidence","Two witnesses corroborated her story."],
+    ["ephemeral","adj.","lasting a very short time","Fame can be ephemeral."],
+    ["equivocal","adj.","open to more than one meaning; unclear","His equivocal answer left us confused."],
+    ["gregarious","adj.","enjoying the company of others","A gregarious host, he invited everyone."],
+    ["inscrutable","adj.","impossible to understand or interpret","Her inscrutable expression hid her thoughts."],
+    ["laconic","adj.","using very few words","His laconic reply was simply 'No.'"],
+    ["mitigate","verb","to make less severe","Trees mitigate the heat in cities."],
+    ["obsequious","adj.","too eager to please or obey","The obsequious assistant agreed with everything."],
+    ["pragmatic","adj.","practical rather than theoretical","A pragmatic approach solves real problems."],
+    ["prudent","adj.","careful and wise about the future","It is prudent to save money."],
+    ["recalcitrant","adj.","stubbornly resisting authority","The recalcitrant student refused to follow rules."],
+    ["scrupulous","adj.","extremely careful and honest","A scrupulous editor checks every fact."],
+    ["tenuous","adj.","weak or very slight","The evidence for the theory is tenuous."],
+    ["ubiquitous","adj.","found everywhere","Smartphones are now ubiquitous."],
+    ["venerate","verb","to respect deeply","Many cultures venerate their elders."],
+    ["zealous","adj.","full of energy for a cause","A zealous volunteer, she worked every weekend."],
+    ["pernicious","adj.","harmful in a subtle, gradual way","The pernicious rumor damaged his reputation."]
+  ];
+  var deck = words.slice(), i = 0, flipped = false, known = 0;
+  var card = document.getElementById('card'), count = document.getElementById('count');
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function draw(){
+    if(!deck.length){ card.innerHTML = '<div class="word">All done 🎉</div><div class="def">You marked every word as known.</div><div class="hint">Press Shuffle to restart.</div>'; count.textContent = ''; return; }
+    var w = deck[i];
+    if(!flipped){ card.innerHTML = '<div class="pos">'+esc(w[1])+'</div><div class="word">'+esc(w[0])+'</div><div class="hint">Tap to see the meaning</div>'; }
+    else { card.innerHTML = '<div class="pos">'+esc(w[0])+' · '+esc(w[1])+'</div><div class="def">'+esc(w[2])+'</div><div class="ex">“'+esc(w[3])+'”</div>'; }
+    count.textContent = 'Card '+(i+1)+' of '+deck.length+' · Known: '+known;
+  }
+  card.addEventListener('click', function(){ if(deck.length){ flipped = !flipped; draw(); } });
+  function next(){ flipped = false; if(i >= deck.length) i = 0; draw(); }
+  document.getElementById('know').addEventListener('click', function(){ if(!deck.length) return; deck.splice(i,1); known++; next(); });
+  document.getElementById('review').addEventListener('click', function(){ if(!deck.length) return; i = (i+1) % deck.length; next(); });
+  document.getElementById('shuffle').addEventListener('click', function(){
+    deck = words.slice(); known = 0; i = 0;
+    for(var k=deck.length-1;k>0;k--){ var j=Math.floor(Math.random()*(k+1)); var t=deck[k]; deck[k]=deck[j]; deck[j]=t; }
+    next();
+  });
+  draw();
+
+  var qs = [
+    {q:"Although the senator's speech seemed ______, its vague phrasing left listeners unsure of her actual position.",o:["decisive","equivocal","candid","zealous"],a:1,w:"“Vague phrasing” and “unsure” signal an unclear answer: equivocal. Decisive and candid would contradict the clue."},
+    {q:"Because the evidence was so ______, the committee refused to base its decision on it.",o:["tenuous","corroborated","scrupulous","ubiquitous"],a:0,w:"A committee refuses weak evidence. Tenuous means weak. Corroborated evidence would be trusted."},
+    {q:"The coach's ______ reply, a single word, frustrated reporters who wanted details.",o:["gregarious","obsequious","laconic","pernicious"],a:2,w:"“A single word” is the clue: laconic means using very few words."},
+    {q:"To ______ the effects of the drought, the city introduced strict water-use rules.",o:["venerate","mitigate","corroborate","exaggerate"],a:1,w:"Rules aim to make the effects less severe: mitigate."},
+    {q:"Unlike his outgoing sister, Marco was not ______; he preferred quiet evenings alone.",o:["prudent","gregarious","inscrutable","ephemeral"],a:1,w:"“Unlike his outgoing sister” signals contrast with a sociable person: gregarious is the word negated."}
+  ];
+  var box = document.getElementById('quiz'), score = document.getElementById('score'), done = 0, right = 0;
+  function build(){
+    box.innerHTML = ''; done = 0; right = 0; score.textContent = '';
+    qs.forEach(function(item, n){
+      var d = document.createElement('div'); d.className = 'q';
+      var p = document.createElement('p'); p.textContent = (n+1)+'. '+item.q; d.appendChild(p);
+      var why = document.createElement('div'); why.className = 'why'; why.textContent = item.w;
+      var answered = false;
+      item.o.forEach(function(text, k){
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.textContent = text;
+        b.addEventListener('click', function(){
+          if(answered) return; answered = true; done++;
+          var all = d.querySelectorAll('.opt');
+          all[item.a].classList.add('right');
+          if(k === item.a) right++; else b.classList.add('wrong');
+          why.style.display = 'block';
+          if(done === qs.length) score.textContent = 'Score: '+right+' / '+qs.length;
+        });
+        d.appendChild(b);
+      });
+      d.appendChild(why); box.appendChild(d);
+    });
+  }
+  document.getElementById('resetQuiz').addEventListener('click', build);
+  build();
+})();
+</script>
+</body>
+</html>
