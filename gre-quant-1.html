@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Quant Lesson 1: Fractions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A44;--sage:#F2A93B;--sage-dark:#C97F16;--paper:#E1EBF6;--paper-line:#B9D0E8;--coral:#b6432f;--slate:#3A4E63;--card-bg:#fff;--good:#1f6b3f;--good-bg:#e3f4ea;--bad:#a32828;--bad-bg:#fbe6e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',-apple-system,sans-serif;line-height:1.55}
+  a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+  .chart-meta{display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:18px 24px 0;font-weight:600;letter-spacing:.04em;font-size:.72rem;color:var(--slate);text-transform:uppercase}
+  .chart-meta a{text-decoration:none;border-bottom:1px solid var(--paper-line)}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 24px 70px}
+  .pretitle,.activity-label{font-weight:600;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;color:var(--sage-dark);margin:6px 0 2px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.08;margin:0}
+  .lead{margin:12px 0 0}
+  .steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;padding:0;list-style:none}
+  .steps a{display:inline-block;text-decoration:none;font-weight:600;font-size:.8rem;background:#fff;border:1px solid var(--paper-line);border-radius:999px;padding:6px 14px}
+  .steps a:hover{border-color:var(--sage-dark)}
+  .activity-section{margin-top:44px;padding-top:32px;border-top:1px solid var(--paper-line)}
+  .activity-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin:0 0 12px}
+  .directions,.note{font-size:.88rem;color:var(--slate);background:var(--paper);border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin:0 0 18px}
+  .card{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin-bottom:14px}
+  .card h3{font-family:'Fraunces',serif;font-size:1.08rem;margin:0 0 8px}
+  .card p,.card li{font-size:.95rem;margin:0 0 6px}
+  .card ul,.card ol{margin:6px 0 0;padding-left:20px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  /* stacked fractions */
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.92em;line-height:1.05;margin:0 2px}
+  .fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}
+  .fr>span:last-child{padding:0 3px}
+  /* video */
+  .video{position:relative;width:100%;aspect-ratio:16/9;background:var(--ink);border-radius:10px;overflow:hidden}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:24px}
+  .video-empty b{font-family:'Fraunces',serif;font-size:1.3rem}
+  .video-empty p{margin:6px 0 0;font-size:.9rem;opacity:.85}
+  .video-empty a{color:var(--sage)}
+  textarea{width:100%;min-height:64px;font-family:inherit;font-size:.92rem;border:1px solid var(--paper-line);border-radius:8px;padding:9px 11px;margin-top:6px;resize:vertical;color:var(--ink)}
+  /* questions */
+  .toolbar{position:sticky;top:0;z-index:5;background:rgba(225,235,246,.96);padding:10px 0;margin:0 0 6px;border-bottom:1px solid var(--paper-line);display:flex;gap:14px;align-items:center}
+  .progress-shell{flex:1;height:10px;background:var(--paper-line);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0;background:var(--sage);transition:width .25s}
+  .score{font-weight:600;font-size:.85rem;white-space:nowrap}
+  .question{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .qtype{font-weight:600;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:6px}
+  .qnum{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;margin-right:8px}
+  .qtext{font-size:1rem}
+  .qc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 4px}
+  .qc div{border:1px solid var(--paper-line);border-radius:8px;padding:12px;text-align:center;background:#f7fafd}
+  .qc small{display:block;font-weight:600;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+  .given{text-align:center;font-size:.92rem;color:var(--slate);margin-top:8px}
+  fieldset{border:0;padding:0;margin:12px 0 0;min-width:0}
+  label.choice{display:block;border:1px solid var(--paper-line);border-radius:8px;padding:9px 12px;margin:8px 0;cursor:pointer;font-size:.95rem;background:#fff}
+  label.choice:hover{background:var(--paper)}
+  label.choice input{margin-right:8px}
+  .entry{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .entry input{width:110px;font-family:inherit;font-size:1rem;padding:8px 10px;border:1px solid var(--paper-line);border-radius:8px;text-align:center}
+  .entry .stack{display:inline-flex;flex-direction:column;gap:4px;align-items:center}
+  .entry .stack hr{width:110px;border:none;border-top:2px solid var(--ink);margin:0}
+  button{font-family:inherit;border:0;border-radius:8px;padding:10px 18px;font-weight:600;font-size:.85rem;cursor:pointer}
+  .check{background:var(--ink);color:#fff;margin-top:12px}
+  .check:hover{background:#1b4268}
+  .secondary{background:#fff;color:var(--ink);border:1px solid var(--paper-line)}
+  .feedback{display:none;margin-top:14px;padding:11px 14px;border-radius:8px;font-size:.92rem}
+  .feedback.good{display:block;background:var(--good-bg);color:var(--good);border:1px solid #b5dcc4}
+  .feedback.bad{display:block;background:var(--bad-bg);color:var(--bad);border:1px solid #efc2ba}
+  .feedback.info{display:block;background:#fff8ea;color:var(--ink);border:1px solid #f0d8a8}
+  .feedback .result{font-weight:600}
+  .feedback .explanation{margin-top:6px;color:var(--ink)}
+  .msg{display:none;margin-top:10px;font-size:.85rem;color:var(--coral);font-weight:600}
+  .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .footer-actions .check{margin-top:0}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--paper-line);font-size:.9rem;margin-top:10px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--paper-line);vertical-align:middle}
+  th{background:var(--ink);color:#fff;font-weight:600;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase}
+  select{font-family:inherit;font-size:.88rem;padding:6px 8px;border:1px solid var(--paper-line);border-radius:6px;max-width:100%}
+  #summary{margin-top:14px;font-weight:600}
+  footer{max-width:760px;margin:0 auto;padding:24px 24px 40px;font-weight:600;font-size:.7rem;color:var(--slate);border-top:1px solid var(--paper-line)}
+  @media (max-width:560px){.grid2,.qc{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="chart-meta"><a href="gre.html">← GRE Preparation</a><span>UDC · School of Education</span></div>
+<div class="wrap">
+  <p class="pretitle">GRE · Quantitative Reasoning · Lesson 1</p>
+  <h1>Fractions Review</h1>
+  <p class="lead">Fractions show up everywhere on the GRE: in ratios, percents, probability, and word problems. In this lesson you will make predictions, watch a short review video, and then show what you learned with 12 GRE-style questions.</p>
+  <ul class="steps">
+    <li><a href="#before">1 · Before you watch</a></li>
+    <li><a href="#watch">2 · Watch &amp; take notes</a></li>
+    <li><a href="#practice">3 · Show what you learned</a></li>
+    <li><a href="#reflect">4 · Analyze your errors</a></li>
+  </ul>
+
+  <!-- STEP 1 -->
+  <div class="activity-section" id="before">
+    <p class="activity-label">Step 1</p>
+    <h2 class="activity-title">Before You Watch: Make Predictions</h2>
+    <p class="directions">Answer quickly, without a calculator. Don't worry about being right: the goal is to find out what you already believe. You will check these after the video.</p>
+    <div id="predictions"></div>
+    <button class="secondary" id="revealPred" type="button">I watched the video, show me the answers</button>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="activity-section" id="watch">
+    <p class="activity-label">Step 2</p>
+    <h2 class="activity-title">Watch the Review Video</h2>
+    <div class="video" id="videoBox"></div>
+    <div class="card" style="margin-top:16px">
+      <h3>Guided notes: listen for these</h3>
+      <p>Pause the video when you hear the answer. Write in your own words (English or your first language).</p>
+      <ol>
+        <li>Why can you multiply fractions straight across, but you need a common denominator to add them?<textarea aria-label="Note 1"></textarea></li>
+        <li>What does it mean to "divide by a fraction"? Why does dividing by <span class="fr"><span>1</span><span>2</span></span> make a number larger?<textarea aria-label="Note 2"></textarea></li>
+        <li>How do you change a mixed number like 2<span class="fr"><span>1</span><span>3</span></span> into an improper fraction, and why is that useful?<textarea aria-label="Note 3"></textarea></li>
+      </ol>
+      <p class="note" style="margin:10px 0 0">Your notes are not saved when you leave the page. Copy them into your study notebook.</p>
+    </div>
+    <div class="card">
+      <h3>Key ideas at a glance</h3>
+      <div class="grid2">
+        <div><p><b>Simplify</b>: divide top and bottom by the same factor. <span class="fr"><span>18</span><span>24</span></span> = <span class="fr"><span>3</span><span>4</span></span></p>
+        <p><b>Add / subtract</b>: common denominator first. <span class="fr"><span>1</span><span>2</span></span> + <span class="fr"><span>1</span><span>3</span></span> = <span class="fr"><span>3</span><span>6</span></span> + <span class="fr"><span>2</span><span>6</span></span> = <span class="fr"><span>5</span><span>6</span></span></p>
+        <p><b>Multiply</b>: top × top, bottom × bottom. Cancel first to save time.</p></div>
+        <div><p><b>Divide</b>: multiply by the reciprocal. <span class="fr"><span>2</span><span>3</span></span> ÷ <span class="fr"><span>4</span><span>5</span></span> = <span class="fr"><span>2</span><span>3</span></span> × <span class="fr"><span>5</span><span>4</span></span> = <span class="fr"><span>5</span><span>6</span></span></p>
+        <p><b>Compare</b>: cross-multiply. <span class="fr"><span>a</span><span>b</span></span> vs <span class="fr"><span>c</span><span>d</span></span> → compare a·d with b·c.</p>
+        <p><b>"Of" means multiply</b>: <span class="fr"><span>2</span><span>3</span></span> of 30 = 20.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="activity-section" id="practice">
+    <p class="activity-label">Step 3</p>
+    <h2 class="activity-title">Show What You Learned: 12 GRE-Style Questions</h2>
+    <p class="directions">These use the four GRE question types: <b>Quantitative Comparison</b>, <b>Multiple Choice (one answer)</b>, <b>Multiple Choice (select all that apply)</b>, and <b>Numeric Entry</b>. A real GRE Quant section has 12 questions in 21 minutes, so aim for about 1¾ minutes per question. Work on paper first; use a calculator only to check.</p>
+    <div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><div class="score" id="score">0 / 12 checked</div></div>
+    <div id="questions"></div>
+    <div class="footer-actions">
+      <button class="secondary" type="button" id="resetAll">Reset all answers</button>
+      <button class="check" type="button" id="showSummary">Show score summary</button>
+    </div>
+    <p id="summary" aria-live="polite"></p>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="activity-section" id="reflect">
+    <p class="activity-label">Step 4</p>
+    <h2 class="activity-title">Analyze Your Errors</h2>
+    <p class="directions">Strong test-takers don't just count wrong answers. They ask <em>why</em> they missed each one. For every question you missed, choose the main reason. The table fills in as you check answers.</p>
+    <div id="errorTable"><p class="note" style="margin:0">Check some answers in Step 3 first. Any question you miss will appear here.</p></div>
+    <div id="errorAdvice"></div>
+    <div class="card" style="margin-top:16px">
+      <h3>Practice with AI</h3>
+      <p>Copy this prompt into ChatGPT or Claude:</p>
+      <p style="background:var(--paper);border-radius:8px;padding:10px 12px;font-size:.9rem">"I am preparing for the GRE. Give me 5 Quantitative Comparison questions about fractions, one at a time. Wait for my answer before explaining. Focus on comparing fractions and on fractions with variables."</p>
+      <p style="margin-top:8px">Then check the AI's math yourself. AI sometimes makes arithmetic mistakes, and finding them is good practice.</p>
+    </div>
+  </div>
+
+  <a href="gre.html" style="display:inline-block;margin-top:30px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to GRE Preparation</a>
+</div>
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+
+<script>
+/* ===== VIDEO: paste a YouTube link between the quotes. Leave empty to show "coming soon". ===== */
+var VIDEO_URL = "";
+
+(function(){
+  /* {a/b} -> stacked fraction */
+  function F(s){ return s.replace(/\{([^{}\/]+)\/([^{}]+)\}/g,'<span class="fr"><span>$1</span><span>$2</span></span>'); }
+
+  /* --- video --- */
+  var vb = document.getElementById('videoBox');
+  function ytId(u){ var m = u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/); return m ? m[1] : null; }
+  var id = VIDEO_URL ? ytId(VIDEO_URL) : null;
+  if(id){
+    vb.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0" title="Fractions review video" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  } else {
+    vb.innerHTML = '<div class="video-empty"><b>Video coming soon</b><p>In the meantime, ETS recommends the free Khan Academy fractions videos:<br><a href="https://www.ets.org/gre/test-takers/general-test/prepare/khan-prep-videos.html" target="_blank" rel="noopener">ETS → Khan Academy GRE Math Review</a> (section 1.2 Fractions)</p></div>';
+  }
+
+  /* --- predictions --- */
+  var preds = [
+    {q:'Which is larger: {5/8} or {3/5}?', o:['{5/8}','{3/5}','They are equal'], a:0,
+     w:'{5/8} = 0.625 and {3/5} = 0.6. Cross-multiply: 5 × 5 = 25 and 8 × 3 = 24, so {5/8} is larger.'},
+    {q:'True or false: {1/2} + {1/3} = {2/5}', o:['True','False'], a:1,
+     w:'False. Adding tops and bottoms is a very common mistake. With a common denominator: {3/6} + {2/6} = {5/6}. Check: {2/5} is less than {1/2}, but the sum must be more than {1/2}.'},
+    {q:'If you divide 10 by {1/2}, is the answer bigger or smaller than 10?', o:['Bigger','Smaller','The same'], a:0,
+     w:'Bigger: 10 ÷ {1/2} = 10 × 2 = 20. You are asking "how many halves fit into 10?" The answer is 20.'}
+  ];
+  var pBox = document.getElementById('predictions');
+  preds.forEach(function(p,n){
+    var h = '<div class="question"><div class="qtext"><span class="qnum">'+(n+1)+'</span>'+F(p.q)+'</div><fieldset>';
+    p.o.forEach(function(o,k){ h += '<label class="choice"><input type="radio" name="p'+n+'" value="'+k+'">'+F(o)+'</label>'; });
+    h += '</fieldset><div class="feedback" id="pfb'+n+'"><div class="result"></div><div class="explanation">'+F(p.w)+'</div></div></div>';
+    pBox.insertAdjacentHTML('beforeend', h);
+  });
+  document.getElementById('revealPred').addEventListener('click', function(){
+    preds.forEach(function(p,n){
+      var el = document.querySelector('input[name="p'+n+'"]:checked'), fb = document.getElementById('pfb'+n);
+      if(!el){ fb.className = 'feedback info'; fb.querySelector('.result').textContent = 'You did not make a prediction. Here is the answer:'; }
+      else if(+el.value === p.a){ fb.className = 'feedback good'; fb.querySelector('.result').textContent = 'Your prediction was correct.'; }
+      else { fb.className = 'feedback bad'; fb.querySelector('.result').textContent = 'Your prediction was different. Did the video change your thinking?'; }
+    });
+  });
+
+  /* --- practice questions --- */
+  var QC = ['Quantity A is greater.','Quantity B is greater.','The two quantities are equal.','The relationship cannot be determined from the information given.'];
+  var qs = [
+    {t:'qc', A:'{7/9}', B:'{9/11}', a:1,
+     w:'Cross-multiply: 7 × 11 = 77 and 9 × 9 = 81. Because 77 &lt; 81, {7/9} &lt; {9/11}. <b>Strategy:</b> in Quantitative Comparison you only need to know which is bigger, not the exact values.'},
+    {t:'mc', q:'Which of the following is greatest?', o:['{5/8}','{7/12}','{3/5}','{11/20}','{2/3}'], a:4,
+     w:'As decimals: 0.625, 0.583, 0.6, 0.55, and 0.667. Faster idea: {2/3} is the only choice more than 0.65. You can also compare each fraction with {2/3} by cross-multiplying.'},
+    {t:'frac', q:'{2/3} + {3/4} − {5/6} = ?', n:7, d:12,
+     w:'The least common denominator of 3, 4, and 6 is 12: {8/12} + {9/12} − {10/12} = {7/12}. On the GRE, fraction answers do not have to be reduced; any equivalent fraction is accepted.'},
+    {t:'mc', q:'{3/4} ÷ {9/16} = ?', o:['{27/64}','{3/4}','{4/3}','{3/2}','{16/9}'], a:2,
+     w:'Multiply by the reciprocal: {3/4} × {16/9}. Cancel before multiplying: 3 and 9 → 1 and 3; 16 and 4 → 4 and 1. Result: {4/3}. Choice A ({27/64}) is the trap: it multiplies instead of dividing.'},
+    {t:'qc', A:'<span class="fr"><span>x</span><span>x + 1</span></span>', B:'<span class="fr"><span>x + 1</span><span>x + 2</span></span>', given:'x &gt; 0', a:1,
+     w:'Try numbers. x = 1: {1/2} vs {2/3}, B is bigger. x = 10: {10/11} vs {11/12}, B is bigger. In general, when you add 1 to the top and bottom of a positive fraction less than 1, it moves closer to 1. B is always greater. <b>Strategy:</b> with variables, test at least two different kinds of numbers before you decide.'},
+    {t:'int', q:'Amara spent {1/3} of her money on books and then spent {1/4} of the <em>remaining</em> money on lunch. She had $30 left. How many dollars did she have at the start?', ans:60, pre:'$',
+     w:'After books she had {2/3} of her money. Lunch cost {1/4} of that, so she kept {3/4} × {2/3} = {1/2} of the original amount. Half of the original is $30, so she started with <b>$60</b>. <b>Trap:</b> {1/4} is a fraction of the remainder, not of the original.'},
+    {t:'ma', q:'Which of the following fractions are between {1/3} and {1/2}? <em>Select all that apply.</em>', o:['{2/5}','{3/10}','{3/7}','{7/13}','{5/12}'], a:[0,2,4],
+     w:'{1/3} ≈ 0.333 and {1/2} = 0.5. Check each: {2/5} = 0.4 ✓, {3/10} = 0.3 ✗, {3/7} ≈ 0.429 ✓, {7/13} ≈ 0.538 ✗ (more than half because 7 is more than half of 13), {5/12} ≈ 0.417 ✓. <b>Shortcut:</b> a fraction is above {1/2} when the top is more than half of the bottom.'},
+    {t:'mc', q:'<span class="fr"><span>1 + {1/2}</span><span>1 − {1/3}</span></span> = ?', o:['{4/9}','1','{3/2}','{9/4}','3'], a:3,
+     w:'Simplify the top and the bottom separately first: 1 + {1/2} = {3/2} and 1 − {1/3} = {2/3}. Then divide: {3/2} ÷ {2/3} = {3/2} × {3/2} = {9/4}.'},
+    {t:'qc', A:'<span class="fr"><span>1</span><span>x</span></span>', B:'x', given:'0 &lt; x &lt; 1', a:0,
+     w:'If x is between 0 and 1, its reciprocal is greater than 1. Example: x = {1/4} gives {1/x} = 4. So A is always greater. Remember: numbers between 0 and 1 behave in surprising ways. Squaring them makes them <em>smaller</em>, and taking their reciprocal makes them <em>larger</em>.'},
+    {t:'frac', q:'In a teacher-education class, {3/5} of the students are women. {2/3} of the women and {1/4} of the men are bilingual. What fraction of the whole class is bilingual?', n:1, d:2,
+     w:'Bilingual women: {2/3} of {3/5} = {2/5}. The men are {2/5} of the class, so bilingual men are {1/4} of {2/5} = {1/10}. Total: {2/5} + {1/10} = {4/10} + {1/10} = {5/10} = {1/2}. <b>Tip:</b> pick a class of 60 students to check: 36 women → 24 bilingual; 24 men → 6 bilingual; 30 of 60 = {1/2}.'},
+    {t:'mc', q:'2<span class="fr"><span>1</span><span>3</span></span> × 1<span class="fr"><span>2</span><span>7</span></span> = ?', o:['2<span class="fr"><span>2</span><span>21</span></span>','{7/3}','3','3<span class="fr"><span>2</span><span>21</span></span>','4'], a:2,
+     w:'Change to improper fractions: 2{1/3} = {7/3} and 1{2/7} = {9/7}. Then {7/3} × {9/7}: the 7s cancel and 9 ÷ 3 = 3. Choice A is the trap: it multiplies the whole numbers and the fractions separately (2 × 1 and {1/3} × {2/7}).'},
+    {t:'qc', A:'{1/3} of {3/4} of 80', B:'{3/4} of {1/3} of 80', a:2,
+     w:'"Of" means multiply, and multiplication can be done in any order: {1/3} × {3/4} × 80 = {3/4} × {1/3} × 80 = 20. The quantities are equal, and you don\'t even need to calculate. <b>Strategy:</b> look for structure before you compute.'}
+  ];
+  var TYPES = {qc:'Quantitative Comparison', mc:'Multiple Choice · Select one', ma:'Multiple Choice · Select all that apply', frac:'Numeric Entry · Fraction', int:'Numeric Entry'};
+  var box = document.getElementById('questions');
+  qs.forEach(function(q,n){
+    var i = n+1, h = '<div class="question" id="q'+i+'"><div class="qtype">'+TYPES[q.t]+'</div>';
+    if(q.t === 'qc'){
+      h += '<div class="qtext"><span class="qnum">'+i+'</span>Compare Quantity A and Quantity B.</div>';
+      if(q.given) h += '<div class="given">'+F(q.given)+'</div>';
+      h += '<div class="qc"><div><small>Quantity A</small>'+F(q.A)+'</div><div><small>Quantity B</small>'+F(q.B)+'</div></div><fieldset>';
+      QC.forEach(function(o,k){ h += '<label class="choice"><input type="radio" name="a'+i+'" value="'+k+'">'+'ABCD'[k]+'. '+o+'</label>'; });
+      h += '</fieldset>';
+    } else {
+      h += '<div class="qtext"><span class="qnum">'+i+'</span>'+F(q.q)+'</div>';
+      if(q.t === 'mc' || q.t === 'ma'){
+        h += '<fieldset>';
+        q.o.forEach(function(o,k){ h += '<label class="choice"><input type="'+(q.t==='ma'?'checkbox':'radio')+'" name="a'+i+'" value="'+k+'">'+'ABCDE'[k]+'. '+F(o)+'</label>'; });
+        h += '</fieldset>';
+      } else if(q.t === 'frac'){
+        h += '<div class="entry"><span class="stack"><input inputmode="numeric" aria-label="Numerator" id="n'+i+'"><hr><input inputmode="numeric" aria-label="Denominator" id="d'+i+'"></span></div>';
+      } else {
+        h += '<div class="entry">'+(q.pre||'')+'<input inputmode="decimal" aria-label="Your answer" id="v'+i+'"></div>';
+      }
+    }
+    h += '<button class="check" type="button" data-q="'+i+'">Check answer</button><div class="msg"></div>';
+    h += '<div class="feedback" id="fb'+i+'"><div class="result"></div><div class="explanation">'+F(q.w)+'</div></div></div>';
+    box.insertAdjacentHTML('beforeend', h);
+  });
+
+  var checked = {}, correct = {}, reasons = {};
+  function msg(i,t){ var m = document.querySelector('#q'+i+' .msg'); m.textContent = t; m.style.display = t ? 'block' : 'none'; }
+  function num(s){ s = String(s).trim().replace(/,/g,''); return s === '' || isNaN(s) ? null : Number(s); }
+  function grade(i){
+    var q = qs[i-1], ok;
+    if(q.t === 'qc' || q.t === 'mc'){
+      var el = document.querySelector('input[name="a'+i+'"]:checked'); if(!el){ msg(i,'Select an answer first.'); return; }
+      ok = +el.value === q.a;
+    } else if(q.t === 'ma'){
+      var v = [].map.call(document.querySelectorAll('input[name="a'+i+'"]:checked'), function(e){ return +e.value; });
+      if(!v.length){ msg(i,'Select at least one answer.'); return; }
+      ok = v.sort().join() === q.a.slice().sort().join();
+    } else if(q.t === 'frac'){
+      var a = num(document.getElementById('n'+i).value), b = num(document.getElementById('d'+i).value);
+      if(a === null || b === null){ msg(i,'Enter a whole number in both boxes.'); return; }
+      if(b === 0){ msg(i,'The denominator cannot be 0.'); return; }
+      ok = Math.abs(a/b - q.n/q.d) < 1e-9;
+    } else {
+      var x = num(document.getElementById('v'+i).value); if(x === null){ msg(i,'Enter a number.'); return; }
+      ok = Math.abs(x - q.ans) < 1e-9;
+    }
+    msg(i,''); checked[i] = true; correct[i] = ok;
+    var fb = document.getElementById('fb'+i);
+    fb.className = 'feedback '+(ok?'good':'bad');
+    fb.querySelector('.result').textContent = ok ? 'Correct.' : 'Not quite. Read the explanation, then add this question to your error analysis in Step 4.';
+    update();
+  }
+  box.addEventListener('click', function(e){ var b = e.target.closest('button[data-q]'); if(b) grade(+b.dataset.q); });
+
+  var REASONS = [['','Choose a reason…'],['content','I did not know the rule or concept'],['misread','I misread the question'],['calc','Calculation slip'],['strategy','I used a slow or wrong strategy'],['guess','I guessed / ran out of time']];
+  var ADVICE = {
+    content:'<b>Concept gaps:</b> rewatch the part of the video about that rule, then redo the question without looking at the explanation.',
+    misread:'<b>Misreading:</b> before you answer, underline what the question is asking for (for example "of the remaining money"). In Quantitative Comparison, read the "given" line twice.',
+    calc:'<b>Calculation slips:</b> cancel common factors before multiplying, and check whether your answer makes sense (is it bigger or smaller than you expected?).',
+    strategy:'<b>Strategy:</b> in Quantitative Comparison, compare instead of computing exactly; with variables, test two kinds of numbers; in word problems, pick a convenient total (like 60).',
+    guess:'<b>Guessing or timing:</b> practice the same question type with a timer at about 1¾ minutes per question. Speed comes from recognizing patterns.'
+  };
+  function drawTable(){
+    var missed = Object.keys(correct).filter(function(k){ return !correct[k]; }).map(Number).sort(function(a,b){return a-b;});
+    var t = document.getElementById('errorTable');
+    if(!Object.keys(checked).length){ return; }
+    if(!missed.length){ t.innerHTML = '<p class="note" style="margin:0">No missed questions so far. Excellent! Try the AI practice below to stretch yourself.</p>'; document.getElementById('errorAdvice').innerHTML=''; return; }
+    var h = '<table><tr><th>Question</th><th>Type</th><th>Main reason I missed it</th></tr>';
+    missed.forEach(function(i){
+      h += '<tr><td><a href="#q'+i+'">Question '+i+'</a></td><td>'+TYPES[qs[i-1].t]+'</td><td><select data-r="'+i+'">';
+      REASONS.forEach(function(r){ h += '<option value="'+r[0]+'"'+(reasons[i]===r[0]?' selected':'')+'>'+r[1]+'</option>'; });
+      h += '</select></td></tr>';
+    });
+    t.innerHTML = h + '</table>';
+    advice();
+  }
+  function advice(){
+    var seen = {};
+    Object.keys(reasons).forEach(function(k){ if(correct[k] === false && reasons[k]) seen[reasons[k]] = (seen[reasons[k]]||0) + 1; });
+    var keys = Object.keys(seen).sort(function(a,b){ return seen[b]-seen[a]; });
+    document.getElementById('errorAdvice').innerHTML = keys.length ? '<div class="card" style="margin-top:14px"><h3>What to work on next</h3>'+keys.map(function(k){ return '<p>'+ADVICE[k]+'</p>'; }).join('')+'</div>' : '';
+  }
+  document.getElementById('errorTable').addEventListener('change', function(e){ if(e.target.dataset.r){ reasons[e.target.dataset.r] = e.target.value; advice(); } });
+
+  function update(){
+    var c = Object.keys(checked).length, r = Object.keys(correct).filter(function(k){ return correct[k]; }).length;
+    document.getElementById('score').textContent = c+' / 12 checked · '+r+' correct';
+    document.getElementById('progress').style.width = (c/12*100)+'%';
+    drawTable();
+  }
+  document.getElementById('showSummary').addEventListener('click', function(){
+    var c = Object.keys(checked).length, r = Object.keys(correct).filter(function(k){ return correct[k]; }).length;
+    document.getElementById('summary').textContent = c ? ('Checked '+c+' of 12 · Correct '+r+' · Accuracy: '+Math.round(r/c*100)+'%'+(c===12 ? (r>=10 ? ' · Ready for the next lesson.' : ' · Review your errors in Step 4 before moving on.') : '')) : 'Check at least one answer first.';
+  });
+  document.getElementById('resetAll').addEventListener('click', function(){
+    document.querySelectorAll('#questions input').forEach(function(x){ x.checked = false; if(x.type !== 'radio' && x.type !== 'checkbox') x.value = ''; });
+    document.querySelectorAll('#questions .feedback').forEach(function(f){ f.className = 'feedback'; });
+    document.querySelectorAll('#questions .msg').forEach(function(m){ m.style.display = 'none'; });
+    checked = {}; correct = {}; reasons = {};
+    document.getElementById('summary').textContent = '';
+    document.getElementById('errorTable').innerHTML = '<p class="note" style="margin:0">Check some answers in Step 3 first. Any question you miss will appear here.</p>';
+    document.getElementById('errorAdvice').innerHTML = '';
+    update(); document.getElementById('practice').scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
