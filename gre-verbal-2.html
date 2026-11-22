@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Verbal Practice 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A44;--sage:#F2A93B;--sage-dark:#C97F16;--paper:#E1EBF6;--paper-line:#B9D0E8;--coral:#b6432f;--slate:#3A4E63;--card-bg:#fff;--good:#1f6b3f;--good-bg:#e3f4ea;--bad:#a32828;--bad-bg:#fbe6e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',-apple-system,sans-serif;line-height:1.55}
+  a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+  .chart-meta{display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:18px 24px 0;font-weight:600;letter-spacing:.04em;font-size:.72rem;color:var(--slate);text-transform:uppercase}
+  .chart-meta a{text-decoration:none;border-bottom:1px solid var(--paper-line)}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 24px 70px}
+  .pretitle{font-weight:600;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;color:var(--sage-dark);margin:6px 0 2px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.08;margin:0}
+  .lead{margin:12px 0 0}
+  .toolbar{position:sticky;top:0;z-index:5;background:rgba(225,235,246,.96);padding:10px 0;margin:18px 0 6px;border-bottom:1px solid var(--paper-line);display:flex;gap:14px;align-items:center}
+  .progress-shell{flex:1;height:10px;background:var(--paper-line);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0;background:var(--sage);transition:width .25s}
+  .score{font-weight:600;font-size:.85rem;white-space:nowrap}
+  .section-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin:44px 0 10px;padding-top:28px;border-top:1px solid var(--paper-line)}
+  .directions{font-size:.85rem;color:var(--slate);background:var(--paper);border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin:0 0 18px}
+  .passage{background:var(--card-bg);border:1px solid var(--paper-line);border-left:4px solid var(--sage);border-radius:8px;padding:14px 18px;margin:12px 0 18px;font-size:.95rem}
+  .passage p{margin:8px 0 0}
+  .question{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .qnum{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;margin-right:8px}
+  .qtext{font-size:1rem}
+  fieldset{border:0;padding:0;margin:14px 0 0;min-width:0}
+  legend{font-weight:600;font-size:.85rem;color:var(--sage-dark);margin:0 0 6px;padding:0}
+  label.choice{display:block;border:1px solid var(--paper-line);border-radius:8px;padding:9px 12px;margin:8px 0;cursor:pointer;font-size:.93rem;background:#fff}
+  label.choice:hover{background:var(--paper)}
+  label.choice input{margin-right:8px}
+  .blank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+  .blank-box{border:1px solid var(--paper-line);border-radius:8px;padding:10px 12px;background:#f7fafd}
+  button{font-family:inherit;border:0;border-radius:8px;padding:10px 18px;font-weight:600;font-size:.85rem;cursor:pointer}
+  .check{background:var(--ink);color:#fff;margin-top:12px}
+  .check:hover{background:#1b4268}
+  .secondary{background:#fff;color:var(--ink);border:1px solid var(--paper-line)}
+  .feedback{display:none;margin-top:14px;padding:11px 14px;border-radius:8px;font-size:.92rem}
+  .feedback.good{display:block;background:var(--good-bg);color:var(--good);border:1px solid #b5dcc4}
+  .feedback.bad{display:block;background:var(--bad-bg);color:var(--bad);border:1px solid #efc2ba}
+  .feedback .result{font-weight:600}
+  .feedback .explanation{margin-top:6px;color:var(--ink)}
+  .msg{display:none;margin-top:10px;font-size:.85rem;color:var(--coral);font-weight:600}
+  .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid var(--paper-line)}
+  #summary{margin-top:14px;font-weight:600}
+  footer{max-width:760px;margin:0 auto;padding:24px 24px 40px;font-weight:600;font-size:.7rem;color:var(--slate);border-top:1px solid var(--paper-line)}
+  .select-all{font-size:.8rem;font-weight:600;color:var(--sage-dark);margin:8px 0 0}
+</style>
+</head>
+<body>
+<div class="chart-meta"><a href="gre.html">← GRE Preparation</a><span>UDC · School of Education</span></div>
+<div class="wrap">
+  <p class="pretitle">GRE · Verbal Reasoning</p>
+  <h1>Verbal Practice Set 2</h1>
+  <p class="lead">Fifteen questions: Text Completion, Reading Comprehension, Critical Reasoning, and Sentence Equivalence. Answer, check, and read the explanation. Before you read it, ask yourself why each wrong choice is wrong.</p>
+  <div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><div class="score" id="score">0 / 15 checked</div></div>
+
+  <h2 class="section-title">Questions 1–5: Text Completion</h2>
+  <div class="directions">For each question, select one entry for each blank from the corresponding column of choices. Fill all blanks in the way that best completes the text.</div>
+
+  <div class="question" data-q="1" data-answer="D">
+    <div class="qtext"><span class="qnum">1</span>Even the charisma and technical prowess of two fine actors are not ______ the task of fully invigorating a gray domestic drama with a tired tale to tell.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q1" value="A">A. required for</label>
+      <label class="choice"><input type="radio" name="q1" value="B">B. interested in</label>
+      <label class="choice"><input type="radio" name="q1" value="C">C. preferred for</label>
+      <label class="choice"><input type="radio" name="q1" value="D">D. adequate for</label>
+      <label class="choice"><input type="radio" name="q1" value="E">E. inferior to</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(1)">Check answer</button>
+    <div class="feedback" id="fb1"><div class="result"></div><div class="explanation">Invigorating a “gray” drama with a “tired” story is presented as a challenge. “Even” followed by the actors’ strengths signals that those strengths still fell short. Only <em>adequate for</em> expresses that the actors were not up to the task.</div></div>
+  </div>
+
+  <div class="question" data-q="2" data-answer="B">
+    <div class="qtext"><span class="qnum">2</span>Even as the economy struggled, the secretary stood by his ______ long-term outlook, saying that technology was allowing businesses to make deep-rooted improvements in their productivity, the best indicator of an economy’s ability to grow.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q2" value="A">A. arcane</label>
+      <label class="choice"><input type="radio" name="q2" value="B">B. sanguine</label>
+      <label class="choice"><input type="radio" name="q2" value="C">C. equivocal</label>
+      <label class="choice"><input type="radio" name="q2" value="D">D. ambivalent</label>
+      <label class="choice"><input type="radio" name="q2" value="E">E. irresolute</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(2)">Check answer</button>
+    <div class="feedback" id="fb2"><div class="result"></div><div class="explanation">“Even as the economy struggled” sets up a contrast: the secretary believes technology will drive growth, so his outlook is optimistic. <em>Sanguine</em> means optimistic. <em>Equivocal</em>, <em>ambivalent</em>, and <em>irresolute</em> all suggest wavering, but he “stood by” his view. <em>Arcane</em> (obscure) does not fit a rationale he explains plainly.</div></div>
+  </div>
+
+  <div class="question" data-q="3" data-answer="A,F">
+    <div class="qtext"><span class="qnum">3</span>The incipient (i) ______ regarding taxes could affect trade between the two countries much more than the (ii) ______ banana imports, which has been going on for years. Unfortunately, the trade regulators seem to be ignoring both disagreements.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q3a" value="A">A. row</label>
+          <label class="choice"><input type="radio" name="q3a" value="B">B. accord</label>
+          <label class="choice"><input type="radio" name="q3a" value="C">C. investigation</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q3b" value="D">D. profitable dealing in</label>
+          <label class="choice"><input type="radio" name="q3b" value="E">E. predicament regarding</label>
+          <label class="choice"><input type="radio" name="q3b" value="F">F. festering dispute over</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(3,['q3a','q3b'])">Check answer</button>
+    <div class="feedback" id="fb3"><div class="result"></div><div class="explanation">The key is at the end: “both disagreements.” Each blank must name a disagreement. <em>Row</em> (pronounced to rhyme with “cow”) means a quarrel, and <em>festering dispute over</em> describes a long-running conflict, which matches “going on for years.” The other choices do not describe disagreements.</div></div>
+  </div>
+
+  <div class="question" data-q="4" data-answer="A,F">
+    <div class="qtext"><span class="qnum">4</span>The governor has considerable political talents, but as a speaker he is far less (i) ______ than his opponent, whose oratorical skills are (ii) ______.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q4a" value="A">A. adroit</label>
+          <label class="choice"><input type="radio" name="q4a" value="B">B. unconvincing</label>
+          <label class="choice"><input type="radio" name="q4a" value="C">C. prolix</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q4b" value="D">D. unpretentious</label>
+          <label class="choice"><input type="radio" name="q4b" value="E">E. spurious</label>
+          <label class="choice"><input type="radio" name="q4b" value="F">F. breathtaking</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(4,['q4a','q4b'])">Check answer</button>
+    <div class="feedback" id="fb4"><div class="result"></div><div class="explanation">“But” contrasts his strong political talents with weaker speaking ability. “Far less ______” must be negative overall, so the blank itself must be positive: <em>adroit</em> (skillful). <em>Unconvincing</em> and <em>prolix</em> (wordy) are negative and would create a double negative. The opponent is therefore a far better speaker, so Blank (ii) must be strongly positive: <em>breathtaking</em>.</div></div>
+  </div>
+
+  <div class="question" data-q="5" data-answer="A,D,G">
+    <div class="qtext"><span class="qnum">5</span>Kept (i) ______ by cloying commercial radio and clueless record executives, the American popular music scene has frequently depended on cities at the edges of the cultural map to provide a much-needed shot of (ii) ______. The momentary (iii) ______ what the next big thing is seems to come out of nowhere—as if someone blows a whistle only those in the know can hear, and suddenly record executives and journalists are crawling all over what had previously been an obscure locale.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q5a" value="A">A. hidebound</label>
+          <label class="choice"><input type="radio" name="q5a" value="B">B. liberated</label>
+          <label class="choice"><input type="radio" name="q5a" value="C">C. obligated</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q5b" value="D">D. originality</label>
+          <label class="choice"><input type="radio" name="q5b" value="E">E. truth</label>
+          <label class="choice"><input type="radio" name="q5b" value="F">F. orthodoxy</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (iii)</legend>
+          <label class="choice"><input type="radio" name="q5c" value="G">G. consensus about</label>
+          <label class="choice"><input type="radio" name="q5c" value="H">H. indifference to</label>
+          <label class="choice"><input type="radio" name="q5c" value="I">I. guarantee of</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(5,['q5a','q5b','q5c'])">Check answer</button>
+    <div class="feedback" id="fb5"><div class="result"></div><div class="explanation">Start with Blank (iii). The whistle image and executives and journalists “crawling all over” one place show many people suddenly agreeing on the same thing: a <em>consensus about</em> the next big thing. That next big thing is something new, so the outlying cities supply <em>originality</em> (Blank ii). Needing a shot of originality means the scene had been stuck in old habits, made <em>hidebound</em> (narrow and inflexible) by bland radio and clueless executives (Blank i).</div></div>
+  </div>
+
+  <h2 class="section-title">Question 6: Critical Reasoning</h2>
+  <div class="directions">Select one answer choice.</div>
+  <div class="passage">
+    <strong>Passage for Question 6</strong>
+    <p>Despite a dramatic increase in the number of people riding bicycles for recreation in Parkville, a recent report by the Parkville Department of Transportation shows that the number of accidents involving bicycles has decreased for the third consecutive year.</p>
+  </div>
+
+  <div class="question" data-q="6" data-answer="D">
+    <div class="qtext"><span class="qnum">6</span>Which of the following, if true during the last three years, best reconciles the apparent discrepancy in the facts?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q6" value="A">A. The Parkville Department of Recreation confiscated abandoned bicycles and sold them at auction to any interested Parkville residents.</label>
+      <label class="choice"><input type="radio" name="q6" value="B">B. Increased automobile and bus traffic in Parkville had been the leading cause of the most recent increase in automobile accidents.</label>
+      <label class="choice"><input type="radio" name="q6" value="C">C. Because of the local increase in the number of people bicycling for recreation, many out-of-town bicyclists ride in the Parkville area.</label>
+      <label class="choice"><input type="radio" name="q6" value="D">D. The Parkville Police Department enforced traffic rules for bicycle riders much more vigorously and began requiring recreational riders to pass a bicycle safety course.</label>
+      <label class="choice"><input type="radio" name="q6" value="E">E. The Parkville Department of Transportation canceled a program that required all bicycles to be inspected and registered each year.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(6)">Check answer</button>
+    <div class="feedback" id="fb6"><div class="result"></div><div class="explanation">We need a reason accidents could fall while ridership rises. Stricter enforcement and required safety training would reduce accidents per rider, so <em>D</em> resolves the puzzle. A and C would put even more bikes on the road, which deepens the puzzle. B concerns automobile accidents, not bicycle accidents. E removes a safety measure, which would, if anything, increase accidents.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 7–10: Reading Comprehension</h2>
+  <div class="directions">For Questions 7–9, consider each choice separately and <strong>select all that apply</strong>. For Question 10, select one answer choice.</div>
+
+  <div class="passage">
+    <strong>Passage for Questions 7–9</strong>
+    <p>What makes a worker ant perform one particular task rather than another? From the 1970s to the mid-1980s, researchers emphasized internal factors within individual ants, such as polymorphism, the presence in the nest of workers of different shapes and sizes, each suited to a particular task. Other elements then considered to have primary influence upon an ant’s career were its age—it might change tasks as it got older—and its genetics. However, subsequent ant researchers have focused on external prompts for behavior. In advocating this approach, Deborah Gordon cites experiments in which intervention in a colony’s makeup perturbed worker activity. By removing workers or otherwise altering the nest conditions, researchers were able to change the tasks performed by individual workers.</p>
+  </div>
+
+  <div class="question" data-q="7" data-answer="A,B">
+    <div class="qtext"><span class="qnum">7</span>According to the passage, which of the following factors were considered from the 1970s to the mid-1980s to influence the division of labor among a colony’s worker ants?</div>
+    <p class="select-all">Select all that apply.</p>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q7" value="A">A. Ants’ inherited traits</label>
+      <label class="choice"><input type="checkbox" name="q7" value="B">B. The age of the ants</label>
+      <label class="choice"><input type="checkbox" name="q7" value="C">C. The ants’ experiences outside the nest</label>
+    </fieldset>
+    <button class="check" onclick="checkAll(7)">Check answer</button>
+    <div class="feedback" id="fb7"><div class="result"></div><div class="explanation">The passage says researchers in that period considered an ant’s age and its genetics (inherited traits) to be primary influences, so <em>A</em> and <em>B</em> are correct. The passage never mentions experiences outside the nest, so C is incorrect.</div></div>
+  </div>
+
+  <div class="question" data-q="8" data-answer="C">
+    <div class="qtext"><span class="qnum">8</span>It can be inferred from the passage that Gordon and earlier researchers would agree with which of the following statements about worker ants?</div>
+    <p class="select-all">Select all that apply.</p>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q8" value="A">A. Disruption of the nest can affect workers’ roles.</label>
+      <label class="choice"><input type="checkbox" name="q8" value="B">B. Genetics predominates over other factors in determining a worker ant’s role.</label>
+      <label class="choice"><input type="checkbox" name="q8" value="C">C. An individual worker’s tasks can change during its lifetime.</label>
+    </fieldset>
+    <button class="check" onclick="checkAll(8)">Check answer</button>
+    <div class="feedback" id="fb8"><div class="result"></div><div class="explanation">Look for common ground. Earlier researchers thought an ant “might change tasks as it got older,” and Gordon cites experiments in which workers’ tasks changed. Both groups accept that tasks can change, so <em>C</em> is correct. A is Gordon’s external-factor view; nothing suggests earlier researchers held it. B may fit some earlier researchers, but nothing suggests Gordon would agree.</div></div>
+  </div>
+
+  <div class="question" data-q="9" data-answer="C">
+    <div class="qtext"><span class="qnum">9</span>The last sentence has which of the following functions in the passage?</div>
+    <p class="select-all">Select all that apply.</p>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q9" value="A">A. It explains how the experiments performed by Gordon differed from those performed by earlier researchers.</label>
+      <label class="choice"><input type="checkbox" name="q9" value="B">B. It justifies the methodology of the experiments cited by Gordon.</label>
+      <label class="choice"><input type="checkbox" name="q9" value="C">C. It gives details showing how the experiments cited by Gordon support her position.</label>
+    </fieldset>
+    <button class="check" onclick="checkAll(9)">Check answer</button>
+    <div class="feedback" id="fb9"><div class="result"></div><div class="explanation">The last sentence shows that changing external conditions changed ants’ tasks, which is evidence for Gordon’s external-factor view. So <em>C</em> is correct. A fails because the passage never describes any experiments by earlier researchers. B fails because the sentence describes what the experiments did but does not argue that the method was sound.</div></div>
+  </div>
+
+  <div class="passage">
+    <strong>Passage for Question 10</strong>
+    <p>James W. Coleman’s book on John Edgar Wideman’s literary career addresses the needs of a general, if well-read, public rather than the esoteric vanities of scholarly specialists, whom he neither ignores nor flatters. To assume the former audience was familiar with every work Wideman ever penned would have been pretentious. Instead, Coleman furnishes more than ample descriptive criticism and background information, avoiding the cryptic allusiveness that is favored by some academic critics but that discourages the undergraduate audience he likely envisioned. Unfortunately, this accent on bringing serious Wideman criticism to a broader audience often frustrates the reader who wishes that announced themes, techniques, and stylistic devices would not whisk by as quickly as world capitals on a seven-day package tour of the globe.</p>
+  </div>
+
+  <div class="question" data-q="10" data-answer="B">
+    <div class="qtext"><span class="qnum">10</span>The reference to “a seven-day package tour of the globe” (last sentence) is most likely meant to suggest a treatment that is</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q10" value="A">A. inclusive</label>
+      <label class="choice"><input type="radio" name="q10" value="B">B. cursory</label>
+      <label class="choice"><input type="radio" name="q10" value="C">C. focused</label>
+      <label class="choice"><input type="radio" name="q10" value="D">D. broad based</label>
+      <label class="choice"><input type="radio" name="q10" value="E">E. substantial</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(10)">Check answer</button>
+    <div class="feedback" id="fb10"><div class="result"></div><div class="explanation">A tour that “whisks” through world capitals in seven days touches each one only briefly. The comparison criticizes Coleman for moving too fast through important ideas, so the treatment is <em>cursory</em> (hasty and superficial). Inclusive and broad based describe range, not the problem of speed. Focused and substantial are the opposite of the complaint.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 11–14: Sentence Equivalence</h2>
+  <div class="directions">Select the <strong>two</strong> answer choices that, when used to complete the sentence, fit the meaning of the sentence as a whole and produce completed sentences that are alike in meaning.</div>
+
+  <div class="question" data-q="11" data-answer="A,E">
+    <div class="qtext"><span class="qnum">11</span>At first glance, Watkins Park, with its meandering stream and its thicket of greenery, seems ______; however, upon closer inspection, one is quickly reminded that the park is in the middle of a major city.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q11" value="A">A. bucolic</label>
+      <label class="choice"><input type="checkbox" name="q11" value="B">B. remarkable</label>
+      <label class="choice"><input type="checkbox" name="q11" value="C">C. urban</label>
+      <label class="choice"><input type="checkbox" name="q11" value="D">D. noteworthy</label>
+      <label class="choice"><input type="checkbox" name="q11" value="E">E. pastoral</label>
+      <label class="choice"><input type="checkbox" name="q11" value="F">F. spurious</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(11)">Check answer</button>
+    <div class="feedback" id="fb11"><div class="result"></div><div class="explanation">“However” contrasts the park’s first impression with its city location, so the blank must mean countrylike. <em>Bucolic</em> and <em>pastoral</em> both mean rural and peaceful. <em>Remarkable</em> and <em>noteworthy</em> are a synonym pair, but they do not create the contrast with “middle of a major city.” <em>Urban</em> says the opposite of what is needed.</div></div>
+  </div>
+
+  <div class="question" data-q="12" data-answer="A,C">
+    <div class="qtext"><span class="qnum">12</span>A particular bacterium that has never encountered a particular virus will usually succumb to it, a ______ that may, surprisingly, be beneficial to the colony in which the bacterium lives.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q12" value="A">A. susceptibility</label>
+      <label class="choice"><input type="checkbox" name="q12" value="B">B. theory</label>
+      <label class="choice"><input type="checkbox" name="q12" value="C">C. characteristic</label>
+      <label class="choice"><input type="checkbox" name="q12" value="D">D. juxtaposition</label>
+      <label class="choice"><input type="checkbox" name="q12" value="E">E. collision</label>
+      <label class="choice"><input type="checkbox" name="q12" value="F">F. hypothesis</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(12)">Check answer</button>
+    <div class="feedback" id="fb12"><div class="result"></div><div class="explanation">The blank names the bacterium’s tendency to be killed by an unfamiliar virus. <em>Susceptibility</em> and <em>characteristic</em> are not synonyms in general, but both can describe this trait, so they produce sentences alike in meaning. <em>Theory</em> and <em>hypothesis</em> form a tempting pair, but the sentence describes how bacteria behave, not an idea about them.</div></div>
+  </div>
+
+  <div class="question" data-q="13" data-answer="C,F">
+    <div class="qtext"><span class="qnum">13</span>It is a testimony to Roth’s ______ that he could not quite bring himself to write a book as dull and flat as his original conception for his novel <em>Everyman</em> seemed to demand.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q13" value="A">A. persistence</label>
+      <label class="choice"><input type="checkbox" name="q13" value="B">B. deterioration</label>
+      <label class="choice"><input type="checkbox" name="q13" value="C">C. talent</label>
+      <label class="choice"><input type="checkbox" name="q13" value="D">D. ambition</label>
+      <label class="choice"><input type="checkbox" name="q13" value="E">E. decline</label>
+      <label class="choice"><input type="checkbox" name="q13" value="F">F. genius</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(13)">Check answer</button>
+    <div class="feedback" id="fb13"><div class="result"></div><div class="explanation">The irony is that Roth was too gifted to produce the dull, flat book his plan called for. <em>Talent</em> and <em>genius</em> express that idea. <em>Deterioration</em> and <em>decline</em> are a synonym pair but would not contrast with a “dull and flat” book. <em>Persistence</em> and <em>ambition</em> each fit loosely, but they do not mean the same thing.</div></div>
+  </div>
+
+  <div class="question" data-q="14" data-answer="B,D">
+    <div class="qtext"><span class="qnum">14</span>The mayor is more ideologically consistent than is widely believed: her long-term commitment to tax reform, for example, is not indicative of ______.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q14" value="A">A. perspicacity</label>
+      <label class="choice"><input type="checkbox" name="q14" value="B">B. capriciousness</label>
+      <label class="choice"><input type="checkbox" name="q14" value="C">C. callousness</label>
+      <label class="choice"><input type="checkbox" name="q14" value="D">D. fickleness</label>
+      <label class="choice"><input type="checkbox" name="q14" value="E">E. clearheadedness</label>
+      <label class="choice"><input type="checkbox" name="q14" value="F">F. insensitivity</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(14)">Check answer</button>
+    <div class="feedback" id="fb14"><div class="result"></div><div class="explanation">People wrongly think she is inconsistent; her long-term commitment shows she is not. The blank must name the opposite of consistency: <em>capriciousness</em> and <em>fickleness</em>. <em>Callousness</em>/<em>insensitivity</em> and <em>perspicacity</em>/<em>clearheadedness</em> are also synonym pairs, but neither contrasts with consistency.</div></div>
+  </div>
+
+  <h2 class="section-title">Question 15: Critical Reasoning</h2>
+  <div class="directions">Select one answer choice.</div>
+  <div class="passage">
+    <strong>Passage for Question 15</strong>
+    <p>Geographers and historians have traditionally held the view that Antarctica was first sighted around 1820, but some sixteenth-century European maps show a body that resembles the polar landmass, even though explorers of the period never saw it. Some scholars, therefore, argue that the continent must have been discovered and mapped by the ancients, whose maps are known to have served as models for the European cartographers.</p>
+  </div>
+
+  <div class="question" data-q="15" data-answer="E">
+    <div class="qtext"><span class="qnum">15</span>Which of the following, if true, is most damaging to the inference drawn by the scholars?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q15" value="A">A. The question of who first sighted Antarctica in modern times is still much debated, and no one has been able to present conclusive evidence.</label>
+      <label class="choice"><input type="radio" name="q15" value="B">B. Between 3,000 and 9,000 years ago, the world was warmer than it is now, and the polar landmass was presumably smaller.</label>
+      <label class="choice"><input type="radio" name="q15" value="C">C. There are only a few sixteenth-century global maps that show a continental landmass at the South Pole.</label>
+      <label class="choice"><input type="radio" name="q15" value="D">D. Most attributions of surprising accomplishments to ancient civilizations or even extraterrestrials are eventually discredited or rejected as preposterous.</label>
+      <label class="choice"><input type="radio" name="q15" value="E">E. Ancient philosophers believed that there had to be a large landmass at the South Pole to balance the northern continents and make the world symmetrical.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(15)">Check answer</button>
+    <div class="feedback" id="fb15"><div class="result"></div><div class="explanation">The scholars assume that a southern landmass on ancient maps means the ancients actually saw it. <em>E</em> offers another explanation: the ancients may have drawn it because their theory said a landmass should be there, not because anyone discovered it. A concerns modern discovery, which is irrelevant. B describes a period that likely came before the ancient mapmakers, and a smaller landmass would still exist. C does not matter, because the argument does not depend on how many maps there are. D is a general claim about such theories and does not address this argument.</div></div>
+  </div>
+
+  <div class="footer-actions">
+    <button class="secondary" onclick="resetAll()">Reset all answers</button>
+    <button class="check" style="margin-top:0" onclick="showSummary()">Show score summary</button>
+  </div>
+  <p id="summary" aria-live="polite"></p>
+  <a href="gre.html" style="display:inline-block;margin-top:26px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to GRE Preparation</a>
+</div>
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+<script>
+const checked={},correct={};
+function note(q,t){var d=document.querySelector('.question[data-q="'+q+'"]');var m=d.querySelector('.msg');if(!m){m=document.createElement('div');m.className='msg';d.appendChild(m);}m.textContent=t;m.style.display=t?'block':'none';}
+function mark(q,ok){checked[q]=true;correct[q]=ok;note(q,'');var fb=document.getElementById('fb'+q);fb.className='feedback '+(ok?'good':'bad');fb.querySelector('.result').textContent=ok?'Correct.':'Not quite. Review the explanation below.';updateProgress();}
+function checkSingle(q){var el=document.querySelector('input[name="q'+q+'"]:checked');if(!el){note(q,'Select an answer first.');return;}mark(q,el.value===document.querySelector('.question[data-q="'+q+'"]').dataset.answer);}
+function checkMultiBlank(q,names){var v=[];for(var i=0;i<names.length;i++){var el=document.querySelector('input[name="'+names[i]+'"]:checked');if(!el){note(q,'Complete every blank first.');return;}v.push(el.value);}mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',')));}
+function checkTwo(q){var els=[].slice.call(document.querySelectorAll('input[name="q'+q+'"]:checked'));if(els.length!==2){note(q,'Select exactly two answers.');return;}var v=els.map(function(e){return e.value}).sort();mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',').sort()));}
+function checkAll(q){var els=[].slice.call(document.querySelectorAll('input[name="q'+q+'"]:checked'));if(!els.length){note(q,'Select at least one answer.');return;}var v=els.map(function(e){return e.value}).sort();mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',').sort()));}
+function updateProgress(){var c=Object.keys(checked).length,r=Object.values(correct).filter(Boolean).length;document.getElementById('score').textContent=c+' / 15 checked · '+r+' correct';document.getElementById('progress').style.width=(c/15*100)+'%';}
+function showSummary(){var c=Object.keys(checked).length,r=Object.values(correct).filter(Boolean).length;document.getElementById('summary').textContent=c?('Checked '+c+' of 15 · Correct '+r+' · Accuracy on checked questions: '+Math.round(r/c*100)+'%'):'Check at least one answer first.';}
+function resetAll(){document.querySelectorAll('input').forEach(function(i){i.checked=false});document.querySelectorAll('.feedback').forEach(function(f){f.className='feedback'});document.querySelectorAll('.msg').forEach(function(m){m.style.display='none'});for(var k in checked)delete checked[k];for(var k2 in correct)delete correct[k2];document.getElementById('summary').textContent='';updateProgress();window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
