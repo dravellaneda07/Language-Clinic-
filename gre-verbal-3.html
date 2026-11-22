@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Verbal Practice 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A44;--sage:#F2A93B;--sage-dark:#C97F16;--paper:#E1EBF6;--paper-line:#B9D0E8;--coral:#b6432f;--slate:#3A4E63;--card-bg:#fff;--good:#1f6b3f;--good-bg:#e3f4ea;--bad:#a32828;--bad-bg:#fbe6e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',-apple-system,sans-serif;line-height:1.55}
+  a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+  .chart-meta{display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:18px 24px 0;font-weight:600;letter-spacing:.04em;font-size:.72rem;color:var(--slate);text-transform:uppercase}
+  .chart-meta a{text-decoration:none;border-bottom:1px solid var(--paper-line)}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 24px 70px}
+  .pretitle{font-weight:600;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;color:var(--sage-dark);margin:6px 0 2px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.08;margin:0}
+  .lead{margin:12px 0 0}
+  .toolbar{position:sticky;top:0;z-index:5;background:rgba(225,235,246,.96);padding:10px 0;margin:18px 0 6px;border-bottom:1px solid var(--paper-line);display:flex;gap:14px;align-items:center}
+  .progress-shell{flex:1;height:10px;background:var(--paper-line);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0;background:var(--sage);transition:width .25s}
+  .score{font-weight:600;font-size:.85rem;white-space:nowrap}
+  .section-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin:44px 0 10px;padding-top:28px;border-top:1px solid var(--paper-line)}
+  .directions{font-size:.85rem;color:var(--slate);background:var(--paper);border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin:0 0 18px}
+  .passage{background:var(--card-bg);border:1px solid var(--paper-line);border-left:4px solid var(--sage);border-radius:8px;padding:14px 18px;margin:12px 0 18px;font-size:.95rem}
+  .passage p{margin:8px 0 0}
+  .question{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .qnum{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;margin-right:8px}
+  .qtext{font-size:1rem}
+  fieldset{border:0;padding:0;margin:14px 0 0;min-width:0}
+  legend{font-weight:600;font-size:.85rem;color:var(--sage-dark);margin:0 0 6px;padding:0}
+  label.choice{display:block;border:1px solid var(--paper-line);border-radius:8px;padding:9px 12px;margin:8px 0;cursor:pointer;font-size:.93rem;background:#fff}
+  label.choice:hover{background:var(--paper)}
+  label.choice input{margin-right:8px}
+  .blank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+  .blank-box{border:1px solid var(--paper-line);border-radius:8px;padding:10px 12px;background:#f7fafd}
+  button{font-family:inherit;border:0;border-radius:8px;padding:10px 18px;font-weight:600;font-size:.85rem;cursor:pointer}
+  .check{background:var(--ink);color:#fff;margin-top:12px}
+  .check:hover{background:#1b4268}
+  .secondary{background:#fff;color:var(--ink);border:1px solid var(--paper-line)}
+  .feedback{display:none;margin-top:14px;padding:11px 14px;border-radius:8px;font-size:.92rem}
+  .feedback.good{display:block;background:var(--good-bg);color:var(--good);border:1px solid #b5dcc4}
+  .feedback.bad{display:block;background:var(--bad-bg);color:var(--bad);border:1px solid #efc2ba}
+  .feedback .result{font-weight:600}
+  .feedback .explanation{margin-top:6px;color:var(--ink)}
+  .msg{display:none;margin-top:10px;font-size:.85rem;color:var(--coral);font-weight:600}
+  .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid var(--paper-line)}
+  #summary{margin-top:14px;font-weight:600}
+  footer{max-width:760px;margin:0 auto;padding:24px 24px 40px;font-weight:600;font-size:.7rem;color:var(--slate);border-top:1px solid var(--paper-line)}
+  .select-all{font-size:.8rem;font-weight:600;color:var(--sage-dark);margin:8px 0 0}
+</style>
+</head>
+<body>
+<div class="chart-meta"><a href="gre.html">← GRE Preparation</a><span>UDC · School of Education</span></div>
+<div class="wrap">
+  <p class="pretitle">GRE · Verbal Reasoning</p>
+  <h1>Verbal Practice Set 3</h1>
+  <p class="lead">Fifteen questions: Text Completion, Reading Comprehension, and Sentence Equivalence. Answer, check, and read the explanation. Before you read it, ask yourself why each wrong choice is wrong.</p>
+  <div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><div class="score" id="score">0 / 15 checked</div></div>
+
+  <h2 class="section-title">Questions 1–6: Text Completion</h2>
+  <div class="directions">For each question, select one entry for each blank from the corresponding column of choices. Fill all blanks in the way that best completes the text.</div>
+
+  <div class="question" data-q="1" data-answer="B">
+    <div class="qtext"><span class="qnum">1</span>Mathematicians have a distinctive sense of beauty: they strive to present their ideas and results in a clear and compelling fashion, dictated by ______ as well as by logic.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q1" value="A">A. caprice</label>
+      <label class="choice"><input type="radio" name="q1" value="B">B. aesthetics</label>
+      <label class="choice"><input type="radio" name="q1" value="C">C. obligation</label>
+      <label class="choice"><input type="radio" name="q1" value="D">D. methodologies</label>
+      <label class="choice"><input type="radio" name="q1" value="E">E. intellect</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(1)">Check answer</button>
+    <div class="feedback" id="fb1"><div class="result"></div><div class="explanation">The sentence opens with mathematicians’ “sense of beauty,” and the part after the colon explains it. The blank must name something beauty-related that sits alongside logic: <em>aesthetics</em>. <em>Intellect</em> and <em>methodologies</em> repeat the idea of logic rather than adding beauty. <em>Caprice</em> (whim) contradicts “clear and compelling.”</div></div>
+  </div>
+
+  <div class="question" data-q="2" data-answer="D">
+    <div class="qtext"><span class="qnum">2</span>By recognizing commonalities among all the major political parties and by promoting a collaborative decision-making process, the prime minister has made good on his promise to cultivate a leadership style that emphasizes ______.</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q2" value="A">A. growth</label>
+      <label class="choice"><input type="radio" name="q2" value="B">B. politics</label>
+      <label class="choice"><input type="radio" name="q2" value="C">C. ideology</label>
+      <label class="choice"><input type="radio" name="q2" value="D">D. cooperation</label>
+      <label class="choice"><input type="radio" name="q2" value="E">E. differentiation</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(2)">Check answer</button>
+    <div class="feedback" id="fb2"><div class="result"></div><div class="explanation">The actions in the first half, finding common ground and promoting collaboration, are examples of the leadership style. The word that summarizes them is <em>cooperation</em>. <em>Ideology</em> and <em>differentiation</em> point toward what divides parties, the opposite of the examples. <em>Growth</em> and <em>politics</em> are unrelated to the examples given.</div></div>
+  </div>
+
+  <div class="question" data-q="3" data-answer="C,D">
+    <div class="qtext"><span class="qnum">3</span>An innovation of the eighteenth-century cookbook writer Mary Cole was that in her work she (i) ______ the earlier books from which her recipes were drawn. Even in those numerous instances in which she had collated into a single version, which she could have called her own, the recipes of several earlier writers, she (ii) ______ them.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q3a" value="A">A. preserved</label>
+          <label class="choice"><input type="radio" name="q3a" value="B">B. enhanced</label>
+          <label class="choice"><input type="radio" name="q3a" value="C">C. acknowledged</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q3b" value="D">D. took pains to cite</label>
+          <label class="choice"><input type="radio" name="q3b" value="E">E. sought to imitate</label>
+          <label class="choice"><input type="radio" name="q3b" value="F">F. could not surpass</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(3,['q3a','q3b'])">Check answer</button>
+    <div class="feedback" id="fb3"><div class="result"></div><div class="explanation">Start with Blank (ii). “Even … which she could have called her own” signals that she did the opposite of claiming the recipes: she <em>took pains to cite</em> the earlier writers. The second sentence is an extreme case of the first, so Blank (i) must mean the same thing: <em>acknowledged</em>. Preserving or enhancing earlier books would not be an “innovation” in giving credit.</div></div>
+  </div>
+
+  <div class="question" data-q="4" data-answer="C,F">
+    <div class="qtext"><span class="qnum">4</span>Well known for his combative style, the author is even more (i) ______ than usual in his recent book: in it, he attempts to (ii) ______ his intellectual opponents with a barrage of ill-supported assertions.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q4a" value="A">A. unctuous</label>
+          <label class="choice"><input type="radio" name="q4a" value="B">B. reticent</label>
+          <label class="choice"><input type="radio" name="q4a" value="C">C. contentious</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q4b" value="D">D. acknowledge</label>
+          <label class="choice"><input type="radio" name="q4b" value="E">E. placate</label>
+          <label class="choice"><input type="radio" name="q4b" value="F">F. vanquish</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(4,['q4a','q4b'])">Check answer</button>
+    <div class="feedback" id="fb4"><div class="result"></div><div class="explanation">“Even more ______ than usual” must build on “combative,” so Blank (i) is <em>contentious</em> (quarrelsome). <em>Unctuous</em> (overly flattering) and <em>reticent</em> (reserved) are not combative. The colon introduces an example of that aggressive style: firing a “barrage” of claims at opponents is an attempt to <em>vanquish</em> (defeat) them, not to placate or merely acknowledge them.</div></div>
+  </div>
+
+  <div class="question" data-q="5" data-answer="C,E,I">
+    <div class="qtext"><span class="qnum">5</span>The lizards snapped up insects that are so (i) ______ that other potential predators avoid them. Among the lizards’ prey were some beetles that they initially (ii) ______ because the insects were spraying their hot, irritant defense chemical at the time. Yet even these produced no apparent ill effects, since the lizards, having eaten, proceeded on their way (iii) ______ enough.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q5a" value="A">A. rare</label>
+          <label class="choice"><input type="radio" name="q5a" value="B">B. nutritious</label>
+          <label class="choice"><input type="radio" name="q5a" value="C">C. noxious</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q5b" value="D">D. sought</label>
+          <label class="choice"><input type="radio" name="q5b" value="E">E. rejected</label>
+          <label class="choice"><input type="radio" name="q5b" value="F">F. resembled</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (iii)</legend>
+          <label class="choice"><input type="radio" name="q5c" value="G">G. erratically</label>
+          <label class="choice"><input type="radio" name="q5c" value="H">H. laboriously</label>
+          <label class="choice"><input type="radio" name="q5c" value="I">I. nonchalantly</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(5,['q5a','q5b','q5c'])">Check answer</button>
+    <div class="feedback" id="fb5"><div class="result"></div><div class="explanation">Predators avoid the insects, so they must be harmful: <em>noxious</em> (Blank i). Rare or nutritious insects would not be avoided. “Because” the beetles were spraying an irritant, the lizards at first turned them down: <em>rejected</em> (Blank ii). Finally, “no apparent ill effects” means the lizards walked away unbothered: <em>nonchalantly</em> (Blank iii). <em>Erratically</em> or <em>laboriously</em> would suggest they were harmed.</div></div>
+  </div>
+
+  <div class="question" data-q="6" data-answer="B,D,H">
+    <div class="qtext"><span class="qnum">6</span>Bureaucrats tend to (i) ______. So it is surprising that the European Commission is proposing to hand back some of its antitrust powers to national governments. Such a willingness to (ii) ______ power is quite (iii) ______. Perhaps the commission, so often a byword for meddling, bungling, and even corruption, is starting to put its house in order following the forced resignation of the previous lot of commissioners last year.</div>
+    <div class="blank-grid">
+      <div class="blank-box">
+        <fieldset><legend>Blank (i)</legend>
+          <label class="choice"><input type="radio" name="q6a" value="A">A. value complex procedures</label>
+          <label class="choice"><input type="radio" name="q6a" value="B">B. guard their authority jealously</label>
+          <label class="choice"><input type="radio" name="q6a" value="C">C. shirk many of their responsibilities</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (ii)</legend>
+          <label class="choice"><input type="radio" name="q6b" value="D">D. devolve</label>
+          <label class="choice"><input type="radio" name="q6b" value="E">E. misuse</label>
+          <label class="choice"><input type="radio" name="q6b" value="F">F. appropriate</label>
+        </fieldset>
+      </div>
+      <div class="blank-box">
+        <fieldset><legend>Blank (iii)</legend>
+          <label class="choice"><input type="radio" name="q6c" value="G">G. troubling</label>
+          <label class="choice"><input type="radio" name="q6c" value="H">H. encouraging</label>
+          <label class="choice"><input type="radio" name="q6c" value="I">I. predictable</label>
+        </fieldset>
+      </div>
+    </div>
+    <button class="check" onclick="checkMultiBlank(6,['q6a','q6b','q6c'])">Check answer</button>
+    <div class="feedback" id="fb6"><div class="result"></div><div class="explanation">Giving up power is “surprising,” so bureaucrats normally do the opposite: <em>guard their authority jealously</em> (Blank i). Handing powers back to national governments means to <em>devolve</em> (delegate) power (Blank ii); misuse and appropriate (take) do not describe giving it away. The last sentence is hopeful (“put its house in order”), so the move is <em>encouraging</em> (Blank iii). It cannot be <em>predictable</em>, because the passage calls it surprising.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 7–10: Reading Comprehension</h2>
+  <div class="directions">For each question, select one answer choice.</div>
+
+  <div class="passage">
+    <strong>Passage for Questions 7–10</strong>
+    <p>During the 1920s, most advocates of scientific management, Frederick Taylor’s method for maximizing workers’ productivity by rigorously routinizing their jobs, opposed the five-day workweek. Although scientific managers conceded that reducing hours might provide an incentive to workers, in practice they more often used pay differentials to encourage higher productivity. Those reformers who wished to embrace both scientific management and reduced hours had to make a largely negative case, portraying the latter as an antidote to the rigors of the former.</p>
+    <p>In contrast to the scientific managers, Henry Ford claimed that shorter hours led to greater productivity and profits. However, few employers matched either Ford’s vision or his specific interest in mass marketing a product—automobiles—that required leisure for its use, and few unions succeeded in securing shorter hours through bargaining. At its 1928 convention, the American Federation of Labor (AFL) boasted of approximately 165,000 members working five-day, 40-hour weeks. But although this represented an increase of about 75,000 since 1926, about 70 percent of the total came from five extremely well-organized building trades’ unions.</p>
+  </div>
+
+  <div class="question" data-q="7" data-answer="D">
+    <div class="qtext"><span class="qnum">7</span>The passage is primarily concerned with discussing which of the following?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q7" value="A">A. The relative merits of two points of view regarding a controversy</label>
+      <label class="choice"><input type="radio" name="q7" value="B">B. The potential benefits to workers in the 1920s of a change in employers’ policies</label>
+      <label class="choice"><input type="radio" name="q7" value="C">C. The reasons for a labor-management disagreement during the 1920s</label>
+      <label class="choice"><input type="radio" name="q7" value="D">D. The status of a contested labor issue during the 1920s</label>
+      <label class="choice"><input type="radio" name="q7" value="E">E. The role of labor unions in bringing about a reform</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(7)">Check answer</button>
+    <div class="feedback" id="fb7"><div class="result"></div><div class="explanation">The passage describes who opposed and who supported the five-day workweek in the 1920s and how far it had actually spread. That is the status of a contested issue, <em>D</em>. A is wrong because the author lays out positions without weighing which is better. B and C go beyond the passage: it does not focus on benefits to workers or explain why labor and management disagreed. E is too narrow; unions appear only in the last part, and mostly to show their limited success.</div></div>
+  </div>
+
+  <div class="question" data-q="8" data-answer="C">
+    <div class="qtext"><span class="qnum">8</span>It can be inferred that the author of the passage mentions “automobiles” (second paragraph) primarily to suggest that</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q8" value="A">A. Ford’s business produced greater profits than did businesses requiring a workweek longer than five days</label>
+      <label class="choice"><input type="radio" name="q8" value="B">B. Ford, unlike most other employers, encouraged his employees to use the products they produced</label>
+      <label class="choice"><input type="radio" name="q8" value="C">C. Ford may have advocated shorter hours because of the particular nature of his business</label>
+      <label class="choice"><input type="radio" name="q8" value="D">D. unions were more likely to negotiate for shorter hours in some businesses than in others</label>
+      <label class="choice"><input type="radio" name="q8" value="E">E. automobile workers’ unions were more effective than other unions in securing a five-day workweek</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(8)">Check answer</button>
+    <div class="feedback" id="fb8"><div class="result"></div><div class="explanation">The author notes that automobiles are a product that “required leisure for its use.” Workers with more free time are more likely to buy cars, which hints at a business reason behind Ford’s support for shorter hours: <em>C</em>. A is not supported, because no profit comparison is made. B goes too far: the passage is about consumers in general, not Ford’s own employees. D and E are wrong because the reference to automobiles has nothing to do with unions.</div></div>
+  </div>
+
+  <div class="question" data-q="9" data-answer="B">
+    <div class="qtext"><span class="qnum">9</span>It can be inferred that the author of the passage would probably agree with which of the following claims about the boast referred to in the second paragraph (the AFL’s 1928 convention)?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q9" value="A">A. It is based on a mistaken estimation of the number of AFL workers who were allowed to work a five-day, 40-hour week in 1928.</label>
+      <label class="choice"><input type="radio" name="q9" value="B">B. It could create a mistaken impression regarding the number of unions obtaining a five-day, 40-hour week during the 1920s.</label>
+      <label class="choice"><input type="radio" name="q9" value="C">C. It exaggerates the extent of the increase between 1926 and 1928 in AFL members working a five-day, 40-hour week.</label>
+      <label class="choice"><input type="radio" name="q9" value="D">D. It overestimates the bargaining prowess of the AFL building trades’ unions during the 1920s.</label>
+      <label class="choice"><input type="radio" name="q9" value="E">E. It is based on an overestimation of the number of union members in the AFL in 1928.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(9)">Check answer</button>
+    <div class="feedback" id="fb9"><div class="result"></div><div class="explanation">Right after the boast, the author adds “But …” and points out that about 70 percent of those workers came from just five building trades’ unions. The large total could make it seem that many unions had won the shorter week, when in fact only a few had: <em>B</em>. The author does not question the numbers themselves, so A, C, and E are wrong. D is wrong because the passage calls those unions “extremely well-organized,” which supports their success rather than doubting it.</div></div>
+  </div>
+
+  <div class="question" data-q="10" data-answer="B">
+    <div class="qtext"><span class="qnum">10</span>According to the passage, the “reformers” (first paragraph) claimed that</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q10" value="A">A. neither scientific management nor reduced hours would result in an improvement in the working conditions of most workers</label>
+      <label class="choice"><input type="radio" name="q10" value="B">B. the impact that the routinization of work had on workers could be mitigated by a reduction in the length of their workweek</label>
+      <label class="choice"><input type="radio" name="q10" value="C">C. there was an inherent tension between the principles of scientific management and a commitment to reduced workweeks</label>
+      <label class="choice"><input type="radio" name="q10" value="D">D. scientific managers were more likely than other managers to use pay differentials to encourage higher productivity</label>
+      <label class="choice"><input type="radio" name="q10" value="E">E. reducing the length of the workweek would increase productivity more effectively than would increases in pay</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(10)">Check answer</button>
+    <div class="feedback" id="fb10"><div class="result"></div><div class="explanation">The reformers portrayed reduced hours as “an antidote to the rigors” of scientific management. An antidote counteracts harm, so they claimed shorter weeks could offset the toll of routinized jobs: <em>B</em>. C is tempting but wrong: the reformers wanted to embrace <em>both</em> ideas, so they argued the two could work together. A contradicts their position. D and E are claims about pay and productivity that the passage does not attribute to the reformers.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 11–13: Sentence Equivalence</h2>
+  <div class="directions">Select the <strong>two</strong> answer choices that, when used to complete the sentence, fit the meaning of the sentence as a whole and produce completed sentences that are alike in meaning.</div>
+
+  <div class="question" data-q="11" data-answer="C,E">
+    <div class="qtext"><span class="qnum">11</span>Although the compound is abundant in the environment at large, its presence in the air is not ______; only in the form of underwater sediment does it cause damage.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q11" value="A">A. trivial</label>
+      <label class="choice"><input type="checkbox" name="q11" value="B">B. detectable</label>
+      <label class="choice"><input type="checkbox" name="q11" value="C">C. deleterious</label>
+      <label class="choice"><input type="checkbox" name="q11" value="D">D. substantive</label>
+      <label class="choice"><input type="checkbox" name="q11" value="E">E. detrimental</label>
+      <label class="choice"><input type="checkbox" name="q11" value="F">F. inconsequential</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(11)">Check answer</button>
+    <div class="feedback" id="fb11"><div class="result"></div><div class="explanation">“Only in the form of underwater sediment does it cause damage” means the compound is harmless in the air. With “not” before the blank, the blank must mean harmful: <em>deleterious</em> and <em>detrimental</em>. <em>Trivial</em> and <em>inconsequential</em> are a synonym pair, but “not trivial” would mean the opposite of what the sentence needs.</div></div>
+  </div>
+
+  <div class="question" data-q="12" data-answer="B,C">
+    <div class="qtext"><span class="qnum">12</span>Although relying on much of the recent scholarship on the bison, Lott’s book is a distinctly ______ and even idiosyncratic contribution to the field.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q12" value="A">A. derivative</label>
+      <label class="choice"><input type="checkbox" name="q12" value="B">B. original</label>
+      <label class="choice"><input type="checkbox" name="q12" value="C">C. innovative</label>
+      <label class="choice"><input type="checkbox" name="q12" value="D">D. imitative</label>
+      <label class="choice"><input type="checkbox" name="q12" value="E">E. insightful</label>
+      <label class="choice"><input type="checkbox" name="q12" value="F">F. surprising</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(12)">Check answer</button>
+    <div class="feedback" id="fb12"><div class="result"></div><div class="explanation">“Although” contrasts the book’s reliance on others’ work with something new about it, and “even idiosyncratic” intensifies that newness. <em>Original</em> and <em>innovative</em> fit. <em>Derivative</em> and <em>imitative</em> are a synonym pair that says the opposite. <em>Insightful</em> and <em>surprising</em> each fit loosely but do not mean the same thing.</div></div>
+  </div>
+
+  <div class="question" data-q="13" data-answer="C,D">
+    <div class="qtext"><span class="qnum">13</span>Despite relying on the well-to-do for commissions, the portrait painter was no ______: he depicted the character of those he painted as he perceived it.</div>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q13" value="A">A. hypocrite</label>
+      <label class="choice"><input type="checkbox" name="q13" value="B">B. egotist</label>
+      <label class="choice"><input type="checkbox" name="q13" value="C">C. sycophant</label>
+      <label class="choice"><input type="checkbox" name="q13" value="D">D. adulator</label>
+      <label class="choice"><input type="checkbox" name="q13" value="E">E. braggart</label>
+      <label class="choice"><input type="checkbox" name="q13" value="F">F. coward</label>
+    </fieldset>
+    <button class="check" onclick="checkTwo(13)">Check answer</button>
+    <div class="feedback" id="fb13"><div class="result"></div><div class="explanation">“Despite” depending on wealthy patrons, he painted them honestly instead of flattering them. A flatterer is a <em>sycophant</em> or an <em>adulator</em>. <em>Egotist</em> and <em>braggart</em> are a synonym pair but have nothing to do with flattering patrons. <em>Hypocrite</em> and <em>coward</em> can make some sense in the blank, but they don’t mean the same thing.</div></div>
+  </div>
+
+  <h2 class="section-title">Questions 14–15: Reading Comprehension</h2>
+  <div class="directions">For Question 14, consider each choice separately and <strong>select all that apply</strong>. For Question 15, select one answer choice.</div>
+
+  <div class="passage">
+    <strong>Passage for Questions 14–15</strong>
+    <p>Scientists formerly believed that the rocky planets—Earth, Mercury, Venus, and Mars—were created by the rapid gravitational collapse of a dust cloud, a deflation giving rise to a dense orb. That view was challenged in the 1960s, when studies of Moon craters revealed that these craters were caused by the impact of objects that were in great abundance about 4.5 billion years ago but whose number appeared to have quickly decreased shortly thereafter. This observation rejuvenated Otto Schmidt’s 1944 theory of accretion. According to this theory, cosmic dust gradually lumped into ever-larger conglomerates: particulates, gravel, small and then larger balls, planetesimals (tiny planets), and, ultimately, planets. As the planetesimals became larger, their numbers decreased. Consequently, the number of collisions between planetesimals decreased.</p>
+  </div>
+
+  <div class="question" data-q="14" data-answer="A">
+    <div class="qtext"><span class="qnum">14</span>The passage provides evidence that Schmidt would be likely to DISAGREE with the theory presented in the first sentence over</div>
+    <p class="select-all">Select all that apply.</p>
+    <fieldset>
+      <label class="choice"><input type="checkbox" name="q14" value="A">A. the length of time it took for the rocky planets to form</label>
+      <label class="choice"><input type="checkbox" name="q14" value="B">B. the most likely causes of the Moon’s impact craters</label>
+      <label class="choice"><input type="checkbox" name="q14" value="C">C. the importance of cosmic dust as a seminal material in planetary formation</label>
+    </fieldset>
+    <button class="check" onclick="checkAll(14)">Check answer</button>
+    <div class="feedback" id="fb14"><div class="result"></div><div class="explanation">The first theory says the planets formed by “rapid” collapse; Schmidt says dust “gradually” built up into planets. They disagree about how long formation took, so <em>A</em> is correct. B is wrong because the passage never says what either theory claimed about the Moon’s craters; the crater studies came later. C is wrong because both theories start with cosmic dust, so they agree on that point.</div></div>
+  </div>
+
+  <div class="question" data-q="15" data-answer="D">
+    <div class="qtext"><span class="qnum">15</span>Which of the following best describes the “observation” referred to in the passage (“This observation rejuvenated Otto Schmidt’s 1944 theory”)?</div>
+    <fieldset>
+      <label class="choice"><input type="radio" name="q15" value="A">A. The rocky planets were created by the rapid gravitational collapse of a dust cloud.</label>
+      <label class="choice"><input type="radio" name="q15" value="B">B. Certain features on the Moon’s surface are impact craters caused by collisions with objects such as planetesimals.</label>
+      <label class="choice"><input type="radio" name="q15" value="C">C. The rocky planets were formed by a slow accretion of cosmic dust into increasingly larger bodies.</label>
+      <label class="choice"><input type="radio" name="q15" value="D">D. The number of objects colliding with the Moon appears to have been high for a while and then rapidly diminished.</label>
+      <label class="choice"><input type="radio" name="q15" value="E">E. There are far fewer planetesimals in existence today than there were about 4.5 billion years ago.</label>
+    </fieldset>
+    <button class="check" onclick="checkSingle(15)">Check answer</button>
+    <div class="feedback" id="fb15"><div class="result"></div><div class="explanation">“This observation” refers back to the previous sentence: the objects striking the Moon were very numerous about 4.5 billion years ago, and then their number dropped quickly. That is <em>D</em>. A is the older theory, and C is Schmidt’s theory, not the observation. B leaves out the key point about the pattern of impacts over time. E is a conclusion drawn from Schmidt’s theory, not what the crater studies observed.</div></div>
+  </div>
+
+  <div class="footer-actions">
+    <button class="secondary" onclick="resetAll()">Reset all answers</button>
+    <button class="check" style="margin-top:0" onclick="showSummary()">Show score summary</button>
+  </div>
+  <p id="summary" aria-live="polite"></p>
+  <a href="gre.html" style="display:inline-block;margin-top:26px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to GRE Preparation</a>
+</div>
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+<script>
+const checked={},correct={};
+function note(q,t){var d=document.querySelector('.question[data-q="'+q+'"]');var m=d.querySelector('.msg');if(!m){m=document.createElement('div');m.className='msg';d.appendChild(m);}m.textContent=t;m.style.display=t?'block':'none';}
+function mark(q,ok){checked[q]=true;correct[q]=ok;note(q,'');var fb=document.getElementById('fb'+q);fb.className='feedback '+(ok?'good':'bad');fb.querySelector('.result').textContent=ok?'Correct.':'Not quite. Review the explanation below.';updateProgress();}
+function checkSingle(q){var el=document.querySelector('input[name="q'+q+'"]:checked');if(!el){note(q,'Select an answer first.');return;}mark(q,el.value===document.querySelector('.question[data-q="'+q+'"]').dataset.answer);}
+function checkMultiBlank(q,names){var v=[];for(var i=0;i<names.length;i++){var el=document.querySelector('input[name="'+names[i]+'"]:checked');if(!el){note(q,'Complete every blank first.');return;}v.push(el.value);}mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',')));}
+function checkTwo(q){var els=[].slice.call(document.querySelectorAll('input[name="q'+q+'"]:checked'));if(els.length!==2){note(q,'Select exactly two answers.');return;}var v=els.map(function(e){return e.value}).sort();mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',').sort()));}
+function checkAll(q){var els=[].slice.call(document.querySelectorAll('input[name="q'+q+'"]:checked'));if(!els.length){note(q,'Select at least one answer.');return;}var v=els.map(function(e){return e.value}).sort();mark(q,JSON.stringify(v)===JSON.stringify(document.querySelector('.question[data-q="'+q+'"]').dataset.answer.split(',').sort()));}
+function updateProgress(){var c=Object.keys(checked).length,r=Object.values(correct).filter(Boolean).length;document.getElementById('score').textContent=c+' / 15 checked · '+r+' correct';document.getElementById('progress').style.width=(c/15*100)+'%';}
+function showSummary(){var c=Object.keys(checked).length,r=Object.values(correct).filter(Boolean).length;document.getElementById('summary').textContent=c?('Checked '+c+' of 15 · Correct '+r+' · Accuracy on checked questions: '+Math.round(r/c*100)+'%'):'Check at least one answer first.';}
+function resetAll(){document.querySelectorAll('input').forEach(function(i){i.checked=false});document.querySelectorAll('.feedback').forEach(function(f){f.className='feedback'});document.querySelectorAll('.msg').forEach(function(m){m.style.display='none'});for(var k in checked)delete checked[k];for(var k2 in correct)delete correct[k2];document.getElementById('summary').textContent='';updateProgress();window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
