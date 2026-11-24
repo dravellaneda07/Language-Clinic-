@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Quant Lesson 3: Geometry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A44;--sage:#F2A93B;--sage-dark:#C97F16;--paper:#E1EBF6;--paper-line:#B9D0E8;--coral:#b6432f;--slate:#3A4E63;--card-bg:#fff;--good:#1f6b3f;--good-bg:#e3f4ea;--bad:#a32828;--bad-bg:#fbe6e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',-apple-system,sans-serif;line-height:1.55}
+  a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+  .chart-meta{display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:18px 24px 0;font-weight:600;letter-spacing:.04em;font-size:.72rem;color:var(--slate);text-transform:uppercase}
+  .chart-meta a{text-decoration:none;border-bottom:1px solid var(--paper-line)}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 24px 70px}
+  .pretitle,.activity-label{font-weight:600;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;color:var(--sage-dark);margin:6px 0 2px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.08;margin:0}
+  .lead{margin:12px 0 0}
+  .steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;padding:0;list-style:none}
+  .steps a{display:inline-block;text-decoration:none;font-weight:600;font-size:.8rem;background:#fff;border:1px solid var(--paper-line);border-radius:999px;padding:6px 14px}
+  .steps a:hover{border-color:var(--sage-dark)}
+  .activity-section{margin-top:44px;padding-top:32px;border-top:1px solid var(--paper-line)}
+  .activity-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin:0 0 12px}
+  .directions,.note{font-size:.9rem;color:var(--slate);background:var(--paper);border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin:0 0 18px}
+  .directions b{color:var(--ink)}
+  .card{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin-bottom:14px}
+  .card h3{font-family:'Fraunces',serif;font-size:1.08rem;margin:0 0 8px}
+  .card p{font-size:.95rem;margin:0 0 6px}
+  .topics{columns:2;column-gap:24px;margin:8px 0 0;padding-left:22px;font-size:.93rem}
+  .topics li{margin-bottom:3px;break-inside:avoid}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.9em;line-height:1.05;margin:0 2px}
+  .fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}
+  .fr>span:last-child{padding:0 3px}
+  sup{font-size:.72em}
+  .video{position:relative;width:100%;aspect-ratio:16/9;background:var(--ink);border-radius:10px;overflow:hidden;margin-bottom:16px}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  textarea{width:100%;min-height:150px;font-family:inherit;font-size:.93rem;border:1px solid var(--paper-line);border-radius:8px;padding:10px 12px;margin-top:8px;resize:vertical;color:var(--ink)}
+  .toolbar{position:sticky;top:0;z-index:5;background:rgba(225,235,246,.96);padding:10px 0;margin:0 0 6px;border-bottom:1px solid var(--paper-line);display:flex;gap:14px;align-items:center}
+  .progress-shell{flex:1;height:10px;background:var(--paper-line);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0;background:var(--sage);transition:width .25s}
+  .score{font-weight:600;font-size:.85rem;white-space:nowrap}
+  .topic-head{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;margin:30px 0 4px;display:flex;gap:10px;align-items:center}
+  .topic-head .tag{font-family:'Work Sans',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.06em;background:var(--ink);color:#fff;border-radius:999px;padding:3px 9px}
+  .question{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin:12px 0}
+  .qnum{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;margin-right:8px;flex-shrink:0}
+  .qtext{font-size:1rem;display:flex;align-items:flex-start}
+  .qtext>span:last-child{padding-top:3px}
+  fieldset{border:0;padding:0;margin:12px 0 0;min-width:0}
+  label.choice{display:block;border:1px solid var(--paper-line);border-radius:8px;padding:9px 12px;margin:8px 0;cursor:pointer;font-size:.95rem;background:#fff}
+  label.choice:hover{background:var(--paper)}
+  label.choice input{margin-right:8px}
+  label.choice.right{background:var(--good-bg);border-color:#8cc7a3}
+  label.choice.wrong{background:var(--bad-bg);border-color:#e3a497}
+  .locked label.choice{cursor:default}
+  .locked label.choice:hover{background:#fff}
+  .locked label.choice.right:hover{background:var(--good-bg)}
+  .locked label.choice.wrong:hover{background:var(--bad-bg)}
+  button{font-family:inherit;border:0;border-radius:8px;padding:10px 18px;font-weight:600;font-size:.85rem;cursor:pointer}
+  .check{background:var(--ink);color:#fff;margin-top:10px}
+  .check:hover{background:#1b4268}
+  .check:disabled{display:none}
+  .secondary{background:#fff;color:var(--ink);border:1px solid var(--paper-line)}
+  .feedback{display:none;margin-top:14px;padding:12px 15px;border-radius:8px;font-size:.93rem}
+  .feedback.good{display:block;background:var(--good-bg);border:1px solid #b5dcc4}
+  .feedback.bad{display:block;background:var(--bad-bg);border:1px solid #efc2ba}
+  .feedback .result{font-weight:600}
+  .feedback.good .result{color:var(--good)}
+  .feedback.bad .result{color:var(--bad)}
+  .feedback h4{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:10px 0 2px}
+  .feedback p{margin:0}
+  .msg{display:none;margin-top:10px;font-size:.85rem;color:var(--coral);font-weight:600}
+  .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .footer-actions .check{margin-top:0}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--paper-line);font-size:.9rem;margin-top:12px}
+  th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--paper-line)}
+  th{background:var(--ink);color:#fff;font-weight:600;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase}
+  td.low{color:var(--bad);font-weight:600}
+  #summary{margin-top:16px}
+  #summary .big{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600}
+  footer{max-width:760px;margin:0 auto;padding:24px 24px 40px;font-weight:600;font-size:.7rem;color:var(--slate);border-top:1px solid var(--paper-line)}
+  @media (max-width:560px){.topics{columns:1}}
+
+  .test-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 8px}
+  .test-bar .big{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem}
+  .pill{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:#fff;border:1px solid var(--paper-line);border-radius:999px;padding:4px 11px;color:var(--slate)}
+  .qtopic{font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--sage-dark);margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="chart-meta"><a href="gre.html">← GRE Preparation</a><span>UDC · School of Education</span></div>
+<div class="wrap">
+  <p class="pretitle">GRE · Quantitative Reasoning · Lesson 3</p>
+  <h1>Geometry</h1>
+  <p class="lead">Geometry questions on the GRE test whether you can apply a few core rules quickly: angle facts, triangles, the Pythagorean theorem, circles, area, and volume. Learn the ten key ideas from the video, then show what you learned with self-graded tests of ten questions, one from each topic.</p>
+  <ul class="steps">
+    <li><a href="#learn">Part 1 · Learning</a></li>
+    <li><a href="#practice">Part 2 · Practice Tests</a></li>
+  </ul>
+
+  <!-- PART 1 -->
+  <div class="activity-section" id="learn">
+    <p class="activity-label">Part 1</p>
+    <h2 class="activity-title">Learning</h2>
+    <p class="directions"><b>Instructions:</b> Watch the video several times, take notes when appropriate, then do the exercises in Part 2 to demonstrate your learning.</p>
+    <div class="video">
+      <!-- VIDEO: paste the YouTube embed link between the quotes in VIDEO_URL near the top of the script below -->
+      <div id="videoSoon" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:1rem;text-align:center;padding:20px">Video coming soon</div>
+    </div>
+    <div class="card">
+      <h3>Note-taking guide</h3>
+      <p>The video covers ten topics, and every test in Part 2 has one question from each topic, in the same order. For each topic, write the rule in your own words and one example. You can write in English or your first language.</p>
+      <ol class="topics">
+        <li>Angle Relationships</li><li>Triangle Properties</li><li>Congruent Triangles</li><li>Similar Triangles</li><li>Pythagorean Theorem</li><li>Coordinate Geometry</li><li>Circles</li><li>Area and Perimeter</li><li>Surface Area and Volume</li><li>Transformations</li>
+      </ol>
+      <textarea id="notes" aria-label="My notes" placeholder="My notes…"></textarea>
+      <div class="footer-actions" style="margin-top:10px">
+        <button class="secondary" type="button" id="saveNotes">Download my notes</button>
+      </div>
+      <p class="note" style="margin:12px 0 0">Notes typed here disappear when you leave the page. Click <b>Download my notes</b> to save a copy, or copy them into your notebook.</p>
+    </div>
+  </div>
+
+  <!-- PART 2 -->
+  <div class="activity-section" id="practice">
+    <p class="activity-label">Part 2</p>
+    <h2 class="activity-title">Practice Tests: Demonstrate Your Learning</h2>
+    <p class="directions"><b>Instructions:</b> Each test has 10 questions, one from each topic in the video. Choose one answer (A–D), then click <b>Check answer</b>. Work on paper first. Each question is worth 1 point, and you get <b>one attempt</b> per question, so check your work before you click. Read every explanation, even when you are right. When you finish, click <b>See my results</b>, then <b>Next test</b> for 10 new questions. There are 10 different tests (100 questions), and no question repeats until you have seen all of them.</p>
+    <div class="test-bar"><span class="big" id="testTitle">Test 1 of 10</span><span class="pill" id="overall">All tests: 0 / 0 correct</span></div>
+    <div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><div class="score" id="score">0 / 10 answered</div></div>
+    <div id="questions"></div>
+    <div class="footer-actions">
+      <button class="check" type="button" id="showSummary">See my results</button>
+      <button class="secondary" type="button" id="nextTest">Next test →</button>
+      <button class="secondary" type="button" id="restart">Start over from Test 1</button>
+    </div>
+    <div id="summary" aria-live="polite"></div>
+  </div>
+
+  <a href="gre.html" style="display:inline-block;margin-top:30px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to GRE Preparation</a>
+</div>
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+
+<script>
+(function(){
+  /* {top/bottom} becomes a stacked fraction */
+  function F(s){ return s.replace(/\{([^{}\/]+)\/([^{}]+)\}/g,'<span class="fr"><span>$1</span><span>$2</span></span>'); }
+
+  /* Paste the YouTube embed link here, e.g. "https://www.youtube.com/embed/VIDEO_ID" */
+  var VIDEO_URL = "";
+  if(VIDEO_URL){
+    var v = document.getElementById('videoSoon');
+    v.outerHTML = '<iframe src="'+VIDEO_URL+'" title="Geometry review video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+  }
+
+  var TOPICS = ["Angle Relationships", "Triangle Properties", "Congruent Triangles", "Similar Triangles", "Pythagorean Theorem", "Coordinate Geometry", "Circles", "Area and Perimeter", "Surface Area and Volume", "Transformations"];
+  /* Common mistake to watch for, shown when an answer is wrong */
+  var TIPS = ["Complementary angles add to 90°; supplementary angles add to 180°. Vertical, corresponding, and alternate interior angles are equal. Same-side interior angles add to 180°.", "The three interior angles of a triangle add to 180°. An exterior angle equals the sum of the two remote (non-adjacent) interior angles. Classify by sides (equal sides) or by angles (largest angle).", "Match the vertices in order: if ABC ≅ DEF, then A ↔ D, B ↔ E, C ↔ F, so AC matches DF. SSS, SAS, ASA, AAS, and HL prove congruence; AAA and SSA do not.", "Similar triangles have the same shape but not always the same size. Multiply by the scale factor to go from the smaller triangle to the larger one. Two equal angle pairs (AA) are enough to prove similarity.", "a² + b² = c², where c is the hypotenuse (the longest side, across from the right angle). To find a missing leg, subtract: leg² = c² − other leg². Do not simply add or subtract the side lengths.", "Midpoint: average the x-coordinates and average the y-coordinates. Distance: subtract the coordinates, square the differences, add, then take the square root. Keep track of negative signs.", "The diameter is twice the radius. A central angle is twice an inscribed angle on the same arc. A tangent touches the circle at one point; a chord joins two points on the circle.", "Area measures the inside (square units); perimeter measures the distance around (units). Circle area is πr², and circumference is 2πr. Square the radius, not the diameter.", "Volume measures the space inside (cubic units). Surface area adds the areas of every face (square units): for a box, 2(lw + lh + wh). A closed cylinder has two circles plus the curved side: 2πr² + 2πrh.", "Translation: add the vector to the coordinates. Dilation about the origin: multiply both coordinates by the scale factor. Across the x-axis, change the sign of y; across the y-axis, change the sign of x; across y = x, switch the coordinates."];
+
+  /* 100 questions from the Geometry bank (10 per topic, in order).
+     t = topic index; o = options; a = correct index (0=A); key = worked explanation from the answer key */
+  var Q = [
+    {"t": 0, "q": "Two complementary angles measure 37° and x°. What is x?", "o": ["41°", "61°", "53°", "68°"], "a": 2, "key": "Complementary angles total 90°, so x = 90 − 37 = 53°."},
+    {"t": 0, "q": "Two complementary angles measure 68° and x°. What is x?", "o": ["10°", "30°", "37°", "22°"], "a": 3, "key": "Complementary angles total 90°, so x = 90 − 68 = 22°."},
+    {"t": 0, "q": "Two supplementary angles measure 114° and x°. Find x.", "o": ["66°", "81°", "54°", "74°"], "a": 0, "key": "Supplementary angles total 180°, so x = 180 − 114 = 66°."},
+    {"t": 0, "q": "Two supplementary angles measure 147° and x°. Find x.", "o": ["41°", "33°", "21°", "48°"], "a": 1, "key": "Supplementary angles total 180°, so x = 180 − 147 = 33°."},
+    {"t": 0, "q": "Two lines intersect. An angle measures 56°. What is its vertically opposite angle?", "o": ["56°", "64°", "44°", "71°"], "a": 0, "key": "Vertical angles are equal, so the opposite angle is 56°."},
+    {"t": 0, "q": "A transversal crosses two parallel lines. One angle is 123°. How large is the corresponding angle?", "o": ["123°", "131°", "138°", "111°"], "a": 0, "key": "Corresponding angles on parallel lines have equal measures, so the angle is 123°."},
+    {"t": 0, "q": "Parallel lines are cut by a transversal. One alternate interior angle measures 41°. Find the other.", "o": ["56°", "29°", "41°", "49°"], "a": 2, "key": "Alternate interior angles are equal for parallel lines, giving 41°."},
+    {"t": 0, "q": "Two same-side interior angles formed by a transversal across parallel lines are 118° and x°. Find x.", "o": ["70°", "50°", "77°", "62°"], "a": 3, "key": "Same-side interior angles sum to 180°, so x = 180 − 118 = 62°."},
+    {"t": 0, "q": "Two supplementary angles measure 76° and x°. Find x.", "o": ["119°", "92°", "104°", "112°"], "a": 2, "key": "Supplementary angles total 180°, so x = 180 − 76 = 104°."},
+    {"t": 0, "q": "Two complementary angles measure 23° and x°. What is x?", "o": ["75°", "67°", "55°", "82°"], "a": 1, "key": "Complementary angles total 90°, so x = 90 − 23 = 67°."},
+    {"t": 1, "q": "A triangle has two interior angles of 42° and 61°. What is its third angle?", "o": ["87°", "138°", "24°", "77°"], "a": 3, "key": "The three interior angles total 180°. Subtract 42° and 61° to get 77°."},
+    {"t": 1, "q": "A triangle has two interior angles of 70° and 48°. What is its third angle?", "o": ["110°", "72°", "62°", "27°"], "a": 2, "key": "The three interior angles total 180°. Subtract 70° and 48° to get 62°."},
+    {"t": 1, "q": "A triangle has two interior angles of 32° and 79°. What is its third angle?", "o": ["148°", "52°", "79°", "69°"], "a": 3, "key": "The three interior angles total 180°. Subtract 32° and 79° to get 69°."},
+    {"t": 1, "q": "A triangle has two interior angles of 51° and 51°. What is its third angle?", "o": ["88°", "5°", "129°", "78°"], "a": 3, "key": "The three interior angles total 180°. Subtract 51° and 51° to get 78°."},
+    {"t": 1, "q": "A triangle has two interior angles of 66° and 57°. What is its third angle?", "o": ["67°", "57°", "114°", "14°"], "a": 1, "key": "The three interior angles total 180°. Subtract 66° and 57° to get 57°."},
+    {"t": 1, "q": "A triangle has remote interior angles of 33° and 65°. What is the exterior angle at the third vertex?", "o": ["98°", "110°", "86°", "82°"], "a": 0, "key": "By the exterior angle theorem, the exterior angle is the sum 33° + 65° = 98°."},
+    {"t": 1, "q": "A triangle has remote interior angles of 54° and 71°. What is the exterior angle at the third vertex?", "o": ["55°", "137°", "113°", "125°"], "a": 3, "key": "By the exterior angle theorem, the exterior angle is the sum 54° + 71° = 125°."},
+    {"t": 1, "q": "A triangle has remote interior angles of 41° and 82°. What is the exterior angle at the third vertex?", "o": ["111°", "135°", "123°", "57°"], "a": 2, "key": "By the exterior angle theorem, the exterior angle is the sum 41° + 82° = 123°."},
+    {"t": 1, "q": "A triangle has side lengths 9, 9, and 14. How is it classified by its sides?", "o": ["Isosceles", "Scalene", "Right", "Equilateral"], "a": 0, "key": "Exactly two sides have equal lengths (9 and 9), so the triangle is isosceles."},
+    {"t": 1, "q": "A triangle has angles 25°, 35°, and 120°. How is it classified by its angles?", "o": ["Equilateral", "Acute", "Obtuse", "Right"], "a": 2, "key": "It contains one angle greater than 90°, so it is obtuse."},
+    {"t": 2, "q": "In congruent triangles ABC and DEF (A ↔ D, B ↔ E, C ↔ F), AB = 4, BC = 6, and AC = 8. What is DF?", "o": ["4", "6", "8", "10"], "a": 2, "key": "DF corresponds to AC, so DF = AC = 8. Congruent triangles have equal corresponding sides."},
+    {"t": 2, "q": "In congruent triangles ABC and DEF (A ↔ D, B ↔ E, C ↔ F), AB = 5, BC = 7, and AC = 9. What is DF?", "o": ["7", "5", "11", "9"], "a": 3, "key": "DF corresponds to AC, so DF = AC = 9. Congruent triangles have equal corresponding sides."},
+    {"t": 2, "q": "In congruent triangles ABC and DEF (A ↔ D, B ↔ E, C ↔ F), AB = 6, BC = 9, and AC = 11. What is DF?", "o": ["11", "13", "9", "6"], "a": 0, "key": "DF corresponds to AC, so DF = AC = 11. Congruent triangles have equal corresponding sides."},
+    {"t": 2, "q": "In congruent triangles ABC and DEF (A ↔ D, B ↔ E, C ↔ F), AB = 7, BC = 10, and AC = 12. What is DF?", "o": ["7", "14", "10", "12"], "a": 3, "key": "DF corresponds to AC, so DF = AC = 12. Congruent triangles have equal corresponding sides."},
+    {"t": 2, "q": "Triangles ABC and DEF are congruent in the order shown. If angle B measures 43°, what is angle E?", "o": ["43°", "53°", "47°", "137°"], "a": 0, "key": "B corresponds to E, so both angles measure 43°."},
+    {"t": 2, "q": "Triangles ABC and DEF are congruent in the order shown. If angle B measures 67°, what is angle E?", "o": ["67°", "77°", "23°", "113°"], "a": 0, "key": "B corresponds to E, so both angles measure 67°."},
+    {"t": 2, "q": "Two triangles have three pairs of corresponding sides equal. Which test proves they are congruent?", "o": ["SSS", "AAA", "AA", "SSA"], "a": 0, "key": "Side-Side-Side (SSS) proves congruence because all three corresponding side lengths are equal."},
+    {"t": 2, "q": "Two triangles have two pairs of corresponding sides equal and the INCLUDED angles equal. Which congruence test applies?", "o": ["SSA", "SSS similarity only", "SAS", "AA"], "a": 2, "key": "SAS uses two corresponding sides and the angle between them; the included angle matters."},
+    {"t": 2, "q": "Two triangles have two corresponding angles and the side between those angles equal. Which congruence test applies?", "o": ["ASA", "SSA", "SSS similarity only", "AAA"], "a": 0, "key": "Angle-Side-Angle (ASA) uses two angles and their included side to prove congruence."},
+    {"t": 2, "q": "Two right triangles have equal hypotenuses and one pair of equal legs. What proves congruence?", "o": ["AAA", "HL", "AA", "SSA for all triangles"], "a": 1, "key": "The hypotenuse-leg (HL) test applies to right triangles with corresponding hypotenuses and one leg equal."},
+    {"t": 3, "q": "Two triangles are similar. A side of length 3 in the smaller triangle corresponds to a side in the larger triangle. If the scale factor is 2, how long is the larger side?", "o": ["6", "3", "8", "5"], "a": 0, "key": "Corresponding sides scale by 2; 3 × 2 = 6."},
+    {"t": 3, "q": "Two triangles are similar. A side of length 5 in the smaller triangle corresponds to a side in the larger triangle. If the scale factor is 3, how long is the larger side?", "o": ["15", "5", "8", "18"], "a": 0, "key": "Corresponding sides scale by 3; 5 × 3 = 15."},
+    {"t": 3, "q": "Two triangles are similar. A side of length 7 in the smaller triangle corresponds to a side in the larger triangle. If the scale factor is 2, how long is the larger side?", "o": ["7", "14", "9", "16"], "a": 1, "key": "Corresponding sides scale by 2; 7 × 2 = 14."},
+    {"t": 3, "q": "Two triangles are similar. A side of length 8 in the smaller triangle corresponds to a side in the larger triangle. If the scale factor is 4, how long is the larger side?", "o": ["36", "12", "32", "8"], "a": 2, "key": "Corresponding sides scale by 4; 8 × 4 = 32."},
+    {"t": 3, "q": "Two triangles are similar. A side of length 6 in the smaller triangle corresponds to a side in the larger triangle. If the scale factor is 3, how long is the larger side?", "o": ["9", "21", "6", "18"], "a": 3, "key": "Corresponding sides scale by 3; 6 × 3 = 18."},
+    {"t": 3, "q": "Two triangles are similar. A side of length 9 in the smaller triangle corresponds to a side in the larger triangle. If the scale factor is 2, how long is the larger side?", "o": ["18", "11", "9", "20"], "a": 0, "key": "Corresponding sides scale by 2; 9 × 2 = 18."},
+    {"t": 3, "q": "Triangle A has corresponding sides 4 and 6. Triangle B has sides 10 and x in the same order. If the triangles are similar, what is x?", "o": ["13", "15", "6", "18"], "a": 1, "key": "The scale factor is 10/4 = 2.5; multiply the matching side 6 by this factor to get 15."},
+    {"t": 3, "q": "Triangle A has corresponding sides 3 and 5. Triangle B has sides 9 and x in the same order. If the triangles are similar, what is x?", "o": ["15", "18", "13", "5"], "a": 0, "key": "The scale factor is 9/3 = 3; multiply the matching side 5 by this factor to get 15."},
+    {"t": 3, "q": "Two triangles have matching angles of 35° and 75°. Which similarity test proves they are similar?", "o": ["HL", "SSS congruence", "SSA", "AA"], "a": 3, "key": "Two pairs of matching angles are enough to establish similarity (AA)."},
+    {"t": 3, "q": "Two triangles have side lengths 3, 4, 5 and 6, 8, 10. Which statement is true?", "o": ["Their scale factor is 3.", "They are not similar.", "They are similar with scale factor 2.", "They are congruent."], "a": 2, "key": "Every side of the second triangle is twice its matching side in the first; all side ratios agree (SSS similarity)."},
+    {"t": 4, "q": "A right triangle has legs 5 and 12 units. Find its hypotenuse.", "o": ["10", "13", "15", "17"], "a": 1, "key": "Using a² + b² = c², c = √(5² + 12²) = √169 = 13."},
+    {"t": 4, "q": "A right triangle has legs 8 and 15 units. Find its hypotenuse.", "o": ["19", "17", "14", "23"], "a": 1, "key": "Using a² + b² = c², c = √(8² + 15²) = √289 = 17."},
+    {"t": 4, "q": "A right triangle has legs 7 and 24 units. Find its hypotenuse.", "o": ["22", "27", "31", "25"], "a": 3, "key": "Using a² + b² = c², c = √(7² + 24²) = √625 = 25."},
+    {"t": 4, "q": "A right triangle has legs 9 and 12 units. Find its hypotenuse.", "o": ["12", "21", "17", "15"], "a": 3, "key": "Using a² + b² = c², c = √(9² + 12²) = √225 = 15."},
+    {"t": 4, "q": "A right triangle has legs 12 and 16 units. Find its hypotenuse.", "o": ["17", "20", "28", "22"], "a": 1, "key": "Using a² + b² = c², c = √(12² + 16²) = √400 = 20."},
+    {"t": 4, "q": "A right triangle has legs 20 and 21 units. Find its hypotenuse.", "o": ["26", "29", "31", "41"], "a": 1, "key": "Using a² + b² = c², c = √(20² + 21²) = √841 = 29."},
+    {"t": 4, "q": "A right triangle has a hypotenuse of 13 units and one leg of 12 units. Find the missing leg.", "o": ["8", "5", "17", "1"], "a": 1, "key": "Missing leg = √(13² − 12²) = √25 = 5."},
+    {"t": 4, "q": "A right triangle has a hypotenuse of 17 units and one leg of 15 units. Find the missing leg.", "o": ["11", "8", "2", "23"], "a": 1, "key": "Missing leg = √(17² − 15²) = √64 = 8."},
+    {"t": 4, "q": "A right triangle has a hypotenuse of 25 units and one leg of 24 units. Find the missing leg.", "o": ["10", "1", "7", "31"], "a": 2, "key": "Missing leg = √(25² − 24²) = √49 = 7."},
+    {"t": 4, "q": "A right triangle has a hypotenuse of 41 units and one leg of 40 units. Find the missing leg.", "o": ["9", "12", "1", "49"], "a": 0, "key": "Missing leg = √(41² − 40²) = √81 = 9."},
+    {"t": 5, "q": "Find the midpoint of A(−4, 2) and B(6, 8).", "o": ["(2, 10)", "(1, 7)", "(2, 5)", "(1, 5)"], "a": 3, "key": "Average x-coordinates and y-coordinates: ((−4+6)/2, (2+8)/2) = (1, 5)."},
+    {"t": 5, "q": "Find the midpoint of A(1, −5) and B(7, 3).", "o": ["(4, −1)", "(5, −1)", "(8, −2)", "(4, 1)"], "a": 0, "key": "Average x-coordinates and y-coordinates: ((1+7)/2, (−5+3)/2) = (4, −1)."},
+    {"t": 5, "q": "Find the midpoint of A(−8, −2) and B(4, 6).", "o": ["(−2, 2)", "(−4, 4)", "(−2, 4)", "(−1, 2)"], "a": 0, "key": "Average x-coordinates and y-coordinates: ((−8+4)/2, (−2+6)/2) = (−2, 2)."},
+    {"t": 5, "q": "Find the midpoint of A(3, 4) and B(9, −2).", "o": ["(6, 3)", "(7, 1)", "(12, 2)", "(6, 1)"], "a": 3, "key": "Average x-coordinates and y-coordinates: ((3+9)/2, (4+(−2))/2) = (6, 1)."},
+    {"t": 5, "q": "What is the distance between points (0, 0) and (3, 4)?", "o": ["5", "3", "8", "7"], "a": 0, "key": "Distance = √[(3−(0))² + (4−(0))²] = √25 = 5."},
+    {"t": 5, "q": "What is the distance between points (1, 2) and (7, 10)?", "o": ["8", "10", "15", "12"], "a": 1, "key": "Distance = √[(7−(1))² + (10−(2))²] = √100 = 10."},
+    {"t": 5, "q": "What is the distance between points (−2, 1) and (3, 13)?", "o": ["11", "13", "15", "18"], "a": 1, "key": "Distance = √[(3−(−2))² + (13−(1))²] = √169 = 13."},
+    {"t": 5, "q": "What is the distance between points (4, −1) and (12, 14)?", "o": ["17", "19", "15", "24"], "a": 0, "key": "Distance = √[(12−(4))² + (14−(−1))²] = √289 = 17."},
+    {"t": 5, "q": "Which point lies 3 units left and 5 units up from the origin?", "o": ["(−3, 5)", "(3, 5)", "(3, −5)", "(−5, 3)"], "a": 0, "key": "Left means negative x; up means positive y. The coordinates are (−3, 5)."},
+    {"t": 5, "q": "A point is at (4, −7). In which quadrant is it located?", "o": ["Quadrant IV", "Quadrant I", "Quadrant III", "Quadrant II"], "a": 0, "key": "A positive x-coordinate and negative y-coordinate place a point in Quadrant IV."},
+    {"t": 6, "q": "A circle has radius 4 cm. What is its diameter?", "o": ["8 cm", "4 cm", "12 cm", "6 cm"], "a": 0, "key": "Diameter = 2 × radius = 2 × 4 = 8 cm."},
+    {"t": 6, "q": "A circle has radius 7 cm. What is its diameter?", "o": ["7 cm", "21 cm", "9 cm", "14 cm"], "a": 3, "key": "Diameter = 2 × radius = 2 × 7 = 14 cm."},
+    {"t": 6, "q": "A circle has diameter 18 m. What is its radius?", "o": ["18 m", "6 m", "36 m", "9 m"], "a": 3, "key": "The radius is half the diameter: 18 ÷ 2 = 9 m."},
+    {"t": 6, "q": "A circle has diameter 30 m. What is its radius?", "o": ["15 m", "30 m", "10 m", "60 m"], "a": 0, "key": "The radius is half the diameter: 30 ÷ 2 = 15 m."},
+    {"t": 6, "q": "An inscribed angle intercepts an arc that also defines a central angle. If the inscribed angle is 28°, what is the central angle?", "o": ["58°", "152°", "28°", "56°"], "a": 3, "key": "An angle at the center is twice an inscribed angle intercepting the same arc: 2 × 28° = 56°."},
+    {"t": 6, "q": "An inscribed angle intercepts an arc that also defines a central angle. If the inscribed angle is 43°, what is the central angle?", "o": ["137°", "86°", "43°", "73°"], "a": 1, "key": "An angle at the center is twice an inscribed angle intercepting the same arc: 2 × 43° = 86°."},
+    {"t": 6, "q": "Two inscribed angles subtend the same chord and lie in the same segment. One measures 62°. Find the other.", "o": ["124°", "62°", "118°", "72°"], "a": 1, "key": "Angles in the same segment subtend the same arc and are equal, so the angle is 62°."},
+    {"t": 6, "q": "Two inscribed angles subtend the same chord and lie in the same segment. One measures 39°. Find the other.", "o": ["39°", "78°", "141°", "49°"], "a": 0, "key": "Angles in the same segment subtend the same arc and are equal, so the angle is 39°."},
+    {"t": 6, "q": "A straight line touches a circle at exactly one point. What is this line called?", "o": ["Tangent", "Arc", "Secant", "Diameter"], "a": 0, "key": "A tangent touches the circle at exactly one point."},
+    {"t": 6, "q": "A line segment has both endpoints on the circumference and need not pass through the center. What is it?", "o": ["Radius", "Tangent", "Arc", "Chord"], "a": 3, "key": "A chord joins two points on the circumference; a diameter is a special chord through the center."},
+    {"t": 7, "q": "Find the area of a rectangle 9 cm long and 4 cm wide.", "o": ["36 cm²", "26 cm²", "44 cm²", "13 cm²"], "a": 0, "key": "Area = length × width = 9 × 4 = 36 cm²."},
+    {"t": 7, "q": "Find the area of a rectangle 12 cm long and 7 cm wide.", "o": ["84 cm²", "92 cm²", "38 cm²", "19 cm²"], "a": 0, "key": "Area = length × width = 12 × 7 = 84 cm²."},
+    {"t": 7, "q": "Find the area of a rectangle 15 cm long and 6 cm wide.", "o": ["42 cm²", "21 cm²", "90 cm²", "98 cm²"], "a": 2, "key": "Area = length × width = 15 × 6 = 90 cm²."},
+    {"t": 7, "q": "Find the perimeter of a rectangle with side lengths 8 m and 5 m.", "o": ["13 m", "26 m", "40 m", "30 m"], "a": 1, "key": "Perimeter = 2l + 2w = 2(8+5) = 26 m."},
+    {"t": 7, "q": "Find the perimeter of a rectangle with side lengths 13 m and 4 m.", "o": ["17 m", "38 m", "34 m", "52 m"], "a": 2, "key": "Perimeter = 2l + 2w = 2(13+4) = 34 m."},
+    {"t": 7, "q": "Find the perimeter of a rectangle with side lengths 11 m and 7 m.", "o": ["40 m", "36 m", "18 m", "77 m"], "a": 1, "key": "Perimeter = 2l + 2w = 2(11+7) = 36 m."},
+    {"t": 7, "q": "A circle has radius 3 inches. What is its exact area?", "o": ["6π in²", "12π in²", "9π in²", "3π in²"], "a": 2, "key": "Area = πr² = π × 3² = 9π square inches."},
+    {"t": 7, "q": "A circle has radius 5 inches. What is its exact area?", "o": ["5π in²", "25π in²", "28π in²", "10π in²"], "a": 1, "key": "Area = πr² = π × 5² = 25π square inches."},
+    {"t": 7, "q": "A circle has radius 4 cm. What is its exact circumference?", "o": ["10π cm", "8π cm", "16π cm", "4π cm"], "a": 1, "key": "Circumference = 2πr = 2π(4) = 8π cm."},
+    {"t": 7, "q": "A circle has radius 6 cm. What is its exact circumference?", "o": ["6π cm", "12π cm", "36π cm", "14π cm"], "a": 1, "key": "Circumference = 2πr = 2π(6) = 12π cm."},
+    {"t": 8, "q": "Find the volume of a rectangular prism measuring 3 by 4 by 5 cm.", "o": ["60 cm³", "94 cm³", "63 cm³", "12 cm³"], "a": 0, "key": "Volume = length × width × height = 3 × 4 × 5 = 60 cm³."},
+    {"t": 8, "q": "Find the volume of a rectangular prism measuring 4 by 6 by 7 cm.", "o": ["17 cm³", "168 cm³", "188 cm³", "172 cm³"], "a": 1, "key": "Volume = length × width × height = 4 × 6 × 7 = 168 cm³."},
+    {"t": 8, "q": "Find the volume of a rectangular prism measuring 2 by 5 by 9 cm.", "o": ["90 cm³", "92 cm³", "146 cm³", "16 cm³"], "a": 0, "key": "Volume = length × width × height = 2 × 5 × 9 = 90 cm³."},
+    {"t": 8, "q": "Find the total surface area of a rectangular prism with length 2, width 3, and height 4 units.", "o": ["56 units²", "26 units²", "24 units²", "52 units²"], "a": 3, "key": "Surface area = 2(lw + lh + wh) = 2(6 + 8 + 12) = 52 square units."},
+    {"t": 8, "q": "Find the total surface area of a rectangular prism with length 3, width 5, and height 6 units.", "o": ["126 units²", "132 units²", "90 units²", "63 units²"], "a": 0, "key": "Surface area = 2(lw + lh + wh) = 2(15 + 18 + 30) = 126 square units."},
+    {"t": 8, "q": "Find the total surface area of a rectangular prism with length 4, width 5, and height 7 units.", "o": ["174 units²", "140 units²", "166 units²", "83 units²"], "a": 2, "key": "Surface area = 2(lw + lh + wh) = 2(20 + 28 + 35) = 166 square units."},
+    {"t": 8, "q": "A cylinder has radius 3 cm and height 5 cm. What is its exact volume?", "o": ["50π cm³", "30π cm³", "9π cm³", "45π cm³"], "a": 3, "key": "Cylinder volume = πr²h = π(3²)(5) = 45π cm³."},
+    {"t": 8, "q": "A cylinder has radius 4 cm and height 7 cm. What is its exact volume?", "o": ["56π cm³", "112π cm³", "119π cm³", "16π cm³"], "a": 1, "key": "Cylinder volume = πr²h = π(4²)(7) = 112π cm³."},
+    {"t": 8, "q": "A closed cylinder has radius 2 m and height 6 m. What is its total surface area?", "o": ["33π m²", "32π m²", "24π m²", "36π m²"], "a": 1, "key": "Total surface area = 2πr² + 2πrh = 8π + 24π = 32π m²."},
+    {"t": 8, "q": "A closed cylinder has radius 3 m and height 7 m. What is its total surface area?", "o": ["60π m²", "66π m²", "72π m²", "42π m²"], "a": 0, "key": "Total surface area = 2πr² + 2πrh = 18π + 42π = 60π m²."},
+    {"t": 9, "q": "Translate point (2, 3) by the vector (4, −2). What are the new coordinates?", "o": ["(7, 1)", "(6, 1)", "(0, 7)", "(−2, 5)"], "a": 1, "key": "Add 4 to x and −2 to y: (2+(4), 3+(−2)) = (6, 1)."},
+    {"t": 9, "q": "Translate point (−3, 5) by the vector (2, 1). What are the new coordinates?", "o": ["(−1, 6)", "(−5, 4)", "(0, 6)", "(−2, 7)"], "a": 0, "key": "Add 2 to x and 1 to y: (−3+(2), 5+(1)) = (−1, 6)."},
+    {"t": 9, "q": "Translate point (6, −1) by the vector (−4, −3). What are the new coordinates?", "o": ["(10, 2)", "(2, −4)", "(3, −4)", "(3, −5)"], "a": 1, "key": "Add −4 to x and −3 to y: (6+(−4), −1+(−3)) = (2, −4)."},
+    {"t": 9, "q": "Dilate point (2, −3) about the origin by a scale factor of 2. Find its image.", "o": ["(−4, −6)", "(4, −1)", "(4, −6)", "(4, 6)"], "a": 2, "key": "For dilation about the origin, multiply both coordinates by 2: (2×2, 2×(−3)) = (4, −6)."},
+    {"t": 9, "q": "Dilate point (−1, 4) about the origin by a scale factor of 3. Find its image.", "o": ["(2, 7)", "(−3, 12)", "(3, 12)", "(−3, −12)"], "a": 1, "key": "For dilation about the origin, multiply both coordinates by 3: (3×(−1), 3×4) = (−3, 12)."},
+    {"t": 9, "q": "Dilate point (3, 2) about the origin by a scale factor of 2. Find its image.", "o": ["(6, 4)", "(6, −4)", "(5, 4)", "(−6, 4)"], "a": 0, "key": "For dilation about the origin, multiply both coordinates by 2: (2×3, 2×2) = (6, 4)."},
+    {"t": 9, "q": "Reflect point (3, −5) across the x-axis. What is the image?", "o": ["(5, 3)", "(−3, 5)", "(3, 5)", "(3, −5)"], "a": 2, "key": "Across the x-axis, change the sign of the y-coordinate only. The result is (3, 5)."},
+    {"t": 9, "q": "Reflect point (−4, 2) across the y-axis. What is the image?", "o": ["(2, 4)", "(4, 2)", "(4, −2)", "(−4, 2)"], "a": 1, "key": "Across the y-axis, change the sign of the x-coordinate only. The result is (4, 2)."},
+    {"t": 9, "q": "Reflect point (7, 1) across the y-axis. What is the image?", "o": ["(−7, 1)", "(1, −7)", "(−7, −1)", "(7, 1)"], "a": 0, "key": "Across the y-axis, change the sign of the x-coordinate only. The result is (−7, 1)."},
+    {"t": 9, "q": "Reflect the point (−2, 6) across the line y = x. What are its new coordinates?", "o": ["(−2, −6)", "(2, −6)", "(6, −2)", "(−6, 2)"], "a": 2, "key": "Reflection over y = x switches the x- and y-coordinates: (−2, 6) becomes (6, −2)."}
+  ];
+
+  var L = 'ABCD', box = document.getElementById('questions');
+  var order = [], test = 0, cur = [], done = {}, totals = {r:0,n:0}, counted = {};
+
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), x=a[i]; a[i]=a[j]; a[j]=x; } return a; }
+  /* For each topic, shuffle its 10 questions; test k uses the k-th question of every topic */
+  function newCycle(){
+    order = TOPICS.map(function(_,ti){ var ids=[]; for(var k=0;k<10;k++) ids.push(ti*10+k); return shuffle(ids); });
+    test = 0;
+  }
+
+  function render(){
+    cur = order.map(function(ids){ return ids[test]; });
+    done = {};
+    document.getElementById('testTitle').textContent = 'Test '+(test+1)+' of 10';
+    document.getElementById('summary').innerHTML = '';
+    var h = '';
+    cur.forEach(function(id,n){
+      var q = Q[id], i = n+1;
+      h += '<div class="question" id="q'+i+'"><p class="qtopic">Topic '+(q.t+1)+' · '+TOPICS[q.t]+'</p><div class="qtext"><span class="qnum">'+i+'</span><span>'+F(q.q)+'</span></div><fieldset>';
+      q.o.forEach(function(o,k){ h += '<label class="choice"><input type="radio" name="a'+i+'" value="'+k+'">'+L[k]+'. '+F(o)+'</label>'; });
+      h += '</fieldset><button class="check" type="button" data-q="'+i+'">Check answer</button><div class="msg"></div><div class="feedback" id="fb'+i+'"></div></div>';
+    });
+    box.innerHTML = h;
+    update();
+  }
+
+  function update(){
+    var n = Object.keys(done).length, r = Object.keys(done).filter(function(k){ return done[k]; }).length;
+    document.getElementById('score').textContent = n+' / 10 answered · '+r+' correct';
+    document.getElementById('progress').style.width = (n*10)+'%';
+    document.getElementById('overall').textContent = 'All tests: '+totals.r+' / '+totals.n+' correct';
+  }
+
+  function grade(i){
+    var id = cur[i-1], q = Q[id], d = document.getElementById('q'+i), el = d.querySelector('input:checked'), m = d.querySelector('.msg');
+    if(!el){ m.textContent = 'Select an answer first.'; m.style.display = 'block'; return; }
+    m.style.display = 'none';
+    var pick = +el.value, ok = pick === q.a, labels = d.querySelectorAll('label.choice'), fb = document.getElementById('fb'+i);
+    d.querySelectorAll('input').forEach(function(x){ x.disabled = true; });
+    d.classList.add('locked'); d.querySelector('button.check').disabled = true;
+    labels[q.a].classList.add('right');
+    if(ok){
+      fb.className = 'feedback good';
+      fb.innerHTML = '<div class="result">Correct! ✓</div><h4>Explanation</h4><p>'+F(q.key)+'</p>';
+    } else {
+      labels[pick].classList.add('wrong');
+      fb.className = 'feedback bad';
+      fb.innerHTML = '<div class="result">Not quite. You chose '+L[pick]+'. The correct answer is '+L[q.a]+': '+F(q.o[q.a])+'.</div>'+
+        '<h4>Step-by-step explanation</h4><p>'+F(q.key)+'</p>'+
+        '<h4>Common mistake to watch for</h4><p>'+F(TIPS[q.t])+'</p>'+
+        '<h4>Review</h4><p>Rewatch the part of the video on <b>Topic '+(q.t+1)+': '+TOPICS[q.t]+'</b>, then add this rule to your notes.</p>';
+    }
+    done[i] = ok;
+    if(!(id in counted)){ counted[id] = ok; totals.n++; if(ok) totals.r++; }
+    update();
+  }
+  box.addEventListener('click', function(e){ var b = e.target.closest('button[data-q]'); if(b) grade(+b.dataset.q); });
+
+  document.getElementById('showSummary').addEventListener('click', function(){
+    var s = document.getElementById('summary'), n = Object.keys(done).length;
+    if(!n){ s.innerHTML = '<p class="note">Answer at least one question first.</p>'; return; }
+    var r = Object.keys(done).filter(function(k){ return done[k]; }).length, pct = Math.round(r/n*100);
+    var rows = '', weak = [];
+    cur.forEach(function(id,n){
+      var i = n+1, q = Q[id]; if(!(i in done)) return;
+      if(!done[i]) weak.push(TOPICS[q.t]);
+      rows += '<tr><td>'+(q.t+1)+'. '+TOPICS[q.t]+'</td><td'+(done[i]?'':' class="low"')+'>'+(done[i]?'Correct':'Missed')+'</td></tr>';
+    });
+    /* Topic totals across every test taken in this visit */
+    var allRows = '';
+    TOPICS.forEach(function(t,ti){
+      var tot=0, cor=0;
+      Object.keys(counted).forEach(function(id){ if(Q[id].t===ti){ tot++; if(counted[id]) cor++; } });
+      if(tot) allRows += '<tr><td>'+(ti+1)+'. '+t+'</td><td'+(cor<tot?' class="low"':'')+'>'+cor+' / '+tot+'</td></tr>';
+    });
+    var msg = n < 10 ? 'You have answered '+n+' of 10 questions. Finish the rest for a complete picture.' :
+      (pct >= 90 ? 'Excellent work. Click Next test to keep practicing with new questions.' : pct >= 70 ? 'Good work. Review the topics marked in red, then click Next test.' : 'Rewatch the video for the topics marked in red, update your notes, then click Next test.');
+    s.innerHTML = '<div class="card"><div class="big">Test '+(test+1)+' score: '+r+' / '+n+' ('+pct+'%)</div><p style="margin-top:6px">'+msg+'</p>'+
+      '<table><tr><th>Topic</th><th>This test</th></tr>'+rows+'</table>'+
+      (weak.length ? '<p style="margin-top:12px"><b>Topics to review:</b> '+weak.join(', ')+'</p>' : '')+
+      (test > 0 ? '<h3 style="margin-top:18px">All tests so far ('+totals.r+' / '+totals.n+' correct)</h3><table><tr><th>Topic</th><th>Correct</th></tr>'+allRows+'</table>' : '')+'</div>';
+  });
+
+  document.getElementById('nextTest').addEventListener('click', function(){
+    test++;
+    if(test >= 10){ newCycle(); } /* all 100 seen: reshuffle and begin a new round of 10 tests */
+    render(); document.getElementById('practice').scrollIntoView({behavior:'smooth'});
+  });
+
+  document.getElementById('restart').addEventListener('click', function(){
+    totals = {r:0,n:0}; counted = {}; newCycle(); render();
+    document.getElementById('practice').scrollIntoView({behavior:'smooth'});
+  });
+
+  document.getElementById('saveNotes').addEventListener('click', function(){
+    var t = document.getElementById('notes').value;
+    var blob = new Blob(['GRE Quant Lesson 3: Geometry — My Notes\n\n'+t], {type:'text/plain'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'geometry-notes.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  newCycle(); render();
+})();
+</script>
+</body>
+</html>
