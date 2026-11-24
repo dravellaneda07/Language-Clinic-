@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Language Clinic — GRE Quant Lesson 2: Number Sense</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A44;--sage:#F2A93B;--sage-dark:#C97F16;--paper:#E1EBF6;--paper-line:#B9D0E8;--coral:#b6432f;--slate:#3A4E63;--card-bg:#fff;--good:#1f6b3f;--good-bg:#e3f4ea;--bad:#a32828;--bad-bg:#fbe6e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',-apple-system,sans-serif;line-height:1.55}
+  a{color:inherit} a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+  .chart-meta{display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:18px 24px 0;font-weight:600;letter-spacing:.04em;font-size:.72rem;color:var(--slate);text-transform:uppercase}
+  .chart-meta a{text-decoration:none;border-bottom:1px solid var(--paper-line)}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 24px 70px}
+  .pretitle,.activity-label{font-weight:600;letter-spacing:.08em;font-size:.72rem;text-transform:uppercase;color:var(--sage-dark);margin:6px 0 2px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.08;margin:0}
+  .lead{margin:12px 0 0}
+  .steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;padding:0;list-style:none}
+  .steps a{display:inline-block;text-decoration:none;font-weight:600;font-size:.8rem;background:#fff;border:1px solid var(--paper-line);border-radius:999px;padding:6px 14px}
+  .steps a:hover{border-color:var(--sage-dark)}
+  .activity-section{margin-top:44px;padding-top:32px;border-top:1px solid var(--paper-line)}
+  .activity-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;margin:0 0 12px}
+  .directions,.note{font-size:.9rem;color:var(--slate);background:var(--paper);border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin:0 0 18px}
+  .directions b{color:var(--ink)}
+  .card{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin-bottom:14px}
+  .card h3{font-family:'Fraunces',serif;font-size:1.08rem;margin:0 0 8px}
+  .card p{font-size:.95rem;margin:0 0 6px}
+  .topics{columns:2;column-gap:24px;margin:8px 0 0;padding-left:22px;font-size:.93rem}
+  .topics li{margin-bottom:3px;break-inside:avoid}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.9em;line-height:1.05;margin:0 2px}
+  .fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}
+  .fr>span:last-child{padding:0 3px}
+  sup{font-size:.72em}
+  .video{position:relative;width:100%;aspect-ratio:16/9;background:var(--ink);border-radius:10px;overflow:hidden;margin-bottom:16px}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  textarea{width:100%;min-height:150px;font-family:inherit;font-size:.93rem;border:1px solid var(--paper-line);border-radius:8px;padding:10px 12px;margin-top:8px;resize:vertical;color:var(--ink)}
+  .toolbar{position:sticky;top:0;z-index:5;background:rgba(225,235,246,.96);padding:10px 0;margin:0 0 6px;border-bottom:1px solid var(--paper-line);display:flex;gap:14px;align-items:center}
+  .progress-shell{flex:1;height:10px;background:var(--paper-line);border-radius:999px;overflow:hidden}
+  .progress{height:100%;width:0;background:var(--sage);transition:width .25s}
+  .score{font-weight:600;font-size:.85rem;white-space:nowrap}
+  .topic-head{font-family:'Fraunces',serif;font-weight:600;font-size:1.12rem;margin:30px 0 4px;display:flex;gap:10px;align-items:center}
+  .topic-head .tag{font-family:'Work Sans',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.06em;background:var(--ink);color:#fff;border-radius:999px;padding:3px 9px}
+  .question{background:var(--card-bg);border:1px solid var(--paper-line);border-radius:10px;padding:18px 20px;margin:12px 0}
+  .qnum{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;margin-right:8px;flex-shrink:0}
+  .qtext{font-size:1rem;display:flex;align-items:flex-start}
+  .qtext>span:last-child{padding-top:3px}
+  fieldset{border:0;padding:0;margin:12px 0 0;min-width:0}
+  label.choice{display:block;border:1px solid var(--paper-line);border-radius:8px;padding:9px 12px;margin:8px 0;cursor:pointer;font-size:.95rem;background:#fff}
+  label.choice:hover{background:var(--paper)}
+  label.choice input{margin-right:8px}
+  label.choice.right{background:var(--good-bg);border-color:#8cc7a3}
+  label.choice.wrong{background:var(--bad-bg);border-color:#e3a497}
+  .locked label.choice{cursor:default}
+  .locked label.choice:hover{background:#fff}
+  .locked label.choice.right:hover{background:var(--good-bg)}
+  .locked label.choice.wrong:hover{background:var(--bad-bg)}
+  button{font-family:inherit;border:0;border-radius:8px;padding:10px 18px;font-weight:600;font-size:.85rem;cursor:pointer}
+  .check{background:var(--ink);color:#fff;margin-top:10px}
+  .check:hover{background:#1b4268}
+  .check:disabled{display:none}
+  .secondary{background:#fff;color:var(--ink);border:1px solid var(--paper-line)}
+  .feedback{display:none;margin-top:14px;padding:12px 15px;border-radius:8px;font-size:.93rem}
+  .feedback.good{display:block;background:var(--good-bg);border:1px solid #b5dcc4}
+  .feedback.bad{display:block;background:var(--bad-bg);border:1px solid #efc2ba}
+  .feedback .result{font-weight:600}
+  .feedback.good .result{color:var(--good)}
+  .feedback.bad .result{color:var(--bad)}
+  .feedback h4{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:10px 0 2px}
+  .feedback p{margin:0}
+  .msg{display:none;margin-top:10px;font-size:.85rem;color:var(--coral);font-weight:600}
+  .footer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .footer-actions .check{margin-top:0}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--paper-line);font-size:.9rem;margin-top:12px}
+  th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--paper-line)}
+  th{background:var(--ink);color:#fff;font-weight:600;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase}
+  td.low{color:var(--bad);font-weight:600}
+  #summary{margin-top:16px}
+  #summary .big{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600}
+  footer{max-width:760px;margin:0 auto;padding:24px 24px 40px;font-weight:600;font-size:.7rem;color:var(--slate);border-top:1px solid var(--paper-line)}
+  @media (max-width:560px){.topics{columns:1}}
+
+  .test-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 8px}
+  .test-bar .big{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem}
+  .pill{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:#fff;border:1px solid var(--paper-line);border-radius:999px;padding:4px 11px;color:var(--slate)}
+  .qtopic{font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--sage-dark);margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="chart-meta"><a href="gre.html">← GRE Preparation</a><span>UDC · School of Education</span></div>
+<div class="wrap">
+  <p class="pretitle">GRE · Quantitative Reasoning · Lesson 2</p>
+  <h1>Number Sense</h1>
+  <p class="lead">Number sense is the toolkit behind almost every GRE Quant question: signs, fractions, percents, ratios, powers, and the order of operations. Learn the ten key ideas from the video, then show what you learned with self-graded tests of ten questions, one from each topic.</p>
+  <ul class="steps">
+    <li><a href="#learn">Part 1 · Learning</a></li>
+    <li><a href="#practice">Part 2 · Practice Tests</a></li>
+  </ul>
+
+  <!-- PART 1 -->
+  <div class="activity-section" id="learn">
+    <p class="activity-label">Part 1</p>
+    <h2 class="activity-title">Learning</h2>
+    <p class="directions"><b>Instructions:</b> Watch the video several times, take notes when appropriate, then do the exercises in Part 2 to demonstrate your learning.</p>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/JnAYdGXgwjo?si=fiP1gkB2tHkGd9yc" title="Number sense review video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="card">
+      <h3>Note-taking guide</h3>
+      <p>The video covers ten topics, and every test in Part 2 has one question from each topic, in the same order. For each topic, write the rule in your own words and one example. You can write in English or your first language.</p>
+      <ol class="topics">
+        <li>Integers</li><li>Absolute Value</li><li>Operations with Fractions</li><li>Decimals and Percent</li><li>Ratios, Rates, and Proportions</li><li>Powers</li><li>Scientific Notation</li><li>Rounding</li><li>Factors and Multiples</li><li>Order of Operations</li>
+      </ol>
+      <textarea id="notes" aria-label="My notes" placeholder="My notes…"></textarea>
+      <div class="footer-actions" style="margin-top:10px">
+        <button class="secondary" type="button" id="saveNotes">Download my notes</button>
+      </div>
+      <p class="note" style="margin:12px 0 0">Notes typed here disappear when you leave the page. Click <b>Download my notes</b> to save a copy, or copy them into your notebook.</p>
+    </div>
+  </div>
+
+  <!-- PART 2 -->
+  <div class="activity-section" id="practice">
+    <p class="activity-label">Part 2</p>
+    <h2 class="activity-title">Practice Tests: Demonstrate Your Learning</h2>
+    <p class="directions"><b>Instructions:</b> Each test has 10 questions, one from each topic in the video. Choose one answer (A–D), then click <b>Check answer</b>. Work on paper first. Each question is worth 1 point, and you get <b>one attempt</b> per question, so check your work before you click. Read every explanation, even when you are right. When you finish, click <b>See my results</b>, then <b>Next test</b> for 10 new questions. There are 10 different tests (100 questions), and no question repeats until you have seen all of them.</p>
+    <div class="test-bar"><span class="big" id="testTitle">Test 1 of 10</span><span class="pill" id="overall">All tests: 0 / 0 correct</span></div>
+    <div class="toolbar"><div class="progress-shell"><div class="progress" id="progress"></div></div><div class="score" id="score">0 / 10 answered</div></div>
+    <div id="questions"></div>
+    <div class="footer-actions">
+      <button class="check" type="button" id="showSummary">See my results</button>
+      <button class="secondary" type="button" id="nextTest">Next test →</button>
+      <button class="secondary" type="button" id="restart">Start over from Test 1</button>
+    </div>
+    <div id="summary" aria-live="polite"></div>
+  </div>
+
+  <a href="gre.html" style="display:inline-block;margin-top:30px;font-weight:600;font-size:.8rem;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--paper-line);padding-bottom:2px;">← Back to GRE Preparation</a>
+</div>
+<footer>The Language Clinic — teaching materials built for language learners</footer>
+
+<script>
+(function(){
+  /* {top/bottom} becomes a stacked fraction */
+  function F(s){ return s.replace(/\{([^{}\/]+)\/([^{}]+)\}/g,'<span class="fr"><span>$1</span><span>$2</span></span>'); }
+
+  var TOPICS = ["Integers", "Absolute Value", "Operations with Fractions", "Decimals and Percent", "Ratios, Rates, and Proportions", "Powers", "Scientific Notation", "Rounding", "Factors and Multiples", "Order of Operations"];
+  /* Common mistake to watch for, shown when an answer is wrong */
+  var TIPS = ["Subtracting a negative is the same as adding a positive: 6 − (−9) = 6 + 9. When multiplying or dividing, same signs give a positive answer and different signs give a negative answer.", "Absolute value is a distance from zero, so it is never negative. Find each absolute value first, then add.", "Multiply straight across. To divide, flip only the second fraction and multiply. To add or subtract, find a common denominator first, and never add or subtract the denominators.", "Percent to decimal: move the decimal point two places to the left (7% = 0.07). Decimal to percent: move it two places to the right (0.005 = 0.5%).", "Simplify a ratio by dividing both parts by their greatest common factor. A unit rate is “per one,” so divide by the number of hours or items. In a proportion, scale both quantities by the same factor.", "(−4)² = 16, but −4² = −16 because the exponent applies before the minus sign. Same base: multiplying adds exponents, dividing subtracts them, and a power of a power multiplies them.", "The first number must be at least 1 and less than 10. A positive exponent makes a large number; a negative exponent makes a small number (less than 1).", "Look only at the digit just to the right of the place you are rounding to. If it is 5 or more, round up; if it is 4 or less, keep the digit. Do not round in steps.", "A complete factor list includes 1 and the number itself. A prime factorization uses only prime numbers. The LCM is the smallest number both numbers divide into evenly.", "Parentheses, then exponents, then multiplication and division from left to right, then addition and subtraction from left to right. Multiplication does not automatically come before division."];
+
+  /* 100 questions from the Number Sense bank (10 per topic, in order).
+     t = topic index; o = options; a = correct index (0=A); key = worked explanation from the answer key */
+  var Q = [
+    {"t": 0, "q": "Evaluate −7 + (−4).", "o": ["11", "−11", "−13", "−9"], "a": 1, "key": "Combine the integers: −7 + (−4) = −11. When signs differ, subtract magnitudes and retain the sign of the larger magnitude; when alike, add magnitudes."},
+    {"t": 0, "q": "Evaluate −9 + (6).", "o": ["−1", "3", "−5", "−3"], "a": 3, "key": "Combine the integers: −9 + (6) = −3. When signs differ, subtract magnitudes and retain the sign of the larger magnitude; when alike, add magnitudes."},
+    {"t": 0, "q": "Evaluate 8 + (−13).", "o": ["−7", "−5", "−3", "5"], "a": 1, "key": "Combine the integers: 8 + (−13) = −5. When signs differ, subtract magnitudes and retain the sign of the larger magnitude; when alike, add magnitudes."},
+    {"t": 0, "q": "Evaluate −5 + (12).", "o": ["5", "7", "9", "−7"], "a": 1, "key": "Combine the integers: −5 + (12) = 7. When signs differ, subtract magnitudes and retain the sign of the larger magnitude; when alike, add magnitudes."},
+    {"t": 0, "q": "Evaluate −8 − (−5).", "o": ["−1", "3", "−5", "−3"], "a": 3, "key": "Subtracting −5 is adding its opposite: −8 − (−5) = −8 + (5) = −3."},
+    {"t": 0, "q": "Evaluate 6 − (−9).", "o": ["13", "17", "−15", "15"], "a": 3, "key": "Subtracting −9 is adding its opposite: 6 − (−9) = 6 + (9) = 15."},
+    {"t": 0, "q": "Evaluate −3 − (7).", "o": ["10", "−8", "−10", "−12"], "a": 2, "key": "Subtracting 7 is adding its opposite: −3 − (7) = −3 + (−7) = −10."},
+    {"t": 0, "q": "Evaluate (−6) × (−4).", "o": ["26", "−24", "24", "22"], "a": 2, "key": "The magnitudes give 6 × 4 = 24. Equal signs give a positive result; different signs give a negative result. Answer: 24."},
+    {"t": 0, "q": "Evaluate (−8) × (3).", "o": ["−22", "−24", "24", "−26"], "a": 1, "key": "The magnitudes give 8 × 3 = 24. Equal signs give a positive result; different signs give a negative result. Answer: −24."},
+    {"t": 0, "q": "Evaluate (−42) ÷ (−7).", "o": ["6", "8", "4", "−6"], "a": 0, "key": "The magnitudes give 42 ÷ 7 = 6. Equal signs give a positive result; different signs give a negative result. Answer: 6."},
+    {"t": 1, "q": "Find |−13|.", "o": ["13", "15", "18", "−13"], "a": 0, "key": "Absolute value is distance from zero. −13 lies 13 units from zero, so |−13| = 13."},
+    {"t": 1, "q": "Find |8|.", "o": ["13", "8", "−9", "10"], "a": 1, "key": "Absolute value is distance from zero. 8 lies 8 units from zero, so |8| = 8."},
+    {"t": 1, "q": "Find |−24|.", "o": ["29", "−24", "24", "26"], "a": 2, "key": "Absolute value is distance from zero. −24 lies 24 units from zero, so |−24| = 24."},
+    {"t": 1, "q": "Find |0|.", "o": ["−1", "2", "5", "0"], "a": 3, "key": "Absolute value is distance from zero. 0 lies 0 units from zero, so |0| = 0."},
+    {"t": 1, "q": "Find |−6|.", "o": ["6", "−6", "11", "8"], "a": 0, "key": "Absolute value is distance from zero. −6 lies 6 units from zero, so |−6| = 6."},
+    {"t": 1, "q": "Evaluate |−8| + |3|.", "o": ["11", "14", "5", "8"], "a": 0, "key": "Take distances before adding: |−8| = 8 and |3| = 3. Their sum is 8 + 3 = 11."},
+    {"t": 1, "q": "Evaluate |7| + |−12|.", "o": ["22", "5", "19", "16"], "a": 2, "key": "Take distances before adding: |7| = 7 and |−12| = 12. Their sum is 7 + 12 = 19."},
+    {"t": 1, "q": "Evaluate |−5| + |−9|.", "o": ["18", "11", "14", "17"], "a": 2, "key": "Take distances before adding: |−5| = 5 and |−9| = 9. Their sum is 5 + 9 = 14."},
+    {"t": 1, "q": "Evaluate |0| + |−14|.", "o": ["14", "11", "18", "17"], "a": 0, "key": "Take distances before adding: |0| = 0 and |−14| = 14. Their sum is 0 + 14 = 14."},
+    {"t": 1, "q": "Evaluate |−11| + |4|.", "o": ["12", "15", "18", "7"], "a": 1, "key": "Take distances before adding: |−11| = 11 and |4| = 4. Their sum is 11 + 4 = 15."},
+    {"t": 2, "q": "Calculate and reduce: {2/3} × {3/5}.", "o": ["{9/10}", "{1/2}", "{2/5}", "{19/15}"], "a": 2, "key": "Multiply numerators and denominators: (2 × 3)/(3 × 5) = {6/15} = {2/5}."},
+    {"t": 2, "q": "Calculate and reduce: {5/8} × {4/7}.", "o": ["{6/7}", "{5/14}", "{16/35}", "{67/56}"], "a": 1, "key": "Multiply numerators and denominators: (5 × 4)/(8 × 7) = {20/56} = {5/14}."},
+    {"t": 2, "q": "Calculate and reduce: {3/4} × {2/9}.", "o": ["{2/3}", "{4/15}", "{1/6}", "{35/36}"], "a": 2, "key": "Multiply numerators and denominators: (3 × 2)/(4 × 9) = {6/36} = {1/6}."},
+    {"t": 2, "q": "Calculate and reduce: {3/5} ÷ {2/7}.", "o": ["{11/5}", "{21/10}", "{13/5}", "{31/35}"], "a": 1, "key": "Keep the first fraction, change ÷ to ×, and flip the second: {3/5} × {7/2} = {21/10}."},
+    {"t": 2, "q": "Calculate and reduce: {4/9} ÷ {2/3}.", "o": ["{7/6}", "{10/9}", "{23/30}", "{2/3}"], "a": 3, "key": "Keep the first fraction, change ÷ to ×, and flip the second: {4/9} × {3/2} = {2/3}."},
+    {"t": 2, "q": "Calculate and reduce: {1/6} + {1/2}.", "o": ["{1/3}", "{2/3}", "{5/6}", "{7/6}"], "a": 1, "key": "Use common denominator 6: {1/6} = {1/6}, {1/2} = {3/6}; compute (1 + 3)/6 = {2/3}."},
+    {"t": 2, "q": "Calculate and reduce: {1/4} + {3/8}.", "o": ["{5/8}", "{1/8}", "{9/8}", "{3/4}"], "a": 0, "key": "Use common denominator 8: {1/4} = {2/8}, {3/8} = {3/8}; compute (2 + 3)/8 = {5/8}."},
+    {"t": 2, "q": "Calculate and reduce: {2/5} + {1/10}.", "o": ["{3/10}", "{3/5}", "{1/2}", "1"], "a": 2, "key": "Use common denominator 10: {2/5} = {4/10}, {1/10} = {1/10}; compute (4 + 1)/10 = {1/2}."},
+    {"t": 2, "q": "Calculate and reduce: {7/12} − {1/4}.", "o": ["{1/3}", "{5/6}", "{5/12}", "{10/21}"], "a": 0, "key": "Use common denominator 12: {7/12} = {7/12}, {1/4} = {3/12}; compute (7 − 3)/12 = {1/3}."},
+    {"t": 2, "q": "Calculate and reduce: {5/6} − {1/3}.", "o": ["{2/3}", "{1/2}", "{7/6}", "1"], "a": 1, "key": "Use common denominator 6: {5/6} = {5/6}, {1/3} = {2/6}; compute (5 − 2)/6 = {1/2}."},
+    {"t": 3, "q": "Write 7% as a decimal.", "o": ["0.7", "7", "0.007", "0.07"], "a": 3, "key": "Percent means per 100. Divide 7 by 100 (move the decimal two places left): 7% = 0.07."},
+    {"t": 3, "q": "Write 18% as a decimal.", "o": ["0.018", "1.8", "0.18", "18"], "a": 2, "key": "Percent means per 100. Divide 18 by 100 (move the decimal two places left): 18% = 0.18."},
+    {"t": 3, "q": "Write 45% as a decimal.", "o": ["4.5", "45", "0.045", "0.45"], "a": 3, "key": "Percent means per 100. Divide 45 by 100 (move the decimal two places left): 45% = 0.45."},
+    {"t": 3, "q": "Write 125% as a decimal.", "o": ["12.5", "125", "1.25", "0.125"], "a": 2, "key": "Percent means per 100. Divide 125 by 100 (move the decimal two places left): 125% = 1.25."},
+    {"t": 3, "q": "Write 3.5% as a decimal.", "o": ["0.035", "0.0035", "0.35", "3.5"], "a": 0, "key": "Percent means per 100. Divide 3.5 by 100 (move the decimal two places left): 3.5% = 0.035."},
+    {"t": 3, "q": "Write 0.06 as a percent.", "o": ["0.06%", "6%", "0.6%", "60%"], "a": 1, "key": "Multiply the decimal by 100 (move the decimal two places right): 0.06 × 100 = 6%."},
+    {"t": 3, "q": "Write 0.29 as a percent.", "o": ["2.9%", "0.29%", "29%", "290%"], "a": 2, "key": "Multiply the decimal by 100 (move the decimal two places right): 0.29 × 100 = 29%."},
+    {"t": 3, "q": "Write 0.875 as a percent.", "o": ["0.875%", "87.5%", "8.75%", "875%"], "a": 1, "key": "Multiply the decimal by 100 (move the decimal two places right): 0.875 × 100 = 87.5%."},
+    {"t": 3, "q": "Write 1.4 as a percent.", "o": ["140%", "1400%", "14%", "1.4%"], "a": 0, "key": "Multiply the decimal by 100 (move the decimal two places right): 1.4 × 100 = 140%."},
+    {"t": 3, "q": "Write 0.005 as a percent.", "o": ["0.005%", "5%", "0.05%", "0.5%"], "a": 3, "key": "Multiply the decimal by 100 (move the decimal two places right): 0.005 × 100 = 0.5%."},
+    {"t": 4, "q": "Simplify the ratio 6:9.", "o": ["2:3", "6:9", "3:2", "2:9"], "a": 0, "key": "Divide both terms by their greatest common factor, 3: 6 ÷ 3 : 9 ÷ 3 = 2:3. The order of the quantities stays the same."},
+    {"t": 4, "q": "Simplify the ratio 8:12.", "o": ["3:2", "2:12", "8:12", "2:3"], "a": 3, "key": "Divide both terms by their greatest common factor, 4: 8 ÷ 4 : 12 ÷ 4 = 2:3. The order of the quantities stays the same."},
+    {"t": 4, "q": "Simplify the ratio 15:25.", "o": ["3:25", "3:5", "15:25", "5:3"], "a": 1, "key": "Divide both terms by their greatest common factor, 5: 15 ÷ 5 : 25 ÷ 5 = 3:5. The order of the quantities stays the same."},
+    {"t": 4, "q": "A vehicle travels 150 km in 3 hours at a constant speed. Find its unit rate.", "o": ["50 km/h", "3 km/h", "60 km/h", "450 km/h"], "a": 0, "key": "Divide the distance by the number of hours: 150 ÷ 3 = 50 km per hour."},
+    {"t": 4, "q": "A vehicle travels 280 km in 4 hours at a constant speed. Find its unit rate.", "o": ["4 km/h", "80 km/h", "70 km/h", "1120 km/h"], "a": 2, "key": "Divide the distance by the number of hours: 280 ÷ 4 = 70 km per hour."},
+    {"t": 4, "q": "A vehicle travels 96 km in 6 hours at a constant speed. Find its unit rate.", "o": ["6 km/h", "576 km/h", "26 km/h", "16 km/h"], "a": 3, "key": "Divide the distance by the number of hours: 96 ÷ 6 = 16 km per hour."},
+    {"t": 4, "q": "A vehicle travels 225 km in 5 hours at a constant speed. Find its unit rate.", "o": ["5 km/h", "1125 km/h", "55 km/h", "45 km/h"], "a": 3, "key": "Divide the distance by the number of hours: 225 ÷ 5 = 45 km per hour."},
+    {"t": 4, "q": "If 4 notebooks cost $6, how much do 12 notebooks cost at the same rate?", "o": ["$18", "$24", "$9", "$12"], "a": 0, "key": "The number of notebooks increases from 4 to 12, a factor of 3. Multiply the cost by the same factor: $6 × 3 = $18."},
+    {"t": 4, "q": "If 3 notebooks cost $8, how much do 12 notebooks cost at the same rate?", "o": ["$40", "$36", "$32", "$12"], "a": 2, "key": "The number of notebooks increases from 3 to 12, a factor of 4. Multiply the cost by the same factor: $8 × 4 = $32."},
+    {"t": 4, "q": "If 5 notebooks cost $7, how much do 10 notebooks cost at the same rate?", "o": ["$9", "$10", "$14", "$21"], "a": 2, "key": "The number of notebooks increases from 5 to 10, a factor of 2. Multiply the cost by the same factor: $7 × 2 = $14."},
+    {"t": 5, "q": "Evaluate (4)<sup>3</sup>.", "o": ["60", "64", "−64", "68"], "a": 1, "key": "The exponent counts the factors: (4) × (4) × (4) = 64."},
+    {"t": 5, "q": "Evaluate (3)<sup>4</sup>.", "o": ["78", "−81", "84", "81"], "a": 3, "key": "The exponent counts the factors: (3) × (3) × (3) × (3) = 81."},
+    {"t": 5, "q": "Evaluate (−4)<sup>2</sup>.", "o": ["20", "12", "16", "−16"], "a": 2, "key": "The exponent counts the factors: (−4) × (−4) = 16."},
+    {"t": 5, "q": "Evaluate −4² (the minus sign is outside the power).", "o": ["8", "16", "−8", "−16"], "a": 3, "key": "Evaluate the power first: 4² = 16. The leading negative applies afterward, giving −16; it is not (−4)²."},
+    {"t": 5, "q": "Evaluate 2<sup>3</sup> × 2<sup>4</sup>.", "o": ["128", "64", "24", "4096"], "a": 0, "key": "For equal bases being multiplied, add the exponents: 2<sup>3+4</sup> = 2<sup>7</sup> = 128."},
+    {"t": 5, "q": "Evaluate 3<sup>2</sup> × 3<sup>3</sup>.", "o": ["36", "243", "729", "81"], "a": 1, "key": "For equal bases being multiplied, add the exponents: 3<sup>2+3</sup> = 3<sup>5</sup> = 243."},
+    {"t": 5, "q": "Evaluate 5<sup>5</sup> ÷ 5<sup>3</sup>.", "o": ["29", "25", "125", "390625"], "a": 1, "key": "For equal bases being divided, subtract exponents: 5<sup>5−3</sup> = 5<sup>2</sup> = 25."},
+    {"t": 5, "q": "Evaluate 2<sup>8</sup> ÷ 2<sup>5</sup>.", "o": ["16", "32", "8", "8192"], "a": 2, "key": "For equal bases being divided, subtract exponents: 2<sup>8−5</sup> = 2<sup>3</sup> = 8."},
+    {"t": 5, "q": "Evaluate (2<sup>2</sup>)<sup>3</sup>.", "o": ["64", "68", "12", "32"], "a": 0, "key": "For a power raised to a power, multiply exponents: (2<sup>2</sup>)<sup>3</sup> = 2<sup>2×3</sup> = 2<sup>6</sup> = 64."},
+    {"t": 5, "q": "Evaluate (3<sup>2</sup>)<sup>2</sup>.", "o": ["85", "81", "27", "18"], "a": 1, "key": "For a power raised to a power, multiply exponents: (3<sup>2</sup>)<sup>2</sup> = 3<sup>2×2</sup> = 3<sup>4</sup> = 81."},
+    {"t": 6, "q": "Write 4.2 × 10³ in standard decimal form.", "o": ["420", "0.0042", "4200", "42000"], "a": 2, "key": "A positive exponent 3 moves the decimal in 4.2 three places right: 4,200."},
+    {"t": 6, "q": "Write 7.15 × 10⁻² in standard decimal form.", "o": ["0.0715", "0.715", "715", "0.00715"], "a": 0, "key": "A negative exponent −2 moves the decimal in 7.15 two places left: 0.0715."},
+    {"t": 6, "q": "Write 6.03 × 10⁵ in standard decimal form.", "o": ["603000", "0.0000603", "60300", "6030000"], "a": 0, "key": "A positive exponent 5 moves the decimal five places right: 603,000."},
+    {"t": 6, "q": "Write 9.8 × 10⁻⁴ in standard decimal form.", "o": ["0.00098", "0.000098", "9800", "0.0098"], "a": 0, "key": "A negative exponent −4 moves the decimal four places left: 0.00098."},
+    {"t": 6, "q": "Write 1.25 × 10² in standard decimal form.", "o": ["0.0125", "12.5", "1250", "125"], "a": 3, "key": "A positive exponent 2 moves the decimal two places right: 125."},
+    {"t": 6, "q": "Write 58,000 in correctly normalized scientific notation.", "o": ["5.8 × 10³", "58 × 10³", "5.8 × 10⁻⁴", "5.8 × 10⁴"], "a": 3, "key": "Move the decimal in 58,000 four places left to get 5.8, so the exponent is +4."},
+    {"t": 6, "q": "Write 0.0064 in correctly normalized scientific notation.", "o": ["6.4 × 10⁻³", "6.4 × 10⁻²", "64 × 10⁻⁴", "6.4 × 10³"], "a": 0, "key": "Move the decimal in 0.0064 three places right to get 6.4, so the exponent is −3."},
+    {"t": 6, "q": "Write 3,270,000 in correctly normalized scientific notation.", "o": ["3.27 × 10⁵", "3.27 × 10⁻⁶", "32.7 × 10⁵", "3.27 × 10⁶"], "a": 3, "key": "Move the decimal six places left to produce a coefficient between 1 and 10: 3.27 × 10⁶."},
+    {"t": 6, "q": "Write 0.000081 in correctly normalized scientific notation.", "o": ["8.1 × 10⁻⁵", "81 × 10⁻⁵", "8.1 × 10⁵", "8.1 × 10⁻⁴"], "a": 0, "key": "Move the decimal five places right to get 8.1, giving exponent −5."},
+    {"t": 6, "q": "Write 910 in correctly normalized scientific notation.", "o": ["91 × 10¹", "9.1 × 10²", "9.1 × 10³", "9.1 × 10⁻²"], "a": 1, "key": "Move the decimal two places left to get 9.1, giving exponent +2."},
+    {"t": 7, "q": "Round 683 to the nearest hundred.", "o": ["700", "690", "600", "680"], "a": 0, "key": "The tens digit is 8, so increase the hundreds digit 6 to 7 and replace later digits with zeros."},
+    {"t": 7, "q": "Round 2,349 to the nearest ten.", "o": ["2,300", "2,400", "2,340", "2,350"], "a": 3, "key": "The ones digit is 9, so increase the tens digit 4 to 5."},
+    {"t": 7, "q": "Round 5,462 to the nearest thousand.", "o": ["5,500", "6,000", "5,000", "5,400"], "a": 2, "key": "The hundreds digit is 4, so retain 5 in the thousands place and replace later digits with zeros."},
+    {"t": 7, "q": "Round 36,750 to the nearest hundred.", "o": ["36,800", "36,750", "36,700", "37,000"], "a": 0, "key": "The tens digit is 5, so round the hundreds digit up; 36,750 becomes 36,800."},
+    {"t": 7, "q": "Round 89,499 to the nearest thousand.", "o": ["89,000", "90,000", "89,500", "88,000"], "a": 0, "key": "The hundreds digit is 4, so the thousands digit stays 9 and later digits become zero."},
+    {"t": 7, "q": "Round 6.74 to the nearest tenth.", "o": ["6.74", "7.0", "6.8", "6.7"], "a": 3, "key": "The hundredths digit is 4, so retain 7 in the tenths place."},
+    {"t": 7, "q": "Round 3.868 to the nearest hundredth.", "o": ["3.86", "3.87", "3.868", "3.9"], "a": 1, "key": "The thousandths digit is 8, so round the hundredths digit 6 up to 7."},
+    {"t": 7, "q": "Round 12.345 to the nearest hundredth.", "o": ["12.3", "12.34", "12.35", "12.45"], "a": 2, "key": "The thousandths digit is 5, so increase the hundredths digit 4 to 5."},
+    {"t": 7, "q": "Round 0.096 to the nearest hundredth.", "o": ["0.096", "0.09", "0.01", "0.10"], "a": 3, "key": "The thousandths digit is 6, so round the hundredths digit 9 up, carrying to tenths: 0.10."},
+    {"t": 7, "q": "Round 7.951 to the nearest tenth.", "o": ["7.95", "8.0", "7.9", "8.1"], "a": 1, "key": "The hundredths digit is 5, so round tenths 9 up with a carry: 8.0."},
+    {"t": 8, "q": "Which is the complete list of positive factors of 18?", "o": ["1, 2, 3, 6, 9, 17, 18", "1, 2, 3, 6, 9, 18", "2, 3, 6, 9, 18", "1, 2, 3, 6, 9"], "a": 1, "key": "A factor divides 18 with no remainder. The complete positive factor list is 1, 2, 3, 6, 9, 18."},
+    {"t": 8, "q": "Which is the complete list of positive factors of 28?", "o": ["1, 2, 4, 7, 14, 28", "1, 2, 4, 7, 14", "1, 2, 4, 7, 14, 27, 28", "2, 4, 7, 14, 28"], "a": 0, "key": "A factor divides 28 with no remainder. The complete positive factor list is 1, 2, 4, 7, 14, 28."},
+    {"t": 8, "q": "Which is the complete list of positive factors of 45?", "o": ["1, 3, 5, 9, 15", "1, 3, 5, 9, 15, 45", "1, 3, 5, 9, 15, 44, 45", "3, 5, 9, 15, 45"], "a": 1, "key": "A factor divides 45 with no remainder. The complete positive factor list is 1, 3, 5, 9, 15, 45."},
+    {"t": 8, "q": "What is the prime factorization of 42?", "o": ["3 × 14", "2 × 3 × 6", "2 × 3 × 7", "2 × 21"], "a": 2, "key": "Break 42 into only prime factors: 2 × 3 × 7. Every displayed factor is prime, and their product equals 42."},
+    {"t": 8, "q": "What is the prime factorization of 72?", "o": ["2² × 3³", "2² × 3²", "2³ × 3²", "2³ × 3"], "a": 2, "key": "Break 72 into only prime factors: 2³ × 3². Every displayed factor is prime, and their product equals 72."},
+    {"t": 8, "q": "What is the prime factorization of 90?", "o": ["3² × 5", "2² × 3 × 5", "2 × 3 × 5", "2 × 3² × 5"], "a": 3, "key": "Break 90 into only prime factors: 2 × 3² × 5. Every displayed factor is prime, and their product equals 90."},
+    {"t": 8, "q": "Find the least common multiple (LCM) of 6 and 8.", "o": ["8", "2", "24", "48"], "a": 2, "key": "List positive multiples of 6 and 8. The first common positive multiple is 24, so LCM(6, 8) = 24."},
+    {"t": 8, "q": "Find the least common multiple (LCM) of 9 and 12.", "o": ["3", "36", "108", "12"], "a": 1, "key": "List positive multiples of 9 and 12. The first common positive multiple is 36, so LCM(9, 12) = 36."},
+    {"t": 8, "q": "Find the least common multiple (LCM) of 10 and 15.", "o": ["30", "5", "150", "15"], "a": 0, "key": "List positive multiples of 10 and 15. The first common positive multiple is 30, so LCM(10, 15) = 30."},
+    {"t": 8, "q": "Find the least common multiple (LCM) of 4 and 14.", "o": ["10", "14", "28", "56"], "a": 2, "key": "List positive multiples of 4 and 14. The first common positive multiple is 28, so LCM(4, 14) = 28."},
+    {"t": 9, "q": "Evaluate 7 + 3 × 5.", "o": ["22", "35", "25", "50"], "a": 0, "key": "Multiply first: 3 × 5 = 15; then 7 + 15 = 22."},
+    {"t": 9, "q": "Evaluate 36 ÷ 6 × 3.", "o": ["6", "18", "108", "2"], "a": 1, "key": "Division and multiplication have equal precedence; work left to right: 36 ÷ 6 = 6, then 6 × 3 = 18."},
+    {"t": 9, "q": "Evaluate (9 − 4) × 6.", "o": ["30", "19", "−15", "54"], "a": 0, "key": "Parentheses first: 9 − 4 = 5, then 5 × 6 = 30."},
+    {"t": 9, "q": "Evaluate 18 − 5 + 2.", "o": ["15", "21", "11", "25"], "a": 0, "key": "Addition and subtraction have equal precedence; left to right: 18 − 5 = 13, then 13 + 2 = 15."},
+    {"t": 9, "q": "Evaluate 2 × (3 + 4)².", "o": ["196", "98", "49", "28"], "a": 1, "key": "Parentheses: 3 + 4 = 7; exponent: 7² = 49; multiplication: 2 × 49 = 98."},
+    {"t": 9, "q": "Evaluate 5 + 2³ × 4.", "o": ["21", "52", "28", "37"], "a": 3, "key": "Exponent first: 2³ = 8; then 8 × 4 = 32; finally 5 + 32 = 37."},
+    {"t": 9, "q": "Evaluate 48 ÷ (2 × 3) + 7.", "o": ["15", "31", "11", "23"], "a": 0, "key": "Parentheses: 2 × 3 = 6; then 48 ÷ 6 = 8; then 8 + 7 = 15."},
+    {"t": 9, "q": "Evaluate 3 × [2 + (6 − 4)]².", "o": ["36", "48", "24", "12"], "a": 1, "key": "Innermost parentheses: 6 − 4 = 2; then 2 + 2 = 4; square 4 to get 16; multiply by 3 to get 48."},
+    {"t": 9, "q": "Evaluate 64 ÷ 4 ÷ 2.", "o": ["8", "32", "2", "4"], "a": 0, "key": "For division at the same level, work left to right: 64 ÷ 4 = 16; then 16 ÷ 2 = 8."},
+    {"t": 9, "q": "Evaluate 4 + 24 ÷ 3 × 2 − 5.", "o": ["15", "21", "3", "11"], "a": 0, "key": "Division and multiplication left to right: 24 ÷ 3 = 8, then 8 × 2 = 16. Now 4 + 16 − 5 = 15."}
+  ];
+
+  var L = 'ABCD', box = document.getElementById('questions');
+  var order = [], test = 0, cur = [], done = {}, totals = {r:0,n:0}, counted = {};
+
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), x=a[i]; a[i]=a[j]; a[j]=x; } return a; }
+  /* For each topic, shuffle its 10 questions; test k uses the k-th question of every topic */
+  function newCycle(){
+    order = TOPICS.map(function(_,ti){ var ids=[]; for(var k=0;k<10;k++) ids.push(ti*10+k); return shuffle(ids); });
+    test = 0;
+  }
+
+  function render(){
+    cur = order.map(function(ids){ return ids[test]; });
+    done = {};
+    document.getElementById('testTitle').textContent = 'Test '+(test+1)+' of 10';
+    document.getElementById('summary').innerHTML = '';
+    var h = '';
+    cur.forEach(function(id,n){
+      var q = Q[id], i = n+1;
+      h += '<div class="question" id="q'+i+'"><p class="qtopic">Topic '+(q.t+1)+' · '+TOPICS[q.t]+'</p><div class="qtext"><span class="qnum">'+i+'</span><span>'+F(q.q)+'</span></div><fieldset>';
+      q.o.forEach(function(o,k){ h += '<label class="choice"><input type="radio" name="a'+i+'" value="'+k+'">'+L[k]+'. '+F(o)+'</label>'; });
+      h += '</fieldset><button class="check" type="button" data-q="'+i+'">Check answer</button><div class="msg"></div><div class="feedback" id="fb'+i+'"></div></div>';
+    });
+    box.innerHTML = h;
+    update();
+  }
+
+  function update(){
+    var n = Object.keys(done).length, r = Object.keys(done).filter(function(k){ return done[k]; }).length;
+    document.getElementById('score').textContent = n+' / 10 answered · '+r+' correct';
+    document.getElementById('progress').style.width = (n*10)+'%';
+    document.getElementById('overall').textContent = 'All tests: '+totals.r+' / '+totals.n+' correct';
+  }
+
+  function grade(i){
+    var id = cur[i-1], q = Q[id], d = document.getElementById('q'+i), el = d.querySelector('input:checked'), m = d.querySelector('.msg');
+    if(!el){ m.textContent = 'Select an answer first.'; m.style.display = 'block'; return; }
+    m.style.display = 'none';
+    var pick = +el.value, ok = pick === q.a, labels = d.querySelectorAll('label.choice'), fb = document.getElementById('fb'+i);
+    d.querySelectorAll('input').forEach(function(x){ x.disabled = true; });
+    d.classList.add('locked'); d.querySelector('button.check').disabled = true;
+    labels[q.a].classList.add('right');
+    if(ok){
+      fb.className = 'feedback good';
+      fb.innerHTML = '<div class="result">Correct! ✓</div><h4>Explanation</h4><p>'+F(q.key)+'</p>';
+    } else {
+      labels[pick].classList.add('wrong');
+      fb.className = 'feedback bad';
+      fb.innerHTML = '<div class="result">Not quite. You chose '+L[pick]+'. The correct answer is '+L[q.a]+': '+F(q.o[q.a])+'.</div>'+
+        '<h4>Step-by-step explanation</h4><p>'+F(q.key)+'</p>'+
+        '<h4>Common mistake to watch for</h4><p>'+F(TIPS[q.t])+'</p>'+
+        '<h4>Review</h4><p>Rewatch the part of the video on <b>Topic '+(q.t+1)+': '+TOPICS[q.t]+'</b>, then add this rule to your notes.</p>';
+    }
+    done[i] = ok;
+    if(!(id in counted)){ counted[id] = ok; totals.n++; if(ok) totals.r++; }
+    update();
+  }
+  box.addEventListener('click', function(e){ var b = e.target.closest('button[data-q]'); if(b) grade(+b.dataset.q); });
+
+  document.getElementById('showSummary').addEventListener('click', function(){
+    var s = document.getElementById('summary'), n = Object.keys(done).length;
+    if(!n){ s.innerHTML = '<p class="note">Answer at least one question first.</p>'; return; }
+    var r = Object.keys(done).filter(function(k){ return done[k]; }).length, pct = Math.round(r/n*100);
+    var rows = '', weak = [];
+    cur.forEach(function(id,n){
+      var i = n+1, q = Q[id]; if(!(i in done)) return;
+      if(!done[i]) weak.push(TOPICS[q.t]);
+      rows += '<tr><td>'+(q.t+1)+'. '+TOPICS[q.t]+'</td><td'+(done[i]?'':' class="low"')+'>'+(done[i]?'Correct':'Missed')+'</td></tr>';
+    });
+    /* Topic totals across every test taken in this visit */
+    var allRows = '';
+    TOPICS.forEach(function(t,ti){
+      var tot=0, cor=0;
+      Object.keys(counted).forEach(function(id){ if(Q[id].t===ti){ tot++; if(counted[id]) cor++; } });
+      if(tot) allRows += '<tr><td>'+(ti+1)+'. '+t+'</td><td'+(cor<tot?' class="low"':'')+'>'+cor+' / '+tot+'</td></tr>';
+    });
+    var msg = n < 10 ? 'You have answered '+n+' of 10 questions. Finish the rest for a complete picture.' :
+      (pct >= 90 ? 'Excellent work. Click Next test to keep practicing with new questions.' : pct >= 70 ? 'Good work. Review the topics marked in red, then click Next test.' : 'Rewatch the video for the topics marked in red, update your notes, then click Next test.');
+    s.innerHTML = '<div class="card"><div class="big">Test '+(test+1)+' score: '+r+' / '+n+' ('+pct+'%)</div><p style="margin-top:6px">'+msg+'</p>'+
+      '<table><tr><th>Topic</th><th>This test</th></tr>'+rows+'</table>'+
+      (weak.length ? '<p style="margin-top:12px"><b>Topics to review:</b> '+weak.join(', ')+'</p>' : '')+
+      (test > 0 ? '<h3 style="margin-top:18px">All tests so far ('+totals.r+' / '+totals.n+' correct)</h3><table><tr><th>Topic</th><th>Correct</th></tr>'+allRows+'</table>' : '')+'</div>';
+  });
+
+  document.getElementById('nextTest').addEventListener('click', function(){
+    test++;
+    if(test >= 10){ newCycle(); } /* all 100 seen: reshuffle and begin a new round of 10 tests */
+    render(); document.getElementById('practice').scrollIntoView({behavior:'smooth'});
+  });
+
+  document.getElementById('restart').addEventListener('click', function(){
+    totals = {r:0,n:0}; counted = {}; newCycle(); render();
+    document.getElementById('practice').scrollIntoView({behavior:'smooth'});
+  });
+
+  document.getElementById('saveNotes').addEventListener('click', function(){
+    var t = document.getElementById('notes').value;
+    var blob = new Blob(['GRE Quant Lesson 2: Number Sense — My Notes\n\n'+t], {type:'text/plain'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'number-sense-notes.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  newCycle(); render();
+})();
+</script>
+</body>
+</html>
